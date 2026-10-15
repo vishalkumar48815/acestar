@@ -1,0 +1,119 @@
+/*
+ * Acestar design tokens.
+ * Light = "soft glass" (airy, frosted white). Dark = "dark glass" (deep navy, glowing blue).
+ * Theme is resolved by the inline script in app/layout.tsx and written to <html data-theme>.
+ * Components must only use these tokens (via Tailwind theme colours), never literal colours.
+ */
+
+:root {
+  color-scheme: light;
+
+  /* Surfaces */
+  --bg: #f4f8fd;
+  --bg-elevated: #ffffff;
+  --fg: #0e1a2b;
+  --fg-muted: #3d4b60;
+  --fg-subtle: #5f6d82;
+  --line: rgb(14 26 43 / 0.09);
+
+  /* Brand */
+  --brand: #1880e8;
+  --brand-ink: #1468c4; /* brand colour for text; AA on --bg */
+  --brand-soft: rgb(24 128 232 / 0.1);
+
+  /* Glass */
+  --glass-bg: rgb(255 255 255 / 0.55);
+  --glass-bg-strong: rgb(255 255 255 / 0.78);
+  --glass-border: rgb(255 255 255 / 0.85);
+  --glass-shadow: 0 12px 40px -14px rgb(16 60 120 / 0.24);
+  --glass-highlight: inset 0 1px 0 rgb(255 255 255 / 0.9);
+
+  /* Buttons */
+  --btn-primary-bg: #0e1a2b;
+  --btn-primary-fg: #ffffff;
+  --btn-primary-shadow: 0 14px 28px -12px rgb(14 26 43 / 0.55);
+
+  /* Atmosphere */
+  --aurora-1: rgb(24 128 232 / 0.42);
+  --aurora-2: rgb(79 210 242 / 0.4);
+  --aurora-3: rgb(184 198 255 / 0.55);
+  --cursor-glow: rgb(24 128 232 / 0.16);
+  --grid-line: transparent;
+  --accent-from: #1468c4;
+  --accent-to: #1f9be0;
+
+  /* Feedback */
+  --danger: #c4314b;
+  --success: #12805c;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* Dark glass — applied when the resolved theme is dark */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #060b16;
+  --bg-elevated: #0b1322;
+  --fg: #eef3fb;
+  --fg-muted: #a9b6ca;
+  --fg-subtle: #8593a8;
+  --line: rgb(255 255 255 / 0.09);
+
+  --brand: #1880e8;
+  --brand-ink: #7cc0ff;
+  --brand-soft: rgb(24 128 232 / 0.16);
+
+  --glass-bg: rgb(255 255 255 / 0.055);
+  --glass-bg-strong: rgb(13 22 40 / 0.78);
+  --glass-border: rgb(255 255 255 / 0.12);
+  --glass-shadow: 0 24px 60px -24px rgb(0 0 0 / 0.75);
+  --glass-highlight: inset 0 1px 0 rgb(255 255 255 / 0.08);
+
+  --btn-primary-bg: #1880e8;
+  --btn-primary-fg: #ffffff;
+  --btn-primary-shadow: 0 12px 36px -8px rgb(24 128 232 / 0.85);
+
+  --aurora-1: rgb(24 128 232 / 0.55);
+  --aurora-2: rgb(0 184 255 / 0.32);
+  --aurora-3: rgb(58 77 255 / 0.34);
+  --cursor-glow: rgb(70 160 255 / 0.2);
+  --grid-line: rgb(255 255 255 / 0.035);
+  --accent-from: #5fb2ff;
+  --accent-to: #a8e8ff;
+
+  --danger: #ff7a8f;
+  --success: #4fd1a1;
+}
+
+/* No-JS fallback: follow the OS until the theme script runs */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+    --bg: #060b16;
+    --bg-elevated: #0b1322;
+    --fg: #eef3fb;
+    --fg-muted: #a9b6ca;
+    --fg-subtle: #8593a8;
+    --line: rgb(255 255 255 / 0.09);
+    --brand-ink: #7cc0ff;
+    --brand-soft: rgb(24 128 232 / 0.16);
+    --glass-bg: rgb(255 255 255 / 0.055);
+    --glass-bg-strong: rgb(13 22 40 / 0.78);
+    --glass-border: rgb(255 255 255 / 0.12);
+    --glass-shadow: 0 24px 60px -24px rgb(0 0 0 / 0.75);
+    --glass-highlight: inset 0 1px 0 rgb(255 255 255 / 0.08);
+    --btn-primary-bg: #1880e8;
+    --btn-primary-shadow: 0 12px 36px -8px rgb(24 128 232 / 0.85);
+    --aurora-1: rgb(24 128 232 / 0.55);
+    --aurora-2: rgb(0 184 255 / 0.32);
+    --aurora-3: rgb(58 77 255 / 0.34);
+    --cursor-glow: rgb(70 160 255 / 0.2);
+    --grid-line: rgb(255 255 255 / 0.035);
+    --accent-from: #5fb2ff;
+    --accent-to: #a8e8ff;
+    --danger: #ff7a8f;
+    --success: #4fd1a1;
+  }
+}
