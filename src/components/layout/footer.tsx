@@ -6,7 +6,7 @@ import { COPYRIGHT_YEAR, site } from "@/content/site";
 export function Footer() {
   return (
     <footer className="relative border-t border-line">
-      <div className="container-page grid gap-12 py-16 md:py-20 lg:grid-cols-[1.2fr_2fr]">
+      <div className="container-page grid gap-10 py-12 md:py-14 lg:grid-cols-[1.2fr_2fr]">
         <div className="flex max-w-sm flex-col gap-5">
           <Logo />
           <p className="text-fg-muted">{site.description}</p>

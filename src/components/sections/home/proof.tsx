@@ -6,7 +6,7 @@ import { media } from "@/content/media";
 /** Clients & key partners (logos from the old Clients & Partners page) + headline numbers. */
 export function Proof() {
   return (
-    <section aria-labelledby="proof-title" className="relative py-16 md:py-24">
+    <section aria-labelledby="proof-title" className="relative py-10 md:py-14">
       <div className="container-page">
         <h2 id="proof-title" className="text-center text-eyebrow text-fg-subtle" data-reveal>
           Some of our clients &amp; key partners
@@ -18,7 +18,7 @@ export function Proof() {
         <LogoMarquee logos={media.partnerLogos} label="Our key partners" reverse speed={50} />
       </div>
 
-      <div className="container-page mt-16 md:mt-20">
+      <div className="container-page mt-10 md:mt-12">
         <dl className="grid grid-cols-2 gap-y-10 lg:grid-cols-4">
           {stats.map((stat, i) => (
             <div

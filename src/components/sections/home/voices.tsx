@@ -36,8 +36,8 @@ export function Voices() {
   }, [index, paused, visible, go]);
 
   return (
-    <section ref={sectionRef} aria-labelledby="voices-title" className="relative py-20 md:py-28">
-      <div className="container-page grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+    <section ref={sectionRef} aria-labelledby="voices-title" className="relative py-14 md:py-20">
+      <div className="container-page grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-14">
         <div data-reveal className="flex flex-col gap-6">
           <span className="text-eyebrow text-brand-ink">In their words</span>
           <h2 id="voices-title" className="text-title">

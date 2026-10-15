@@ -1,5 +1,4 @@
 import { ArrowRight, MessageCircle } from "@/components/ui/icons";
-import { Magnetic } from "@/components/motion/magnetic";
 import { PointerGlow } from "@/components/motion/pointer-glow";
 import { Aurora } from "@/components/ui/aurora";
 import { ButtonLink } from "@/components/ui/button";
@@ -15,7 +14,7 @@ export function Hero() {
     <PointerGlow className="isolate overflow-hidden">
       <section
         aria-labelledby="hero-title"
-        className="relative flex min-h-[min(100svh,62rem)] items-center pt-32 pb-20 md:pt-36"
+        className="relative flex min-h-[min(88svh,46rem)] items-center pt-28 pb-12 md:pt-32"
       >
         <Aurora />
         {/* Cursor-following light, visible on mouse devices only */}
@@ -60,15 +59,13 @@ export function Hero() {
             </p>
 
             <div className="mt-9 flex w-full flex-col gap-3 sm:w-auto sm:flex-row" style={enter(500)}>
-              <Magnetic>
-                <ButtonLink href={hero.primaryCta.href} className="w-full sm:w-auto">
-                  {hero.primaryCta.label}
-                  <ArrowRight
-                    aria-hidden="true"
-                    className="size-4 transition-transform duration-300 group-hover/btn:translate-x-1"
-                  />
-                </ButtonLink>
-              </Magnetic>
+              <ButtonLink href={hero.primaryCta.href} className="w-full sm:w-auto">
+                {hero.primaryCta.label}
+                <ArrowRight
+                  aria-hidden="true"
+                  className="size-4 transition-transform duration-300 group-hover/btn:translate-x-1"
+                />
+              </ButtonLink>
               <ButtonLink
                 href={whatsappLink(site.contact.whatsapp.number, site.whatsappGreeting)}
                 variant="glass"

@@ -72,7 +72,7 @@ export function Campaigns() {
   const running = visible && !paused;
 
   return (
-    <section ref={ref} aria-labelledby="campaigns-title" className="relative py-12 md:py-20">
+    <section ref={ref} aria-labelledby="campaigns-title" className="relative py-8 md:py-12">
       <div className="container-page">
         <div className="mb-8 flex items-end justify-between gap-6" data-reveal>
           <div className="flex flex-col gap-3">

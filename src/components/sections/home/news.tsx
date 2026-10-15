@@ -7,7 +7,7 @@ import { media } from "@/content/media";
 /** "Latest News Updates" from the old homepage: press coverage, opens the source site. */
 export function News() {
   return (
-    <section aria-labelledby="news-title" className="relative py-20 md:py-28">
+    <section aria-labelledby="news-title" className="relative py-14 md:py-20">
       <div className="container-page">
         <SectionHeading
           id="news-title"
@@ -15,7 +15,7 @@ export function News() {
           title="In the news."
           lead="Acestar has been a name of trust for years, built little by little by a superb team."
         />
-        <ul className="mt-12 grid gap-5 md:mt-16 md:grid-cols-3">
+        <ul className="mt-8 grid gap-5 md:mt-10 md:grid-cols-3">
           {news.map((item, i) => {
             const img = media.news[i];
             return (

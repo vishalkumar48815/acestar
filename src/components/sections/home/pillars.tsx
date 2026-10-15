@@ -34,7 +34,7 @@ export function Pillars() {
   const current = pillars.find((p) => p.key === active) ?? pillars[0];
 
   return (
-    <section id="solutions" aria-labelledby="pillars-title" className="relative py-20 md:py-32">
+    <section id="solutions" aria-labelledby="pillars-title" className="relative py-14 md:py-20">
       <div className="container-page">
         <div data-reveal className="flex max-w-2xl flex-col gap-4">
           <span className="text-eyebrow text-brand-ink">{specializations.eyebrow}</span>
@@ -44,15 +44,15 @@ export function Pillars() {
           <p className="text-lead text-fg-muted">{specializations.lead}</p>
         </div>
 
-        <div className="mt-14 grid gap-10 lg:mt-20 lg:grid-cols-2 lg:gap-16">
+        <div className="mt-8 grid gap-5 lg:mt-12 lg:grid-cols-2 lg:gap-14">
           {/* Pinned visual (desktop only) */}
           <div className="hidden lg:block">
             <div className="sticky top-28">
-              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[2rem] glass">
+              <div className="relative aspect-[6/5] w-full overflow-hidden rounded-[2rem] glass">
                 {/* Rotating ring with the active pillar name at its centre */}
-                <div aria-hidden="true" className="absolute inset-x-0 top-[7%] grid place-items-center">
+                <div aria-hidden="true" className="absolute inset-x-0 top-[6%] grid place-items-center">
                   <div
-                    className="col-start-1 row-start-1 aspect-square w-[68%] rounded-full transition-transform duration-[1400ms] ease-out-expo"
+                    className="col-start-1 row-start-1 aspect-square w-[38%] rounded-full transition-transform duration-[1400ms] ease-out-expo"
                     style={{
                       transform: `rotate(${ROTATION[active]}deg)`,
                       background:
@@ -61,12 +61,12 @@ export function Pillars() {
                       WebkitMaskImage: "radial-gradient(circle, transparent 60%, #000 61%, #000 66%, transparent 67%)",
                     }}
                   />
-                  <div className="col-start-1 row-start-1 aspect-square w-[52%] rounded-full bg-[var(--aurora-1)] opacity-50 blur-[60px]" />
+                  <div className="col-start-1 row-start-1 aspect-square w-[30%] rounded-full bg-[var(--aurora-1)] opacity-50 blur-[60px]" />
                   {pillars.map((p) => (
                     <span
                       key={p.key}
                       className={cn(
-                        "col-start-1 row-start-1 font-display text-[clamp(2.25rem,3.4vw,3.25rem)] font-extrabold tracking-[-0.04em] transition-all duration-700 ease-out-expo",
+                        "col-start-1 row-start-1 font-display text-[clamp(1.5rem,2.2vw,2.25rem)] font-extrabold tracking-[-0.04em] transition-all duration-700 ease-out-expo",
                         p.key === active ? "blur-0 translate-y-0 opacity-100" : "translate-y-3 opacity-0 blur-sm",
                       )}
                     >
@@ -111,7 +111,7 @@ export function Pillars() {
           </div>
 
           {/* Scrolling text blocks */}
-          <div className="flex flex-col gap-6 lg:gap-0">
+          <div className="flex flex-col gap-5 lg:gap-12">
             {pillars.map((pillar, index) => (
               <article
                 key={pillar.key}
@@ -121,7 +121,7 @@ export function Pillars() {
                 data-key={pillar.key}
                 className={cn(
                   "flex flex-col justify-center gap-5 rounded-[1.75rem] p-6 glass sm:p-8",
-                  "lg:min-h-[78vh] lg:rounded-none lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none lg:backdrop-blur-none",
+                  "lg:min-h-[46vh] lg:rounded-none lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none lg:backdrop-blur-none",
                   "lg:transition-opacity lg:duration-700",
                   pillar.key === active ? "lg:opacity-100" : "lg:opacity-35",
                 )}

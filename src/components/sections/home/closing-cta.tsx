@@ -1,5 +1,4 @@
 import { ArrowRight, Mail, MessageCircle, Phone } from "@/components/ui/icons";
-import { Magnetic } from "@/components/motion/magnetic";
 import { Aurora } from "@/components/ui/aurora";
 import { ButtonLink } from "@/components/ui/button";
 import { site } from "@/content/site";
@@ -7,11 +6,11 @@ import { whatsappLink } from "@/lib/utils";
 
 export function ClosingCta() {
   return (
-    <section aria-labelledby="cta-title" className="relative pt-8 pb-20 md:pb-28">
+    <section aria-labelledby="cta-title" className="relative pt-4 pb-14 md:pb-20">
       <div className="container-page">
         <div
           data-reveal
-          className="relative isolate overflow-hidden rounded-[2.25rem] px-6 py-16 text-center glass sm:px-12 md:py-24"
+          className="relative isolate overflow-hidden rounded-[2.25rem] px-6 py-12 text-center glass sm:px-12 md:py-16"
         >
           <Aurora className="opacity-80" />
           <div className="mx-auto flex max-w-2xl flex-col items-center gap-6">
@@ -23,15 +22,10 @@ export function ClosingCta() {
               Tell us about your team and what you need. We&apos;ll recommend the right software, computers and support.
             </p>
             <div className="mt-2 flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row">
-              <Magnetic>
-                <ButtonLink href="/contact" className="w-full sm:w-auto">
-                  Contact us
-                  <ArrowRight
-                    aria-hidden="true"
-                    className="size-4 transition-transform group-hover/btn:translate-x-1"
-                  />
-                </ButtonLink>
-              </Magnetic>
+              <ButtonLink href="/contact" className="w-full sm:w-auto">
+                Contact us
+                <ArrowRight aria-hidden="true" className="size-4 transition-transform group-hover/btn:translate-x-1" />
+              </ButtonLink>
               <ButtonLink
                 href={whatsappLink(site.contact.whatsapp.number, site.whatsappGreeting)}
                 variant="glass"

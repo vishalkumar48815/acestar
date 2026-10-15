@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 /** TechCare, certification and community. TechCare leads as the larger card. */
 export function Beyond() {
   return (
-    <section aria-labelledby="beyond-title" className="relative py-20 md:py-28">
+    <section aria-labelledby="beyond-title" className="relative py-14 md:py-20">
       <div className="container-page">
         <SectionHeading
           id="beyond-title"
@@ -17,7 +17,7 @@ export function Beyond() {
           lead="Hardware and licences are the start. These are the programmes that keep teams productive after go-live."
         />
 
-        <div className="mt-12 grid gap-5 md:mt-16 lg:grid-cols-[1.25fr_1fr] lg:grid-rows-2">
+        <div className="mt-8 grid gap-5 md:mt-10 lg:grid-cols-[1.25fr_1fr] lg:grid-rows-2">
           {offerings.map((item, i) => {
             const featured = i === 0;
             return (

@@ -7,14 +7,14 @@ import { media } from "@/content/media";
 /** Group CEO message + headline awards (from the old homepage's CEO block and Awards page). */
 export function CeoMessage() {
   return (
-    <section aria-labelledby="ceo-title" className="relative py-20 md:py-28">
+    <section aria-labelledby="ceo-title" className="relative py-14 md:py-20">
       <div className="container-page">
         <div data-reveal className="relative isolate overflow-hidden rounded-[2.25rem] p-7 glass sm:p-12 lg:p-16">
           <div
             aria-hidden="true"
             className="pointer-events-none absolute -bottom-32 -left-24 -z-10 size-[28rem] rounded-full bg-[var(--aurora-2)] blur-[90px]"
           />
-          <div className="grid gap-12 lg:grid-cols-[1.35fr_1fr] lg:items-end lg:gap-16">
+          <div className="grid gap-10 lg:grid-cols-[1.35fr_1fr] lg:items-end lg:gap-14">
             <figure className="flex flex-col gap-8">
               <span className="text-eyebrow text-brand-ink">A message from our CEO</span>
               <blockquote>
