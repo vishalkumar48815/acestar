@@ -35,7 +35,7 @@ const mono = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} | Adobe Platinum Partner & IT Solutions in Malaysia`,
+    default: "Acestar Group | IT Solutions Provider in Malaysia",
     template: `%s | ${site.name}`,
   },
   description: site.description,

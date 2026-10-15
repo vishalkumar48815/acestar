@@ -1,111 +1,130 @@
-import type { Offering, Pillar, Stat, Testimonial } from "@/types/content";
+/**
+ * Homepage content — taken from the live acestar.my site (homepage, company profile,
+ * product pages and awards page). Only spelling/punctuation is tidied; numbers are the
+ * site's own (the old counters had data-to-value 813000 / 5000 / 18 / 3 but rendered 0).
+ */
+import type { NewsItem, Offering, Pillar, Stat, Testimonial } from "@/types/content";
 
 export const hero = {
-  badge: "Adobe Platinum Partner · Malaysia",
-  titleLines: ["IT that lets", "Malaysia create."],
-  accentWord: "create.",
-  lead: "Creative software, high-performance workstations and digital workflows, set up and supported by one team since 2008.",
-  primaryCta: { label: "Talk to us", href: "/contact" },
+  badge: "Adobe's only Platinum Partner in Malaysia",
+  titleLines: ["Your best partner", "in ICT solutions."],
+  accentWord: "ICT solutions.",
+  lead: "An IT solutions provider in the region since 2008, specialising in creative software, high-performance computers and digital workflow management.",
+  primaryCta: { label: "Book a one-on-one session", href: "/contact?topic=consultation" },
   secondaryCtaLabel: "WhatsApp us",
 };
 
 export const heroCards = [
-  { value: "150,000+", label: "Creative Cloud licences deployed" },
-  { value: "70%", label: "Malaysian universities", sub: "run on Acestar-deployed Adobe" },
-  { value: "5K+", label: "Organisations served", sub: "from start-ups to Bank Negara" },
+  { value: "813,000+", label: "Cloud licences deployed" },
+  { value: "70%+", label: "Malaysian higher-education institutions", sub: "served by Acestar" },
+  { value: "5,000+", label: "Organisations", sub: "education, enterprise, SME & public sector" },
 ];
 
 export const stats: Stat[] = [
-  { value: 5000, suffix: "+", label: "Organisations served" },
-  { value: 150000, suffix: "+", label: "Creative Cloud licences" },
-  { value: 70, suffix: "%", label: "Of Malaysian universities" },
-  { value: 18, label: "Years in Malaysian IT" },
+  { value: 813000, suffix: "+", label: "Cloud licences" },
+  { value: 5000, suffix: "+", label: "Organisations" },
+  { value: 18, label: "Years of experience" },
+  { value: 3, label: "Countries" },
 ];
 
+/** From the "Clients & Partners" page. */
 export const clients = [
   "Petronas",
   "Bank Negara Malaysia",
   "Touch 'n Go",
   "Malaysia Rail Link",
   "Sarawak Energy",
-  "Media Prima",
   "Mindvalley",
   "Lemon Sky Studios",
 ];
 
+export const specializations = {
+  eyebrow: "Our specializations",
+  title: "Focused and elite in what we deliver.",
+  lead: "Our key specializations shape us as your best partner in ICT solutions, and pave the way for your enterprise to be one of the most competitive and digitally advanced organisations in today's market.",
+};
+
 export const pillars: Pillar[] = [
   {
     key: "create",
-    eyebrow: "Create",
-    title: "Creative software",
+    eyebrow: "Software",
+    title: "Creative Software",
     summary:
-      "Licensing, deployment and training for the tools Malaysia's studios, agencies and universities create with.",
+      "The leading player in creative software licensing, especially Adobe Creative Cloud and Autodesk, providing best-in-class consultation and implementation.",
     points: [
-      "Adobe Creative Cloud for teams, enterprise and education",
-      "Autodesk, Maxon and specialist plug-ins",
-      "Licence management, onboarding and renewals",
+      "Adobe Creative Cloud Pro for teams, enterprise and education",
+      "Autodesk, Video Copilot, Resolume and Boris FX",
+      "Consultation, licensing, deployment and workflow solutions",
     ],
-    brands: ["Adobe Creative Cloud", "Firefly", "Autodesk", "Maxon"],
-    fact: { value: "150,000+", label: "Creative Cloud licences deployed" },
+    brands: ["Adobe", "Autodesk", "Video Copilot", "Resolume", "Boris FX"],
+    fact: { value: "150,000+", label: "Adobe Creative Cloud licences deployed" },
     href: "/solutions/creative-software",
   },
   {
     key: "compute",
-    eyebrow: "Compute",
-    title: "Workstations",
+    eyebrow: "Hardware",
+    title: "High Performance Computers",
     summary:
-      "Machines specified for the work, from 3D render nodes to executive laptops, configured before they reach the desk.",
+      "With over a decade of technical expertise, we provide workstation customisation for industries spanning creative, commercial and education.",
     points: [
-      "Apple, HP, Lenovo, Dell and Asus",
-      "ISV-certified mobile and desktop workstations",
-      "Zero-touch deployment and device management",
+      "Apple Mac Pro, iMac, MacBook Pro and MacBook Air",
+      "HP ZBook & EliteBook, Lenovo ThinkPad P & X1, Dell Precision & XPS",
+      "Mobile device management and zero-touch deployment",
     ],
-    brands: ["Apple", "HP", "Lenovo", "Dell"],
-    fact: { value: "5", label: "Hardware brands, one point of contact" },
+    brands: ["Apple", "HP", "Lenovo", "Dell", "Asus"],
+    fact: { value: "10+", label: "Years customising workstations" },
     href: "/solutions/workstations",
   },
   {
     key: "collaborate",
-    eyebrow: "Collaborate",
-    title: "Digital workflow",
-    summary: "Paperless approvals and connected teams, so hybrid work moves at the speed of the office.",
+    eyebrow: "Workflow",
+    title: "Digital Workflow Management",
+    summary:
+      "Utilising technology to drive absolute efficiency for today's hybrid working style, with best-in-class consultation and implementation.",
     points: [
-      "Adobe Acrobat & Acrobat Sign e-signatures",
-      "Microsoft 365 and Teams rollouts",
-      "Zoom, Logitech and Jabra meeting rooms",
+      "Adobe Document Cloud, Acrobat and Acrobat Sign",
+      "Microsoft 365, Faronics Deep Freeze and Saleslive CRM",
+      "Video conferencing with Zoom, Jabra and Logitech",
     ],
-    brands: ["Acrobat Sign", "Microsoft 365", "Zoom", "Faronics"],
-    fact: { value: "20%+", label: "Faster sign-offs at TE Asia Healthcare" },
+    brands: ["Acrobat Sign", "Microsoft 365", "Faronics", "Saleslive", "Zoom"],
+    fact: { value: "20%+", label: "Productivity gain with Adobe Sign at TE Asia Healthcare" },
     href: "/solutions/digital-workflow",
   },
 ];
 
 export const offerings: Offering[] = [
   {
-    key: "techcare",
-    eyebrow: "TechCare",
-    title: "IT as a subscription",
-    body: "Laptops, software and support for one predictable monthly fee. No upfront hardware spend, and every machine stays current.",
+    key: "care",
+    eyebrow: "We care",
+    title: "IT As A Service",
+    body: "Acestar takes pride as the first and only company that provides IT As A Service on a subscription basis, with standardised processes and simplified products and services custom-designed for progressive organisations.",
     tags: ["Essential", "Essential+", "Elite"],
     cta: { label: "Explore TechCare", href: "/techcare" },
   },
   {
-    key: "certify",
-    eyebrow: "Certify",
-    title: "Industry certifications",
-    body: "Sole Certiport distributor in Malaysia for Adobe Certified Professional and Microsoft Office Specialist.",
-    cta: { label: "About certification", href: "/about#certification" },
+    key: "train",
+    eyebrow: "We train",
+    title: "Training & certification",
+    body: "As Malaysia's sole Certiport distributor, we help individuals and workforces build their skills through industry training and globally recognised certifications.",
+    cta: { label: "About Certiport", href: "/about#certification" },
   },
   {
-    key: "community",
-    eyebrow: "Community",
+    key: "serve",
+    eyebrow: "We serve",
     title: "Creative Cloud Community",
-    body: "Home of Malaysia's ACP national championship and a summit for the next generation of creators.",
-    cta: { label: "Visit the community", href: "https://creativecc.pro", external: true },
+    body: "A creative ecosystem connecting creative users and businesses to nurture talent and create jobs, home of the Micro-Credentials Education Summit and the national ACP & MOS championships.",
+    cta: { label: "Visit creativecc.pro", href: "https://www.creativecc.pro/", external: true },
   },
 ];
 
-/** Quotes from the existing site; only punctuation/spelling tidied. TODO(client): re-approve wording. */
+export const ceoMessage = {
+  quote: "We are committed to your success in business.",
+  name: "Natalie Sit",
+  role: "Group CEO, Acestar Sdn. Bhd.",
+  badge: "Proudly recognised as a Malaysia Digital Status company",
+};
+
+/** Quotes from the existing site; only punctuation/spelling tidied. */
 export const testimonials: Testimonial[] = [
   {
     quote:
@@ -144,11 +163,39 @@ export const testimonials: Testimonial[] = [
   },
 ];
 
+/** From the Awards page. */
 export const recognition = {
-  headline: "40+ industry awards since 2013",
+  headline: "40+ awards since 2013",
   highlights: [
-    "Adobe SEA Top Platinum Partner of the Year 2026",
-    "Frost & Sullivan System Integration Company of the Year",
-    "EY Entrepreneur of the Year, Top Nominee",
+    "Adobe SEA Top Platinum Partner of the Year, 2026",
+    "Frost & Sullivan Malaysia System Integration Company of the Year, 2019",
+    "EY Entrepreneur of the Year 2020, Top Nominee",
   ],
 };
+
+export const news: NewsItem[] = [
+  {
+    title: "Certiport names 2024 Adobe Certified Professional World Champion from Malaysia",
+    excerpt:
+      "Izzul Zafran Abd Razak from Malaysia won the top prize out of 47 finalists at the 11th annual competition in Anaheim, California.",
+    source: "PRWeb",
+    href: "https://www.prweb.com/releases/certiport-names-2024-adobe-certified-professional-world-champion-from-malaysia-302211520.html",
+    lang: "en",
+  },
+  {
+    title: "Pelajar Politeknik juara 'Adobe Certified Professional World Championship 2024'",
+    excerpt:
+      "Izzul Zafran Abd Razak menewaskan 47 peserta daripada 40 negara untuk membawa pulang hadiah US$8,000, sijil, medal dan trofi.",
+    source: "Buletin TV3",
+    href: "https://www.buletintv3.my/nasional/pelajar-politeknik-juara-adobe-certified-professional-world-championship-2024/",
+    lang: "ms",
+  },
+  {
+    title: "Pelajar Politeknik juara 'Adobe Certified Professional World Championship 2024'",
+    excerpt:
+      "Pelajar Politeknik Muadzam Shah, Pahang, menempa nama di peringkat antarabangsa dengan tempat pertama di California, Amerika Syarikat.",
+    source: "Astro Awani",
+    href: "https://www.astroawani.com/berita-malaysia/pelajar-politeknik-juara-adobe-certified-professional-world-championship-2024-481772",
+    lang: "ms",
+  },
+];

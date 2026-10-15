@@ -44,3 +44,12 @@ export type Testimonial = {
   role: string;
   company: string;
 };
+
+export type NewsItem = {
+  title: string;
+  excerpt: string;
+  source: string;
+  href: string;
+  lang: "en" | "ms";
+  image?: string;
+};

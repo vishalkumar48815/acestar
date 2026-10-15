@@ -1,6 +1,9 @@
 @import "tailwindcss";
 @import "../styles/tokens.css";
 
+/* `dark:` follows the resolved theme on <html data-theme>, not just the OS setting */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
 @theme inline {
   --color-bg: var(--bg);
   --color-bg-elevated: var(--bg-elevated);
@@ -25,7 +28,7 @@
 @utility text-display {
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: clamp(2.6rem, 1.2rem + 6vw, 5.75rem);
+  font-size: clamp(2.5rem, 1.3rem + 5vw, 5rem);
   line-height: 0.98;
   letter-spacing: -0.035em;
   text-wrap: balance;
@@ -236,6 +239,16 @@ html.js [data-reveal][data-inview="true"] {
   animation-play-state: paused;
 }
 
+/* ---------- Campaign progress (drives autoplay) ---------- */
+@keyframes campaign-progress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -249,5 +262,9 @@ html.js [data-reveal][data-inview="true"] {
   html.js [data-reveal] {
     opacity: 1;
     transform: none;
+  }
+  /* No autoplay: the progress bar is the timer, so remove it entirely */
+  .campaign-bar {
+    animation: none !important;
   }
 }

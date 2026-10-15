@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "import:legacy": "node scripts/import-legacy-site.mjs",
+    "media:build": "node scripts/build-media.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.9.1",
@@ -28,6 +30,7 @@
     "eslint-config-next": "16.4.1",
     "prettier": "^3.9.10",
     "prettier-plugin-tailwindcss": "^0.8.1",
+    "sharp": "^0.35.5",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

@@ -1,0 +1,172 @@
+{
+  "awards.e50": {
+    "src": "/images/awards/e50-2019.webp",
+    "width": 105,
+    "height": 73
+  },
+  "awards.ey2020": {
+    "src": "/images/awards/ey-entrepreneur-2020.webp",
+    "width": 126,
+    "height": 87
+  },
+  "awards.malaysiaDigital": {
+    "src": "/images/awards/malaysia-digital.webp",
+    "width": 480,
+    "height": 227
+  },
+  "awards.soba": {
+    "src": "/images/awards/soba-most-awards.webp",
+    "width": 111,
+    "height": 77
+  },
+  "brand.logoDark": {
+    "src": "/images/brand/acestar-logo-dark.png",
+    "width": 354,
+    "height": 80
+  },
+  "brand.logoLight": {
+    "src": "/images/brand/acestar-logo-light.png",
+    "width": 354,
+    "height": 80
+  },
+  "brand.signature": {
+    "src": "/images/brand/ceo-signature.webp",
+    "width": 252,
+    "height": 154
+  },
+  "campaigns.anniversary.desktop": {
+    "src": "/images/campaigns/sweet-17th-desktop.webp",
+    "width": 1920,
+    "height": 996
+  },
+  "campaigns.anniversary.mobile": {
+    "src": "/images/campaigns/sweet-17th-mobile.webp",
+    "width": 750,
+    "height": 938
+  },
+  "campaigns.firefly.desktop": {
+    "src": "/images/campaigns/firefly-basketball-desktop.webp",
+    "width": 1920,
+    "height": 996
+  },
+  "campaigns.firefly.mobile": {
+    "src": "/images/campaigns/firefly-basketball-mobile.webp",
+    "width": 750,
+    "height": 938
+  },
+  "campaigns.hp.desktop": {
+    "src": "/images/campaigns/hp-elitebook-x-desktop.webp",
+    "width": 1920,
+    "height": 996
+  },
+  "campaigns.hp.mobile": {
+    "src": "/images/campaigns/hp-elitebook-x-mobile.webp",
+    "width": 750,
+    "height": 938
+  },
+  "campaigns.imagination.desktop": {
+    "src": "/images/campaigns/imagination-desktop.webp",
+    "width": 1920,
+    "height": 1121
+  },
+  "campaigns.paperwork.desktop": {
+    "src": "/images/campaigns/paperwork-desktop.webp",
+    "width": 1920,
+    "height": 997
+  },
+  "campaigns.paperwork.mobile": {
+    "src": "/images/campaigns/paperwork-mobile.webp",
+    "width": 750,
+    "height": 938
+  },
+  "campaigns.sign.mobile": {
+    "src": "/images/campaigns/acrobat-sign-mobile.webp",
+    "width": 750,
+    "height": 939
+  },
+  "clients.bnm": {
+    "src": "/images/clients/bank-negara-malaysia.webp",
+    "width": 400,
+    "height": 168
+  },
+  "clients.lemonSky": {
+    "src": "/images/clients/lemon-sky-studios.webp",
+    "width": 400,
+    "height": 168
+  },
+  "clients.mindvalley": {
+    "src": "/images/clients/mindvalley.webp",
+    "width": 400,
+    "height": 168
+  },
+  "clients.mrl": {
+    "src": "/images/clients/malaysia-rail-link.webp",
+    "width": 400,
+    "height": 168
+  },
+  "clients.petronas": {
+    "src": "/images/clients/petronas.webp",
+    "width": 400,
+    "height": 168
+  },
+  "clients.sarawakEnergy": {
+    "src": "/images/clients/sarawak-energy.webp",
+    "width": 400,
+    "height": 168
+  },
+  "clients.tng": {
+    "src": "/images/clients/touch-n-go.webp",
+    "width": 400,
+    "height": 170
+  },
+  "news.awani": {
+    "src": "/images/news/acp-world-champion-astro-awani.webp",
+    "width": 800,
+    "height": 440
+  },
+  "news.buletin": {
+    "src": "/images/news/acp-world-champion-buletin-tv3.webp",
+    "width": 800,
+    "height": 440
+  },
+  "news.prweb": {
+    "src": "/images/news/acp-world-champion-prweb.webp",
+    "width": 800,
+    "height": 440
+  },
+  "partners.adobe": {
+    "src": "/images/partners/adobe.webp",
+    "width": 400,
+    "height": 177
+  },
+  "partners.apple": {
+    "src": "/images/partners/apple.webp",
+    "width": 400,
+    "height": 177
+  },
+  "partners.autodesk": {
+    "src": "/images/partners/autodesk.webp",
+    "width": 400,
+    "height": 177
+  },
+  "partners.certiport": {
+    "src": "/images/partners/certiport.webp",
+    "width": 400,
+    "height": 177
+  },
+  "partners.hp": {
+    "src": "/images/partners/hp.webp",
+    "width": 400,
+    "height": 177
+  },
+  "partners.lenovo": {
+    "src": "/images/partners/lenovo.webp",
+    "width": 400,
+    "height": 177
+  },
+  "partners.microsoft": {
+    "src": "/images/partners/microsoft.webp",
+    "width": 400,
+    "height": 177
+  }
+}

@@ -76,7 +76,7 @@ export function Header() {
               scrolled ? "glass-strong" : "border border-transparent bg-transparent",
             )}
           >
-            <Logo />
+            <Logo priority />
 
             <ul className="hidden items-center gap-1 lg:flex">
               {mainNav.map((item) =>

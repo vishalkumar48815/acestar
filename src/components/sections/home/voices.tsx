@@ -1,9 +1,8 @@
 "use client";
 
-import { ArrowUpRight, Award, ChevronLeft, ChevronRight, Quote } from "@/components/ui/icons";
-import Link from "next/link";
+import { ChevronLeft, ChevronRight, Quote } from "@/components/ui/icons";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { recognition, testimonials } from "@/content/home";
+import { testimonials } from "@/content/home";
 import { cn } from "@/lib/utils";
 
 const INTERVAL = 8000;
@@ -42,29 +41,11 @@ export function Voices() {
         <div data-reveal className="flex flex-col gap-6">
           <span className="text-eyebrow text-brand-ink">In their words</span>
           <h2 id="voices-title" className="text-title">
-            Studios, banks and hospitals rely on us.
+            Client testimonials
           </h2>
-          <div className="mt-2 flex flex-col gap-3 border-t border-line pt-6">
-            <p className="flex items-center gap-2 font-semibold">
-              <Award aria-hidden="true" className="size-5 text-brand-ink" />
-              {recognition.headline}
-            </p>
-            <ul className="flex flex-col gap-1.5 text-fg-muted">
-              {recognition.highlights.map((h) => (
-                <li key={h}>{h}</li>
-              ))}
-            </ul>
-            <Link
-              href="/about#awards"
-              className="group/link mt-1 inline-flex min-h-11 w-max items-center gap-1.5 font-semibold"
-            >
-              See all awards
-              <ArrowUpRight
-                aria-hidden="true"
-                className="size-4 text-brand-ink transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5"
-              />
-            </Link>
-          </div>
+          <p className="text-lead text-fg-muted">
+            What our clients say about working with Acestar, from creative studios to healthcare and law.
+          </p>
         </div>
 
         <div

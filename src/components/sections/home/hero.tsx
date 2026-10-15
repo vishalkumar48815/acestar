@@ -28,7 +28,7 @@ export function Hero() {
           }}
         />
 
-        <div className="container-page grid items-center gap-14 lg:grid-cols-[1.2fr_0.8fr] lg:gap-10">
+        <div className="container-page grid items-center gap-14 lg:grid-cols-[1.35fr_0.65fr] lg:gap-10">
           <div className="flex flex-col items-start">
             <span
               className="inline-flex max-w-full items-center gap-2 rounded-full px-3.5 py-1.5 text-[0.8125rem] font-semibold text-brand-ink glass"
@@ -100,7 +100,7 @@ export function Hero() {
                     </>
                   ) : (
                     <div className="flex items-center gap-4">
-                      <span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-brand font-display text-[0.95rem] font-extrabold text-white">
+                      <span className="grid h-12 min-w-16 shrink-0 place-items-center rounded-2xl bg-brand px-2.5 font-display text-[0.95rem] font-extrabold text-white tabular-nums">
                         {card.value}
                       </span>
                       <span className="min-w-0">

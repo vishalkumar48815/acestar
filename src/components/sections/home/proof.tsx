@@ -1,34 +1,21 @@
 import { CountUp } from "@/components/motion/count-up";
-import { clients, stats } from "@/content/home";
+import { LogoMarquee } from "@/components/ui/logo-marquee";
+import { stats } from "@/content/home";
+import { media } from "@/content/media";
 
+/** Clients & key partners (logos from the old Clients & Partners page) + headline numbers. */
 export function Proof() {
   return (
     <section aria-labelledby="proof-title" className="relative py-16 md:py-24">
       <div className="container-page">
         <h2 id="proof-title" className="text-center text-eyebrow text-fg-subtle" data-reveal>
-          Trusted by teams at
+          Some of our clients &amp; key partners
         </h2>
       </div>
 
-      {/* Client names as a slow marquee; pauses on hover. Second copy is decorative. */}
-      <div
-        className="marquee relative mt-8 overflow-hidden"
-        style={{ maskImage: "linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent)" }}
-      >
-        <div className="marquee-track flex w-max">
-          {[0, 1].map((copy) => (
-            <ul key={copy} aria-hidden={copy === 1 ? true : undefined} className="flex shrink-0 items-center">
-              {clients.map((name) => (
-                <li
-                  key={name}
-                  className="px-6 font-display text-[1.375rem] font-bold tracking-[-0.02em] whitespace-nowrap text-fg-subtle md:px-10 md:text-[1.625rem]"
-                >
-                  {name}
-                </li>
-              ))}
-            </ul>
-          ))}
-        </div>
+      <div className="mt-8 flex flex-col gap-4 md:gap-6">
+        <LogoMarquee logos={media.clientLogos} label="Some of our clients" />
+        <LogoMarquee logos={media.partnerLogos} label="Our key partners" reverse speed={50} />
       </div>
 
       <div className="container-page mt-16 md:mt-20">

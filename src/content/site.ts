@@ -1,23 +1,28 @@
 /**
  * Single source of truth for company details used across the site.
  *
- * TODO(client): confirm which phone / WhatsApp / emails are public.
- * The old site lists 4 emails and 4 WhatsApp numbers; the values below are the
- * ones shown most prominently in the old header/footer.
+ * All values are taken from the live acestar.my site (header, footer and contact page).
  */
 export const site = {
   name: "Acestar",
   legalName: "Acestar Sdn Bhd",
   registrationNo: "811773-K",
   url: "https://acestar.my",
+  externalLinks: {
+    techcare: "https://www.techcareasia.com/",
+    community: "https://www.creativecc.pro/",
+    saleslive: "https://www.sales.live/",
+  },
   foundedYear: 2008,
-  tagline: "IT that lets Malaysia create.",
+  tagline: "Simplicity. Scalability. Sustainability. Supportive.",
   description:
-    "Acestar is Malaysia's Adobe Platinum Partner, delivering creative software, high-performance workstations and digital workflow solutions to enterprises, universities and government since 2008.",
+    "IT solutions provider in the region since 2008, specialising in creative software, high-performance computers and digital workflow management.",
 
   contact: {
     phone: { display: "03-2201 7688", href: "tel:+60322017688" },
-    whatsapp: { display: "+60 19-477 3202", number: "60194773202" },
+    whatsapp: { display: "019-477 3202", number: "60194773202" },
+    /** Client Experience Team (the floating WhatsApp button on the old site). */
+    whatsappCare: { display: "011-5508 0113", number: "601155080113" },
     email: {
       sales: "isr@acestar.my",
       support: "icare@acestar.my",
@@ -30,14 +35,14 @@ export const site = {
         "Avenue 3, Bangsar South, No. 8 Jalan Kerinchi",
         "59200 Kuala Lumpur, Malaysia",
       ],
-      mapUrl: "https://maps.google.com/?q=Vertical+Business+Suite+Bangsar+South+Kuala+Lumpur",
+      mapUrl: "https://goo.gl/maps/gAX5Zoocbn67h5qa8",
     },
-    hours: "Mon–Fri, 9am–6pm", // TODO(client): confirm office hours
+    hours: null as string | null, // not published on the old site
   },
 
   social: [
     { label: "LinkedIn", href: "https://www.linkedin.com/company/acestar.my" },
-    { label: "Instagram", href: "https://www.instagram.com/acestarmy" },
+    { label: "Instagram", href: "https://www.instagram.com/acestarmy/" },
     { label: "Facebook", href: "https://www.facebook.com/acestar.my" },
   ],
 

@@ -15,18 +15,17 @@ export function ClosingCta() {
         >
           <Aurora className="opacity-80" />
           <div className="mx-auto flex max-w-2xl flex-col items-center gap-6">
-            <span className="text-eyebrow text-brand-ink">Start a conversation</span>
+            <span className="text-eyebrow text-brand-ink">Contact us</span>
             <h2 id="cta-title" className="text-title">
-              Let&apos;s set your team up to create.
+              Talk to an Acestar specialist.
             </h2>
             <p className="text-lead text-fg-muted">
-              Tell us what you&apos;re working on. A specialist will recommend the right software, machines and support,
-              with no obligation.
+              Tell us about your team and what you need. We&apos;ll recommend the right software, computers and support.
             </p>
             <div className="mt-2 flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row">
               <Magnetic>
-                <ButtonLink href="/contact?topic=consultation" className="w-full sm:w-auto">
-                  Book a one-on-one session
+                <ButtonLink href="/contact" className="w-full sm:w-auto">
+                  Contact us
                   <ArrowRight
                     aria-hidden="true"
                     className="size-4 transition-transform group-hover/btn:translate-x-1"

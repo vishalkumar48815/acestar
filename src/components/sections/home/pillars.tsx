@@ -3,7 +3,7 @@
 import { ArrowUpRight, Check } from "@/components/ui/icons";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { pillars } from "@/content/home";
+import { pillars, specializations } from "@/content/home";
 import { cn } from "@/lib/utils";
 import type { PillarKey } from "@/types/content";
 
@@ -37,10 +37,11 @@ export function Pillars() {
     <section id="solutions" aria-labelledby="pillars-title" className="relative py-20 md:py-32">
       <div className="container-page">
         <div data-reveal className="flex max-w-2xl flex-col gap-4">
-          <span className="text-eyebrow text-brand-ink">What we do</span>
+          <span className="text-eyebrow text-brand-ink">{specializations.eyebrow}</span>
           <h2 id="pillars-title" className="text-title">
-            One partner, from licence to laptop.
+            {specializations.title}
           </h2>
+          <p className="text-lead text-fg-muted">{specializations.lead}</p>
         </div>
 
         <div className="mt-14 grid gap-10 lg:mt-20 lg:grid-cols-2 lg:gap-16">
