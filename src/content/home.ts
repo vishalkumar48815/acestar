@@ -6,19 +6,14 @@
 import type { NewsItem, Offering, Pillar, Stat, Testimonial } from "@/types/content";
 
 export const hero = {
-  badge: "Adobe's only Platinum Partner in Malaysia",
-  titleLines: ["Your best partner", "in ICT solutions."],
-  accentWord: "ICT solutions.",
-  lead: "An IT solutions provider in the region since 2008, specialising in creative software, high-performance computers and digital workflow management.",
-  primaryCta: { label: "Book a one-on-one session", href: "/contact?topic=consultation" },
-  secondaryCtaLabel: "WhatsApp us",
+  eyebrow: ["AI", "Software", "IT Solutions"],
+  /** Lines render as written; `accent` is the gradient tail of the headline. */
+  titleLines: ["Empowering", "Businesses to Achieve", "More with AI &", "Technology."],
+  accent: "AI & Technology.",
+  lead: "From AI solutions and enterprise software to digital workflows and IT infrastructure, Acestar helps businesses work smarter, grow faster and stay ahead.",
+  primaryCta: { label: "Explore Our Solutions", href: "#solutions" },
+  tagline: ["People", "Technology", "Possibilities"],
 };
-
-export const heroCards = [
-  { value: "813,000+", label: "Cloud licences deployed" },
-  { value: "70%+", label: "Malaysian higher-education institutions", sub: "served by Acestar" },
-  { value: "5,000+", label: "Organisations", sub: "education, enterprise, SME & public sector" },
-];
 
 export const stats: Stat[] = [
   { value: 813000, suffix: "+", label: "Cloud licences" },

@@ -10,18 +10,20 @@ import { themeInitScript } from "@/lib/theme";
 import "./globals.css";
 
 /* Self-hosted variable fonts (SIL Open Font License) — no runtime request to Google. */
-const display = localFont({
-  src: "../fonts/bricolage-grotesque-latin-wght.woff2",
-  weight: "200 800",
-  variable: "--font-bricolage",
+const sans = localFont({
+  src: "../fonts/inter-latin-wght.woff2",
+  weight: "100 900",
+  variable: "--font-inter",
   display: "swap",
 });
 
-const body = localFont({
-  src: "../fonts/manrope-latin-wght.woff2",
-  weight: "200 800",
-  variable: "--font-manrope",
+/* Handwritten accent used sparingly (hero tagline). */
+const script = localFont({
+  src: "../fonts/mrs-saint-delafield-latin-400.woff2",
+  weight: "400",
+  variable: "--font-script-face",
   display: "swap",
+  preload: false,
 });
 
 const mono = localFont({
@@ -65,7 +67,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en-MY" suppressHydrationWarning className={`${display.variable} ${body.variable} ${mono.variable}`}>
+    <html lang="en-MY" suppressHydrationWarning className={`${sans.variable} ${script.variable} ${mono.variable}`}>
       <head>
         {/* Runs before first paint: applies saved/system theme, no flash. */}
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />

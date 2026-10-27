@@ -2,17 +2,19 @@ import Link from "next/link";
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
-type Variant = "primary" | "glass" | "ghost";
+type Variant = "primary" | "gradient" | "glass" | "ghost";
 type Size = "md" | "lg";
 
 const base =
   "group/btn relative inline-flex items-center justify-center gap-2 rounded-2xl font-semibold whitespace-nowrap " +
-  "transition-[transform,box-shadow,background-color,color] duration-300 ease-out-expo " +
+  "transition-[transform,box-shadow,background-color,color,filter] duration-300 ease-out-expo " +
   "active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50 select-none";
 
 const variants: Record<Variant, string> = {
   primary:
     "bg-[var(--btn-primary-bg)] text-[var(--btn-primary-fg)] hover:-translate-y-0.5 hover:shadow-[var(--btn-primary-shadow)]",
+  gradient:
+    "rounded-full bg-[image:var(--btn-gradient)] text-white shadow-[var(--btn-gradient-shadow)] hover:-translate-y-0.5 hover:shadow-[0_20px_40px_-14px_rgb(91_84_240/0.9)]",
   glass: "glass text-fg hover:-translate-y-0.5",
   ghost: "text-fg hover:bg-brand-soft",
 };

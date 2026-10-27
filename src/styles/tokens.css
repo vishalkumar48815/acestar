@@ -39,8 +39,11 @@
   --aurora-3: rgb(184 198 255 / 0.55);
   --cursor-glow: rgb(24 128 232 / 0.16);
   --grid-line: transparent;
-  --accent-from: #1468c4;
-  --accent-to: #1f9be0;
+  --accent-from: #3b63f3;
+  --accent-to: #a24df0;
+  --ink: #0b1020; /* headline ink (new UI) */
+  --btn-gradient: linear-gradient(95deg, #3b63f3 0%, #6a5cf4 50%, #a24df0 100%);
+  --btn-gradient-shadow: 0 16px 34px -14px rgb(91 84 240 / 0.75);
 
   /* Feedback */
   --danger: #c4314b;
@@ -80,8 +83,9 @@
   --aurora-3: rgb(58 77 255 / 0.34);
   --cursor-glow: rgb(70 160 255 / 0.2);
   --grid-line: rgb(255 255 255 / 0.035);
-  --accent-from: #5fb2ff;
-  --accent-to: #a8e8ff;
+  --accent-from: #7c9bff;
+  --accent-to: #c88dff;
+  --ink: #f2f4fb;
 
   --danger: #ff7a8f;
   --success: #4fd1a1;
@@ -111,8 +115,9 @@
     --aurora-3: rgb(58 77 255 / 0.34);
     --cursor-glow: rgb(70 160 255 / 0.2);
     --grid-line: rgb(255 255 255 / 0.035);
-    --accent-from: #5fb2ff;
-    --accent-to: #a8e8ff;
+    --accent-from: #7c9bff;
+    --accent-to: #c88dff;
+    --ink: #f2f4fb;
     --danger: #ff7a8f;
     --success: #4fd1a1;
   }

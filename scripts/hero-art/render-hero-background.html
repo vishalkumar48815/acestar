@@ -1,0 +1,146 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style>html,body{margin:0;background:#fff}canvas{display:block}</style>
+<script type="importmap">{"imports":{"three":"./node_modules/three/build/three.module.js","three/addons/":"./node_modules/three/examples/jsm/"}}</script>
+</head><body>
+<script type="module">
+import * as THREE from "three";
+import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
+
+const q = new URLSearchParams(location.search);
+const W = +q.get("w") || 2400, H = +q.get("h") || 1200;
+const dark = q.get("theme") === "dark";
+
+/* ---------- 1. Pastel silk backdrop painted on a 2D canvas ---------- */
+function backdrop() {
+  const c = document.createElement("canvas"); c.width = W; c.height = H;
+  const g = c.getContext("2d");
+  const base = dark ? "#070b1a" : "#f8f8fe";
+  g.fillStyle = base; g.fillRect(0, 0, W, H);
+  const blob = (x, y, r, col, a) => {
+    const rg = g.createRadialGradient(x * W, y * H, 0, x * W, y * H, r * W);
+    rg.addColorStop(0, col.replace("A", a)); rg.addColorStop(1, col.replace("A", 0));
+    g.fillStyle = rg; g.fillRect(0, 0, W, H);
+  };
+  if (!dark) {
+    blob(0.80, 0.05, 0.42, "rgba(176,198,255,A)", 0.75);
+    blob(0.98, 0.55, 0.30, "rgba(196,184,255,A)", 0.6);
+    blob(0.66, 1.02, 0.36, "rgba(248,184,232,A)", 1);
+    blob(0.88, 0.70, 0.22, "rgba(232,190,250,A)", 0.7);
+    blob(0.45, 0.95, 0.30, "rgba(196,214,255,A)", 0.55);
+    blob(0.92, 0.95, 0.24, "rgba(220,190,255,A)", 0.55);
+  } else {
+    blob(0.80, 0.05, 0.42, "rgba(60,90,230,A)", 0.55);
+    blob(0.98, 0.55, 0.30, "rgba(110,70,230,A)", 0.45);
+    blob(0.66, 1.02, 0.36, "rgba(200,70,190,A)", 0.4);
+    blob(0.45, 0.95, 0.30, "rgba(40,100,230,A)", 0.35);
+  }
+  /* sweeping silk folds */
+  g.save();
+  g.filter = `blur(${Math.round(W * 0.012)}px)`;
+  const fold = (pts, w, c1, c2) => {
+    const lg = g.createLinearGradient(pts[0][0] * W, pts[0][1] * H, pts[3][0] * W, pts[3][1] * H);
+    lg.addColorStop(0, c1); lg.addColorStop(0.5, c2); lg.addColorStop(1, c1);
+    g.strokeStyle = lg; g.lineWidth = w * W; g.lineCap = "round";
+    g.beginPath(); g.moveTo(pts[0][0] * W, pts[0][1] * H);
+    g.bezierCurveTo(pts[1][0] * W, pts[1][1] * H, pts[2][0] * W, pts[2][1] * H, pts[3][0] * W, pts[3][1] * H);
+    g.stroke();
+  };
+  const L = dark
+    ? ["rgba(120,140,255,0)", "rgba(120,140,255,0.22)", "rgba(230,110,220,0.2)", "rgba(255,255,255,0.08)"]
+    : ["rgba(255,255,255,0)", "rgba(255,255,255,0.85)", "rgba(240,170,230,0.8)", "rgba(165,188,255,0.8)"];
+  fold([[0.40, 1.10], [0.62, 0.70], [0.80, 0.55], [1.10, 0.10]], 0.09, L[0], L[1]);
+  fold([[0.62, 1.15], [0.78, 0.86], [0.92, 0.80], [1.12, 0.62]], 0.12, L[0], L[2]);
+  fold([[0.52, 1.10], [0.70, 0.80], [0.86, 0.62], [1.10, 0.48]], 0.07, L[0], L[2]);
+  fold([[0.58, -0.10], [0.70, 0.30], [0.90, 0.36], [1.10, 0.20]], 0.06, L[0], L[3]);
+  fold([[0.30, 1.05], [0.55, 0.88], [0.80, 0.98], [1.10, 0.86]], 0.04, L[0], L[1]);
+  g.restore();
+  /* keep the left (copy) side calm */
+  const portrait = H > W;
+  const fade = portrait ? g.createLinearGradient(0, H, 0, H * 0.35) : g.createLinearGradient(0, 0, W * 0.6, 0);
+  const b = dark ? "7,11,26" : "248,248,254";
+  fade.addColorStop(0, `rgba(${b},1)`); fade.addColorStop(0.55, `rgba(${b},0.85)`); fade.addColorStop(1, `rgba(${b},0)`);
+  g.fillStyle = fade; g.fillRect(0, 0, W, H);
+  /* fine grain so gradients don't band */
+  const img = g.getImageData(0, 0, W, H), d = img.data;
+  for (let i = 0; i < d.length; i += 4) { const n = (Math.random() - 0.5) * 5; d[i] += n; d[i + 1] += n; d[i + 2] += n; }
+  g.putImageData(img, 0, 0);
+  return c;
+}
+
+/* ---------- 2. Glass ribbon geometry ---------- */
+function ribbon({ R = 1, width = 0.5, thick = 0.08, twist0 = 0, halfTwists = 0, wobble = 0.05, seg = 480, ring = 64 }) {
+  const pos = [], idx = [];
+  const se = (v, p) => Math.sign(v) * Math.pow(Math.abs(v), p);
+  for (let i = 0; i < seg; i++) {
+    const u = (i / seg) * Math.PI * 2;
+    const r = R * (1 + wobble * Math.sin(2 * u + 0.7));
+    const C = new THREE.Vector3(r * Math.cos(u), r * Math.sin(u), wobble * 0.8 * Math.sin(3 * u));
+    const n = new THREE.Vector3(Math.cos(u), Math.sin(u), 0), b = new THREE.Vector3(0, 0, 1);
+    const tw = twist0 + (halfTwists * u) / 2;
+    const w = width * (0.82 + 0.18 * Math.cos(u * 2 + 1.2)); // band swells and narrows
+    const D = b.clone().multiplyScalar(Math.cos(tw)).addScaledVector(n, Math.sin(tw));
+    const E = b.clone().multiplyScalar(-Math.sin(tw)).addScaledVector(n, Math.cos(tw));
+    for (let j = 0; j < ring; j++) {
+      const v = (j / ring) * Math.PI * 2;
+      const p = C.clone().addScaledVector(D, (w / 2) * se(Math.cos(v), 0.5)).addScaledVector(E, (thick / 2) * se(Math.sin(v), 0.6));
+      pos.push(p.x, p.y, p.z);
+    }
+  }
+  const shift = (halfTwists % 2) ? ring / 2 : 0;
+  for (let i = 0; i < seg; i++) for (let j = 0; j < ring; j++) {
+    const i2 = (i + 1) % seg, wrap = i2 === 0;
+    const a = i * ring + j, b2 = i * ring + ((j + 1) % ring);
+    const c = i2 * ring + ((j + (wrap ? shift : 0)) % ring), d = i2 * ring + ((j + 1 + (wrap ? shift : 0)) % ring);
+    idx.push(a, c, b2, b2, c, d);
+  }
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3));
+  geo.setIndex(idx); geo.computeVertexNormals();
+  return geo;
+}
+
+/* ---------- 3. Scene ---------- */
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.setPixelRatio(1); renderer.setSize(W, H);
+renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = dark ? 1.0 : 1.05;
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+document.body.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+const bgTex = new THREE.CanvasTexture(backdrop()); bgTex.colorSpace = THREE.SRGBColorSpace;
+scene.background = bgTex;
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.03).texture;
+scene.environmentIntensity = dark ? 0.8 : 1.0;
+
+const cam = new THREE.PerspectiveCamera(26, W / H, 0.1, 100);
+cam.position.set(0, 0, +(q.get("z") || 12)); cam.lookAt(0, 0, 0);
+
+const glass = (tint) => new THREE.MeshPhysicalMaterial({
+  color: 0xffffff, metalness: 0, roughness: 0.04, transmission: 1, thickness: 1.0, ior: 1.42,
+  attenuationColor: new THREE.Color(tint), attenuationDistance: 1.7,
+  iridescence: 1, iridescenceIOR: 1.35, iridescenceThicknessRange: [180, 620],
+  clearcoat: 1, clearcoatRoughness: 0.03, specularIntensity: 1, envMapIntensity: 1.3,
+  dispersion: 3, side: THREE.DoubleSide,
+});
+
+const group = new THREE.Group();
+const ringA = new THREE.Mesh(ribbon({ R: 1.75, width: 1.15, thick: 0.3, twist0: 0.15, wobble: 0.06 }), glass("#6f8fff"));
+ringA.rotation.set(-0.85, 0.55, 0.35);
+const ringB = new THREE.Mesh(ribbon({ R: 1.62, width: 0.5, thick: 0.2, twist0: 1.3, halfTwists: 1, wobble: 0.07 }), glass("#b07cff"));
+ringB.rotation.set(0.35, -1.05, 1.05);
+group.add(ringA, ringB);
+group.position.set(+(q.get("x") || 2.05), +(q.get("y") || 0.12), 0);
+group.rotation.z = -0.15;
+scene.add(group);
+
+/* coloured rim lights tint the glass edges blue/pink like the mockup */
+const l1 = new THREE.PointLight(0x5f7dff, 60, 0, 2); l1.position.set(4, 3, 3);
+const l2 = new THREE.PointLight(0xff7ad0, 45, 0, 2); l2.position.set(0, -3, 2.5);
+const l3 = new THREE.DirectionalLight(0xffffff, 1.2); l3.position.set(-2, 4, 5);
+scene.add(l1, l2, l3);
+
+renderer.render(scene, cam);
+renderer.render(scene, cam);
+window.__done = true;
+</script></body></html>

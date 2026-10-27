@@ -17,8 +17,11 @@
   --color-danger: var(--danger);
   --color-success: var(--success);
 
-  --font-display: var(--font-bricolage), "Avenir Next", system-ui, sans-serif;
-  --font-sans: var(--font-manrope), "Segoe UI", system-ui, sans-serif;
+  --color-ink: var(--ink);
+
+  --font-display: var(--font-inter), "Helvetica Neue", system-ui, sans-serif;
+  --font-sans: var(--font-inter), "Helvetica Neue", system-ui, sans-serif;
+  --font-script: var(--font-script-face), "Brush Script MT", cursive;
   --font-mono: var(--font-jetbrains), ui-monospace, Menlo, monospace;
 
   --ease-out-expo: var(--ease-out);
@@ -180,6 +183,61 @@ html.lenis body {
     linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
   background-size: 56px 56px;
   mask-image: linear-gradient(to bottom, #000 0%, transparent 80%);
+}
+
+/* ---------- Home hero artwork ----------
+ * CSS backgrounds (not <img>) so only the variant for the current theme + viewport downloads.
+ * Portrait art below 64rem (phones, portrait tablets), wide art above.
+ */
+.hero-art {
+  background-color: #f8f8fe;
+  background-image: url("/images/hero/hero-mobile-light.webp");
+  background-size: 100% auto;
+  background-position: top center;
+  background-repeat: no-repeat;
+}
+:root[data-theme="dark"] .hero-art {
+  background-color: #070b1a;
+  background-image: url("/images/hero/hero-mobile-dark.webp");
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .hero-art {
+    background-color: #070b1a;
+    background-image: url("/images/hero/hero-mobile-dark.webp");
+  }
+}
+@media (width >= 64rem) {
+  .hero-art {
+    background-image: url("/images/hero/hero-light.webp");
+    background-size: cover;
+    background-position: 68% center;
+  }
+  :root[data-theme="dark"] .hero-art {
+    background-image: url("/images/hero/hero-dark.webp");
+  }
+}
+@media (width >= 64rem) and (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .hero-art {
+    background-image: url("/images/hero/hero-dark.webp");
+  }
+}
+@keyframes hero-art-in {
+  from {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes ink-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 /* ---------- Line reveal (hero headline) ---------- */
