@@ -41,8 +41,10 @@ const PAGES = [
   "/return-and-refund-policy/",
   "/delivery-policy/",
 ];
+// Stop only where the extension is followed by a delimiter, so "logo.svg.png" and paths with
+// "(" or "," (e.g. "Adobe Live (1080p, h264).mp4") are captured whole.
 const MEDIA_RE =
-  /(?:https?:)?(?:\\?\/\\?\/acestar\.my)?\\?\/wp-content\\?\/uploads\\?\/[^"'\s)<>,]+?\.(?:png|jpe?g|gif|webp|avif|svg|ico|mp4|webm|pdf)/gi;
+  /(?:https?:)?(?:\\?\/\\?\/acestar\.my)?\\?\/wp-content\\?\/uploads\\?\/[^"'\s<>]+?\.(?:png|jpe?g|gif|webp|avif|svg|ico|mp4|webm|pdf)(?=["'\s<>?#)]|&quot;|$)/gi;
 const CONCURRENCY = 6;
 const UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_0) AcestarLegacyImport/1.0";
 
@@ -130,7 +132,7 @@ async function main() {
     failed = 0;
   await pool([...targets.values()], async (t) => {
     for (const candidate of t.candidates) {
-      const rel = candidate.replace(`${ORIGIN}/wp-content/uploads/`, "");
+      const rel = decodeURIComponent(candidate.replace(`${ORIGIN}/wp-content/uploads/`, ""));
       const file = path.join(ROOT, "assets", rel);
       try {
         if (await exists(file)) {

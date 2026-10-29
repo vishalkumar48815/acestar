@@ -8,6 +8,9 @@ import { useEffect } from "react";
  * Server Components only add the attribute, so scroll reveals ship almost no JS.
  * Content is only hidden when <html class="js"> is set (see theme script), so the
  * page is fully visible without JavaScript or with reduced motion.
+ *
+ * Elements can be revealed before React hydrates their segment, so every `data-reveal`
+ * element also carries `suppressHydrationWarning` (the attribute added here is expected).
  */
 export function RevealObserver() {
   const pathname = usePathname();

@@ -1,6 +1,7 @@
 import { ArrowRight } from "@/components/ui/icons";
 import { ButtonLink } from "@/components/ui/button";
 import { hero } from "@/content/home";
+import { HeroBackdrop } from "./hero-backdrop";
 
 /** Staggered entrance driven by CSS only, so the hero paints without waiting for JavaScript. */
 const enter = (delay: number) => ({ animation: `fade-up 0.9s var(--ease-out) ${delay}ms both` });
@@ -16,16 +17,10 @@ function splitLine(line: string) {
 }
 
 export function Hero() {
-  const lastLine = hero.titleLines.length - 1;
-
   return (
     <section aria-labelledby="hero-title" className="relative isolate overflow-hidden">
-      {/* Rendered glass-ribbon artwork (light/dark × wide/portrait, see .hero-art in globals.css) */}
-      <div
-        aria-hidden="true"
-        className="hero-art absolute inset-0 -z-20"
-        style={{ animation: "hero-art-in 1.6s var(--ease-out) both" }}
-      />
+      {/* Glass-ribbon artwork: still render first, then the motion loop + neural field */}
+      <HeroBackdrop />
       {/* Melt the artwork into the page background */}
       <div
         aria-hidden="true"
@@ -61,21 +56,7 @@ export function Hero() {
                   <span className="block" style={{ animation: `line-up 1s var(--ease-out) ${120 + i * 100}ms both` }}>
                     {plain}
                     {plain && accent && " "}
-                    {accent && (
-                      <span
-                        className="text-gradient"
-                        style={
-                          i === lastLine
-                            ? undefined
-                            : {
-                                backgroundImage:
-                                  "linear-gradient(95deg, var(--accent-from), color-mix(in oklab, var(--accent-from) 72%, var(--accent-to)))",
-                              }
-                        }
-                      >
-                        {accent}
-                      </span>
-                    )}
+                    {accent && <span className="text-gradient-live">{accent}</span>}
                   </span>
                 </span>
               );

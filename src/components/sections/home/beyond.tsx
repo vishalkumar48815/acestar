@@ -27,6 +27,7 @@ export function Beyond() {
               >
                 <article
                   data-reveal
+                  suppressHydrationWarning
                   style={{ ["--reveal-delay" as string]: `${i * 100}ms` }}
                   className={cn("relative flex h-full flex-col gap-4 p-7 sm:p-9", featured && "lg:justify-end lg:p-11")}
                 >

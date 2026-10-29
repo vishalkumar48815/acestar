@@ -38,7 +38,7 @@ export function Voices() {
   return (
     <section ref={sectionRef} aria-labelledby="voices-title" className="relative py-14 md:py-20">
       <div className="container-page grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-14">
-        <div data-reveal className="flex flex-col gap-6">
+        <div data-reveal suppressHydrationWarning className="flex flex-col gap-6">
           <span className="text-eyebrow text-brand-ink">In their words</span>
           <h2 id="voices-title" className="text-title">
             Client testimonials
@@ -50,6 +50,7 @@ export function Voices() {
 
         <div
           data-reveal
+          suppressHydrationWarning
           style={{ ["--reveal-delay" as string]: "120ms" }}
           className="relative flex flex-col gap-8 rounded-[2rem] p-7 glass sm:p-10"
           onMouseEnter={() => setPaused(true)}

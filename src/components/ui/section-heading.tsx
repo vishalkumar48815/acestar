@@ -14,6 +14,7 @@ export function SectionHeading({ eyebrow, title, lead, align = "start", classNam
   return (
     <div
       data-reveal
+      suppressHydrationWarning
       className={cn(
         "flex max-w-2xl flex-col gap-4",
         align === "center" && "mx-auto items-center text-center",

@@ -41,10 +41,13 @@ export const site = {
   },
 
   social: [
-    { label: "LinkedIn", href: "https://www.linkedin.com/company/acestar.my" },
-    { label: "Instagram", href: "https://www.instagram.com/acestarmy/" },
-    { label: "Facebook", href: "https://www.facebook.com/acestar.my" },
+    { label: "LinkedIn", network: "linkedin", href: "https://www.linkedin.com/company/acestar.my" },
+    { label: "Facebook", network: "facebook", href: "https://www.facebook.com/acestar.my" },
+    { label: "Instagram", network: "instagram", href: "https://www.instagram.com/acestarmy/" },
   ],
+
+  /** Footer strapline from the new design. */
+  footerTagline: "Your Technology Partner for a Smarter Tomorrow.",
 
   whatsappGreeting: "Hi Acestar, I'd like to talk about IT solutions for my team.",
 } as const;

@@ -74,7 +74,7 @@ export function Campaigns() {
   return (
     <section ref={ref} aria-labelledby="campaigns-title" className="relative py-8 md:py-12">
       <div className="container-page">
-        <div className="mb-8 flex items-end justify-between gap-6" data-reveal>
+        <div className="mb-8 flex items-end justify-between gap-6" data-reveal suppressHydrationWarning>
           <div className="flex flex-col gap-3">
             <span className="text-eyebrow text-brand-ink">What&apos;s on</span>
             <h2 id="campaigns-title" className="text-heading">
@@ -110,6 +110,7 @@ export function Campaigns() {
           onFocusCapture={() => setPaused(true)}
           onBlurCapture={() => setPaused(false)}
           data-reveal
+          suppressHydrationWarning
           className="relative overflow-hidden rounded-[1.75rem] p-1.5 glass md:rounded-[2.25rem] md:p-2"
         >
           <div className="relative aspect-[4/5] overflow-hidden rounded-[1.4rem] bg-bg-elevated md:aspect-[1920/996] md:rounded-[1.85rem]">

@@ -8,7 +8,7 @@ export function Proof() {
   return (
     <section aria-labelledby="proof-title" className="relative py-10 md:py-14">
       <div className="container-page">
-        <h2 id="proof-title" className="text-center text-eyebrow text-fg-subtle" data-reveal>
+        <h2 id="proof-title" className="text-center text-eyebrow text-fg-subtle" data-reveal suppressHydrationWarning>
           Some of our clients &amp; key partners
         </h2>
       </div>
@@ -24,6 +24,7 @@ export function Proof() {
             <div
               key={stat.label}
               data-reveal
+              suppressHydrationWarning
               style={{ ["--reveal-delay" as string]: `${i * 90}ms` }}
               className="flex flex-col-reverse gap-2 border-line px-4 text-center first:border-l-0 sm:px-6 lg:border-l"
             >

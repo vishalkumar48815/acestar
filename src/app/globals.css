@@ -86,6 +86,24 @@
   color: transparent;
 }
 
+/* Slowly panning brand gradient for the hero accent words */
+@utility text-gradient-live {
+  background-image: linear-gradient(
+    100deg,
+    var(--accent-from) 0%,
+    var(--accent-to) 35%,
+    var(--accent-from) 70%,
+    var(--accent-to) 100%
+  );
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  animation: gradient-pan 7s ease-in-out infinite alternate;
+}
+
 @utility container-page {
   width: 100%;
   max-width: 76rem;
@@ -229,6 +247,22 @@ html.lenis body {
   to {
     opacity: 1;
     transform: none;
+  }
+}
+@keyframes gradient-pan {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 100% 50%;
+  }
+}
+@keyframes cta-wave {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-4%, 3%, 0);
   }
 }
 @keyframes ink-draw {

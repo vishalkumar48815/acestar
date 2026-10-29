@@ -4,17 +4,25 @@ export const solutionLinks: NavLink[] = [
   {
     label: "Creative software",
     href: "/solutions/creative-software",
-    description: "Adobe Creative Cloud & Autodesk",
+    description: "Adobe, Autodesk, Resolume & Boris FX",
+    sub: [{ label: "Adobe Creative Cloud Pro", href: "/solutions/creative-software/adobe-creative-cloud-pro" }],
   },
   {
-    label: "Workstations",
+    label: "High performance computers",
     href: "/solutions/workstations",
-    description: "Apple, HP, Lenovo & Dell",
+    description: "Apple, HP, Lenovo, Dell & Asus",
+    sub: [{ label: "Apple Solution", href: "/solutions/workstations/apple" }],
   },
   {
     label: "Digital workflow",
     href: "/solutions/digital-workflow",
-    description: "Acrobat Sign, Microsoft 365 & Zoom",
+    description: "Document Cloud, Microsoft 365 & Zoom",
+    sub: [{ label: "Adobe Acrobat", href: "/solutions/digital-workflow/adobe-acrobat" }],
+  },
+  {
+    label: "TechCare",
+    href: "/techcare",
+    description: "IT as a Service subscription",
   },
 ];
 
@@ -26,8 +34,23 @@ export const mainNav: NavItem[] = [
   { label: "Careers", href: "/careers" },
 ];
 
+/** Footer columns in the new design. */
+export const footerColumns: { title: string; links: NavLink[] }[] = [
+  {
+    title: "Solutions",
+    links: [
+      { label: "AI Solutions", href: "/solutions/ai" },
+      { label: "Creative Software", href: "/solutions/creative-software" },
+      { label: "High Performance Computers", href: "/solutions/workstations" },
+      { label: "Digital Workflow", href: "/solutions/digital-workflow" },
+      { label: "TechCare", href: "/techcare" },
+    ],
+  },
+  { title: "Company", links: [{ label: "About Us", href: "/about" }] },
+];
+
 export const footerNav: { title: string; links: NavLink[] }[] = [
-  { title: "Solutions", links: [...solutionLinks, { label: "TechCare", href: "/techcare" }] },
+  { title: "Solutions", links: solutionLinks },
   {
     title: "Company",
     links: [

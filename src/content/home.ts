@@ -15,6 +15,70 @@ export const hero = {
   tagline: ["People", "Technology", "Possibilities"],
 };
 
+/** "Our Solutions" cards (copy from the new design; product lines from acestar.my). */
+export const solutions = {
+  eyebrow: "Our Solutions",
+  title: "From AI to IT, We Help You Do More",
+  items: [
+    {
+      key: "ai",
+      title: "AI Solutions",
+      body: "Practical AI solutions and agents to improve productivity and grow your business.",
+      href: "/solutions/ai",
+      image: { src: "/images/solutions/ai.webp", width: 426, height: 438 },
+    },
+    {
+      key: "creative",
+      title: "Creative Software",
+      body: "Adobe creative, design and marketing solutions for modern teams.",
+      href: "/solutions/creative-software",
+      image: { src: "/images/solutions/creative.webp", width: 398, height: 440 },
+    },
+    {
+      key: "computers",
+      title: "High Performance Computers",
+      body: "Apple, HP and Lenovo devices and workstations for professional work.",
+      href: "/solutions/workstations",
+      image: { src: "/images/solutions/computers.webp", width: 640, height: 415 },
+    },
+    {
+      key: "workflow",
+      title: "Digital Workflow Management",
+      body: "Adobe Acrobat and e-sign solutions to streamline your business processes.",
+      href: "/solutions/digital-workflow",
+      image: { src: "/images/solutions/doc.webp", width: 403, height: 516 },
+    },
+    {
+      key: "techcare",
+      title: "TechCare",
+      body: "IT as a Service with flexible laptop subscription for businesses.",
+      href: "/techcare",
+      image: { src: "/images/solutions/laptop.webp", width: 640, height: 517 },
+    },
+  ],
+} as const;
+
+/** "Technology Partners" strip — official partner badges from acestar.my. */
+export const partners = {
+  eyebrow: "Trusted by Businesses",
+  title: ["Technology Partners", "You Can Count On"],
+  lead: "We work with global technology leaders to bring the right solutions for your business.",
+  logos: [
+    { name: "Adobe Platinum Reseller", src: "/images/partners/adobe.webp", mono: true },
+    { name: "Microsoft 365", src: "/images/partners/microsoft.webp", mono: true },
+    { name: "Apple Authorised Reseller", src: "/images/partners/apple.webp", mono: true },
+    { name: "HP", src: "/images/partners/hp.webp", mono: false },
+    { name: "Lenovo", src: "/images/partners/lenovo.webp", mono: false },
+  ],
+};
+
+export const closingCta = {
+  eyebrow: "Let’s Work Together",
+  title: "Let’s Build What’s Next",
+  body: "Talk to our team and discover how AI and technology can create real value for your business.",
+  cta: { label: "Contact Us", href: "/contact" },
+};
+
 export const stats: Stat[] = [
   { value: 813000, suffix: "+", label: "Cloud licences" },
   { value: 5000, suffix: "+", label: "Organisations" },

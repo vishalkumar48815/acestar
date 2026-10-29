@@ -3,6 +3,8 @@ export type NavLink = {
   href: string;
   description?: string;
   external?: boolean;
+  /** Inner pages shown nested under this link in the Solutions dropdown. */
+  sub?: NavLink[];
 };
 
 export type NavItem = NavLink & {

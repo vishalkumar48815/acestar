@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
 import { mainNav } from "@/content/navigation";
+import type { NavLink } from "@/types/content";
 import { site } from "@/content/site";
 import { cn, whatsappLink } from "@/lib/utils";
 import { ThemeSegmented } from "./theme-toggle";
@@ -56,7 +57,10 @@ export function MobileNav({ open, onClose }: Props) {
     };
   }, [open, onClose]);
 
-  const links = mainNav.flatMap((item) => (item.children ? item.children : [item]));
+  // TechCare sits in the Solutions group and in the top bar; list it once here.
+  const links = mainNav
+    .flatMap((item) => (item.children ? item.children : [item]))
+    .filter((link, i, all) => all.findIndex((l) => l.href === link.href) === i);
 
   return (
     <div
@@ -90,7 +94,7 @@ export function MobileNav({ open, onClose }: Props) {
 
       <nav aria-label="Mobile" className="container-page mt-6 flex-1">
         <ul className="flex flex-col">
-          {[...links, { label: "Contact", href: "/contact" }].map((link, index) => (
+          {[...links, { label: "Contact", href: "/contact" } as NavLink].map((link, index) => (
             <li
               key={link.href}
               className={cn(
@@ -110,6 +114,25 @@ export function MobileNav({ open, onClose }: Props) {
                   →
                 </span>
               </Link>
+              {link.sub?.length ? (
+                <ul className="-mt-1 flex flex-wrap gap-2 pb-4">
+                  {link.sub.map((sub) => (
+                    <li key={sub.href}>
+                      <Link
+                        href={sub.href}
+                        onClick={onClose}
+                        aria-current={pathname === sub.href ? "page" : undefined}
+                        className="inline-flex min-h-11 items-center gap-1.5 rounded-full px-4 text-[0.9375rem] font-medium text-fg-muted glass"
+                      >
+                        <span aria-hidden="true" className="text-brand-ink">
+                          ↳
+                        </span>
+                        {sub.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
             </li>
           ))}
         </ul>

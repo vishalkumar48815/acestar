@@ -36,7 +36,7 @@ export function Pillars() {
   return (
     <section id="solutions" aria-labelledby="pillars-title" className="relative py-14 md:py-20">
       <div className="container-page">
-        <div data-reveal className="flex max-w-2xl flex-col gap-4">
+        <div data-reveal suppressHydrationWarning className="flex max-w-2xl flex-col gap-4">
           <span className="text-eyebrow text-brand-ink">{specializations.eyebrow}</span>
           <h2 id="pillars-title" className="text-title">
             {specializations.title}

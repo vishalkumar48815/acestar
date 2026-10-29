@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "import:legacy": "node scripts/import-legacy-site.mjs",
-    "media:build": "node scripts/build-media.mjs"
+    "media:build": "node scripts/build-media.mjs",
+    "media:solutions": "node scripts/build-solution-media.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.9.1",

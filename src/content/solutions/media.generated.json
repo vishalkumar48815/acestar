@@ -1,0 +1,717 @@
+{
+  "2021/11/adobe_sign.png": {
+    "src": "/images/pages/icons/2021-11-adobe-sign.webp",
+    "width": 192,
+    "height": 187
+  },
+  "2021/11/antivirus-RB.png": {
+    "src": "/images/pages/icons/2021-11-antivirus-rb.webp",
+    "width": 169,
+    "height": 169
+  },
+  "2021/11/Apple-Mac-Propng1.png": {
+    "src": "/images/pages/products/2021-11-apple-mac-propng1.webp",
+    "width": 700,
+    "height": 525
+  },
+  "2021/11/deep_freezw-removebg-preview-1.png": {
+    "src": "/images/pages/icons/2021-11-deep-freezw-removebg-preview-1.webp",
+    "width": 169,
+    "height": 169
+  },
+  "2021/11/Dell-Latitude_8xsmall.png": {
+    "src": "/images/pages/products/2021-11-dell-latitude-8xsmall.webp",
+    "width": 573,
+    "height": 430
+  },
+  "2021/11/Dell-Precision-Mobile-Workstations_6xsmall.png": {
+    "src": "/images/pages/products/2021-11-dell-precision-mobile-workstations-6xsmall.webp",
+    "width": 573,
+    "height": 430
+  },
+  "2021/11/Dell-XPS-laptops_6xsmall.png": {
+    "src": "/images/pages/products/2021-11-dell-xps-laptops-6xsmall.webp",
+    "width": 573,
+    "height": 430
+  },
+  "2021/11/deploy.png": {
+    "src": "/images/pages/icons/2021-11-deploy.webp",
+    "width": 169,
+    "height": 169
+  },
+  "2021/11/HP-Elite-Dragonfly-Series.png": {
+    "src": "/images/pages/products/2021-11-hp-elite-dragonfly-series.webp",
+    "width": 573,
+    "height": 430
+  },
+  "2021/11/HP-Elite-X360-series.webp": {
+    "src": "/images/pages/products/2021-11-hp-elite-x360-series.webp",
+    "width": 760,
+    "height": 504
+  },
+  "2021/11/HP-Elitebook-series.png": {
+    "src": "/images/pages/products/2021-11-hp-elitebook-series.webp",
+    "width": 320,
+    "height": 240
+  },
+  "2021/11/HP-Probook-series.png": {
+    "src": "/images/pages/products/2021-11-hp-probook-series.webp",
+    "width": 606,
+    "height": 391
+  },
+  "2021/11/HP-Zbook-mobile-workstation-series.webp": {
+    "src": "/images/pages/products/2021-11-hp-zbook-mobile-workstation-series.webp",
+    "width": 700,
+    "height": 525
+  },
+  "2021/11/iMac.png": {
+    "src": "/images/pages/products/2021-11-imac.webp",
+    "width": 760,
+    "height": 316
+  },
+  "2021/11/Lenovo-Thinkpad-P-series.webp": {
+    "src": "/images/pages/products/2021-11-lenovo-thinkpad-p-series.webp",
+    "width": 760,
+    "height": 572
+  },
+  "2021/11/Lenovo-Thinkpad-T-series.webp": {
+    "src": "/images/pages/products/2021-11-lenovo-thinkpad-t-series.webp",
+    "width": 760,
+    "height": 502
+  },
+  "2021/11/Lenovo-Thinkpad-X1-Carbon.webp": {
+    "src": "/images/pages/products/2021-11-lenovo-thinkpad-x1-carbon.webp",
+    "width": 725,
+    "height": 515
+  },
+  "2021/11/MacBook-Air.png": {
+    "src": "/images/pages/products/2021-11-macbook-air.webp",
+    "width": 760,
+    "height": 228
+  },
+  "2021/11/Macbook-Pro.png": {
+    "src": "/images/pages/products/2021-11-macbook-pro.webp",
+    "width": 760,
+    "height": 475
+  },
+  "2021/11/mdm-RB.png": {
+    "src": "/images/pages/icons/2021-11-mdm-rb.webp",
+    "width": 169,
+    "height": 169
+  },
+  "2021/11/Microsoft_Excel.png": {
+    "src": "/images/pages/icons/2021-11-microsoft-excel.webp",
+    "width": 192,
+    "height": 192
+  },
+  "2021/11/Microsoft_Onedrive.png": {
+    "src": "/images/pages/icons/2021-11-microsoft-onedrive.webp",
+    "width": 192,
+    "height": 192
+  },
+  "2021/11/Microsoft_Outlook.png": {
+    "src": "/images/pages/icons/2021-11-microsoft-outlook.webp",
+    "width": 192,
+    "height": 192
+  },
+  "2021/11/Microsoft_Powerpoint.png": {
+    "src": "/images/pages/icons/2021-11-microsoft-powerpoint.webp",
+    "width": 192,
+    "height": 192
+  },
+  "2021/11/Microsoft_Sharepoint.png": {
+    "src": "/images/pages/icons/2021-11-microsoft-sharepoint.webp",
+    "width": 192,
+    "height": 192
+  },
+  "2021/11/Microsoft_Teams.png": {
+    "src": "/images/pages/icons/2021-11-microsoft-teams.webp",
+    "width": 192,
+    "height": 192
+  },
+  "2021/11/Microsoft_Word.png": {
+    "src": "/images/pages/icons/2021-11-microsoft-word.webp",
+    "width": 192,
+    "height": 192
+  },
+  "2021/11/PowerSaveLogo.png": {
+    "src": "/images/pages/icons/2021-11-powersavelogo.webp",
+    "width": 169,
+    "height": 169
+  },
+  "2021/12/Apple-Background.png": {
+    "src": "/images/pages/wide/2021-12-apple-background.webp",
+    "width": 1600,
+    "height": 325
+  },
+  "2021/12/Dell-Background.png": {
+    "src": "/images/pages/wide/2021-12-dell-background.webp",
+    "width": 1600,
+    "height": 324
+  },
+  "2021/12/Digital-Workflow-Background.png": {
+    "src": "/images/pages/wide/2021-12-digital-workflow-background.webp",
+    "width": 1600,
+    "height": 646
+  },
+  "2021/12/Faronics-Background.png": {
+    "src": "/images/pages/wide/2021-12-faronics-background.webp",
+    "width": 1600,
+    "height": 324
+  },
+  "2021/12/High-Performance-Computers-Background.png": {
+    "src": "/images/pages/hero/2021-12-high-performance-computers-background.webp",
+    "width": 1920,
+    "height": 775
+  },
+  "2021/12/HP-Background.png": {
+    "src": "/images/pages/wide/2021-12-hp-background.webp",
+    "width": 1600,
+    "height": 324
+  },
+  "2021/12/Lenovo-Background.png": {
+    "src": "/images/pages/wide/2021-12-lenovo-background.webp",
+    "width": 1600,
+    "height": 324
+  },
+  "2021/12/Microsoft365-Background.png": {
+    "src": "/images/pages/wide/2021-12-microsoft365-background.webp",
+    "width": 1600,
+    "height": 326
+  },
+  "2021/12/Saleslive-Background.png": {
+    "src": "/images/pages/wide/2021-12-saleslive-background.webp",
+    "width": 1600,
+    "height": 324
+  },
+  "2021/12/Video-Conferencing-Solution-Background.jpg": {
+    "src": "/images/pages/wide/2021-12-video-conferencing-solution-background.webp",
+    "width": 1600,
+    "height": 324
+  },
+  "2021/12/zoom.png": {
+    "src": "/images/pages/logos/2021-12-zoom.webp",
+    "width": 480,
+    "height": 270
+  },
+  "2022/09/Baneer-adobe-document.jpg": {
+    "src": "/images/pages/wide/2022-09-baneer-adobe-document.webp",
+    "width": 1600,
+    "height": 329
+  },
+  "2022/09/Jabra_Logo.png": {
+    "src": "/images/pages/logos/2022-09-jabra-logo.webp",
+    "width": 480,
+    "height": 163
+  },
+  "2023/10/BANNER-ASUS.png": {
+    "src": "/images/pages/wide/2023-10-banner-asus.webp",
+    "width": 1600,
+    "height": 329
+  },
+  "2025/07/Asset-42x.png": {
+    "src": "/images/pages/products/2025-07-asset-42x.webp",
+    "width": 760,
+    "height": 760
+  },
+  "2025/07/Asset-52x.png": {
+    "src": "/images/pages/products/2025-07-asset-52x.webp",
+    "width": 760,
+    "height": 760
+  },
+  "2025/07/Asset-62x.png": {
+    "src": "/images/pages/products/2025-07-asset-62x.webp",
+    "width": 760,
+    "height": 761
+  },
+  "2025/07/Asset-72x-optimized.png": {
+    "src": "/images/pages/photos/2025-07-asset-72x-optimized.webp",
+    "width": 1200,
+    "height": 677
+  },
+  "2025/07/Untitled-1-02-1.jpg": {
+    "src": "/images/pages/photos/2025-07-untitled-1-02-1.webp",
+    "width": 1200,
+    "height": 1250
+  },
+  "2025/07/Website-Techcare-01-01-01-1.jpg": {
+    "src": "/images/pages/wide/2025-07-website-techcare-01-01-01-1.webp",
+    "width": 1600,
+    "height": 831
+  },
+  "2025/09/ALL-LOGO-19.png": {
+    "src": "/images/pages/icons/2025-09-all-logo-19.webp",
+    "width": 175,
+    "height": 170
+  },
+  "2025/09/ALL-LOGO-23.png": {
+    "src": "/images/pages/icons/2025-09-all-logo-23.webp",
+    "width": 175,
+    "height": 170
+  },
+  "2025/09/ALL-LOGO-29.png": {
+    "src": "/images/pages/icons/2025-09-all-logo-29.webp",
+    "width": 175,
+    "height": 170
+  },
+  "2025/09/ALL-LOGO-30.png": {
+    "src": "/images/pages/icons/2025-09-all-logo-30.webp",
+    "width": 175,
+    "height": 170
+  },
+  "2025/09/ALL-LOGO-31.png": {
+    "src": "/images/pages/icons/2025-09-all-logo-31.webp",
+    "width": 175,
+    "height": 170
+  },
+  "2025/09/ALL-LOGO-32.png": {
+    "src": "/images/pages/icons/2025-09-all-logo-32.webp",
+    "width": 175,
+    "height": 170
+  },
+  "2025/09/ALL-LOGO.png": {
+    "src": "/images/pages/icons/2025-09-all-logo.webp",
+    "width": 173,
+    "height": 170
+  },
+  "2025/10/1.png": {
+    "src": "/images/pages/wide/2025-10-1.webp",
+    "width": 1600,
+    "height": 417
+  },
+  "2025/10/2.png": {
+    "src": "/images/pages/hero/2025-10-2.webp",
+    "width": 1920,
+    "height": 1000
+  },
+  "2025/10/20250586_ADO_Acro_Studio_Channel_Collage_1200x960.png": {
+    "src": "/images/pages/photos/2025-10-20250586-ado-acro-studio-channel-collage-1200x960.webp",
+    "width": 954,
+    "height": 763
+  },
+  "2025/10/Adobe_Acrobat_DC_logo_2020.svg.png": {
+    "src": "/images/pages/icons/2025-10-adobe-acrobat-dc-logo-2020.webp",
+    "width": 80,
+    "height": 80
+  },
+  "2025/10/Adobe_Express_logo_RGB_1024px.png": {
+    "src": "/images/pages/icons/2025-10-adobe-express-logo-rgb-1024px.webp",
+    "width": 80,
+    "height": 80
+  },
+  "2025/10/Adobe_Firefly_Logo.svg.png": {
+    "src": "/images/pages/icons/2025-10-adobe-firefly-logo.webp",
+    "width": 80,
+    "height": 78
+  },
+  "2025/10/adobe-acrobat-studio.png": {
+    "src": "/images/pages/products/2025-10-adobe-acrobat-studio.webp",
+    "width": 476,
+    "height": 267
+  },
+  "2025/10/adobe-ai.png": {
+    "src": "/images/pages/products/2025-10-adobe-ai.webp",
+    "width": 481,
+    "height": 274
+  },
+  "2025/10/ALL-LOGO-17.png": {
+    "src": "/images/pages/icons/2025-10-all-logo-17.webp",
+    "width": 80,
+    "height": 78
+  },
+  "2025/10/ALL-LOGO-18.png": {
+    "src": "/images/pages/icons/2025-10-all-logo-18.webp",
+    "width": 80,
+    "height": 78
+  },
+  "2025/10/ALL-LOGO-21.png": {
+    "src": "/images/pages/icons/2025-10-all-logo-21.webp",
+    "width": 80,
+    "height": 78
+  },
+  "2025/10/BG-1-01.png": {
+    "src": "/images/pages/photos/2025-10-bg-1-01.webp",
+    "width": 752,
+    "height": 251
+  },
+  "2025/10/BG-1-02.png": {
+    "src": "/images/pages/photos/2025-10-bg-1-02.webp",
+    "width": 752,
+    "height": 251
+  },
+  "2025/10/bg-1-03.png": {
+    "src": "/images/pages/icons/2025-10-bg-1-03.webp",
+    "width": 127,
+    "height": 127
+  },
+  "2025/10/BG-1-04.png": {
+    "src": "/images/pages/photos/2025-10-bg-1-04.webp",
+    "width": 752,
+    "height": 251
+  },
+  "2025/10/BG-1-05.png": {
+    "src": "/images/pages/products/2025-10-bg-1-05.webp",
+    "width": 460,
+    "height": 295
+  },
+  "2025/10/BG-1-06.png": {
+    "src": "/images/pages/products/2025-10-bg-1-06.webp",
+    "width": 460,
+    "height": 295
+  },
+  "2025/10/BG-1-07.png": {
+    "src": "/images/pages/products/2025-10-bg-1-07.webp",
+    "width": 460,
+    "height": 295
+  },
+  "2025/10/BG-1-08.png": {
+    "src": "/images/pages/products/2025-10-bg-1-08.webp",
+    "width": 460,
+    "height": 295
+  },
+  "2025/10/BG-1-09.png": {
+    "src": "/images/pages/products/2025-10-bg-1-09.webp",
+    "width": 460,
+    "height": 295
+  },
+  "2025/10/BG-1-10.png": {
+    "src": "/images/pages/products/2025-10-bg-1-10.webp",
+    "width": 460,
+    "height": 295
+  },
+  "2025/10/bg-1.png": {
+    "src": "/images/pages/icons/2025-10-bg-1.webp",
+    "width": 128,
+    "height": 128
+  },
+  "2025/10/bg-2.png": {
+    "src": "/images/pages/icons/2025-10-bg-2.webp",
+    "width": 130,
+    "height": 130
+  },
+  "2025/10/bg-3.png": {
+    "src": "/images/pages/icons/2025-10-bg-3.webp",
+    "width": 131,
+    "height": 130
+  },
+  "2025/10/bg-4.png": {
+    "src": "/images/pages/icons/2025-10-bg-4.webp",
+    "width": 131,
+    "height": 130
+  },
+  "2025/10/BG1-Footer.png": {
+    "src": "/images/pages/wide/2025-10-bg1-footer.webp",
+    "width": 1600,
+    "height": 417
+  },
+  "2025/10/Firefly-white-cat-cute-and-fat-happy-skydive-34230.jpg": {
+    "src": "/images/pages/photos/2025-10-firefly-white-cat-cute-and-fat-happy-skydive-34230.webp",
+    "width": 1200,
+    "height": 1200
+  },
+  "2025/10/owl.png": {
+    "src": "/images/pages/photos/2025-10-owl.webp",
+    "width": 1200,
+    "height": 1199
+  },
+  "2025/11/banner.png": {
+    "src": "/images/pages/products/2025-11-banner.webp",
+    "width": 360,
+    "height": 450
+  },
+  "2025/11/footer-1.png": {
+    "src": "/images/pages/products/2025-11-footer-1.webp",
+    "width": 360,
+    "height": 450
+  },
+  "2025/11/footer-2.png": {
+    "src": "/images/pages/products/2025-11-footer-2.webp",
+    "width": 360,
+    "height": 450
+  },
+  "2026/03/3.png": {
+    "src": "/images/pages/wide/2026-03-3.webp",
+    "width": 1600,
+    "height": 297
+  },
+  "2026/03/4.png": {
+    "src": "/images/pages/wide/2026-03-4.webp",
+    "width": 1600,
+    "height": 297
+  },
+  "2026/03/5.png": {
+    "src": "/images/pages/wide/2026-03-5.webp",
+    "width": 1600,
+    "height": 297
+  },
+  "2026/03/7.png": {
+    "src": "/images/pages/wide/2026-03-7.webp",
+    "width": 1600,
+    "height": 297
+  },
+  "2026/03/8.png": {
+    "src": "/images/pages/wide/2026-03-8.webp",
+    "width": 1600,
+    "height": 297
+  },
+  "2026/03/Adobe_Express_Logo.svg.png": {
+    "src": "/images/pages/icons/2026-03-adobe-express-logo.webp",
+    "width": 80,
+    "height": 80
+  },
+  "2026/03/Adobe_Firefly_Logo.svg.png": {
+    "src": "/images/pages/icons/2026-03-adobe-firefly-logo.webp",
+    "width": 80,
+    "height": 78
+  },
+  "2026/03/Adobe_Illustrator_CC_icon.svg.png": {
+    "src": "/images/pages/icons/2026-03-adobe-illustrator-cc-icon.webp",
+    "width": 80,
+    "height": 78
+  },
+  "2026/03/Adobe_Premiere_Pro_CC_icon.svg.png": {
+    "src": "/images/pages/icons/2026-03-adobe-premiere-pro-cc-icon.webp",
+    "width": 80,
+    "height": 78
+  },
+  "2026/03/adobe-video.png": {
+    "src": "/images/pages/photos/2026-03-adobe-video.webp",
+    "width": 1054,
+    "height": 494
+  },
+  "2026/03/ALL-LOGO-114.png": {
+    "src": "/images/pages/logos/2026-03-all-logo-114.webp",
+    "width": 293,
+    "height": 89
+  },
+  "2026/03/ALL-LOGO-116.png": {
+    "src": "/images/pages/logos/2026-03-all-logo-116.webp",
+    "width": 301,
+    "height": 85
+  },
+  "2026/03/ALL-LOGO-117.png": {
+    "src": "/images/pages/logos/2026-03-all-logo-117.webp",
+    "width": 321,
+    "height": 40
+  },
+  "2026/03/ALL-LOGO-118.png": {
+    "src": "/images/pages/logos/2026-03-all-logo-118.webp",
+    "width": 395,
+    "height": 41
+  },
+  "2026/03/ALL-LOGO-119.png": {
+    "src": "/images/pages/logos/2026-03-all-logo-119.webp",
+    "width": 327,
+    "height": 86
+  },
+  "2026/03/arena7icon.png": {
+    "src": "/images/pages/icons/2026-03-arena7icon.webp",
+    "width": 192,
+    "height": 169
+  },
+  "2026/03/avenue7icon.png": {
+    "src": "/images/pages/icons/2026-03-avenue7icon.webp",
+    "width": 192,
+    "height": 169
+  },
+  "2026/03/Banner-3.png": {
+    "src": "/images/pages/hero/2026-03-banner-3.webp",
+    "width": 1920,
+    "height": 638
+  },
+  "2026/03/brand_identity-icon-music_studio-lightbkg.png": {
+    "src": "/images/pages/icons/2026-03-brand-identity-icon-music-studio-lightbkg.webp",
+    "width": 145,
+    "height": 145
+  },
+  "2026/03/brand_identity-icon-samplitude-lightbkg.png": {
+    "src": "/images/pages/icons/2026-03-brand-identity-icon-samplitude-lightbkg.webp",
+    "width": 145,
+    "height": 145
+  },
+  "2026/03/continium.png": {
+    "src": "/images/pages/icons/2026-03-continium.webp",
+    "width": 162,
+    "height": 187
+  },
+  "2026/03/fonts.png": {
+    "src": "/images/pages/icons/2026-03-fonts.webp",
+    "width": 183,
+    "height": 178
+  },
+  "2026/03/Group-10.png": {
+    "src": "/images/pages/icons/2026-03-group-10.webp",
+    "width": 160,
+    "height": 184
+  },
+  "2026/03/Group-11.png": {
+    "src": "/images/pages/icons/2026-03-group-11.webp",
+    "width": 145,
+    "height": 145
+  },
+  "2026/03/Group-207.png": {
+    "src": "/images/pages/icons/2026-03-group-207.webp",
+    "width": 160,
+    "height": 184
+  },
+  "2026/03/Group-9.png": {
+    "src": "/images/pages/icons/2026-03-group-9.webp",
+    "width": 160,
+    "height": 184
+  },
+  "2026/03/Image-12.png": {
+    "src": "/images/pages/icons/2026-03-image-12.webp",
+    "width": 192,
+    "height": 192
+  },
+  "2026/03/Image-13.png": {
+    "src": "/images/pages/icons/2026-03-image-13.webp",
+    "width": 192,
+    "height": 192
+  },
+  "2026/03/Image-14.png": {
+    "src": "/images/pages/icons/2026-03-image-14.webp",
+    "width": 192,
+    "height": 193
+  },
+  "2026/03/Image-15.png": {
+    "src": "/images/pages/icons/2026-03-image-15.webp",
+    "width": 192,
+    "height": 192
+  },
+  "2026/03/Image-16.png": {
+    "src": "/images/pages/icons/2026-03-image-16.webp",
+    "width": 192,
+    "height": 192
+  },
+  "2026/03/Image-17.png": {
+    "src": "/images/pages/icons/2026-03-image-17.webp",
+    "width": 192,
+    "height": 192
+  },
+  "2026/03/Image-26.png": {
+    "src": "/images/pages/icons/2026-03-image-26.webp",
+    "width": 183,
+    "height": 183
+  },
+  "2026/03/Image-27.png": {
+    "src": "/images/pages/icons/2026-03-image-27.webp",
+    "width": 182,
+    "height": 182
+  },
+  "2026/03/Image-28.png": {
+    "src": "/images/pages/icons/2026-03-image-28.webp",
+    "width": 182,
+    "height": 182
+  },
+  "2026/03/Image-29.png": {
+    "src": "/images/pages/icons/2026-03-image-29.webp",
+    "width": 182,
+    "height": 182
+  },
+  "2026/03/Image-30.png": {
+    "src": "/images/pages/icons/2026-03-image-30.webp",
+    "width": 182,
+    "height": 182
+  },
+  "2026/03/Image-31.png": {
+    "src": "/images/pages/icons/2026-03-image-31.webp",
+    "width": 183,
+    "height": 183
+  },
+  "2026/03/Image-33.png": {
+    "src": "/images/pages/icons/2026-03-image-33.webp",
+    "width": 183,
+    "height": 183
+  },
+  "2026/03/Image-36.png": {
+    "src": "/images/pages/icons/2026-03-image-36.webp",
+    "width": 183,
+    "height": 183
+  },
+  "2026/03/Image-37.png": {
+    "src": "/images/pages/icons/2026-03-image-37.webp",
+    "width": 183,
+    "height": 183
+  },
+  "2026/03/Logo-500x500-1.png": {
+    "src": "/images/pages/icons/2026-03-logo-500x500-1.webp",
+    "width": 192,
+    "height": 192
+  },
+  "2026/03/logo.png": {
+    "src": "/images/pages/icons/2026-03-logo.webp",
+    "width": 163,
+    "height": 187
+  },
+  "2026/03/Mask-Group-15.png": {
+    "src": "/images/pages/icons/2026-03-mask-group-15.webp",
+    "width": 183,
+    "height": 183
+  },
+  "2026/03/mini-logo.png": {
+    "src": "/images/pages/icons/2026-03-mini-logo.webp",
+    "width": 160,
+    "height": 180
+  },
+  "2026/03/Optics2023_Icon_LightBkg.png": {
+    "src": "/images/pages/icons/2026-03-optics2023-icon-lightbkg.webp",
+    "width": 164,
+    "height": 189
+  },
+  "2026/03/photoshop-icon-logo.png": {
+    "src": "/images/pages/icons/2026-03-photoshop-icon-logo.webp",
+    "width": 192,
+    "height": 187
+  },
+  "2026/03/pi-logo.png": {
+    "src": "/images/pages/icons/2026-03-pi-logo.webp",
+    "width": 160,
+    "height": 184
+  },
+  "2026/09/apple-banner-image.png": {
+    "src": "/images/pages/photos/2026-09-apple-banner-image.webp",
+    "width": 1200,
+    "height": 783
+  },
+  "2026/09/apple-hero-1.webp": {
+    "src": "/images/pages/photos/2026-09-apple-hero-1.webp",
+    "width": 1200,
+    "height": 788
+  },
+  "2026/09/apple-hero-2.webp": {
+    "src": "/images/pages/photos/2026-09-apple-hero-2.webp",
+    "width": 1200,
+    "height": 788
+  },
+  "2026/09/apple-hero-3.webp": {
+    "src": "/images/pages/photos/2026-09-apple-hero-3.webp",
+    "width": 1200,
+    "height": 788
+  },
+  "2026/09/apple-hero-4.webp": {
+    "src": "/images/pages/photos/2026-09-apple-hero-4.webp",
+    "width": 1200,
+    "height": 788
+  },
+  "2026/09/apple-hero-5.webp": {
+    "src": "/images/pages/photos/2026-09-apple-hero-5.webp",
+    "width": 1200,
+    "height": 788
+  },
+  "2026/09/apple-hero-6.webp": {
+    "src": "/images/pages/photos/2026-09-apple-hero-6.webp",
+    "width": 1200,
+    "height": 788
+  },
+  "2026/09/apple-hero-7.webp": {
+    "src": "/images/pages/photos/2026-09-apple-hero-7.webp",
+    "width": 1200,
+    "height": 788
+  },
+  "2026/09/apple-hero-8.webp": {
+    "src": "/images/pages/photos/2026-09-apple-hero-8.webp",
+    "width": 1200,
+    "height": 788
+  }
+}

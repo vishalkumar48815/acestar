@@ -1,19 +1,9 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/content/site";
+import { solutionRoutes } from "@/content/solutions";
 
 /** Add routes here as pages are built. */
-const routes = [
-  "",
-  "/about",
-  "/solutions/creative-software",
-  "/solutions/workstations",
-  "/solutions/digital-workflow",
-  "/techcare",
-  "/stories",
-  "/careers",
-  "/contact",
-  "/support",
-];
+const routes = ["", "/about", ...solutionRoutes, "/stories", "/careers", "/contact", "/support"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return routes.map((path) => ({

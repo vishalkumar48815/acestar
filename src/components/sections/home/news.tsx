@@ -19,7 +19,12 @@ export function News() {
           {news.map((item, i) => {
             const img = media.news[i];
             return (
-              <li key={item.href} data-reveal style={{ ["--reveal-delay" as string]: `${i * 90}ms` }}>
+              <li
+                key={item.href}
+                data-reveal
+                suppressHydrationWarning
+                style={{ ["--reveal-delay" as string]: `${i * 90}ms` }}
+              >
                 <a
                   href={item.href}
                   target="_blank"
