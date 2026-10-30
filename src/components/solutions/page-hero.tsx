@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { CSSProperties } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { ButtonLink } from "@/components/ui/button";
 import { ArrowRight, ChevronRight } from "@/components/ui/icons";
 import type { PageHero as Hero } from "@/content/solutions/types";
@@ -21,10 +21,13 @@ function Title({ title, accent }: { title: string; accent?: string }) {
   );
 }
 
-/** Inner-page hero: breadcrumbs, headline, lead, two actions and the page artwork. */
-export function PageHero({ hero }: { hero: Hero }) {
+/**
+ * Inner-page hero: breadcrumbs, headline, lead, two actions and the page artwork.
+ * Pass `visual` to show a custom (e.g. animated) illustration in place of an image.
+ */
+export function PageHero({ hero, visual }: { hero: Hero; visual?: ReactNode }) {
   const fit = hero.imageFit ?? "cover";
-  const side = hero.image && (fit === "cover" || fit === "contain");
+  const side = Boolean(visual) || (hero.image && (fit === "cover" || fit === "contain"));
   const cover = fit === "cover";
   return (
     <section aria-labelledby="page-title" className="relative isolate overflow-hidden">
@@ -144,7 +147,8 @@ export function PageHero({ hero }: { hero: Hero }) {
           ) : null}
         </div>
 
-        {side && hero.image && (
+        {visual ? <div className="min-w-0">{visual}</div> : null}
+        {!visual && side && hero.image && (
           <div style={{ animation: "hero-art-in 1.1s var(--ease-out) 200ms both" }} className="min-w-0">
             <div
               style={

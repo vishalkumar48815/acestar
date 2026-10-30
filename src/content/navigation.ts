@@ -32,6 +32,7 @@ export const mainNav: NavItem[] = [
   { label: "About", href: "/about" },
   { label: "Stories", href: "/stories" },
   { label: "Careers", href: "/careers" },
+  { label: "Support", href: "/support" },
 ];
 
 /** Footer columns in the new design. */
@@ -46,7 +47,15 @@ export const footerColumns: { title: string; links: NavLink[] }[] = [
       { label: "TechCare", href: "/techcare" },
     ],
   },
-  { title: "Company", links: [{ label: "About Us", href: "/about" }] },
+  {
+    title: "Company",
+    links: [
+      { label: "About Us", href: "/about" },
+      { label: "Careers", href: "/careers" },
+      { label: "Contact Us", href: "/contact" },
+      { label: "Tech Support", href: "/support" },
+    ],
+  },
 ];
 
 export const footerNav: { title: string; links: NavLink[] }[] = [
