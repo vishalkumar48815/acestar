@@ -14,7 +14,7 @@ function readPreference(): ThemePreference {
     const value = localStorage.getItem(THEME_STORAGE_KEY);
     return value === "light" || value === "dark" ? value : "system";
   } catch {
-    return "system";
+    return "light";
   }
 }
 
