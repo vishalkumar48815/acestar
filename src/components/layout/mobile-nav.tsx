@@ -57,10 +57,17 @@ export function MobileNav({ open, onClose }: Props) {
     };
   }, [open, onClose]);
 
-  // TechCare sits in the Solutions group and in the top bar; list it once here.
-  const links = mainNav
-    .flatMap((item) => (item.children ? item.children : [item]))
-    .filter((link, i, all) => all.findIndex((l) => l.href === link.href) === i);
+  // Dropdown items become labelled groups; TechCare (in Solutions and the top bar) is listed once.
+  const seen = new Set<string>();
+  let n = 0;
+  const groups = [...mainNav, { label: "Contact", href: "/contact" } as NavLink & { children?: NavLink[] }]
+    .map((item) => ({
+      title: item.children ? item.label : undefined,
+      links: (item.children ?? [item])
+        .filter((l) => !seen.has(l.href) && seen.add(l.href))
+        .map((link) => ({ link, index: n++ })),
+    }))
+    .filter((g) => g.links.length > 0);
 
   return (
     <div
@@ -94,45 +101,61 @@ export function MobileNav({ open, onClose }: Props) {
 
       <nav aria-label="Mobile" className="container-page mt-6 flex-1">
         <ul className="flex flex-col">
-          {[...links, { label: "Contact", href: "/contact" } as NavLink].map((link, index) => (
-            <li
-              key={link.href}
-              className={cn(
-                "border-b border-line transition-all duration-700 ease-out-expo",
-                open ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0",
-              )}
-              style={{ transitionDelay: open ? `${80 + index * 45}ms` : "0ms" }}
-            >
-              <Link
-                href={link.href}
-                onClick={onClose}
-                aria-current={pathname === link.href ? "page" : undefined}
-                className="flex min-h-14 items-center justify-between py-3 font-display text-[1.75rem] font-bold tracking-[-0.02em] text-fg"
-              >
-                {link.label}
-                <span aria-hidden="true" className="text-lg text-brand-ink">
-                  →
-                </span>
-              </Link>
-              {link.sub?.length ? (
-                <ul className="-mt-1 flex flex-wrap gap-2 pb-4">
-                  {link.sub.map((sub) => (
-                    <li key={sub.href}>
-                      <Link
-                        href={sub.href}
-                        onClick={onClose}
-                        aria-current={pathname === sub.href ? "page" : undefined}
-                        className="inline-flex min-h-11 items-center gap-1.5 rounded-full px-4 text-[0.9375rem] font-medium text-fg-muted glass"
-                      >
-                        <span aria-hidden="true" className="text-brand-ink">
-                          ↳
-                        </span>
-                        {sub.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+          {groups.map((group) => (
+            <li key={group.title ?? group.links[0].link.href}>
+              {group.title ? (
+                <p
+                  className={cn(
+                    "pt-6 pb-1 text-eyebrow text-fg-subtle transition-opacity duration-700",
+                    open ? "opacity-100" : "opacity-0",
+                  )}
+                >
+                  {group.title}
+                </p>
               ) : null}
+              <ul className="flex flex-col">
+                {group.links.map(({ link, index }) => (
+                  <li
+                    key={link.href}
+                    className={cn(
+                      "border-b border-line transition-all duration-700 ease-out-expo",
+                      open ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0",
+                    )}
+                    style={{ transitionDelay: open ? `${80 + index * 45}ms` : "0ms" }}
+                  >
+                    <Link
+                      href={link.href}
+                      onClick={onClose}
+                      aria-current={pathname === link.href ? "page" : undefined}
+                      className="flex min-h-14 items-center justify-between py-3 font-display text-[1.75rem] font-bold tracking-[-0.02em] text-fg"
+                    >
+                      {link.label}
+                      <span aria-hidden="true" className="text-lg text-brand-ink">
+                        →
+                      </span>
+                    </Link>
+                    {link.sub?.length ? (
+                      <ul className="-mt-1 flex flex-wrap gap-2 pb-4">
+                        {link.sub.map((sub) => (
+                          <li key={sub.href}>
+                            <Link
+                              href={sub.href}
+                              onClick={onClose}
+                              aria-current={pathname === sub.href ? "page" : undefined}
+                              className="inline-flex min-h-11 items-center gap-1.5 rounded-full px-4 text-[0.9375rem] font-medium text-fg-muted glass"
+                            >
+                              <span aria-hidden="true" className="text-brand-ink">
+                                ↳
+                              </span>
+                              {sub.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : null}
+                  </li>
+                ))}
+              </ul>
             </li>
           ))}
         </ul>

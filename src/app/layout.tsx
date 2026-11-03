@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { Footer } from "@/components/layout/footer";
+import { WhatsAppFloat } from "@/components/layout/whatsapp-float";
 import { Header } from "@/components/layout/header";
 import { RevealObserver } from "@/components/motion/reveal-observer";
 import { SmoothScroll } from "@/components/motion/smooth-scroll";
@@ -85,6 +86,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           {children}
         </main>
         <Footer />
+        <WhatsAppFloat />
         <RevealObserver />
         <SmoothScroll />
       </body>

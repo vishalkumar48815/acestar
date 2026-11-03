@@ -82,7 +82,7 @@ export function CeoMessage() {
                 <p className="text-sm text-fg-muted">{ceoMessage.badge}</p>
               </div>
               <Link
-                href="/about#awards"
+                href="/about/awards"
                 className="group/link inline-flex min-h-11 w-max items-center gap-1.5 font-semibold"
               >
                 View more achievements

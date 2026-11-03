@@ -165,7 +165,7 @@ export const offerings: Offering[] = [
     eyebrow: "We train",
     title: "Training & certification",
     body: "As Malaysia's sole Certiport distributor, we help individuals and workforces build their skills through industry training and globally recognised certifications.",
-    cta: { label: "About Certiport", href: "/about#certification" },
+    cta: { label: "About Certiport", href: "/about#training" },
   },
   {
     key: "serve",

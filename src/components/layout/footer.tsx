@@ -9,7 +9,7 @@ export function Footer() {
   const { contact } = site;
   return (
     <footer className="relative pt-6 lg:pt-8">
-      <div className="container-page grid gap-10 pb-10 sm:grid-cols-2 lg:grid-cols-[1.5fr_1.1fr_0.7fr_1.2fr] lg:gap-8">
+      <div className="container-page grid gap-10 pb-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_1.2fr_0.6fr_0.8fr_1.2fr] lg:gap-8">
         <div className="flex flex-col gap-4">
           <Logo />
           <p className="text-sm text-fg-muted">{site.footerTagline}</p>

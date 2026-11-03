@@ -9,7 +9,9 @@
     "lint": "eslint",
     "import:legacy": "node scripts/import-legacy-site.mjs",
     "media:build": "node scripts/build-media.mjs",
-    "media:solutions": "node scripts/build-solution-media.mjs"
+    "media:solutions": "node scripts/build-solution-media.mjs",
+    "media:about": "node scripts/build-about-media.mjs",
+    "media:seed": "node scripts/seed-media-content.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.9.1",

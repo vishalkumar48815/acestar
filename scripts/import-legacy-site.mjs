@@ -5,6 +5,7 @@
  *   npm run import:legacy
  *
  * - Saves every page's HTML to legacy/pages/ (reference for content migration)
+ * - Follows every blog post linked from /blogs/ and saves it too (legacy/pages/blog__<slug>.html)
  * - Downloads every image/media file from /wp-content/uploads/ to legacy/assets/
  *   (prefers the full-size original over WordPress's resized "-300x200" variants)
  * - Writes legacy/manifest.json: url → local file, size, pages it appears on, alt text
@@ -12,7 +13,7 @@
  * Safe to re-run: files already downloaded are skipped. No dependencies (Node 18+).
  * The legacy/ folder is git-ignored; curated, optimised images are copied into public/.
  */
-import { mkdir, writeFile, stat } from "node:fs/promises";
+import { mkdir, readFile, writeFile, stat } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -92,8 +93,7 @@ async function main() {
   await mkdir(path.join(ROOT, "pages"), { recursive: true });
   const media = new Map(); // url -> { pages:Set, alt:Set }
 
-  console.log(`Fetching ${PAGES.length} pages from ${ORIGIN} …`);
-  await pool(PAGES, async (p) => {
+  const fetchPage = async (p) => {
     try {
       const res = await fetchWithRetry(ORIGIN + p);
       const html = await res.text();
@@ -111,7 +111,18 @@ async function main() {
     } catch (err) {
       console.error(`  ✗ page ${p}: ${err.message}`);
     }
-  });
+  };
+
+  console.log(`Fetching ${PAGES.length} pages from ${ORIGIN} …`);
+  await pool(PAGES, fetchPage);
+
+  // Blog posts: every /blog/<slug>/ linked from the Blogs listing.
+  const blogs = await readFile(path.join(ROOT, "pages", "blogs.html"), "utf8").catch(() => "");
+  const posts = [
+    ...new Set([...blogs.matchAll(/href="https:\/\/acestar\.my(\/blog\/[^"\/#?]+\/)"/g)].map((m) => m[1])),
+  ];
+  console.log(`\nFetching ${posts.length} blog posts …`);
+  await pool(posts, fetchPage);
 
   // Prefer originals; keep the variant only if no original is referenced/available.
   const targets = new Map();

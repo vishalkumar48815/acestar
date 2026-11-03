@@ -1,0 +1,434 @@
+{
+  "albums": [
+    {
+      "id": "mces",
+      "title": "Micro-Credentials Education Summit",
+      "year": "2023–2025",
+      "description": "MCES and the Malaysia National Championship grand finales: celebrating Malaysia's certified creative and digital talent.",
+      "cover": "web-11",
+      "photos": [
+        {
+          "id": "web-11",
+          "src": "/images/media/gallery/mces/web-11.webp",
+          "width": 1800,
+          "height": 1013,
+          "alt": "MCES stage celebration with confetti"
+        },
+        {
+          "id": "web-20-1",
+          "src": "/images/media/gallery/mces/web-20-1.webp",
+          "width": 1800,
+          "height": 846,
+          "alt": "Certified students with their certificates at MCES"
+        },
+        {
+          "id": "web-24",
+          "src": "/images/media/gallery/mces/web-24.webp",
+          "width": 1800,
+          "height": 1200,
+          "alt": "Champions on stage with the Malaysian flag"
+        },
+        {
+          "id": "web-12",
+          "src": "/images/media/gallery/mces/web-12.webp",
+          "width": 1800,
+          "height": 1201,
+          "alt": "Malaysia National Championship 2024 Grand Finale guests"
+        },
+        {
+          "id": "web-30",
+          "src": "/images/media/gallery/mces/web-30.webp",
+          "width": 1800,
+          "height": 967,
+          "alt": "Award winners at the Micro-Credentials Education Summit"
+        },
+        {
+          "id": "web-26",
+          "src": "/images/media/gallery/mces/web-26.webp",
+          "width": 1800,
+          "height": 1200,
+          "alt": "Industry forum panel at MCES"
+        },
+        {
+          "id": "web-25",
+          "src": "/images/media/gallery/mces/web-25.webp",
+          "width": 1800,
+          "height": 1278,
+          "alt": "Students celebrating their awards"
+        },
+        {
+          "id": "web-17",
+          "src": "/images/media/gallery/mces/web-17.webp",
+          "width": 1800,
+          "height": 1200,
+          "alt": "Adobe keynote on stage"
+        },
+        {
+          "id": "web-10",
+          "src": "/images/media/gallery/mces/web-10.webp",
+          "width": 1800,
+          "height": 1200,
+          "alt": "Student finalists with the Acestar team"
+        },
+        {
+          "id": "web-08",
+          "src": "/images/media/gallery/mces/web-08.webp",
+          "width": 1800,
+          "height": 1200,
+          "alt": "The Acestar team with partners"
+        },
+        {
+          "id": "web-31",
+          "src": "/images/media/gallery/mces/web-31.webp",
+          "width": 1800,
+          "height": 1200,
+          "alt": "Audience at the closing ceremony"
+        },
+        {
+          "id": "web-04",
+          "src": "/images/media/gallery/mces/web-04.webp",
+          "width": 1800,
+          "height": 1200,
+          "alt": "Winners with their bouquets at MCES 2025"
+        },
+        {
+          "id": "web-02",
+          "src": "/images/media/gallery/mces/web-02.webp",
+          "width": 1800,
+          "height": 1199,
+          "alt": "Students cheering in the audience"
+        },
+        {
+          "id": "web-15-1",
+          "src": "/images/media/gallery/mces/web-15-1.webp",
+          "width": 1800,
+          "height": 1198,
+          "alt": "Performers on the MCES stage"
+        },
+        {
+          "id": "web-23",
+          "src": "/images/media/gallery/mces/web-23.webp",
+          "width": 1800,
+          "height": 1026,
+          "alt": "The hall during the grand finale"
+        },
+        {
+          "id": "web-07",
+          "src": "/images/media/gallery/mces/web-07.webp",
+          "width": 1800,
+          "height": 1200,
+          "alt": "Champions holding their mock cheques"
+        },
+        {
+          "id": "web-13",
+          "src": "/images/media/gallery/mces/web-13.webp",
+          "width": 1800,
+          "height": 1201,
+          "alt": "Partners from ASUS, Certiport and Pearson"
+        },
+        {
+          "id": "web-21",
+          "src": "/images/media/gallery/mces/web-21.webp",
+          "width": 1800,
+          "height": 1201,
+          "alt": "Grand finale audience"
+        },
+        {
+          "id": "web-09",
+          "src": "/images/media/gallery/mces/web-09.webp",
+          "width": 1800,
+          "height": 1200,
+          "alt": "Dance performance at the summit"
+        },
+        {
+          "id": "web-05",
+          "src": "/images/media/gallery/mces/web-05.webp",
+          "width": 1800,
+          "height": 1200,
+          "alt": "Educators at MCES 2023"
+        },
+        {
+          "id": "web-06",
+          "src": "/images/media/gallery/mces/web-06.webp",
+          "width": 1800,
+          "height": 1200,
+          "alt": "Guests of honour at MCES 2023"
+        },
+        {
+          "id": "web-16",
+          "src": "/images/media/gallery/mces/web-16.webp",
+          "width": 1800,
+          "height": 1201,
+          "alt": "Keynote session at the summit"
+        }
+      ]
+    },
+    {
+      "id": "acp-2022",
+      "title": "ACP & MOS Championship Malaysia",
+      "year": "2022",
+      "description": "The national Adobe Certified Professional and Microsoft Office Specialist championship grand finale.",
+      "cover": "acp-432-1",
+      "photos": [
+        {
+          "id": "acp-432-1",
+          "src": "/images/media/gallery/acp-2022/acp-432-1.webp",
+          "width": 1800,
+          "height": 1200,
+          "alt": "ACP & MOS Championship Malaysia 2022 grand finale stage"
+        },
+        {
+          "id": "acp-147-1",
+          "src": "/images/media/gallery/acp-2022/acp-147-1.webp",
+          "width": 1800,
+          "height": 1200,
+          "alt": "Guests and partners at the championship"
+        },
+        {
+          "id": "ezgif-3-5b564c21cd",
+          "src": "/images/media/gallery/acp-2022/ezgif-3-5b564c21cd.webp",
+          "width": 1800,
+          "height": 1200,
+          "alt": "Winners celebrating on stage"
+        }
+      ]
+    },
+    {
+      "id": "sea-connect",
+      "title": "SEA Connect Creative Conference",
+      "year": "2019–2020",
+      "description": "Bringing the region's creative community together for talks, workshops and celebration.",
+      "cover": "2019-06-13-sea-connect-2008",
+      "photos": [
+        {
+          "id": "2019-06-13-sea-connect-2008",
+          "src": "/images/media/gallery/sea-connect/2019-06-13-sea-connect-2008.webp",
+          "width": 1800,
+          "height": 1200,
+          "alt": "ACA Championship winners celebrating at SEA Connect"
+        },
+        {
+          "id": "2019-06-13-sea-connect-384",
+          "src": "/images/media/gallery/sea-connect/2019-06-13-sea-connect-384.webp",
+          "width": 1320,
+          "height": 880,
+          "alt": "Packed hall at SEA Connect 2019"
+        },
+        {
+          "id": "2019-06-13-sea-connect-402",
+          "src": "/images/media/gallery/sea-connect/2019-06-13-sea-connect-402.webp",
+          "width": 1440,
+          "height": 960,
+          "alt": "Let the Acestarians roar"
+        },
+        {
+          "id": "2019-06-13-sea-connect-148",
+          "src": "/images/media/gallery/sea-connect/2019-06-13-sea-connect-148.webp",
+          "width": 1320,
+          "height": 880,
+          "alt": "Hands-on workshop at SEA Connect"
+        },
+        {
+          "id": "2019-06-13-sea-connect-1480",
+          "src": "/images/media/gallery/sea-connect/2019-06-13-sea-connect-1480.webp",
+          "width": 1560,
+          "height": 1040,
+          "alt": "Live design session on stage"
+        },
+        {
+          "id": "2019-06-13-sea-connect-1492",
+          "src": "/images/media/gallery/sea-connect/2019-06-13-sea-connect-1492.webp",
+          "width": 1560,
+          "height": 1040,
+          "alt": "Audience at SEA Connect"
+        },
+        {
+          "id": "2019-06-13-sea-connect-1801-crop",
+          "src": "/images/media/gallery/sea-connect/2019-06-13-sea-connect-1801-crop.webp",
+          "width": 1800,
+          "height": 1284,
+          "alt": "Creative Cloud Community on stage"
+        },
+        {
+          "id": "dscf6492",
+          "src": "/images/media/gallery/sea-connect/dscf6492.webp",
+          "width": 1632,
+          "height": 1088,
+          "alt": "Conference audience"
+        },
+        {
+          "id": "dscf6481",
+          "src": "/images/media/gallery/sea-connect/dscf6481.webp",
+          "width": 1632,
+          "height": 1088,
+          "alt": "Crowd cheering at the conference"
+        },
+        {
+          "id": "dscf6372",
+          "src": "/images/media/gallery/sea-connect/dscf6372.webp",
+          "width": 1800,
+          "height": 1200,
+          "alt": "Speaker on stage"
+        },
+        {
+          "id": "dsc-0109",
+          "src": "/images/media/gallery/sea-connect/dsc-0109.webp",
+          "width": 1643,
+          "height": 1088,
+          "alt": "Natalie Sit speaking on a panel"
+        },
+        {
+          "id": "img-3669",
+          "src": "/images/media/gallery/sea-connect/img-3669.webp",
+          "width": 1800,
+          "height": 1200,
+          "alt": "Team photo with Microsoft"
+        },
+        {
+          "id": "img-9326",
+          "src": "/images/media/gallery/sea-connect/img-9326.webp",
+          "width": 1728,
+          "height": 1152,
+          "alt": "SEA Connect 2020 Virtual: The Gig Revolution"
+        }
+      ]
+    },
+    {
+      "id": "awards",
+      "title": "Awards nights",
+      "year": "2015–2019",
+      "description": "Moments from the EY, Enterprise 50, SOBA and SME award ceremonies.",
+      "cover": "enterprise-50-e50-award-2019-1",
+      "photos": [
+        {
+          "id": "enterprise-50-e50-award-2019-1",
+          "src": "/images/media/gallery/awards/enterprise-50-e50-award-2019-1.webp",
+          "width": 1224,
+          "height": 816,
+          "alt": "Enterprise 50 Award 2019 ceremony"
+        },
+        {
+          "id": "enterprise-50-e50-award-2019",
+          "src": "/images/media/gallery/awards/enterprise-50-e50-award-2019.webp",
+          "width": 1224,
+          "height": 816,
+          "alt": "Acestar on stage at the E50 Award 2019"
+        },
+        {
+          "id": "ey-2018-top-nominee",
+          "src": "/images/media/gallery/awards/ey-2018-top-nominee.webp",
+          "width": 960,
+          "height": 640,
+          "alt": "EY Entrepreneur of the Year 2018"
+        },
+        {
+          "id": "ey-2018-top-nominee-1",
+          "src": "/images/media/gallery/awards/ey-2018-top-nominee-1.webp",
+          "width": 960,
+          "height": 640,
+          "alt": "The Acestar team at EY Entrepreneur of the Year 2018"
+        },
+        {
+          "id": "sme-platinum-business-awards-2018",
+          "src": "/images/media/gallery/awards/sme-platinum-business-awards-2018.webp",
+          "width": 888,
+          "height": 592,
+          "alt": "SME Platinum Business Awards 2018"
+        },
+        {
+          "id": "sme-platinum-business-awards-2018-1",
+          "src": "/images/media/gallery/awards/sme-platinum-business-awards-2018-1.webp",
+          "width": 1080,
+          "height": 810,
+          "alt": "The team at the SME Platinum Business Awards 2018"
+        },
+        {
+          "id": "soba-star-outstanding-business-awards",
+          "src": "/images/media/gallery/awards/soba-star-outstanding-business-awards.webp",
+          "width": 1433,
+          "height": 1075,
+          "alt": "Star Outstanding Business Awards (SOBA)"
+        },
+        {
+          "id": "soba-star-outstanding-business-awards-certificate-of-recognition-growth-excellen",
+          "src": "/images/media/gallery/awards/soba-star-outstanding-business-awards-certificate-of-recognition-growth-excellen.webp",
+          "width": 1080,
+          "height": 720,
+          "alt": "SOBA Certificate of Recognition: Growth Excellence"
+        },
+        {
+          "id": "star-soba-2015-most-promising-award",
+          "src": "/images/media/gallery/awards/star-soba-2015-most-promising-award.webp",
+          "width": 960,
+          "height": 720,
+          "alt": "Star SOBA 2015 Most Promising Award"
+        },
+        {
+          "id": "star-soba-2015-most-promising-award-1",
+          "src": "/images/media/gallery/awards/star-soba-2015-most-promising-award-1.webp",
+          "width": 843,
+          "height": 522,
+          "alt": "Receiving the Star SOBA 2015 award"
+        },
+        {
+          "id": "sme-recognition-awards-2015-young-entrepreneur-award",
+          "src": "/images/media/gallery/awards/sme-recognition-awards-2015-young-entrepreneur-award.webp",
+          "width": 960,
+          "height": 720,
+          "alt": "SME Recognition Awards 2015: Young Entrepreneur"
+        },
+        {
+          "id": "dsc-0128",
+          "src": "/images/media/gallery/awards/dsc-0128.webp",
+          "width": 1643,
+          "height": 1088,
+          "alt": "SME award ceremony stage"
+        }
+      ]
+    },
+    {
+      "id": "community",
+      "title": "Creative Cloud Community",
+      "year": "2020–2021",
+      "description": "Talks, launches and forums from the Creative Cloud Community and Acestar.",
+      "cover": "ccc-talk-show-006-v3-2-people-photo-big-photo-small-font-v2-01",
+      "photos": [
+        {
+          "id": "ccc-talk-show-006-v3-2-people-photo-big-photo-small-font-v2-01",
+          "src": "/images/media/gallery/community/ccc-talk-show-006-v3-2-people-photo-big-photo-small-font-v2-01.webp",
+          "width": 1080,
+          "height": 995,
+          "alt": "Creative Talk Show #6: How to turn crisis to opportunity"
+        },
+        {
+          "id": "img-9734",
+          "src": "/images/media/gallery/community/img-9734.webp",
+          "width": 1728,
+          "height": 1152,
+          "alt": "Live-streamed talk with Tun Dr. Mahathir Mohamad"
+        },
+        {
+          "id": "img-9736",
+          "src": "/images/media/gallery/community/img-9736.webp",
+          "width": 1728,
+          "height": 1152,
+          "alt": "Natalie Sit hosting the Creative Talk Show"
+        },
+        {
+          "id": "20200220-aca-championship-launching-508",
+          "src": "/images/media/gallery/community/20200220-aca-championship-launching-508.webp",
+          "width": 1320,
+          "height": 880,
+          "alt": "ACA Championship 2020 launch"
+        },
+        {
+          "id": "sme22",
+          "src": "/images/media/gallery/community/sme22.webp",
+          "width": 1550,
+          "height": 1034,
+          "alt": "Speaking at the CEO Forum"
+        }
+      ]
+    }
+  ]
+}

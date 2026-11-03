@@ -1,4 +1,20 @@
+import { aboutLinks } from "@/content/about";
+import { mediaLinks } from "@/content/newsroom";
 import type { NavItem, NavLink } from "@/types/content";
+
+/** Media dropdown: News, Blog, Gallery (as on the old site). */
+export const mediaNavLinks: NavLink[] = mediaLinks.map(({ label, href, description }) => ({
+  label,
+  href,
+  description,
+}));
+
+/** About Us dropdown: Company Profile, Awards, Clients & Partners. */
+export const aboutNavLinks: NavLink[] = aboutLinks.map(({ label, href, description }) => ({
+  label,
+  href,
+  description,
+}));
 
 export const solutionLinks: NavLink[] = [
   {
@@ -29,8 +45,8 @@ export const solutionLinks: NavLink[] = [
 export const mainNav: NavItem[] = [
   { label: "Solutions", href: "/solutions/creative-software", children: solutionLinks },
   { label: "TechCare", href: "/techcare" },
-  { label: "About", href: "/about" },
-  { label: "Stories", href: "/stories" },
+  { label: "About Us", href: "/about", children: aboutNavLinks },
+  { label: "Media", href: "/news", children: mediaNavLinks },
   { label: "Careers", href: "/careers" },
   { label: "Support", href: "/support" },
 ];
@@ -47,10 +63,13 @@ export const footerColumns: { title: string; links: NavLink[] }[] = [
       { label: "TechCare", href: "/techcare" },
     ],
   },
+  { title: "Media", links: mediaNavLinks.map(({ label, href }) => ({ label, href })) },
   {
     title: "Company",
     links: [
-      { label: "About Us", href: "/about" },
+      { label: "Company Profile", href: "/about" },
+      { label: "Awards", href: "/about/awards" },
+      { label: "Clients & Partners", href: "/about/clients-partners" },
       { label: "Careers", href: "/careers" },
       { label: "Contact Us", href: "/contact" },
       { label: "Tech Support", href: "/support" },
@@ -64,8 +83,8 @@ export const footerNav: { title: string; links: NavLink[] }[] = [
     title: "Company",
     links: [
       { label: "About", href: "/about" },
-      { label: "Awards", href: "/about#awards" },
-      { label: "Stories", href: "/stories" },
+      { label: "Awards", href: "/about/awards" },
+      { label: "News", href: "/news" },
       { label: "Careers", href: "/careers" },
     ],
   },

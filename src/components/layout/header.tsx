@@ -11,6 +11,8 @@ import { cn } from "@/lib/utils";
 import { MobileNav } from "./mobile-nav";
 import { ThemeToggle } from "./theme-toggle";
 
+const slug = (label: string) => label.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+
 export function Header() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
@@ -18,7 +20,7 @@ export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const lastY = useRef(0);
-  const dropdownRef = useRef<HTMLLIElement>(null);
+  const dropdownRefs = useRef<Record<string, HTMLLIElement | null>>({});
 
   // Compact + frosted after scrolling; slide away when scrolling down, return when scrolling up.
   useEffect(() => {
@@ -45,7 +47,7 @@ export function Header() {
   useEffect(() => {
     if (!openDropdown) return;
     const onPointer = (event: PointerEvent) => {
-      if (!dropdownRef.current?.contains(event.target as Node)) setOpenDropdown(null);
+      if (!dropdownRefs.current[openDropdown]?.contains(event.target as Node)) setOpenDropdown(null);
     };
     const onKey = (event: KeyboardEvent) => event.key === "Escape" && setOpenDropdown(null);
     document.addEventListener("pointerdown", onPointer);
@@ -83,7 +85,9 @@ export function Header() {
                 item.children ? (
                   <li
                     key={item.label}
-                    ref={dropdownRef}
+                    ref={(el) => {
+                      dropdownRefs.current[item.label] = el;
+                    }}
                     className="relative"
                     onMouseEnter={() => setOpenDropdown(item.label)}
                     onMouseLeave={() => setOpenDropdown(null)}
@@ -91,13 +95,11 @@ export function Header() {
                     <button
                       type="button"
                       aria-expanded={openDropdown === item.label}
-                      aria-controls="nav-solutions"
+                      aria-controls={`nav-${slug(item.label)}`}
                       onClick={() => setOpenDropdown((v) => (v === item.label ? null : item.label))}
                       className={cn(
                         "inline-flex min-h-11 items-center gap-1 rounded-full px-4 text-[0.9375rem] font-medium transition-colors hover:text-fg",
-                        pathname.startsWith("/solutions") || pathname.startsWith("/techcare")
-                          ? "text-fg"
-                          : "text-fg-muted",
+                        item.children.some((c) => isActive(c.href)) ? "text-fg" : "text-fg-muted",
                       )}
                     >
                       {item.label}
@@ -110,7 +112,7 @@ export function Header() {
                       />
                     </button>
                     <div
-                      id="nav-solutions"
+                      id={`nav-${slug(item.label)}`}
                       className={cn(
                         "absolute top-full left-1/2 w-[23rem] -translate-x-1/2 pt-3 transition-all duration-300 ease-out-expo",
                         openDropdown === item.label
@@ -121,7 +123,12 @@ export function Header() {
                       {/* Near-opaque panel so the text stays readable over any page artwork */}
                       <ul className="flex flex-col gap-0.5 rounded-3xl border border-line bg-[color-mix(in_srgb,var(--bg)_96%,transparent)] p-2 shadow-[0_24px_60px_-24px_rgb(30_40_110/0.35)] backdrop-blur-2xl dark:shadow-[0_24px_60px_-24px_rgb(0_0_0/0.7)]">
                         {item.children.map((child) => {
-                          const inSection = isActive(child.href);
+                          // "/about" must not stay highlighted on "/about/awards".
+                          const inSection =
+                            isActive(child.href) &&
+                            !item.children!.some(
+                              (o) => o.href !== child.href && o.href.startsWith(`${child.href}/`) && isActive(o.href),
+                            );
                           return (
                             <li key={child.href} className="group/item">
                               <Link
