@@ -5,7 +5,7 @@ import { ClosingCta } from "@/components/sections/home/closing-cta";
 import { StatStrip } from "@/components/solutions/blocks";
 import { PageHero } from "@/components/solutions/page-hero";
 import { Section } from "@/components/solutions/primitives";
-import { albums, photoCount } from "@/content/newsroom";
+import { getAlbums } from "@/server/content/media";
 
 export const metadata: Metadata = {
   title: "Gallery",
@@ -14,7 +14,9 @@ export const metadata: Metadata = {
   alternates: { canonical: "/gallery" },
 };
 
-export default function GalleryPage() {
+export default async function GalleryPage() {
+  const albums = await getAlbums();
+  const photoCount = albums.reduce((n, a) => n + a.photos.length, 0);
   const tiles = albums
     .map((a) => a.photos.find((p) => p.id === a.cover) ?? a.photos[0])
     .filter((p) => p !== undefined)

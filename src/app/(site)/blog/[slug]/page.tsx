@@ -8,19 +8,24 @@ import { Markdown } from "@/components/media/markdown";
 import { CardSpotlight } from "@/components/motion/card-spotlight";
 import { ClosingCta } from "@/components/sections/home/closing-cta";
 import { ArrowLeft, ChevronRight } from "@/components/ui/icons";
-import { blogPosts, getPost } from "@/content/newsroom";
+import { getBlogPost, getBlogPosts } from "@/server/content/media";
 import { site } from "@/content/site";
 import { toJsonLd } from "@/lib/seo";
 
-/** Editorial content from src/data/blog.json: every post is fully prerendered at build time. */
+/**
+ * Every published post is prerendered at build time. A post published later from /admin is
+ * generated on its first visit and then served statically like the rest.
+ */
 export const ensureStatic = "navigation";
 
-export function generateStaticParams() {
-  return blogPosts.map((p) => ({ slug: p.slug }));
+export async function generateStaticParams() {
+  const posts = await getBlogPosts();
+  // ensureStatic needs at least one entry; "_" renders the 404 page.
+  return posts.length ? posts.map((p) => ({ slug: p.slug })) : [{ slug: "_" }];
 }
 
 export async function generateMetadata({ params }: PageProps<"/blog/[slug]">): Promise<Metadata> {
-  const post = getPost((await params).slug);
+  const post = await getBlogPost((await params).slug);
   if (!post) return {};
   return {
     title: post.title,
@@ -47,8 +52,9 @@ export default function BlogPostPage({ params }: PageProps<"/blog/[slug]">) {
 }
 
 async function Article({ params }: { params: Promise<{ slug: string }> }) {
-  const post = getPost((await params).slug);
+  const post = await getBlogPost((await params).slug);
   if (!post) notFound();
+  const blogPosts = await getBlogPosts();
 
   const related = [
     ...blogPosts.filter((p) => p.slug !== post.slug && p.category === post.category),

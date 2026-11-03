@@ -8,7 +8,10 @@ import type { ReactNode } from "react";
  * and [links](url). Images may carry their size as a title: ![alt](/img.webp "1200x800").
  */
 export function Markdown({ source }: { source: string }) {
-  const blocks = source.trim().split(/\n{2,}/);
+  const blocks = source
+    .replace(/\r\n?/g, "\n")
+    .trim()
+    .split(/\n{2,}/);
   return <div className="prose-acestar">{blocks.map((b, i) => renderBlock(b.trim(), i))}</div>;
 }
 

@@ -5,7 +5,7 @@ import { ClosingCta } from "@/components/sections/home/closing-cta";
 import { StatStrip } from "@/components/solutions/blocks";
 import { PageHero } from "@/components/solutions/page-hero";
 import { Section, SectionHead } from "@/components/solutions/primitives";
-import { featuredPress, pressItems } from "@/content/newsroom";
+import { getPressItems } from "@/server/content/media";
 
 export const metadata: Metadata = {
   title: "News",
@@ -14,10 +14,11 @@ export const metadata: Metadata = {
   alternates: { canonical: "/news" },
 };
 
-const publishers = new Set(pressItems.map((p) => p.publisher)).size;
-const years = pressItems.map((p) => Number(p.date.slice(0, 4)));
-
-export default function NewsPage() {
+export default async function NewsPage() {
+  const pressItems = await getPressItems();
+  const featuredPress = pressItems.find((p) => p.featured) ?? pressItems[0];
+  const publishers = new Set(pressItems.map((p) => p.publisher)).size;
+  const years = pressItems.map((p) => Number(p.date.slice(0, 4)));
   const collage = pressItems
     .filter((p) => p.image)
     .slice(0, 12)
@@ -45,7 +46,9 @@ export default function NewsPage() {
           stats={[
             { value: `${pressItems.length}`, label: "Stories about Acestar and our community" },
             { value: `${publishers}`, label: "Publications, from The Star to Bernama and Astro Awani" },
-            { value: `${Math.min(...years)}–${Math.max(...years)}`, label: "A decade of headlines" },
+            ...(years.length
+              ? [{ value: `${Math.min(...years)}–${Math.max(...years)}`, label: "A decade of headlines" }]
+              : []),
           ]}
         />
         {featuredPress ? (

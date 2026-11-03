@@ -8,14 +8,14 @@ The new Acestar website, replacing the old WordPress/Elementor site.
 
 ## Stack
 
-| Concern | Choice | Why |
-| --- | --- | --- |
-| Framework | Next.js 16 (App Router, Cache Components) + React 19 + TypeScript | Static HTML at build time, fast first paint, strong SEO |
-| Styling | Tailwind CSS v4 + CSS design tokens (`src/styles/tokens.css`) | One place to change colours for both themes |
-| Animation | Plain CSS + small client hooks (no animation library) | Keeps JavaScript small; all motion respects `prefers-reduced-motion` |
-| Smooth scroll | Lenis (lazy-loaded, desktop pointer only) | Native scrolling stays on phones |
-| Fonts | Bricolage Grotesque, Manrope, JetBrains Mono, self-hosted with `next/font/local` | No request to Google, no layout shift |
-| Icons | Inline SVG set in `src/components/ui/icons.tsx` (Lucide paths) | About 19 KB lighter than the icon package |
+| Concern       | Choice                                                                           | Why                                                                  |
+| ------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| Framework     | Next.js 16 (App Router, Cache Components) + React 19 + TypeScript                | Static HTML at build time, fast first paint, strong SEO              |
+| Styling       | Tailwind CSS v4 + CSS design tokens (`src/styles/tokens.css`)                    | One place to change colours for both themes                          |
+| Animation     | Plain CSS + small client hooks (no animation library)                            | Keeps JavaScript small; all motion respects `prefers-reduced-motion` |
+| Smooth scroll | Lenis (lazy-loaded, desktop pointer only)                                        | Native scrolling stays on phones                                     |
+| Fonts         | Bricolage Grotesque, Manrope, JetBrains Mono, self-hosted with `next/font/local` | No request to Google, no layout shift                                |
+| Icons         | Inline SVG set in `src/components/ui/icons.tsx` (Lucide paths)                   | About 19 KB lighter than the icon package                            |
 
 ## Content source
 
@@ -43,13 +43,29 @@ npm run import:legacy   # one-off: pull the old site into legacy/
 npm run media:build     # rebuild optimised images from legacy/
 ```
 
-Requires Node.js 20.9 or newer.
+Requires Node.js 20.12 or newer.
+
+## Backend, database and /admin
+
+News, Blog and Gallery are managed at **/admin** and stored in PostgreSQL (Drizzle ORM).
+Without a database the public site falls back to the JSON files in `src/data`.
+
+```bash
+docker compose up -d       # local Postgres (or Postgres.app on Mac)
+cp .env.example .env.local # fill in ADMIN_EMAIL, ADMIN_PASSWORD_HASH, SESSION_SECRET
+npm run db:migrate && npm run db:seed
+```
+
+Everything else (schema, security, going live on Neon + Vercel, extending) is in **[docs/BACKEND.md](docs/BACKEND.md)**.
 
 ## Project structure
 
 ```
 src/
-  app/                  routes, root layout, error.tsx, global-error.tsx, not-found.tsx, sitemap.ts, robots.ts
+  app/(site)/           public pages (shared header/footer layout)
+  app/admin/            content admin (login, dashboard, news, blog, gallery)
+  app/                  root layout, global-error.tsx, not-found.tsx, sitemap.ts, robots.ts
+  server/               database (Drizzle), auth, admin queries + Server Actions, image storage
   components/
     ui/                 Button, Logo, LogoMarquee, SectionHeading, Aurora, icons (the design system)
     motion/             RevealObserver, SmoothScroll, CountUp, PointerGlow, Magnetic
@@ -83,11 +99,11 @@ public/images/          optimised WebP images (brand, clients, partners, awards,
 
 ## Performance (homepage, production build)
 
-| | Old site | New site |
-| --- | --- | --- |
-| Transfer size | 6.8 MB | about 280 KB gzipped (HTML 17 KB, CSS 7 KB, JS 192 KB, fonts 64 KB) |
-| Requests | 154 | 14 |
-| Images | 3.2 MB | Optimised WebP/AVIF, lazy-loaded below the fold |
+|               | Old site | New site                                                            |
+| ------------- | -------- | ------------------------------------------------------------------- |
+| Transfer size | 6.8 MB   | about 280 KB gzipped (HTML 17 KB, CSS 7 KB, JS 192 KB, fonts 64 KB) |
+| Requests      | 154      | 14                                                                  |
+| Images        | 3.2 MB   | Optimised WebP/AVIF, lazy-loaded below the fold                     |
 
 ## Open items
 
@@ -101,5 +117,6 @@ public/images/          optimised WebP images (brand, clients, partners, awards,
 2. ~~Homepage~~
 3. Solutions pages (creative software, workstations, digital workflow) and TechCare
 4. About (profile, awards timeline, clients), Stories, Careers
-5. Contact and Support forms (server actions, Zod validation, spam protection, email delivery)
-6. Final pass: Open Graph image, analytics, Lighthouse and accessibility audit, launch
+5. ~~PostgreSQL + /admin for News, Blog, Gallery~~
+6. Contact and Support forms (Server Actions, Zod validation, spam protection, email delivery; no database storage)
+7. Final pass: Open Graph image, analytics, Lighthouse and accessibility audit, launch

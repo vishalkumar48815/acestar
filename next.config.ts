@@ -38,6 +38,12 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   images: {
     formats: ["image/avif", "image/webp"],
+    // Images uploaded from /admin in production (Vercel Blob).
+    remotePatterns: [{ protocol: "https", hostname: "*.public.blob.vercel-storage.com" }],
+  },
+  experimental: {
+    // Admin image uploads (browsers shrink photos first; the server caps files at 8 MB).
+    serverActions: { bodySizeLimit: "9mb" },
   },
   turbopack: {
     rules: {

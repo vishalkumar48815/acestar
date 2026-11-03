@@ -11,16 +11,29 @@
     "media:build": "node scripts/build-media.mjs",
     "media:solutions": "node scripts/build-solution-media.mjs",
     "media:about": "node scripts/build-about-media.mjs",
-    "media:seed": "node scripts/seed-media-content.mjs"
+    "media:seed": "node scripts/seed-media-content.mjs",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:studio": "drizzle-kit studio",
+    "db:seed": "tsx scripts/db/seed.ts",
+    "db:reset": "tsx scripts/db/seed.ts --force",
+    "db:cleanup-media": "tsx scripts/db/cleanup-media.ts",
+    "admin:password": "node scripts/hash-password.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.9.1",
+    "@vercel/blob": "^2.8.2",
     "clsx": "^2.1.1",
+    "drizzle-orm": "^0.45.4",
+    "jose": "^6.2.15",
     "lenis": "^1.3.26",
     "next": "16.4.1",
+    "postgres": "^3.4.9",
     "react": "19.3.0",
     "react-dom": "19.3.0",
     "react-hook-form": "^7.90.0",
+    "server-only": "^0.0.1",
+    "sharp": "^0.35.5",
     "tailwind-merge": "^3.7.0",
     "zod": "^4.3.3"
   },
@@ -29,12 +42,13 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "drizzle-kit": "^0.31.11",
     "eslint": "^9",
     "eslint-config-next": "16.4.1",
     "prettier": "^3.9.10",
     "prettier-plugin-tailwindcss": "^0.8.1",
-    "sharp": "^0.35.5",
     "tailwindcss": "^4",
+    "tsx": "^4.23.15",
     "typescript": "^5"
   }
 }

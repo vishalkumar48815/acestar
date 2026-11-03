@@ -5,7 +5,7 @@ import { BlogIndex } from "@/components/media/blog-index";
 import { ClosingCta } from "@/components/sections/home/closing-cta";
 import { PageHero } from "@/components/solutions/page-hero";
 import { Section } from "@/components/solutions/primitives";
-import { blogCategories, blogPosts } from "@/content/newsroom";
+import { getBlogPosts } from "@/server/content/media";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -13,7 +13,9 @@ export const metadata: Metadata = {
   alternates: { canonical: "/blog" },
 };
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  const blogPosts = await getBlogPosts();
+  const blogCategories = [...new Set(blogPosts.map((p) => p.category))];
   const [latest, ...rest] = blogPosts;
   // Hero collage: one cover per category first, then the newest others.
   const covers = [

@@ -1,16 +1,11 @@
 /**
- * Media section data: News (press coverage), Blog and Gallery.
+ * Media section (News, Blog, Gallery): shared types, formatting helpers and navigation.
  *
- * The content lives in plain JSON files so it can be edited without touching code
- * (and, later, by the /admin area):
- *   src/data/news.json     → press coverage
- *   src/data/blog.json     → blog posts (Markdown bodies)
- *   src/data/gallery.json  → photo albums
- * Images live in public/images/media/. Seeded from the old site by `npm run media:seed`.
+ * The data itself is loaded on the server by src/server/content/media.ts:
+ * from PostgreSQL when DATABASE_URL is set (managed in /admin), otherwise from the
+ * JSON files in src/data (the original seed content). Images live in public/images/media
+ * (seeded) or in Vercel Blob / public/uploads (uploaded from /admin).
  */
-import blogData from "@/data/blog.json";
-import galleryData from "@/data/gallery.json";
-import newsData from "@/data/news.json";
 
 export type MediaImage = { src: string; width: number; height: number };
 
@@ -37,7 +32,7 @@ export type BlogPost = {
   excerpt: string;
   cover?: MediaImage;
   readingMinutes: number;
-  /** Markdown. Empty until the full article has been imported. */
+  /** Markdown. Not loaded on list pages (empty string there). */
   body: string;
 };
 
@@ -54,20 +49,6 @@ export const languageLabel: Record<PressLanguage, string> = { en: "English", ms:
 
 export const isExternal = (url?: string) => Boolean(url && /^https?:\/\//.test(url));
 
-/* ---------------------------------------------------------------- data */
-
-const byDateDesc = <T extends { date: string }>(a: T, b: T) => b.date.localeCompare(a.date);
-
-export const pressItems: PressItem[] = [...(newsData.items as PressItem[])].sort(byDateDesc);
-export const featuredPress = pressItems.find((p) => p.featured) ?? pressItems[0];
-
-export const blogPosts: BlogPost[] = [...(blogData.posts as BlogPost[])].sort(byDateDesc);
-export const getPost = (slug: string) => blogPosts.find((p) => p.slug === slug);
-export const blogCategories = [...new Set(blogPosts.map((p) => p.category))];
-
-export const albums: Album[] = galleryData.albums as Album[];
-export const photoCount = albums.reduce((n, a) => n + a.photos.length, 0);
-
 /* ---------------------------------------------------------------- navigation */
 
 export const mediaLinks = [
@@ -76,4 +57,18 @@ export const mediaLinks = [
   { key: "gallery", label: "Gallery", href: "/gallery", description: "Events & milestones" },
 ] as const;
 
-export const mediaRoutes = [...mediaLinks.map((l) => l.href), ...blogPosts.map((p) => `/blog/${p.slug}`)];
+/* ---------------------------------------------------------------- helpers */
+
+/** ~200 words per minute, at least 1. */
+export const estimateReadingMinutes = (markdown: string) =>
+  Math.max(1, Math.round(markdown.split(/\s+/).filter(Boolean).length / 200));
+
+/** "Hello, World!" → "hello-world" */
+export const slugify = (text: string) =>
+  text
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[̀-ͯ]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 80);

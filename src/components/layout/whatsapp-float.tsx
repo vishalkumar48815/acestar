@@ -59,10 +59,10 @@ export function WhatsAppFloat() {
         {/* Brand gradient halo, matching the site's accent */}
         <span
           aria-hidden="true"
-          className="absolute -inset-[3px] rounded-full opacity-80 blur-[1px] wa-spin"
+          className="wa-spin absolute -inset-[3px] rounded-full bg-[conic-gradient(from_var(--wa-angle,0deg),var(--accent-from),#25D366,var(--accent-to),var(--accent-from))] opacity-80 blur-[1px]"
         />
         <span className="relative grid size-14 place-items-center rounded-full bg-[linear-gradient(145deg,#2fe07a,#1ebe5b_55%,#128c4a)] text-white shadow-[0_14px_30px_-10px_rgb(18_140_74/0.65),inset_0_1px_0_rgb(255_255_255/0.35)] transition-transform duration-300 ease-out-expo group-hover:scale-105 group-active:scale-95">
-          <SocialIcon network="whatsapp" className="size-8 drop-shadow-[0_1px_1px_rgb(0_0_0/0.15)]" />
+          <SocialIcon network="whatsapp" className="size-7 drop-shadow-[0_1px_1px_rgb(0_0_0/0.15)]" />
         </span>
       </span>
     </a>

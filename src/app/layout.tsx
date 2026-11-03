@@ -1,10 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
-import { Footer } from "@/components/layout/footer";
-import { WhatsAppFloat } from "@/components/layout/whatsapp-float";
-import { Header } from "@/components/layout/header";
-import { RevealObserver } from "@/components/motion/reveal-observer";
-import { SmoothScroll } from "@/components/motion/smooth-scroll";
 import { site } from "@/content/site";
 import { organizationJsonLd, toJsonLd } from "@/lib/seo";
 import { themeInitScript } from "@/lib/theme";
@@ -74,22 +69,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(organizationJsonLd()) }} />
       </head>
-      <body className="flex min-h-svh flex-col">
-        <a
-          href="#main"
-          className="fixed top-3 left-3 z-[70] -translate-y-24 rounded-full px-4 py-2 font-semibold glass-strong transition-transform focus:translate-y-0"
-        >
-          Skip to content
-        </a>
-        <Header />
-        <main id="main" className="flex-1">
-          {children}
-        </main>
-        <Footer />
-        <WhatsAppFloat />
-        <RevealObserver />
-        <SmoothScroll />
-      </body>
+      <body className="flex min-h-svh flex-col">{children}</body>
     </html>
   );
 }

@@ -1,13 +1,14 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/content/site";
 import { aboutRoutes } from "@/content/about";
-import { mediaRoutes } from "@/content/newsroom";
+import { getMediaRoutes } from "@/server/content/media";
 import { solutionRoutes } from "@/content/solutions";
 
 /** Add routes here as pages are built. */
-const routes = ["", ...aboutRoutes, ...solutionRoutes, ...mediaRoutes, "/careers", "/contact", "/support"];
+const staticRoutes = ["", ...aboutRoutes, ...solutionRoutes, "/careers", "/contact", "/support"];
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const routes = [...staticRoutes, ...(await getMediaRoutes())];
   return routes.map((path) => ({
     url: `${site.url}${path}`,
     changeFrequency: path === "" ? "weekly" : "monthly",
