@@ -43,7 +43,8 @@ export function PageHero({ hero, visual }: { hero: Hero; visual?: ReactNode }) {
          */
         <div
           aria-hidden="true"
-          className="absolute inset-x-0 top-0 -z-10 h-[min(80vw,26rem)] [mask-image:linear-gradient(180deg,#000_62%,transparent)] lg:inset-y-0 lg:h-auto lg:[mask-image:linear-gradient(180deg,#000_82%,transparent)] dark:opacity-45"
+          className="absolute inset-x-0 top-0 -z-10 h-[min(80vw,26rem)] [mask-image:linear-gradient(180deg,#000_62%,transparent)] opacity-[var(--art-o)] lg:inset-y-0 lg:h-auto lg:[mask-image:linear-gradient(180deg,#000_82%,transparent)] dark:opacity-[calc(var(--art-o)*var(--art-dark))]"
+          style={{ "--art-o": hero.imageOpacity ?? 1, "--art-dark": hero.imageScrim ? 0.8 : 0.45 } as CSSProperties}
         >
           <Image
             src={hero.image.src}
@@ -55,7 +56,16 @@ export function PageHero({ hero, visual }: { hero: Hero; visual?: ReactNode }) {
             style={{ animation: "hero-art-in 1.4s var(--ease-out) both" }}
           />
           {/* Keeps the headline side crisp on desktop */}
-          <div className="absolute inset-0 hidden bg-[linear-gradient(90deg,color-mix(in_srgb,var(--bg)_55%,transparent)_0%,color-mix(in_srgb,var(--bg)_20%,transparent)_40%,transparent_60%)] lg:block dark:bg-[linear-gradient(90deg,var(--bg)_5%,color-mix(in_srgb,var(--bg)_50%,transparent)_50%,transparent_75%)]" />
+          {hero.imageScrim ? (
+            /* Solid page colour under the text, fading out so the photo shows in full on the right. */
+            <>
+              <div className="absolute inset-0 hidden bg-[linear-gradient(90deg,var(--bg)_0%,var(--bg)_30%,color-mix(in_srgb,var(--bg)_85%,transparent)_42%,color-mix(in_srgb,var(--bg)_30%,transparent)_58%,transparent_72%)] lg:block" />
+              {/* Fades the photo out under the transparent header so the navigation stays readable */}
+              <div className="absolute inset-x-0 top-0 h-24 bg-[linear-gradient(180deg,var(--bg)_10%,color-mix(in_srgb,var(--bg)_70%,transparent)_45%,transparent)] lg:h-36" />
+            </>
+          ) : (
+            <div className="absolute inset-0 hidden bg-[linear-gradient(90deg,color-mix(in_srgb,var(--bg)_55%,transparent)_0%,color-mix(in_srgb,var(--bg)_20%,transparent)_40%,transparent_60%)] lg:block dark:bg-[linear-gradient(90deg,var(--bg)_5%,color-mix(in_srgb,var(--bg)_50%,transparent)_50%,transparent_75%)]" />
+          )}
         </div>
       ) : null}
       <div

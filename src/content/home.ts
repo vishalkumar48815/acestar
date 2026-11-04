@@ -11,8 +11,8 @@ export const hero = {
   titleLines: ["Empowering Every", "Business with AI."],
   accent: "with AI.",
   /** Short tagline under the headline; the second sentence gets the gradient. */
-  subtitle: ["Make AI Practical.", "Deliver Real Impact."],
-  lead: "From AI solutions and enterprise software to digital workflows and IT infrastructure, Acestar helps businesses work smarter, grow faster and stay ahead.",
+  // subtitle: ["Make AI Practical.", "Deliver Real Impact."],
+  lead: "Make AI Practical. Deliver Real Impact.",
   primaryCta: { label: "Explore Our Solutions", href: "#solutions" },
   tagline: ["People", "Technology", "Possibilities"],
 };
@@ -60,17 +60,22 @@ export const solutions = {
   ],
 } as const;
 
-/** "Technology Partners" strip — official partner badges from acestar.my. */
+/**
+ * "Technology Partners" strip: the AI-era platforms Acestar delivers.
+ * Icons are the vendors' official marks (Adobe app icons from acestar.my; GitLab and Twilio
+ * from Simple Icons, CC0; Microsoft Copilot from Lobe Icons). Files: public/images/partners/ai.
+ */
 export const partners = {
   eyebrow: "Trusted by Businesses",
   title: ["Technology Partners", "You Can Count On"],
   lead: "We work with global technology leaders to bring the right solutions for your business.",
   logos: [
-    { name: "Adobe Platinum Reseller", src: "/images/partners/adobe.webp", mono: true },
-    { name: "Microsoft 365", src: "/images/partners/microsoft.webp", mono: true },
-    { name: "Apple Authorised Reseller", src: "/images/partners/apple.webp", mono: true },
-    { name: "HP", src: "/images/partners/hp.webp", mono: false },
-    { name: "Lenovo", src: "/images/partners/lenovo.webp", mono: false },
+    { vendor: "Adobe", product: "Acrobat Studio", icon: "/images/partners/ai/adobe-acrobat.webp" },
+    { vendor: "Microsoft", product: "Copilot", icon: "/images/partners/ai/microsoft-copilot.svg" },
+    { vendor: "Adobe", product: "Firefly", icon: "/images/partners/ai/adobe-firefly.webp" },
+    { vendor: "Adobe", product: "Express", icon: "/images/partners/ai/adobe-express.webp" },
+    { vendor: null, product: "GitLab", icon: "/images/partners/ai/gitlab.svg" },
+    { vendor: null, product: "Twilio", icon: "/images/partners/ai/twilio.svg" },
   ],
 };
 

@@ -20,6 +20,10 @@ export type PageHero = {
    * "banner" = ultra-wide artwork as a strip under the text; "backdrop" = pale artwork behind the hero.
    */
   imageFit?: "cover" | "contain" | "banner" | "backdrop";
+  /** Backdrop only: how strong the artwork shows (0–1, default 1). Dark mode is dimmed further. */
+  imageOpacity?: number;
+  /** Backdrop only: a solid fade behind the text so a full-colour photo can sit on the right. */
+  imageScrim?: boolean;
   crumbs: Crumb[];
   chips?: string[];
 };

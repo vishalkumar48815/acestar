@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { partners, testimonials } from "@/content/home";
-import { cn } from "@/lib/utils";
 import { TestimonialSlider } from "./testimonial-slider";
 
 export function Partners() {
@@ -33,29 +32,42 @@ export function Partners() {
 
           <ul
             aria-label="Technology partners"
-            className="mt-10 grid grid-cols-2 items-center gap-x-6 gap-y-8 border-t border-line pt-10 sm:grid-cols-3 lg:grid-cols-5"
+            className="mt-10 grid grid-cols-2 gap-3 border-t border-line pt-10 sm:grid-cols-3 sm:gap-4 xl:grid-cols-6"
           >
-            {partners.logos.map((logo, i) => (
-              <li
-                key={logo.name}
-                data-reveal
-                suppressHydrationWarning
-                style={{ "--reveal-delay": `${i * 70}ms` } as React.CSSProperties}
-                className="flex justify-center max-sm:last:col-span-2"
-              >
-                <Image
-                  src={logo.src}
-                  alt={logo.name}
-                  width={400}
-                  height={177}
-                  sizes="180px"
-                  className={cn(
-                    "h-14 w-auto object-contain transition-transform duration-500 ease-out-expo hover:scale-105 lg:h-16",
-                    logo.mono && "dark:[filter:brightness(0)_invert(1)]",
-                  )}
-                />
-              </li>
-            ))}
+            {partners.logos.map((logo, i) => {
+              const name = logo.vendor ? `${logo.vendor} ${logo.product}` : logo.product;
+              return (
+                <li
+                  key={name}
+                  data-reveal
+                  suppressHydrationWarning
+                  style={{ "--reveal-delay": `${i * 70}ms` } as React.CSSProperties}
+                >
+                  <div className="group flex h-full items-center gap-3 rounded-2xl border border-white/90 bg-white/75 px-3.5 py-3 shadow-[0_1px_2px_rgb(30_40_90/0.05)] transition-[transform,box-shadow] duration-500 ease-out-expo hover:-translate-y-1 hover:shadow-[0_20px_40px_-24px_rgb(70_70_180/0.4)] sm:px-4 sm:py-3.5 dark:border-white/[0.08] dark:bg-white/[0.04]">
+                    <span className="grid size-10 shrink-0 place-items-center sm:size-11">
+                      <Image
+                        src={logo.icon}
+                        alt=""
+                        width={44}
+                        height={44}
+                        unoptimized={logo.icon.endsWith(".svg")}
+                        className="size-full object-contain transition-transform duration-500 ease-out-expo group-hover:scale-110"
+                      />
+                    </span>
+                    <span className="min-w-0 leading-tight">
+                      {logo.vendor ? (
+                        <span className="block text-[0.6875rem] font-medium tracking-wide text-fg-subtle uppercase">
+                          {logo.vendor}
+                        </span>
+                      ) : null}
+                      <span className="block text-[0.9375rem] font-semibold tracking-[-0.01em] text-ink sm:text-base">
+                        {logo.product}
+                      </span>
+                    </span>
+                  </div>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>
