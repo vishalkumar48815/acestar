@@ -64,7 +64,15 @@ export function Hero() {
           </h1>
 
           <p
-            className="mt-6 max-w-[36rem] text-[clamp(1.0625rem,0.95rem+0.45vw,1.3125rem)] leading-[1.55] text-fg-muted"
+            className="mt-5 font-display text-[clamp(1.25rem,0.95rem+1vw,1.875rem)] leading-tight font-bold tracking-[-0.03em] text-ink"
+            style={enter(400)}
+          >
+            <span className="inline-block">{hero.subtitle[0]}</span>{" "}
+            <span className="inline-block text-gradient">{hero.subtitle[1]}</span>
+          </p>
+
+          <p
+            className="mt-4 max-w-[36rem] text-[clamp(1.0625rem,0.95rem+0.45vw,1.3125rem)] leading-[1.55] text-fg-muted"
             style={enter(480)}
           >
             {hero.lead}

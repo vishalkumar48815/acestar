@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { FloatingCollage } from "@/components/media/floating-collage";
-import { PressCard, PressFeed } from "@/components/media/press-feed";
+import { NewsSpotlight } from "@/components/media/news-spotlight";
+import { PressFeed } from "@/components/media/press-feed";
 import { ClosingCta } from "@/components/sections/home/closing-cta";
 import { StatStrip } from "@/components/solutions/blocks";
 import { PageHero } from "@/components/solutions/page-hero";
@@ -17,6 +18,7 @@ export const metadata: Metadata = {
 export default async function NewsPage() {
   const pressItems = await getPressItems();
   const featuredPress = pressItems.find((p) => p.featured) ?? pressItems[0];
+  const headlines = pressItems.filter((p) => p !== featuredPress).slice(0, 4);
   const publishers = new Set(pressItems.map((p) => p.publisher)).size;
   const years = pressItems.map((p) => Number(p.date.slice(0, 4)));
   const collage = pressItems
@@ -52,22 +54,20 @@ export default async function NewsPage() {
           ]}
         />
         {featuredPress ? (
-          <div className="mt-14 grid items-center gap-8 lg:mt-16 lg:grid-cols-[1fr_1.2fr] lg:gap-12">
-            <SectionHead
-              eyebrow="Top story"
-              title={featuredPress.title}
-              body={featuredPress.excerpt}
-              id="featured-title"
-            />
-            <div data-reveal suppressHydrationWarning>
-              <PressCard item={featuredPress} />
-            </div>
+          <div className="mt-12 lg:mt-16" data-reveal suppressHydrationWarning>
+            <NewsSpotlight top={featuredPress} headlines={headlines} />
           </div>
         ) : null}
       </Section>
 
       <Section id="stories" labelledBy="stories-title" className="pt-4 lg:pt-6">
-        <SectionHead eyebrow="All coverage" title="Every story, newest first." id="stories-title" className="mb-8" />
+        <SectionHead
+          eyebrow="All coverage"
+          title="A decade of headlines, year by year."
+          body="Filter by language, search a name or publisher, or open any year to see every story."
+          id="stories-title"
+          className="mb-8"
+        />
         <PressFeed items={pressItems} />
       </Section>
 

@@ -44,11 +44,11 @@ export const solutionLinks: NavLink[] = [
 
 export const mainNav: NavItem[] = [
   { label: "Solutions", href: "/solutions/creative-software", children: solutionLinks },
-  { label: "TechCare", href: "/techcare" },
+  // { label: "TechCare", href: "/techcare" },
   { label: "About Us", href: "/about", children: aboutNavLinks },
   { label: "Media", href: "/news", children: mediaNavLinks },
   { label: "Careers", href: "/careers" },
-  { label: "Support", href: "/support" },
+  { label: "Tech Support", href: "/support" },
 ];
 
 /** Footer columns in the new design. */

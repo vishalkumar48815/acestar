@@ -60,7 +60,10 @@ export function AwardTimeline({ years, founded }: { years: AwardYear[]; founded:
           className="absolute top-2 bottom-2 left-[0.4375rem] w-px bg-[linear-gradient(180deg,var(--accent-from),var(--accent-to)_60%,transparent)] opacity-40 lg:left-[9.4375rem]"
         />
         {visible.map((y) => (
-          <li key={y.year} className="relative grid gap-5 pb-10 pl-8 lg:grid-cols-[9rem_1fr] lg:gap-8 lg:pb-12 lg:pl-0">
+          <li
+            key={y.year}
+            className="relative grid grid-cols-1 gap-5 pb-10 pl-8 lg:grid-cols-[9rem_1fr] lg:gap-8 lg:pb-12 lg:pl-0"
+          >
             <span
               aria-hidden="true"
               className="absolute top-2 left-0 size-[0.9375rem] rounded-full border-[3px] border-bg bg-[image:var(--btn-gradient)] shadow-[0_0_0_4px_color-mix(in_oklab,var(--accent-from)_18%,transparent)] lg:left-36"
@@ -73,14 +76,14 @@ export function AwardTimeline({ years, founded }: { years: AwardYear[]; founded:
                 {y.awards.length} {y.awards.length === 1 ? "award" : "awards"}
               </p>
             </div>
-            <ul className="grid gap-3 md:grid-cols-2">
+            <ul className="grid min-w-0 grid-cols-1 gap-3 md:grid-cols-2">
               {y.awards.map((award, i) => (
                 <li
                   key={`${award.title}-${i}`}
-                  className="group/award flex items-center gap-4 rounded-[1.25rem] border border-white/90 bg-white/70 p-3 pr-5 shadow-[0_1px_2px_rgb(30_40_90/0.05)] backdrop-blur transition-[transform,box-shadow] duration-500 ease-out-expo hover:-translate-y-0.5 hover:shadow-[0_20px_40px_-24px_rgb(70_70_180/0.35)] dark:border-white/[0.08] dark:bg-white/[0.03]"
+                  className="group/award flex items-center gap-3 rounded-[1.25rem] border border-white/90 bg-white/70 p-3 pr-4 shadow-[0_1px_2px_rgb(30_40_90/0.05)] backdrop-blur transition-[transform,box-shadow] duration-500 ease-out-expo hover:-translate-y-0.5 hover:shadow-[0_20px_40px_-24px_rgb(70_70_180/0.35)] sm:gap-4 sm:pr-5 dark:border-white/[0.08] dark:bg-white/[0.03]"
                   style={{ animation: `fade-up 0.6s var(--ease-out) ${i * 60}ms both` }}
                 >
-                  <div className="relative h-[4.5rem] w-28 shrink-0 rounded-xl bg-white ring-1 ring-line">
+                  <div className="relative h-16 w-20 shrink-0 rounded-xl bg-white ring-1 ring-line sm:h-[4.5rem] sm:w-28">
                     {award.image ? (
                       <Image
                         src={award.image.src}
@@ -96,14 +99,16 @@ export function AwardTimeline({ years, founded }: { years: AwardYear[]; founded:
                     <p className="text-[0.6875rem] font-semibold tracking-wide text-brand-ink uppercase">
                       {award.issuer}
                     </p>
-                    <p className="mt-0.5 text-[0.9375rem] leading-snug font-semibold text-ink">{award.title}</p>
+                    <p className="mt-0.5 text-[0.9375rem] leading-snug font-semibold [overflow-wrap:anywhere] [hyphens:auto] text-ink">
+                      {award.title}
+                    </p>
                   </div>
                 </li>
               ))}
             </ul>
           </li>
         ))}
-        <li className="relative grid gap-3 pl-8 lg:grid-cols-[9rem_1fr] lg:gap-8 lg:pl-0">
+        <li className="relative grid grid-cols-1 gap-3 pl-8 lg:grid-cols-[9rem_1fr] lg:gap-8 lg:pl-0">
           <span
             aria-hidden="true"
             className="absolute top-2 left-0 size-[0.9375rem] rounded-full border-[3px] border-bg bg-fg-subtle lg:left-36"

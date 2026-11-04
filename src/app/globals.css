@@ -285,6 +285,8 @@ html.lenis body {
 /* ---------- Article typography (blog posts) ---------- */
 .prose-acestar {
   color: var(--fg-muted);
+  /* Long URLs and product codes in imported posts must wrap, never widen the page. */
+  overflow-wrap: anywhere;
   font-size: clamp(1.0625rem, 1rem + 0.2vw, 1.1875rem);
   line-height: 1.75;
 }

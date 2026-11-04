@@ -19,7 +19,7 @@ export function Logo({
   label?: string;
 }) {
   const { logoLight, logoDark } = media;
-  const imgClass = "h-8 w-auto md:h-9";
+  const imgClass = "h-7 w-auto sm:h-8 md:h-9";
   return (
     <Link href={href} aria-label={label} className={cn("inline-flex shrink-0 items-center", className)}>
       <Image

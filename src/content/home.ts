@@ -8,8 +8,10 @@ import type { NewsItem, Offering, Pillar, Stat, Testimonial } from "@/types/cont
 export const hero = {
   eyebrow: ["AI", "Software", "IT Solutions"],
   /** Lines render as written; `accent` is the gradient tail of the headline. */
-  titleLines: ["Empowering", "Businesses to Achieve", "More with AI &", "Technology."],
-  accent: "AI & Technology.",
+  titleLines: ["Empowering Every", "Business with AI."],
+  accent: "with AI.",
+  /** Short tagline under the headline; the second sentence gets the gradient. */
+  subtitle: ["Make AI Practical.", "Deliver Real Impact."],
   lead: "From AI solutions and enterprise software to digital workflows and IT infrastructure, Acestar helps businesses work smarter, grow faster and stay ahead.",
   primaryCta: { label: "Explore Our Solutions", href: "#solutions" },
   tagline: ["People", "Technology", "Possibilities"],

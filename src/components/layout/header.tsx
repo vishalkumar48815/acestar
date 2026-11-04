@@ -70,12 +70,14 @@ export function Header() {
         )}
         style={{ top: "env(safe-area-inset-top, 0px)" }}
       >
-        <div className="container-page pt-3 md:pt-4">
+        <div className="container-page pt-2 sm:pt-3 md:pt-4">
           <nav
             aria-label="Main"
             className={cn(
-              "flex items-center justify-between gap-4 rounded-full py-2 pr-2 pl-5 transition-all duration-500 ease-out-expo",
-              scrolled ? "glass-strong" : "border border-transparent bg-transparent",
+              "flex items-center justify-between gap-2 rounded-full py-1 pr-1 pl-4 transition-all duration-500 ease-out-expo sm:gap-4 sm:py-2 sm:pr-2 sm:pl-5",
+              scrolled
+                ? "glass-strong max-lg:bg-[color-mix(in_srgb,var(--bg)_94%,transparent)]"
+                : "border border-transparent bg-transparent",
             )}
           >
             <Logo priority />

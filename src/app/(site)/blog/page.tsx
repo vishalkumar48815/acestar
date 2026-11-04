@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { FeaturedPost } from "@/components/media/blog-card";
+import { BlogSpotlight } from "@/components/media/blog-spotlight";
 import { FloatingCollage } from "@/components/media/floating-collage";
 import { BlogIndex } from "@/components/media/blog-index";
 import { ClosingCta } from "@/components/sections/home/closing-cta";
 import { PageHero } from "@/components/solutions/page-hero";
-import { Section } from "@/components/solutions/primitives";
+import { Section, SectionHead } from "@/components/solutions/primitives";
 import { getBlogPosts } from "@/server/content/media";
 
 export const metadata: Metadata = {
@@ -16,7 +16,8 @@ export const metadata: Metadata = {
 export default async function BlogPage() {
   const blogPosts = await getBlogPosts();
   const blogCategories = [...new Set(blogPosts.map((p) => p.category))];
-  const [latest, ...rest] = blogPosts;
+  const latest = blogPosts[0];
+  const spotlight = blogPosts.slice(0, 3);
   // Hero collage: one cover per category first, then the newest others.
   const covers = [
     ...blogCategories.map((c) => blogPosts.find((p) => p.category === c && p.cover)),
@@ -42,20 +43,24 @@ export default async function BlogPage() {
 
       {latest ? (
         <Section labelledBy="latest-title" className="pt-0 lg:pt-0">
-          <h2 id="latest-title" className="sr-only">
-            Latest post
-          </h2>
+          <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
+            <SectionHead eyebrow="Fresh from the team" title="Latest stories." id="latest-title" />
+          </div>
           <div data-reveal suppressHydrationWarning>
-            <FeaturedPost post={latest} />
+            <BlogSpotlight posts={spotlight} />
           </div>
         </Section>
       ) : null}
 
       <Section id="posts" labelledBy="posts-title" className="pt-0 lg:pt-0">
-        <h2 id="posts-title" className="sr-only">
-          All posts
-        </h2>
-        <BlogIndex posts={rest} categories={blogCategories} />
+        <SectionHead
+          eyebrow="Browse the blog"
+          title="Guides, tips and stories."
+          body="Filter by topic or search for a product, a tip or a name."
+          id="posts-title"
+          className="mb-8"
+        />
+        <BlogIndex posts={blogPosts} categories={blogCategories} featured={spotlight.map((p) => p.slug)} />
       </Section>
 
       <ClosingCta />

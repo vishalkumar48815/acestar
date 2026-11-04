@@ -109,7 +109,11 @@ export default function TechCarePage() {
           </ul>
         </CardSpotlight>
         <div className="mt-10 flex justify-center">
-          <ButtonLink href={site.externalLinks.techcare} variant="glass" className="rounded-full px-7">
+          <ButtonLink
+            href={site.externalLinks.techcare}
+            variant="glass"
+            className="h-auto rounded-full px-7 py-3 text-center whitespace-normal"
+          >
             Compare plans on techcareasia.com <ArrowUpRight aria-hidden="true" className="size-4" />
           </ButtonLink>
         </div>
