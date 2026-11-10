@@ -114,7 +114,7 @@ export function BlogIndex({
             {q ? <> matching “{query.trim()}”</> : null}
           </>
         ) : (
-          <>More from the blog</>
+          <>All {posts.length} posts, newest first</>
         )}
       </p>
 

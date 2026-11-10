@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { FloatingCollage } from "@/components/media/floating-collage";
 import { GalleryBrowser } from "@/components/media/gallery-browser";
 import { ClosingCta } from "@/components/sections/home/closing-cta";
 import { StatStrip } from "@/components/solutions/blocks";
@@ -17,10 +16,6 @@ export const metadata: Metadata = {
 export default async function GalleryPage() {
   const albums = await getAlbums();
   const photoCount = albums.reduce((n, a) => n + a.photos.length, 0);
-  const tiles = albums
-    .map((a) => a.photos.find((p) => p.id === a.cover) ?? a.photos[0])
-    .filter((p) => p !== undefined)
-    .map((p) => ({ src: p.src, width: p.width, height: p.height }));
 
   return (
     <>
@@ -33,8 +28,10 @@ export default async function GalleryPage() {
           primary: { label: "Browse photos", href: "#photos" },
           secondary: { label: "Latest news", href: "/news" },
           crumbs: [{ label: "Home", href: "/" }, { label: "Media" }, { label: "Gallery" }],
+          // Hummingbird artwork from the acestar.my Adobe Firefly banner (2024/08), logo removed
+          image: { src: "/images/media/hero-gallery-art2.webp", width: 2300, height: 780, alt: "" },
+          imageFit: "backdrop",
         }}
-        visual={<FloatingCollage tiles={tiles} />}
       />
 
       <Section className="pt-0 lg:pt-4">

@@ -38,6 +38,8 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   images: {
     formats: ["image/avif", "image/webp"],
+    // 90 is used for full-width hero artwork, where compression is most visible.
+    qualities: [75, 90],
     // Images uploaded from /admin in production (Vercel Blob).
     remotePatterns: [{ protocol: "https", hostname: "*.public.blob.vercel-storage.com" }],
   },

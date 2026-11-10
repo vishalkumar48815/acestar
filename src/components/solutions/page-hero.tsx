@@ -57,6 +57,7 @@ export function PageHero({ hero, visual }: { hero: Hero; visual?: ReactNode }) {
             fill
             priority
             sizes="100vw"
+            quality={90}
             className={cn("object-cover object-right", hero.imageDark && "dark:hidden")}
             style={{ animation: "hero-art-in 1.4s var(--ease-out) both" }}
           />
@@ -67,6 +68,7 @@ export function PageHero({ hero, visual }: { hero: Hero; visual?: ReactNode }) {
               fill
               priority
               sizes="100vw"
+              quality={90}
               className="hidden object-cover object-right dark:block"
               style={{ animation: "hero-art-in 1.4s var(--ease-out) both" }}
             />
@@ -75,7 +77,7 @@ export function PageHero({ hero, visual }: { hero: Hero; visual?: ReactNode }) {
           {hero.imageScrim ? (
             /* Solid page colour under the text, fading out so the photo shows in full on the right. */
             <>
-              <div className="absolute inset-0 hidden bg-[linear-gradient(90deg,var(--bg)_0%,var(--bg)_30%,color-mix(in_srgb,var(--bg)_85%,transparent)_42%,color-mix(in_srgb,var(--bg)_30%,transparent)_58%,transparent_72%)] lg:block" />
+              <div className="absolute inset-0 hidden bg-[linear-gradient(90deg,var(--bg)_0%,var(--bg)_46%,color-mix(in_srgb,var(--bg)_85%,transparent)_55%,color-mix(in_srgb,var(--bg)_35%,transparent)_68%,transparent_82%)] lg:block" />
               {/* Fades the photo out under the transparent header so the navigation stays readable */}
               <div className="absolute inset-x-0 top-0 h-24 bg-[linear-gradient(180deg,var(--bg)_10%,color-mix(in_srgb,var(--bg)_70%,transparent)_45%,transparent)] lg:h-36" />
             </>

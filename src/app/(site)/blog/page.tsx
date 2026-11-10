@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import { BlogSpotlight } from "@/components/media/blog-spotlight";
-import { FloatingCollage } from "@/components/media/floating-collage";
 import { BlogIndex } from "@/components/media/blog-index";
 import { ClosingCta } from "@/components/sections/home/closing-cta";
 import { PageHero } from "@/components/solutions/page-hero";
@@ -17,15 +15,6 @@ export default async function BlogPage() {
   const blogPosts = await getBlogPosts();
   const blogCategories = [...new Set(blogPosts.map((p) => p.category))];
   const latest = blogPosts[0];
-  const spotlight = blogPosts.slice(0, 3);
-  // Hero collage: one cover per category first, then the newest others.
-  const covers = [
-    ...blogCategories.map((c) => blogPosts.find((p) => p.category === c && p.cover)),
-    ...blogPosts.filter((p) => p.cover),
-  ]
-    .filter((p, i, all) => p !== undefined && all.indexOf(p) === i)
-    .slice(0, 5)
-    .map((p) => ({ ...p!.cover!, label: p!.category }));
   return (
     <>
       <PageHero
@@ -37,22 +26,13 @@ export default async function BlogPage() {
           primary: { label: "Read the latest", href: `/blog/${latest?.slug ?? ""}` },
           secondary: { label: "Browse all posts", href: "#posts" },
           crumbs: [{ label: "Home", href: "/" }, { label: "Media" }, { label: "Blog" }],
+          image: { src: "/images/media/hero-blog-hd.webp", width: 5376, height: 1400, alt: "" },
+          imageFit: "backdrop",
+          imageScrim: true,
         }}
-        visual={<FloatingCollage tiles={covers} />}
       />
 
-      {latest ? (
-        <Section labelledBy="latest-title" className="pt-0 lg:pt-0">
-          <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
-            <SectionHead eyebrow="Fresh from the team" title="Latest stories." id="latest-title" />
-          </div>
-          <div data-reveal suppressHydrationWarning>
-            <BlogSpotlight posts={spotlight} />
-          </div>
-        </Section>
-      ) : null}
-
-      <Section id="posts" labelledBy="posts-title" className="pt-0 lg:pt-0">
+      <Section id="posts" labelledBy="posts-title" className="pt-0 lg:pt-4">
         <SectionHead
           eyebrow="Browse the blog"
           title="Guides, tips and stories."
@@ -60,7 +40,7 @@ export default async function BlogPage() {
           id="posts-title"
           className="mb-8"
         />
-        <BlogIndex posts={blogPosts} categories={blogCategories} featured={spotlight.map((p) => p.slug)} />
+        <BlogIndex posts={blogPosts} categories={blogCategories} />
       </Section>
 
       <ClosingCta />

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { FloatingCollage } from "@/components/media/floating-collage";
 import { NewsSpotlight } from "@/components/media/news-spotlight";
 import { PressFeed } from "@/components/media/press-feed";
 import { ClosingCta } from "@/components/sections/home/closing-cta";
@@ -21,12 +20,6 @@ export default async function NewsPage() {
   const headlines = pressItems.filter((p) => p !== featuredPress).slice(0, 4);
   const publishers = new Set(pressItems.map((p) => p.publisher)).size;
   const years = pressItems.map((p) => Number(p.date.slice(0, 4)));
-  const collage = pressItems
-    .filter((p) => p.image)
-    .slice(0, 12)
-    .filter((p, i, all) => all.findIndex((q) => q.image!.src === p.image!.src) === i)
-    .slice(0, 5)
-    .map((p) => ({ ...p.image!, label: p.publisher }));
 
   return (
     <>
@@ -39,8 +32,10 @@ export default async function NewsPage() {
           primary: { label: "Latest stories", href: "#stories" },
           secondary: { label: "Read our blog", href: "/blog" },
           crumbs: [{ label: "Home", href: "/" }, { label: "Media" }, { label: "News" }],
+          // Illustration from acestar.my (2025/08), placed on the right
+          image: { src: "/images/media/hero-news-art2.webp", width: 3609, height: 1024, alt: "" },
+          imageFit: "backdrop",
         }}
-        visual={<FloatingCollage tiles={collage} />}
       />
 
       <Section labelledBy="featured-title" className="pt-0 lg:pt-4">
