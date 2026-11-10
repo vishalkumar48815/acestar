@@ -15,6 +15,8 @@ export type PageHero = {
   primary?: Cta;
   secondary?: Cta;
   image?: Img;
+  /** Optional dark-theme version of `image` (backdrop only). */
+  imageDark?: Img;
   /**
    * "cover" = photo fills the right panel; "contain" = product/illustration floating on the right;
    * "banner" = ultra-wide artwork as a strip under the text; "backdrop" = pale artwork behind the hero.

@@ -9,6 +9,10 @@ export const hero: PageHero = {
   lead: "More than 5,000 clients across education, enterprise, SME and the public sector, supported by long-standing partnerships with the world's leading technology brands.",
   primary: { label: "Work with us", href: "/contact" },
   secondary: { label: "Our awards", href: "/about/awards" },
+  // The original Clients page photo (2021/12/Clients-Background.jpg), recoloured in the site palette.
+  image: { src: "/images/pages/about/clients-hero-art3.webp", width: 1190, height: 777, alt: "" },
+  imageScrim: true,
+  imageFit: "backdrop",
   crumbs: [{ label: "Home", href: "/" }, { label: "About Us" }, { label: "Clients & Partners" }],
 };
 

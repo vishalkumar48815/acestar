@@ -44,7 +44,12 @@ export function PageHero({ hero, visual }: { hero: Hero; visual?: ReactNode }) {
         <div
           aria-hidden="true"
           className="absolute inset-x-0 top-0 -z-10 h-[min(80vw,26rem)] [mask-image:linear-gradient(180deg,#000_62%,transparent)] opacity-[var(--art-o)] lg:inset-y-0 lg:h-auto lg:[mask-image:linear-gradient(180deg,#000_82%,transparent)] dark:opacity-[calc(var(--art-o)*var(--art-dark))]"
-          style={{ "--art-o": hero.imageOpacity ?? 1, "--art-dark": hero.imageScrim ? 0.8 : 0.45 } as CSSProperties}
+          style={
+            {
+              "--art-o": hero.imageOpacity ?? 1,
+              "--art-dark": hero.imageDark ? 1 : hero.imageScrim ? 0.8 : 0.45,
+            } as CSSProperties
+          }
         >
           <Image
             src={hero.image.src}
@@ -52,9 +57,20 @@ export function PageHero({ hero, visual }: { hero: Hero; visual?: ReactNode }) {
             fill
             priority
             sizes="100vw"
-            className="object-cover object-right"
+            className={cn("object-cover object-right", hero.imageDark && "dark:hidden")}
             style={{ animation: "hero-art-in 1.4s var(--ease-out) both" }}
           />
+          {hero.imageDark ? (
+            <Image
+              src={hero.imageDark.src}
+              alt=""
+              fill
+              priority
+              sizes="100vw"
+              className="hidden object-cover object-right dark:block"
+              style={{ animation: "hero-art-in 1.4s var(--ease-out) both" }}
+            />
+          ) : null}
           {/* Keeps the headline side crisp on desktop */}
           {hero.imageScrim ? (
             /* Solid page colour under the text, fading out so the photo shows in full on the right. */

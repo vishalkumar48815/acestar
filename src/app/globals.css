@@ -504,3 +504,11 @@ html.js [data-reveal][data-inview="true"] {
     opacity: 0;
   }
 }
+
+/* Awards hero chart */
+@keyframes bar-grow {
+  from { transform: scaleY(0); }
+}
+@keyframes bar-grow-x {
+  from { transform: scaleX(0); }
+}

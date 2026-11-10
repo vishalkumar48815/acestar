@@ -174,6 +174,9 @@ export const hero: PageHero = {
   lead: `${awardCount} awards and recognitions since ${firstYear}, from our technology partners and Malaysia's leading business awards.`,
   primary: { label: "See the timeline", href: "#timeline" },
   secondary: { label: "Company Profile", href: "/about" },
+  // Artwork from acestar.my (2026/03/Banner-4.png), mirrored so the subject sits on the right.
+  image: { src: "/images/pages/about/awards-hero-art.webp", width: 1920, height: 638, alt: "" },
+  imageFit: "backdrop",
   crumbs: [{ label: "Home", href: "/" }, { label: "About Us" }, { label: "Awards" }],
 };
 
@@ -188,17 +191,5 @@ export const stats = [
   { value: `${firstYear}–${awardYears[0].year}`, label: "Recognised every year for over a decade" },
 ];
 
-/** Logos shown on the hero wall (distinct issuers, newest first). */
-export const heroWall = [
-  "2026/07/adobe-awards-logo.png",
-  "2026/07/lenovo-awards-logo.png",
-  "2026/07/autodesk-awards-logo.png",
-  "2021/11/EY-Entrepreneur-of-the-year-2020.png",
-  "2021/11/e50-2019.png",
-  "2021/11/SOBA-10-years-most-award-won.png",
-  "2026/07/certiport-awards-logo.png",
-  "2021/11/Adobe-Partner-of-the-year-award.png",
-  "2026/07/asus-awards-logo.png",
-]
-  .map((p) => aboutAsset(p, ""))
-  .filter((p) => p !== undefined);
+/** Rounded figures for the hero's "Who recognises us" card (edit here when the numbers grow). */
+export const recognitionSummary = { partners: "20+", awards: "30+" };

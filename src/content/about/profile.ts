@@ -9,15 +9,9 @@ export const hero: PageHero = {
   lead: "Acestar Sdn. Bhd. is a leading holistic IT solutions provider in the region, specialising in Creative Software, High Performance Computers and Digital Workflow Management.",
   primary: { label: "Talk to us", href: "/contact" },
   secondary: { label: "Our awards", href: "/about/awards" },
-  // Background from the original acestar.my Company Profile page (2021/12/Company-Profile-Background.jpg).
-  image: {
-    src: "/images/pages/about/company-profile-hero3.webp",
-    width: 1920,
-    height: 777,
-    alt: "",
-  },
+  // Artwork from acestar.my (2025/10/1.png), mirrored so the subject sits on the right.
+  image: { src: "/images/pages/about/profile-hero-art.webp", width: 1920, height: 500, alt: "" },
   imageFit: "backdrop",
-  imageScrim: true,
   crumbs: [{ label: "Home", href: "/" }, { label: "About Us" }, { label: "Company Profile" }],
   chips: ["Adobe's only Platinum Partner in Malaysia", "Certiport Sole Distributor", "Est. 2008"],
 };

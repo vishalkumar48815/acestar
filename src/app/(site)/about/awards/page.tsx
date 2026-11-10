@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import { AwardTimeline } from "@/components/about/award-timeline";
-import { LogoWall } from "@/components/about/logo-wall";
 import { ClosingCta } from "@/components/sections/home/closing-cta";
 import { StatStrip } from "@/components/solutions/blocks";
 import { PageHero } from "@/components/solutions/page-hero";
 import { Section, SectionHead } from "@/components/solutions/primitives";
-import { awardCount, awardYears, hero, heroWall, quote, stats } from "@/content/about/awards";
+import { awardCount, awardYears, hero, quote, stats } from "@/content/about/awards";
 import { site } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -17,7 +16,7 @@ export const metadata: Metadata = {
 export default function AwardsPage() {
   return (
     <>
-      <PageHero hero={hero} visual={<LogoWall logos={heroWall} />} />
+      <PageHero hero={hero} />
 
       <Section labelledBy="quote-title" className="pt-0 lg:pt-4">
         <StatStrip stats={stats} />

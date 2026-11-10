@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { LogoWall } from "@/components/about/logo-wall";
 import { CardSpotlight } from "@/components/motion/card-spotlight";
 import { ClosingCta } from "@/components/sections/home/closing-cta";
 import { TestimonialSlider } from "@/components/sections/home/testimonial-slider";
@@ -30,25 +29,10 @@ export const metadata: Metadata = {
 
 const delay = (i: number) => ({ "--reveal-delay": `${i * 70}ms` }) as React.CSSProperties;
 
-/** Hero wall: clients and partners interleaved. */
-const wall = [
-  clients[0],
-  partners[0],
-  clients[1],
-  partners[1],
-  clients[2],
-  partners[3],
-  clients[5],
-  partners[6],
-  clients[6],
-]
-  .map((x) => x.logo)
-  .filter((x) => x !== undefined);
-
 export default function ClientsPartnersPage() {
   return (
     <>
-      <PageHero hero={hero} visual={<LogoWall logos={wall} />} />
+      <PageHero hero={hero} />
 
       <Section labelledBy="clients-title" className="pt-0 lg:pt-4">
         <StatStrip stats={stats} />
