@@ -62,7 +62,7 @@ export const solutions = {
 
 /**
  * "Technology Partners" strip: the AI-era platforms Acestar delivers.
- * Icons are the vendors' official marks (Adobe app icons from acestar.my; GitLab and Twilio
+ * Icons are the vendors' official marks (Adobe app icons from acestar.my; GitLab, Twilio and OpenAI
  * from Simple Icons, CC0; Microsoft Copilot from Lobe Icons). Files: public/images/partners/ai.
  */
 export const partners = {
@@ -72,10 +72,11 @@ export const partners = {
   logos: [
     { vendor: "Adobe", product: "Acrobat Studio", icon: "/images/partners/ai/adobe-acrobat.webp" },
     { vendor: "Microsoft", product: "Copilot", icon: "/images/partners/ai/microsoft-copilot.svg" },
+    // Black mark: inverted to white in dark mode.
+    { vendor: "OpenAI", product: "ChatGPT", icon: "/images/partners/ai/openai.svg", invertInDark: true },
+    { vendor: "GitLab Inc.", product: "GitLab", icon: "/images/partners/ai/gitlab.svg" },
+    { vendor: "Twilio Inc.", product: "Twilio", icon: "/images/partners/ai/twilio.svg" },
     { vendor: "Adobe", product: "Firefly", icon: "/images/partners/ai/adobe-firefly.webp" },
-    { vendor: "Adobe", product: "Express", icon: "/images/partners/ai/adobe-express.webp" },
-    { vendor: null, product: "GitLab", icon: "/images/partners/ai/gitlab.svg" },
-    { vendor: null, product: "Twilio", icon: "/images/partners/ai/twilio.svg" },
   ],
 };
 

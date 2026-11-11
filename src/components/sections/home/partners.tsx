@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { cn } from "@/lib/utils";
 import { partners, testimonials } from "@/content/home";
 import { TestimonialSlider } from "./testimonial-slider";
 
@@ -51,7 +52,10 @@ export function Partners() {
                         width={44}
                         height={44}
                         unoptimized={logo.icon.endsWith(".svg")}
-                        className="size-full object-contain transition-transform duration-500 ease-out-expo group-hover:scale-110"
+                        className={cn(
+                          "size-full object-contain transition-transform duration-500 ease-out-expo group-hover:scale-110",
+                          "invertInDark" in logo && logo.invertInDark && "p-0.5 dark:invert",
+                        )}
                       />
                     </span>
                     <span className="min-w-0 leading-tight">
