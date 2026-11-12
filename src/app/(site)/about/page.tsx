@@ -110,14 +110,20 @@ export default function CompanyProfilePage() {
       <Section id="what-we-do" labelledBy="what-title" className="pt-0 lg:pt-0">
         <SectionHead
           eyebrow="What we do"
-          title="Three specialisations, one partner."
-          body="Creative Software, High Performance Computers and Digital Workflow Management, plus IT as a Service with TechCare."
+          title="Every specialisation, one partner."
+          body="AI Solutions, Creative Software, High Performance Computers and Digital Workflow Management, plus IT as a Service with TechCare."
           id="what-title"
         />
         <CardSpotlight className="mt-8">
-          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {solutionTree.map((n, i) => (
-              <li key={n.key} data-reveal suppressHydrationWarning style={delay(i)}>
+              <li
+                key={n.key}
+                data-reveal
+                suppressHydrationWarning
+                style={delay(i)}
+                className={n.key === "ai" ? "sm:col-span-2" : undefined}
+              >
                 <div
                   data-spotlight
                   className={cn(toneCard, "group/card flex h-full flex-col p-6")}

@@ -1,6 +1,7 @@
 /** Content model for the Products & Solutions pages. */
 
-export type Img = { src: string; width: number; height: number; alt: string };
+/** `darkInvert`: a black mark that should turn white in dark mode (e.g. the OpenAI logo). */
+export type Img = { src: string; width: number; height: number; alt: string; darkInvert?: boolean };
 
 export type Crumb = { label: string; href?: string };
 

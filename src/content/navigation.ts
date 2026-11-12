@@ -18,6 +18,11 @@ export const aboutNavLinks: NavLink[] = aboutLinks.map(({ label, href, descripti
 
 export const solutionLinks: NavLink[] = [
   {
+    label: "AI solutions",
+    href: "/solutions/ai",
+    description: "Copilot, ChatGPT, Acrobat Studio & Firefly",
+  },
+  {
     label: "Creative software",
     href: "/solutions/creative-software",
     description: "Adobe, Autodesk, Resolume & Boris FX",

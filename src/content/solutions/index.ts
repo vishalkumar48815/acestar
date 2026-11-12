@@ -1,5 +1,6 @@
 /**
- * The "Our Products & Solutions" tree, mirroring the old acestar.my menu:
+ * The "Our Products & Solutions" tree, mirroring the old acestar.my menu (plus AI Solutions):
+ * AI Solutions
  * Creative Software → Adobe Creative Cloud Pro
  * High Performance Computers → Apple Solution
  * Digital Workflow Management → Adobe Acrobat
@@ -15,6 +16,12 @@ export type SolutionNode = {
 };
 
 export const solutionTree: SolutionNode[] = [
+  {
+    key: "ai",
+    label: "AI Solutions",
+    href: "/solutions/ai",
+    description: "Copilot, ChatGPT, Acrobat Studio & Firefly",
+  },
   {
     key: "creative",
     label: "Creative Software",

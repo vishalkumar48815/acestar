@@ -28,9 +28,14 @@ export default async function GalleryPage() {
           primary: { label: "Browse photos", href: "#photos" },
           secondary: { label: "Latest news", href: "/news" },
           crumbs: [{ label: "Home", href: "/" }, { label: "Media" }, { label: "Gallery" }],
-          // Hummingbird artwork from the acestar.my Adobe Firefly banner (2024/08), logo removed
-          image: { src: "/images/media/hero-gallery-art2.webp", width: 2300, height: 780, alt: "" },
-          imageFit: "backdrop",
+          // One framed photo: the Micro-Credentials Education Summit finale (acestar.my gallery)
+          image: {
+            src: "/images/media/gallery/mces/web-11.webp",
+            width: 1800,
+            height: 1013,
+            alt: "Confetti on stage at the Micro-Credentials Education Summit finale",
+          },
+          imageFit: "cover",
         }}
       />
 

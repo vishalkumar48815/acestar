@@ -263,7 +263,7 @@ export function RelatedSolutions({ current }: { current: string }) {
       <div className="container-page">
         <SectionHead eyebrow="Explore more" title="More from Acestar" id="related-title" />
         <CardSpotlight className="mt-8">
-          <ul className="grid gap-4 sm:grid-cols-3">
+          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {items.map((n, i) => (
               <li key={n.key} data-reveal suppressHydrationWarning style={delay(i)}>
                 <div

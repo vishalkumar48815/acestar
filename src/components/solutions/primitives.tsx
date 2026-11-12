@@ -113,7 +113,7 @@ export function AppIcon({ icon, name, className }: { icon?: Img; name: string; c
         height={icon.height}
         alt=""
         sizes="64px"
-        className={cn("size-12 shrink-0 object-contain", className)}
+        className={cn("size-12 shrink-0 object-contain", icon.darkInvert && "dark:invert", className)}
       />
     );
   }
