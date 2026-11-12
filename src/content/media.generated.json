@@ -11,8 +11,8 @@
   },
   "awards.malaysiaDigital": {
     "src": "/images/awards/malaysia-digital.webp",
-    "width": 480,
-    "height": 227
+    "width": 960,
+    "height": 455
   },
   "awards.soba": {
     "src": "/images/awards/soba-most-awards.webp",
@@ -36,8 +36,8 @@
   },
   "campaigns.anniversary.desktop": {
     "src": "/images/campaigns/sweet-17th-desktop.webp",
-    "width": 1920,
-    "height": 996
+    "width": 2560,
+    "height": 1328
   },
   "campaigns.anniversary.mobile": {
     "src": "/images/campaigns/sweet-17th-mobile.webp",
@@ -46,8 +46,8 @@
   },
   "campaigns.firefly.desktop": {
     "src": "/images/campaigns/firefly-basketball-desktop.webp",
-    "width": 1920,
-    "height": 996
+    "width": 2560,
+    "height": 1328
   },
   "campaigns.firefly.mobile": {
     "src": "/images/campaigns/firefly-basketball-mobile.webp",
@@ -56,8 +56,8 @@
   },
   "campaigns.hp.desktop": {
     "src": "/images/campaigns/hp-elitebook-x-desktop.webp",
-    "width": 1920,
-    "height": 996
+    "width": 2560,
+    "height": 1328
   },
   "campaigns.hp.mobile": {
     "src": "/images/campaigns/hp-elitebook-x-mobile.webp",
@@ -66,13 +66,13 @@
   },
   "campaigns.imagination.desktop": {
     "src": "/images/campaigns/imagination-desktop.webp",
-    "width": 1920,
-    "height": 1121
+    "width": 2560,
+    "height": 1495
   },
   "campaigns.paperwork.desktop": {
     "src": "/images/campaigns/paperwork-desktop.webp",
-    "width": 1920,
-    "height": 997
+    "width": 2560,
+    "height": 1329
   },
   "campaigns.paperwork.mobile": {
     "src": "/images/campaigns/paperwork-mobile.webp",
@@ -81,43 +81,43 @@
   },
   "campaigns.sign.mobile": {
     "src": "/images/campaigns/acrobat-sign-mobile.webp",
-    "width": 750,
-    "height": 939
+    "width": 1200,
+    "height": 1502
   },
   "clients.bnm": {
     "src": "/images/clients/bank-negara-malaysia.webp",
-    "width": 400,
-    "height": 168
+    "width": 771,
+    "height": 324
   },
   "clients.lemonSky": {
     "src": "/images/clients/lemon-sky-studios.webp",
-    "width": 400,
-    "height": 168
+    "width": 771,
+    "height": 324
   },
   "clients.mindvalley": {
     "src": "/images/clients/mindvalley.webp",
-    "width": 400,
-    "height": 168
+    "width": 771,
+    "height": 324
   },
   "clients.mrl": {
     "src": "/images/clients/malaysia-rail-link.webp",
-    "width": 400,
-    "height": 168
+    "width": 771,
+    "height": 324
   },
   "clients.petronas": {
     "src": "/images/clients/petronas.webp",
-    "width": 400,
-    "height": 168
+    "width": 771,
+    "height": 324
   },
   "clients.sarawakEnergy": {
     "src": "/images/clients/sarawak-energy.webp",
-    "width": 400,
-    "height": 168
+    "width": 771,
+    "height": 324
   },
   "clients.tng": {
     "src": "/images/clients/touch-n-go.webp",
-    "width": 400,
-    "height": 170
+    "width": 761,
+    "height": 323
   },
   "news.awani": {
     "src": "/images/news/acp-world-champion-astro-awani.webp",
@@ -136,37 +136,37 @@
   },
   "partners.adobe": {
     "src": "/images/partners/adobe.webp",
-    "width": 400,
-    "height": 177
+    "width": 752,
+    "height": 332
   },
   "partners.apple": {
     "src": "/images/partners/apple.webp",
-    "width": 400,
-    "height": 177
+    "width": 752,
+    "height": 332
   },
   "partners.autodesk": {
     "src": "/images/partners/autodesk.webp",
-    "width": 400,
-    "height": 177
+    "width": 752,
+    "height": 332
   },
   "partners.certiport": {
     "src": "/images/partners/certiport.webp",
-    "width": 400,
-    "height": 177
+    "width": 752,
+    "height": 332
   },
   "partners.hp": {
     "src": "/images/partners/hp.webp",
-    "width": 400,
-    "height": 177
+    "width": 752,
+    "height": 332
   },
   "partners.lenovo": {
     "src": "/images/partners/lenovo.webp",
-    "width": 400,
-    "height": 177
+    "width": 752,
+    "height": 332
   },
   "partners.microsoft": {
     "src": "/images/partners/microsoft.webp",
-    "width": 400,
-    "height": 177
+    "width": 752,
+    "height": 332
   }
 }

@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { GalleryBrowser } from "@/components/media/gallery-browser";
 import { ClosingCta } from "@/components/sections/home/closing-cta";
-import { StatStrip } from "@/components/solutions/blocks";
 import { PageHero } from "@/components/solutions/page-hero";
-import { Section } from "@/components/solutions/primitives";
+import { Section, SectionHead } from "@/components/solutions/primitives";
 import { getAlbums } from "@/server/content/media";
 
 export const metadata: Metadata = {
@@ -15,7 +14,6 @@ export const metadata: Metadata = {
 
 export default async function GalleryPage() {
   const albums = await getAlbums();
-  const photoCount = albums.reduce((n, a) => n + a.photos.length, 0);
 
   return (
     <>
@@ -28,31 +26,21 @@ export default async function GalleryPage() {
           primary: { label: "Browse photos", href: "#photos" },
           secondary: { label: "Latest news", href: "/news" },
           crumbs: [{ label: "Home", href: "/" }, { label: "Media" }, { label: "Gallery" }],
-          // One framed photo: the Micro-Credentials Education Summit finale (acestar.my gallery)
-          image: {
-            src: "/images/media/gallery/mces/web-11.webp",
-            width: 1800,
-            height: 1013,
-            alt: "Confetti on stage at the Micro-Credentials Education Summit finale",
-          },
-          imageFit: "cover",
+          // Photo-frames artwork (scripts/hero-art/render-gallery-art.html), blended into the page
+          image: { src: "/images/media/gallery-hero-frames2.webp", width: 2880, height: 1100, alt: "" },
+          imageDark: { src: "/images/media/gallery-hero-frames2-dark.webp", width: 2880, height: 1100, alt: "" },
+          imageFit: "backdrop",
         }}
       />
 
-      <Section className="pt-0 lg:pt-4">
-        <StatStrip
-          stats={[
-            { value: `${photoCount}`, label: "Photos from our events and milestones" },
-            { value: `${albums.length}`, label: "Albums, from MCES to SEA Connect" },
-            { value: "2015–2025", label: "A decade of moments" },
-          ]}
+      <Section id="photos" labelledBy="photos-title" className="pt-0 lg:pt-4">
+        <SectionHead
+          eyebrow="Memories with Acestar"
+          title="Every milestone, shared together."
+          body="Since 2008, the moments with our customers, partners, students and team that keep us moving forward."
+          id="photos-title"
+          className="mb-10"
         />
-      </Section>
-
-      <Section id="photos" labelledBy="photos-title" className="pt-0 lg:pt-0">
-        <h2 id="photos-title" className="sr-only">
-          Photos
-        </h2>
         <GalleryBrowser albums={albums} />
       </Section>
 

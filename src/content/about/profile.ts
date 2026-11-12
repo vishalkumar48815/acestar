@@ -4,9 +4,9 @@ import { aboutAsset } from "./assets";
 
 export const hero: PageHero = {
   eyebrow: "Company Profile",
-  title: "Your holistic IT partner, since 2008.",
+  title: "Your AI Enterprise Partner, since 2008.",
   accent: "since 2008.",
-  lead: "Acestar Sdn. Bhd. is a leading holistic IT solutions provider in the region, specialising in Creative Software, High Performance Computers and Digital Workflow Management.",
+  lead: "Acestar Sdn. Bhd. is a leading AI Enterprise solutions provider in the region, specialising in AI, Creative Software, High Performance Computers and Digital Workflow Management.",
   primary: { label: "Talk to us", href: "/contact" },
   secondary: { label: "Our awards", href: "/about/awards" },
   // Artwork from acestar.my (2025/10/1.png), mirrored so the subject sits on the right.

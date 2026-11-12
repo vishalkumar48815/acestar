@@ -77,7 +77,7 @@ async function legacyFile(rel) {
 
 let bytes = 0;
 /** Optimise one legacy image → { src, width, height } (or undefined when missing). */
-async function image(rel, folder, name, maxWidth) {
+async function image(rel, folder, name, maxWidth, quality = 88) {
   if (!rel) return undefined;
   const input = await legacyFile(rel);
   if (!input) {
@@ -90,7 +90,7 @@ async function image(rel, folder, name, maxWidth) {
   const { data, info } = await sharp(input)
     .rotate()
     .resize({ width: maxWidth, withoutEnlargement: true })
-    .webp({ quality: 80, effort: 6 })
+    .webp({ quality, effort: 6 })
     .toBuffer({ resolveWithObject: true });
   await writeFile(output, data);
   bytes += data.length;
@@ -205,7 +205,7 @@ async function seedNews() {
       language: language(`${r.title} ${r.excerpt}`),
       excerpt: r.excerpt,
       url: internal ? url.replace("https://acestar.my", "").replace(/\/$/, "") : url,
-      image: await image(r.image, "news", id, 960),
+      image: await image(r.image, "news", id, 1600),
       featured: false,
     });
   }
@@ -316,7 +316,7 @@ async function toMarkdown(html, slug, counter, coverRel) {
         const rel = src.split("/wp-content/uploads/")[1];
         // The cover is shown above the article; don't repeat it as the first image.
         if (!blocks.length && coverRel && base(rel) === base(coverRel)) continue;
-        const out = await image(rel, "blog", `${slug}-${++counter.n}`, 1400);
+        const out = await image(rel, "blog", `${slug}-${++counter.n}`, 2000);
         if (out) blocks.push(`![${alt}](${out.src} "${out.width}x${out.height}")`);
       } else if (/^#{2,4} /.test(t)) {
         blocks.push(t);
@@ -378,7 +378,7 @@ async function seedBlog() {
       category: CATEGORY(r.title),
       author: author ? `${author[1].trim()}, ${author[2].trim()}` : "Acestar",
       excerpt: r.excerpt.replace(/^Written by [^–-]+[–-]\s*Intern at Acestar\s*/i, "").replace(/^”\s*/, ""),
-      cover: await image(r.image, "blog", `${slug}-cover`, 1600),
+      cover: await image(r.image, "blog", `${slug}-cover`, 2560),
       readingMinutes: Math.max(1, Math.round(words / 220)),
       body,
     });
@@ -505,7 +505,8 @@ async function seedGallery() {
     const photos = [];
     for (const [rel, alt] of a.photos) {
       const id = slugify(path.basename(rel).replace(/\.[a-z]+$/i, ""));
-      const img = await image(rel, `gallery/${a.id}`, id, 1800);
+      // Gallery photos open full screen, so keep them large and high quality.
+      const img = await image(rel, `gallery/${a.id}`, id, 2560, 90);
       if (img) photos.push({ id, ...img, alt });
     }
     albums.push({ id: a.id, title: a.title, year: a.year, description: a.description, cover: photos[0]?.id, photos });

@@ -3,7 +3,7 @@
 import { useId, useRef, useState, type FormEvent } from "react";
 import { FormNotice, SelectField, TextArea, TextField } from "@/components/forms/fields";
 import { Button } from "@/components/ui/button";
-import { ArrowUpRight, Briefcase, ChevronDown, Clock, Paperclip, Send } from "@/components/ui/icons";
+import { ArrowUpRight, Briefcase, ChevronDown, Clock, Paperclip, Send, X } from "@/components/ui/icons";
 import type { Job } from "@/content/pages/careers";
 import { EMAIL_RE, PHONE_RE, deliverForm, formEndpoints } from "@/lib/forms";
 import { cn } from "@/lib/utils";
@@ -11,8 +11,12 @@ import { cn } from "@/lib/utils";
 const GENERAL = "General application";
 const MAX_CV_BYTES = 5 * 1024 * 1024;
 const CV_TYPES = ".pdf,.doc,.docx";
+const JOIN_OPTIONS = ["Immediately", "Within 2 weeks", "Within 1 month", "Within 2 months", "3 months or more"];
 
-type Errors = Partial<Record<"name" | "email" | "phone" | "role" | "cv", string>>;
+const formatSize = (bytes: number) =>
+  bytes < 1024 * 1024 ? `${Math.max(1, Math.round(bytes / 1024))} KB` : `${(bytes / 1024 / 1024).toFixed(1)} MB`;
+
+type Errors = Partial<Record<"name" | "email" | "phone" | "role" | "join" | "cv", string>>;
 type Status = { tone: "success" | "error" | "info"; text: string } | null;
 
 /** Open roles (expandable) beside an application form; "Apply" pre-selects the role. */
@@ -23,9 +27,23 @@ export function JobBoard({ jobs, to }: { jobs: Job[]; to: string }) {
   const [errors, setErrors] = useState<Errors>({});
   const [status, setStatus] = useState<Status>(null);
   const [pending, setPending] = useState(false);
-  const [cvName, setCvName] = useState("");
+  const [cv, setCv] = useState<File | null>(null);
+  const cvRef = useRef<HTMLInputElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
   const uploads = Boolean(formEndpoints.careers);
+
+  /** Keeps the chosen CV in state and in the (visually hidden) file input that the form submits. */
+  const pickCv = (file: File | null) => {
+    if (file && file.size > MAX_CV_BYTES) {
+      setErrors((e) => ({ ...e, cv: "Your CV must be 5 MB or smaller." }));
+      if (cvRef.current) cvRef.current.value = "";
+      setCv(null);
+      return;
+    }
+    setErrors((e) => ({ ...e, cv: undefined }));
+    setCv(file);
+    if (!file && cvRef.current) cvRef.current.value = "";
+  };
 
   const applyFor = (title: string) => {
     setRole(title);
@@ -43,11 +61,9 @@ export function JobBoard({ jobs, to }: { jobs: Job[]; to: string }) {
     if (!EMAIL_RE.test(email)) next.email = "Please enter a valid email address, e.g. name@company.com.";
     if (!PHONE_RE.test(phone)) next.phone = "Please enter a valid phone number, e.g. 012-345 6789.";
     if (!String(data.get("role") ?? "")) next.role = "Please choose a role.";
-    const cv = data.get("cv");
-    if (uploads) {
-      if (!(cv instanceof File) || cv.size === 0) next.cv = "Please attach your CV (PDF or Word).";
-      else if (cv.size > MAX_CV_BYTES) next.cv = "Your CV must be 5 MB or smaller.";
-    }
+    if (!String(data.get("join") ?? "")) next.join = "Please tell us when you can join.";
+    if (!cv) next.cv = "Please attach your CV (PDF or Word).";
+    else if (cv.size > MAX_CV_BYTES) next.cv = "Your CV must be 5 MB or smaller.";
     return next;
   };
 
@@ -60,7 +76,7 @@ export function JobBoard({ jobs, to }: { jobs: Job[]; to: string }) {
     setStatus(null);
     const first = Object.keys(found)[0];
     if (first) {
-      form.querySelector<HTMLElement>(`[name=${first}]`)?.focus();
+      (first === "cv" ? cvRef.current : form.querySelector<HTMLElement>(`[name=${first}]`))?.focus();
       return;
     }
     setPending(true);
@@ -73,8 +89,9 @@ export function JobBoard({ jobs, to }: { jobs: Job[]; to: string }) {
         ["Name", String(data.get("name"))],
         ["Email", String(data.get("email"))],
         ["Contact no.", String(data.get("phone"))],
-        ["Message", String(data.get("message") ?? "")],
-        ["", "(Please attach your CV to this email.)"],
+        ["Can join", String(data.get("join"))],
+        ["Additional note", String(data.get("message") ?? "")],
+        ["", `(Please attach your CV${cv ? `, ${cv.name},` : ""} to this email.)`],
       ],
     });
     setPending(false);
@@ -91,7 +108,7 @@ export function JobBoard({ jobs, to }: { jobs: Job[]; to: string }) {
       setStatus({ tone: "success", text: "Thank you! Your application has been sent. Our team will be in touch." });
       form.reset();
       setRole("");
-      setCvName("");
+      pickCv(null);
     }
   };
 
@@ -276,55 +293,90 @@ export function JobBoard({ jobs, to }: { jobs: Job[]; to: string }) {
             />
           </div>
 
-          {uploads ? (
-            <div className="flex flex-col gap-1.5">
-              <span className="text-[0.875rem] font-semibold text-ink">
-                Resume / CV
-                <span aria-hidden="true" className="ml-0.5 text-brand-ink">
-                  *
-                </span>
+          <SelectField
+            id={`${uid}-join`}
+            name="join"
+            label="When can you join if selected?"
+            required
+            defaultValue=""
+            error={errors.join}
+          >
+            <option value="" disabled>
+              Choose your availability
+            </option>
+            {JOIN_OPTIONS.map((o) => (
+              <option key={o} value={o}>
+                {o}
+              </option>
+            ))}
+          </SelectField>
+
+          {/* Upload CV: same picker style as the Tech Support attachments */}
+          <div className="flex flex-col gap-1.5">
+            <span className="text-[0.875rem] font-semibold text-ink">
+              Upload CV
+              <span aria-hidden="true" className="ml-0.5 text-brand-ink">
+                *
               </span>
-              <label
-                htmlFor={`${uid}-cv`}
-                className={cn(
-                  "flex min-h-14 cursor-pointer items-center gap-3 rounded-2xl border border-dashed px-4 transition-colors focus-within:shadow-[0_0_0_4px_color-mix(in_oklab,var(--accent-from)_16%,transparent)] hover:bg-brand-soft/50",
-                  errors.cv ? "border-danger" : "border-[color-mix(in_oklab,var(--accent-from)_40%,var(--line))]",
-                )}
-              >
-                <Paperclip className="size-5 shrink-0 text-brand-ink" />
-                <span className="min-w-0 truncate text-[0.9375rem] text-fg-muted">
-                  {cvName || "Attach PDF or Word, up to 5 MB"}
-                </span>
-                <input
-                  id={`${uid}-cv`}
-                  name="cv"
-                  type="file"
-                  accept={CV_TYPES}
-                  className="sr-only"
-                  aria-invalid={errors.cv ? true : undefined}
-                  aria-describedby={errors.cv ? `${uid}-cv-error` : undefined}
-                  onChange={(e) => setCvName(e.target.files?.[0]?.name ?? "")}
-                />
-              </label>
-              {errors.cv ? (
-                <p id={`${uid}-cv-error`} role="alert" className="text-[0.8125rem] font-medium text-danger">
-                  {errors.cv}
-                </p>
-              ) : null}
-            </div>
-          ) : null}
+            </span>
+            <label
+              htmlFor={`${uid}-cv`}
+              className={cn(
+                "flex min-h-14 cursor-pointer items-center gap-3 rounded-2xl border border-dashed px-4 transition-colors focus-within:shadow-[0_0_0_4px_color-mix(in_oklab,var(--accent-from)_16%,transparent)] hover:bg-brand-soft/50",
+                errors.cv ? "border-danger" : "border-[color-mix(in_oklab,var(--accent-from)_40%,var(--line))]",
+              )}
+            >
+              <Paperclip className="size-5 shrink-0 text-brand-ink" />
+              <span className="text-[0.9375rem] text-fg-muted">
+                {cv ? "Replace file" : "Attach your CV"} · PDF or Word, up to 5 MB
+              </span>
+              <input
+                ref={cvRef}
+                id={`${uid}-cv`}
+                name="cv"
+                type="file"
+                accept={CV_TYPES}
+                required
+                className="sr-only"
+                aria-invalid={errors.cv ? true : undefined}
+                aria-describedby={errors.cv ? `${uid}-cv-error` : undefined}
+                onChange={(e) => pickCv(e.target.files?.[0] ?? null)}
+              />
+            </label>
+            {errors.cv ? (
+              <p id={`${uid}-cv-error`} role="alert" className="text-[0.8125rem] font-medium text-danger">
+                {errors.cv}
+              </p>
+            ) : null}
+            {cv ? (
+              <div className="mt-1 flex items-center gap-3 rounded-xl bg-brand-soft/60 px-3 py-2 text-sm">
+                <Paperclip className="size-4 shrink-0 text-brand-ink" />
+                <span className="min-w-0 flex-1 truncate text-fg">{cv.name}</span>
+                <span className="shrink-0 text-fg-subtle">{formatSize(cv.size)}</span>
+                <button
+                  type="button"
+                  onClick={() => pickCv(null)}
+                  aria-label={`Remove ${cv.name}`}
+                  className="grid size-8 place-items-center rounded-full text-fg-subtle hover:bg-white hover:text-fg dark:hover:bg-white/10"
+                >
+                  <X className="size-4" />
+                </button>
+              </div>
+            ) : null}
+          </div>
 
           <TextArea
             id={`${uid}-message`}
             name="message"
-            label="Anything you'd like us to know?"
-            placeholder="A short note about you, your notice period or a portfolio link"
+            label="Additional note"
+            placeholder="A short note about you or a link to your portfolio"
             rows={3}
           />
 
           {!uploads ? (
             <FormNotice tone="info">
-              When you press send, your email app opens with your details filled in. Just attach your CV.
+              When you press send, your email app opens with your details filled in. Attach the CV you chose before
+              sending.
             </FormNotice>
           ) : null}
           {status ? <FormNotice tone={status.tone}>{status.text}</FormNotice> : null}

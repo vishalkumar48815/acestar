@@ -20,11 +20,11 @@ const OUT_DIR = path.join(ROOT, "public/images/pages");
 const OUT_JSON = path.join(ROOT, "src/content/solutions/media.generated.json");
 
 /** [legacy path, max width] grouped by role. Quality is chosen per role below. */
-const ICON = 192; // app/product icons
-const LOGO = 480; // brand wordmarks
-const PRODUCT = 760; // device shots
-const WIDE = 1600; // banners & backgrounds
-const HERO = 1920; // full-bleed hero backgrounds
+const ICON = 384; // app/product icons
+const LOGO = 960; // brand wordmarks
+const PRODUCT = 1520; // device shots
+const WIDE = 2560; // banners & backgrounds
+const HERO = 2560; // full-bleed hero backgrounds
 
 const groups = {
   icons: [
@@ -156,7 +156,7 @@ const groups = {
     "2026/03/adobe-video.png",
     "2025/07/Asset-72x-optimized.png",
     "2025/07/Untitled-1-02-1.jpg",
-  ].map((p) => [p, 1200]),
+  ].map((p) => [p, 2560]),
   hero: ["2026/03/Banner-3.png", "2025/10/2.png", "2021/12/High-Performance-Computers-Background.png"].map((p) => [
     p,
     HERO,
@@ -184,7 +184,7 @@ const groups = {
   ].map((p) => [p, WIDE]),
 };
 
-const quality = { icons: 92, logos: 90, products: 82, photos: 80, wide: 78, hero: 80 };
+const quality = { icons: 92, logos: 90, products: 88, photos: 88, wide: 88, hero: 88 };
 
 const exists = (f) =>
   access(f).then(

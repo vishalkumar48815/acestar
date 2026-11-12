@@ -28,7 +28,7 @@ export type UploadFolder = "news" | "blog" | "gallery";
 
 export const MAX_UPLOAD_BYTES = 8 * 1024 * 1024;
 const ACCEPTED = new Set(["image/jpeg", "image/png", "image/webp", "image/avif", "image/gif"]);
-const MAX_EDGE = 2400;
+const MAX_EDGE = 2560;
 
 export const storageDriver = () => (process.env.BLOB_READ_WRITE_TOKEN ? "blob" : "local");
 
@@ -46,7 +46,7 @@ export async function storeImage(file: File, folder: UploadFolder): Promise<Stor
     output = await sharp(Buffer.from(await file.arrayBuffer()), { limitInputPixels: 80_000_000 })
       .rotate()
       .resize({ width: MAX_EDGE, height: MAX_EDGE, fit: "inside", withoutEnlargement: true })
-      .webp({ quality: 82, effort: 4 })
+      .webp({ quality: 90, effort: 4 })
       .toBuffer({ resolveWithObject: true });
   } catch {
     throw new UploadError("That file could not be read as an image.");

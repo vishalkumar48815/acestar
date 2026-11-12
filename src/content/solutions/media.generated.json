@@ -1,8 +1,8 @@
 {
   "2021/11/adobe_sign.png": {
     "src": "/images/pages/icons/2021-11-adobe-sign.webp",
-    "width": 192,
-    "height": 187
+    "width": 240,
+    "height": 234
   },
   "2021/11/antivirus-RB.png": {
     "src": "/images/pages/icons/2021-11-antivirus-rb.webp",
@@ -46,8 +46,8 @@
   },
   "2021/11/HP-Elite-X360-series.webp": {
     "src": "/images/pages/products/2021-11-hp-elite-x360-series.webp",
-    "width": 760,
-    "height": 504
+    "width": 800,
+    "height": 530
   },
   "2021/11/HP-Elitebook-series.png": {
     "src": "/images/pages/products/2021-11-hp-elitebook-series.webp",
@@ -66,18 +66,18 @@
   },
   "2021/11/iMac.png": {
     "src": "/images/pages/products/2021-11-imac.webp",
-    "width": 760,
-    "height": 316
+    "width": 1520,
+    "height": 632
   },
   "2021/11/Lenovo-Thinkpad-P-series.webp": {
     "src": "/images/pages/products/2021-11-lenovo-thinkpad-p-series.webp",
-    "width": 760,
-    "height": 572
+    "width": 830,
+    "height": 625
   },
   "2021/11/Lenovo-Thinkpad-T-series.webp": {
     "src": "/images/pages/products/2021-11-lenovo-thinkpad-t-series.webp",
-    "width": 760,
-    "height": 502
+    "width": 1520,
+    "height": 1005
   },
   "2021/11/Lenovo-Thinkpad-X1-Carbon.webp": {
     "src": "/images/pages/products/2021-11-lenovo-thinkpad-x1-carbon.webp",
@@ -86,13 +86,13 @@
   },
   "2021/11/MacBook-Air.png": {
     "src": "/images/pages/products/2021-11-macbook-air.webp",
-    "width": 760,
-    "height": 228
+    "width": 1520,
+    "height": 456
   },
   "2021/11/Macbook-Pro.png": {
     "src": "/images/pages/products/2021-11-macbook-pro.webp",
-    "width": 760,
-    "height": 475
+    "width": 1520,
+    "height": 950
   },
   "2021/11/mdm-RB.png": {
     "src": "/images/pages/icons/2021-11-mdm-rb.webp",
@@ -101,38 +101,38 @@
   },
   "2021/11/Microsoft_Excel.png": {
     "src": "/images/pages/icons/2021-11-microsoft-excel.webp",
-    "width": 192,
-    "height": 192
+    "width": 384,
+    "height": 384
   },
   "2021/11/Microsoft_Onedrive.png": {
     "src": "/images/pages/icons/2021-11-microsoft-onedrive.webp",
-    "width": 192,
-    "height": 192
+    "width": 384,
+    "height": 383
   },
   "2021/11/Microsoft_Outlook.png": {
     "src": "/images/pages/icons/2021-11-microsoft-outlook.webp",
-    "width": 192,
-    "height": 192
+    "width": 384,
+    "height": 383
   },
   "2021/11/Microsoft_Powerpoint.png": {
     "src": "/images/pages/icons/2021-11-microsoft-powerpoint.webp",
-    "width": 192,
-    "height": 192
+    "width": 384,
+    "height": 384
   },
   "2021/11/Microsoft_Sharepoint.png": {
     "src": "/images/pages/icons/2021-11-microsoft-sharepoint.webp",
-    "width": 192,
-    "height": 192
+    "width": 384,
+    "height": 384
   },
   "2021/11/Microsoft_Teams.png": {
     "src": "/images/pages/icons/2021-11-microsoft-teams.webp",
-    "width": 192,
-    "height": 192
+    "width": 384,
+    "height": 384
   },
   "2021/11/Microsoft_Word.png": {
     "src": "/images/pages/icons/2021-11-microsoft-word.webp",
-    "width": 192,
-    "height": 192
+    "width": 384,
+    "height": 385
   },
   "2021/11/PowerSaveLogo.png": {
     "src": "/images/pages/icons/2021-11-powersavelogo.webp",
@@ -141,23 +141,23 @@
   },
   "2021/12/Apple-Background.png": {
     "src": "/images/pages/wide/2021-12-apple-background.webp",
-    "width": 1600,
-    "height": 325
+    "width": 1642,
+    "height": 334
   },
   "2021/12/Dell-Background.png": {
     "src": "/images/pages/wide/2021-12-dell-background.webp",
-    "width": 1600,
-    "height": 324
+    "width": 1642,
+    "height": 333
   },
   "2021/12/Digital-Workflow-Background.png": {
     "src": "/images/pages/wide/2021-12-digital-workflow-background.webp",
-    "width": 1600,
-    "height": 646
+    "width": 1920,
+    "height": 775
   },
   "2021/12/Faronics-Background.png": {
     "src": "/images/pages/wide/2021-12-faronics-background.webp",
-    "width": 1600,
-    "height": 324
+    "width": 1642,
+    "height": 333
   },
   "2021/12/High-Performance-Computers-Background.png": {
     "src": "/images/pages/hero/2021-12-high-performance-computers-background.webp",
@@ -166,78 +166,78 @@
   },
   "2021/12/HP-Background.png": {
     "src": "/images/pages/wide/2021-12-hp-background.webp",
-    "width": 1600,
-    "height": 324
+    "width": 1642,
+    "height": 333
   },
   "2021/12/Lenovo-Background.png": {
     "src": "/images/pages/wide/2021-12-lenovo-background.webp",
-    "width": 1600,
-    "height": 324
+    "width": 1642,
+    "height": 333
   },
   "2021/12/Microsoft365-Background.png": {
     "src": "/images/pages/wide/2021-12-microsoft365-background.webp",
-    "width": 1600,
-    "height": 326
+    "width": 2560,
+    "height": 521
   },
   "2021/12/Saleslive-Background.png": {
     "src": "/images/pages/wide/2021-12-saleslive-background.webp",
-    "width": 1600,
-    "height": 324
+    "width": 1642,
+    "height": 333
   },
   "2021/12/Video-Conferencing-Solution-Background.jpg": {
     "src": "/images/pages/wide/2021-12-video-conferencing-solution-background.webp",
-    "width": 1600,
-    "height": 324
+    "width": 1642,
+    "height": 333
   },
   "2021/12/zoom.png": {
     "src": "/images/pages/logos/2021-12-zoom.webp",
-    "width": 480,
-    "height": 270
+    "width": 500,
+    "height": 281
   },
   "2022/09/Baneer-adobe-document.jpg": {
     "src": "/images/pages/wide/2022-09-baneer-adobe-document.webp",
-    "width": 1600,
-    "height": 329
+    "width": 1642,
+    "height": 338
   },
   "2022/09/Jabra_Logo.png": {
     "src": "/images/pages/logos/2022-09-jabra-logo.webp",
-    "width": 480,
-    "height": 163
+    "width": 960,
+    "height": 327
   },
   "2023/10/BANNER-ASUS.png": {
     "src": "/images/pages/wide/2023-10-banner-asus.webp",
-    "width": 1600,
-    "height": 329
+    "width": 1642,
+    "height": 338
   },
   "2025/07/Asset-42x.png": {
     "src": "/images/pages/products/2025-07-asset-42x.webp",
-    "width": 760,
-    "height": 760
+    "width": 832,
+    "height": 832
   },
   "2025/07/Asset-52x.png": {
     "src": "/images/pages/products/2025-07-asset-52x.webp",
-    "width": 760,
-    "height": 760
+    "width": 832,
+    "height": 832
   },
   "2025/07/Asset-62x.png": {
     "src": "/images/pages/products/2025-07-asset-62x.webp",
-    "width": 760,
-    "height": 761
+    "width": 1180,
+    "height": 1181
   },
   "2025/07/Asset-72x-optimized.png": {
     "src": "/images/pages/photos/2025-07-asset-72x-optimized.webp",
-    "width": 1200,
-    "height": 677
+    "width": 2560,
+    "height": 1444
   },
   "2025/07/Untitled-1-02-1.jpg": {
     "src": "/images/pages/photos/2025-07-untitled-1-02-1.webp",
-    "width": 1200,
-    "height": 1250
+    "width": 2560,
+    "height": 2666
   },
   "2025/07/Website-Techcare-01-01-01-1.jpg": {
     "src": "/images/pages/wide/2025-07-website-techcare-01-01-01-1.webp",
-    "width": 1600,
-    "height": 831
+    "width": 2560,
+    "height": 1329
   },
   "2025/09/ALL-LOGO-19.png": {
     "src": "/images/pages/icons/2025-09-all-logo-19.webp",
@@ -276,8 +276,8 @@
   },
   "2025/10/1.png": {
     "src": "/images/pages/wide/2025-10-1.webp",
-    "width": 1600,
-    "height": 417
+    "width": 1920,
+    "height": 500
   },
   "2025/10/2.png": {
     "src": "/images/pages/hero/2025-10-2.webp",
@@ -401,18 +401,18 @@
   },
   "2025/10/BG1-Footer.png": {
     "src": "/images/pages/wide/2025-10-bg1-footer.webp",
-    "width": 1600,
-    "height": 417
+    "width": 1920,
+    "height": 500
   },
   "2025/10/Firefly-white-cat-cute-and-fat-happy-skydive-34230.jpg": {
     "src": "/images/pages/photos/2025-10-firefly-white-cat-cute-and-fat-happy-skydive-34230.webp",
-    "width": 1200,
-    "height": 1200
+    "width": 2048,
+    "height": 2048
   },
   "2025/10/owl.png": {
     "src": "/images/pages/photos/2025-10-owl.webp",
-    "width": 1200,
-    "height": 1199
+    "width": 1446,
+    "height": 1445
   },
   "2025/11/banner.png": {
     "src": "/images/pages/products/2025-11-banner.webp",
@@ -431,28 +431,28 @@
   },
   "2026/03/3.png": {
     "src": "/images/pages/wide/2026-03-3.webp",
-    "width": 1600,
-    "height": 297
+    "width": 1749,
+    "height": 325
   },
   "2026/03/4.png": {
     "src": "/images/pages/wide/2026-03-4.webp",
-    "width": 1600,
-    "height": 297
+    "width": 1749,
+    "height": 325
   },
   "2026/03/5.png": {
     "src": "/images/pages/wide/2026-03-5.webp",
-    "width": 1600,
-    "height": 297
+    "width": 1749,
+    "height": 325
   },
   "2026/03/7.png": {
     "src": "/images/pages/wide/2026-03-7.webp",
-    "width": 1600,
-    "height": 297
+    "width": 1749,
+    "height": 325
   },
   "2026/03/8.png": {
     "src": "/images/pages/wide/2026-03-8.webp",
-    "width": 1600,
-    "height": 297
+    "width": 1749,
+    "height": 325
   },
   "2026/03/Adobe_Express_Logo.svg.png": {
     "src": "/images/pages/icons/2026-03-adobe-express-logo.webp",
@@ -506,13 +506,13 @@
   },
   "2026/03/arena7icon.png": {
     "src": "/images/pages/icons/2026-03-arena7icon.webp",
-    "width": 192,
-    "height": 169
+    "width": 287,
+    "height": 253
   },
   "2026/03/avenue7icon.png": {
     "src": "/images/pages/icons/2026-03-avenue7icon.webp",
-    "width": 192,
-    "height": 169
+    "width": 287,
+    "height": 253
   },
   "2026/03/Banner-3.png": {
     "src": "/images/pages/hero/2026-03-banner-3.webp",
@@ -561,33 +561,33 @@
   },
   "2026/03/Image-12.png": {
     "src": "/images/pages/icons/2026-03-image-12.webp",
-    "width": 192,
-    "height": 192
+    "width": 210,
+    "height": 210
   },
   "2026/03/Image-13.png": {
     "src": "/images/pages/icons/2026-03-image-13.webp",
-    "width": 192,
-    "height": 192
+    "width": 210,
+    "height": 210
   },
   "2026/03/Image-14.png": {
     "src": "/images/pages/icons/2026-03-image-14.webp",
-    "width": 192,
-    "height": 193
+    "width": 209,
+    "height": 210
   },
   "2026/03/Image-15.png": {
     "src": "/images/pages/icons/2026-03-image-15.webp",
-    "width": 192,
-    "height": 192
+    "width": 210,
+    "height": 210
   },
   "2026/03/Image-16.png": {
     "src": "/images/pages/icons/2026-03-image-16.webp",
-    "width": 192,
-    "height": 192
+    "width": 210,
+    "height": 210
   },
   "2026/03/Image-17.png": {
     "src": "/images/pages/icons/2026-03-image-17.webp",
-    "width": 192,
-    "height": 192
+    "width": 210,
+    "height": 210
   },
   "2026/03/Image-26.png": {
     "src": "/images/pages/icons/2026-03-image-26.webp",
@@ -636,8 +636,8 @@
   },
   "2026/03/Logo-500x500-1.png": {
     "src": "/images/pages/icons/2026-03-logo-500x500-1.webp",
-    "width": 192,
-    "height": 192
+    "width": 280,
+    "height": 280
   },
   "2026/03/logo.png": {
     "src": "/images/pages/icons/2026-03-logo.webp",
@@ -661,8 +661,8 @@
   },
   "2026/03/photoshop-icon-logo.png": {
     "src": "/images/pages/icons/2026-03-photoshop-icon-logo.webp",
-    "width": 192,
-    "height": 187
+    "width": 384,
+    "height": 374
   },
   "2026/03/pi-logo.png": {
     "src": "/images/pages/icons/2026-03-pi-logo.webp",
@@ -671,47 +671,47 @@
   },
   "2026/09/apple-banner-image.png": {
     "src": "/images/pages/photos/2026-09-apple-banner-image.webp",
-    "width": 1200,
-    "height": 783
+    "width": 1552,
+    "height": 1013
   },
   "2026/09/apple-hero-1.webp": {
     "src": "/images/pages/photos/2026-09-apple-hero-1.webp",
-    "width": 1200,
-    "height": 788
+    "width": 1600,
+    "height": 1050
   },
   "2026/09/apple-hero-2.webp": {
     "src": "/images/pages/photos/2026-09-apple-hero-2.webp",
-    "width": 1200,
-    "height": 788
+    "width": 1600,
+    "height": 1050
   },
   "2026/09/apple-hero-3.webp": {
     "src": "/images/pages/photos/2026-09-apple-hero-3.webp",
-    "width": 1200,
-    "height": 788
+    "width": 1600,
+    "height": 1050
   },
   "2026/09/apple-hero-4.webp": {
     "src": "/images/pages/photos/2026-09-apple-hero-4.webp",
-    "width": 1200,
-    "height": 788
+    "width": 1600,
+    "height": 1050
   },
   "2026/09/apple-hero-5.webp": {
     "src": "/images/pages/photos/2026-09-apple-hero-5.webp",
-    "width": 1200,
-    "height": 788
+    "width": 1600,
+    "height": 1050
   },
   "2026/09/apple-hero-6.webp": {
     "src": "/images/pages/photos/2026-09-apple-hero-6.webp",
-    "width": 1200,
-    "height": 788
+    "width": 1600,
+    "height": 1050
   },
   "2026/09/apple-hero-7.webp": {
     "src": "/images/pages/photos/2026-09-apple-hero-7.webp",
-    "width": 1200,
-    "height": 788
+    "width": 1600,
+    "height": 1050
   },
   "2026/09/apple-hero-8.webp": {
     "src": "/images/pages/photos/2026-09-apple-hero-8.webp",
-    "width": 1200,
-    "height": 788
+    "width": 1600,
+    "height": 1050
   }
 }

@@ -102,6 +102,7 @@ export function GalleryBrowser({ albums }: { albums: Album[] }) {
                     alt=""
                     fill
                     sizes="(min-width: 1024px) 230px, 60vw"
+                    quality={90}
                     className="object-cover transition-transform duration-700 ease-out-expo group-hover/album:scale-[1.06]"
                   />
                 ) : null}
@@ -289,6 +290,7 @@ function AlbumBlock({
                       ? "(min-width: 768px) 50vw, 100vw"
                       : "(min-width: 768px) 25vw, 50vw"
                   }
+                  quality={90}
                   className="object-cover transition-transform duration-700 ease-out-expo group-hover/photo:scale-[1.07]"
                 />
                 {/* Cursor-following sheen */}
@@ -438,6 +440,7 @@ function Lightbox({
           fill
           sizes="100vw"
           priority
+          quality={90}
           className="object-contain p-2 sm:p-6"
           style={{ animation: "hero-art-in 0.5s var(--ease-out) both" }}
         />

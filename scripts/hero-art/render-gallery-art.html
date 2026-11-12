@@ -1,0 +1,117 @@
+<!doctype html>
+<!--
+  Gallery hero artwork: a fan of photo frames in the brand gradient, on a transparent canvas.
+  Render with Playwright at 2880×1100 (omitBackground) → public/images/media/gallery-hero-frames(-dark).webp
+  ?theme=dark switches to the dark-mode version.
+-->
+<html>
+<head>
+<meta charset="utf-8" />
+<style>
+  :root {
+    --from: #3b63f3;
+    --to: #a24df0;
+    --card: #ffffff;
+    --card-line: rgb(30 40 90 / 0.08);
+    --shadow: 0 60px 120px -40px rgb(60 50 160 / 0.45), 0 18px 40px -18px rgb(40 40 120 / 0.25);
+    --bar: rgb(30 40 90 / 0.1);
+    --glow: rgb(162 77 240 / 0.22);
+    --glow2: rgb(59 99 243 / 0.18);
+  }
+  .dark {
+    --card: rgb(28 30 60);
+    --card-line: rgb(255 255 255 / 0.1);
+    --shadow: 0 60px 120px -40px rgb(0 0 0 / 0.75), 0 0 0 1px rgb(255 255 255 / 0.06);
+    --bar: rgb(255 255 255 / 0.12);
+    --glow: rgb(162 77 240 / 0.3);
+    --glow2: rgb(59 99 243 / 0.25);
+  }
+  html, body { margin: 0; background: transparent; }
+  .stage { position: relative; width: 2880px; height: 1100px; overflow: hidden; }
+  .glow {
+    position: absolute; left: 1620px; top: 80px; width: 1100px; height: 940px; border-radius: 50%;
+    background: radial-gradient(closest-side, var(--glow), transparent 70%);
+    filter: blur(20px);
+  }
+  .glow.b { left: 1900px; top: 300px; width: 800px; height: 700px; background: radial-gradient(closest-side, var(--glow2), transparent 70%); }
+
+  .frame {
+    position: absolute; background: var(--card); border-radius: 30px; padding: 22px 22px 0;
+    box-shadow: var(--shadow); border: 1px solid var(--card-line);
+  }
+  .pic {
+    position: relative; border-radius: 18px; overflow: hidden; width: 100%;
+  }
+  .pic svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .cap { height: 86px; display: flex; flex-direction: column; justify-content: center; gap: 12px; padding: 0 6px; }
+  .cap i { display: block; height: 12px; border-radius: 99px; background: var(--bar); }
+
+  .g1 { background: linear-gradient(140deg, #3b63f3, #7b5cf5 55%, #a24df0); }
+  .g2 { background: linear-gradient(150deg, #a24df0, #e2589d); }
+  .g3 { background: linear-gradient(150deg, #22b8e6, #3b63f3); }
+  .g4 { background: linear-gradient(150deg, #ffb35c, #f0607d); }
+
+  /* Everything shrunk towards the right edge so it clears the headline and the header. */
+  .art { position: absolute; inset: 0; transform: translate(40px, 90px) scale(0.78); transform-origin: 2840px 520px; }
+  .spark { position: absolute; width: 40px; height: 40px; }
+  .dot { position: absolute; border-radius: 50%; }
+</style>
+</head>
+<body>
+<div class="stage" id="stage">
+ <div class="art">
+  <div class="glow"></div>
+  <div class="glow b"></div>
+
+  <!-- back left -->
+  <div class="frame" style="left:1640px; top:250px; width:400px; transform:rotate(-13deg)">
+    <div class="pic g3" style="height:300px"><svg viewBox="0 0 400 300"><circle cx="300" cy="80" r="34" fill="#fff" opacity=".85"/><path d="M0 300 L120 160 L200 240 L270 180 L400 300Z" fill="#fff" opacity=".35"/><path d="M0 300 L90 210 L180 300Z" fill="#fff" opacity=".5"/></svg></div>
+    <div class="cap"><i style="width:55%"></i><i style="width:32%"></i></div>
+  </div>
+
+  <!-- back right -->
+  <div class="frame" style="left:2330px; top:190px; width:400px; transform:rotate(11deg)">
+    <div class="pic g4" style="height:300px"><svg viewBox="0 0 400 300"><circle cx="110" cy="90" r="38" fill="#fff" opacity=".85"/><path d="M0 300 L140 150 L230 250 L300 170 L400 300Z" fill="#fff" opacity=".35"/></svg></div>
+    <div class="cap"><i style="width:48%"></i><i style="width:28%"></i></div>
+  </div>
+
+  <!-- centre (largest) -->
+  <div class="frame" style="left:1930px; top:150px; width:500px; transform:rotate(2deg); z-index:2">
+    <div class="pic g1" style="height:380px">
+      <svg viewBox="0 0 500 380">
+        <circle cx="370" cy="100" r="44" fill="#fff" opacity=".9"/>
+        <path d="M0 380 L150 190 L260 310 L350 220 L500 380Z" fill="#fff" opacity=".32"/>
+        <path d="M0 380 L110 270 L230 380Z" fill="#fff" opacity=".5"/>
+      </svg>
+    </div>
+    <div class="cap"><i style="width:62%"></i><i style="width:36%"></i></div>
+  </div>
+
+  <!-- front small -->
+  <div class="frame" style="left:1800px; top:600px; width:330px; transform:rotate(-6deg); z-index:3">
+    <div class="pic g2" style="height:240px"><svg viewBox="0 0 330 240"><circle cx="240" cy="70" r="28" fill="#fff" opacity=".85"/><path d="M0 240 L100 130 L170 200 L230 150 L330 240Z" fill="#fff" opacity=".38"/></svg></div>
+    <div class="cap" style="height:70px"><i style="width:50%"></i></div>
+  </div>
+
+  <!-- play badge on the front-right: video memories too -->
+  <div class="frame" style="left:2400px; top:640px; width:290px; transform:rotate(7deg); z-index:3">
+    <div class="pic g1" style="height:200px; background:linear-gradient(150deg,#7b5cf5,#a24df0 60%,#e2589d)">
+      <svg viewBox="0 0 290 200"><circle cx="145" cy="100" r="40" fill="#fff" opacity=".92"/><path d="M134 82 L163 100 L134 118Z" fill="#7b5cf5"/></svg>
+    </div>
+    <div class="cap" style="height:66px"><i style="width:44%"></i></div>
+  </div>
+
+  <!-- sparkles -->
+  <svg class="spark" style="left:2780px; top:150px; width:46px; height:46px" viewBox="0 0 24 24"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z" fill="#a24df0"/></svg>
+  <svg class="spark" style="left:1590px; top:150px; width:30px; height:30px" viewBox="0 0 24 24"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z" fill="#3b63f3"/></svg>
+  <svg class="spark" style="left:2260px; top:930px; width:34px; height:34px" viewBox="0 0 24 24"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z" fill="#e2589d"/></svg>
+  <span class="dot" style="left:2770px; top:560px; width:18px; height:18px; background:#3b63f3; opacity:.6"></span>
+  <span class="dot" style="left:1700px; top:960px; width:14px; height:14px; background:#a24df0; opacity:.5"></span>
+  <span class="dot" style="left:2200px; top:110px; width:12px; height:12px; background:#ffb35c; opacity:.8"></span>
+</div>
+ </div>
+<script>
+  if (new URLSearchParams(location.search).get("theme") === "dark") document.getElementById("stage").classList.add("dark");
+</script>
+</body>
+</html>

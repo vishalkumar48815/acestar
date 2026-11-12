@@ -52,19 +52,19 @@ const groups = {
     "2021/11/Adobe-1.png",
     "2021/11/SME-Recognition-Award-2014.png",
     "2021/11/SME-Recognition-Award-2013.png",
-  ].map((p) => [p, 480]),
+  ].map((p) => [p, 960]),
   photos: [
-    ["2025/12/WhatsApp-Image-2025-12-26-at-6.05.38-PM.jpeg", 1400],
-    ["2026/07/web-11.jpg", 1400],
-    ["2026/07/web-12.jpg", 1200],
-    ["2026/07/web-20-1.jpg", 1200],
-    ["2026/07/web-24.jpg", 1200],
-    ["2026/07/web-08.jpg", 1200],
-    ["2022/09/acp-432-1.webp", 1200],
+    ["2025/12/WhatsApp-Image-2025-12-26-at-6.05.38-PM.jpeg", 2560],
+    ["2026/07/web-11.jpg", 2560],
+    ["2026/07/web-12.jpg", 2560],
+    ["2026/07/web-20-1.jpg", 2560],
+    ["2026/07/web-24.jpg", 2560],
+    ["2026/07/web-08.jpg", 2560],
+    ["2022/09/acp-432-1.webp", 2560],
   ],
 };
 
-const quality = { awards: 88, photos: 78 };
+const quality = { awards: 90, photos: 88 };
 
 const exists = (f) =>
   access(f).then(
