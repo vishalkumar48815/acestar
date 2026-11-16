@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { NewsSpotlight } from "@/components/media/news-spotlight";
 import { PressFeed } from "@/components/media/press-feed";
 import { ClosingCta } from "@/components/sections/home/closing-cta";
-import { StatStrip } from "@/components/solutions/blocks";
 import { PageHero } from "@/components/solutions/page-hero";
 import { Section, SectionHead } from "@/components/solutions/primitives";
 import { getPressItems } from "@/server/content/media";
@@ -18,8 +17,6 @@ export default async function NewsPage() {
   const pressItems = await getPressItems();
   const featuredPress = pressItems.find((p) => p.featured) ?? pressItems[0];
   const headlines = pressItems.filter((p) => p !== featuredPress).slice(0, 4);
-  const publishers = new Set(pressItems.map((p) => p.publisher)).size;
-  const years = pressItems.map((p) => Number(p.date.slice(0, 4)));
 
   return (
     <>
@@ -39,17 +36,8 @@ export default async function NewsPage() {
       />
 
       <Section labelledBy="featured-title" className="pt-0 lg:pt-4">
-        <StatStrip
-          stats={[
-            { value: `${pressItems.length}`, label: "Stories about Acestar and our community" },
-            { value: `${publishers}`, label: "Publications, from The Star to Bernama and Astro Awani" },
-            ...(years.length
-              ? [{ value: `${Math.min(...years)}–${Math.max(...years)}`, label: "A decade of headlines" }]
-              : []),
-          ]}
-        />
         {featuredPress ? (
-          <div className="mt-12 lg:mt-16" data-reveal suppressHydrationWarning>
+          <div data-reveal suppressHydrationWarning>
             <NewsSpotlight top={featuredPress} headlines={headlines} />
           </div>
         ) : null}

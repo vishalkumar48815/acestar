@@ -232,7 +232,7 @@ export const testimonials: Testimonial[] = [
 
 /** From the Awards page. */
 export const recognition = {
-  headline: "40+ awards since 2013",
+  headline: "40+ awards",
   highlights: [
     "Adobe SEA Top Platinum Partner of the Year, 2026",
     "Frost & Sullivan Malaysia System Integration Company of the Year, 2019",

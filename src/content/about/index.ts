@@ -14,7 +14,7 @@ export const aboutLinks = [
     key: "awards",
     label: "Awards",
     href: "/about/awards",
-    description: "Success highlights since 2013",
+    description: "Success highlights",
   },
   {
     key: "clients",
