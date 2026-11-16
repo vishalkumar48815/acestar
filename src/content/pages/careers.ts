@@ -97,7 +97,8 @@ export const careersHero = {
   lead: "Join a team of passionate people, work on meaningful projects and grow your skills with the latest technology. At Acestar, your ideas matter and your career matters.",
   // Artwork includes the "Great People Greater Together" script and the sticky notes
   image: {
-    src: "/images/pages/careers/careers-hero-section-girl.webp",
+    // Same image with the white area outside the cyan curve faded out (left side only)
+    src: "/images/pages/careers/careers-hero-curve.webp",
     width: 1549,
     height: 1015,
     alt: "A smiling Acestar team member surrounded by colourful sticky notes, with the words Great People Greater Together",

@@ -53,10 +53,14 @@ export default function CareersPage() {
     <>
       {/* Hero */}
       <section aria-labelledby="careers-title" className="relative isolate overflow-hidden">
-        {/* Hero artwork as the background of the right side, fading into the page under the copy */}
+        {/*
+          Hero artwork on the right, shown in full (no fading). In light mode "multiply" turns the
+          photo's white edges into the page colour, so no box edge shows around it. The white area
+          outside the cyan curve on the left is faded out in the image itself.
+        */}
         <div
           aria-hidden="true"
-          className="absolute top-[7%] right-0 bottom-0 -z-10 hidden w-[58%] lg:block dark:top-20"
+          className="absolute top-[5.5rem] right-0 bottom-0 -z-10 hidden w-[54%] lg:block"
           style={{ animation: "hero-art-in 1.2s var(--ease-out) both" }}
         >
           <Image
@@ -64,8 +68,8 @@ export default function CareersPage() {
             alt=""
             fill
             priority
-            sizes="58vw"
-            className="[mask-image:linear-gradient(90deg,transparent_0%,black_30%),linear-gradient(180deg,transparent,black_10%,black_82%,transparent)] [mask-composite:intersect] object-cover object-right xl:object-[70%_30%] dark:opacity-85"
+            sizes="54vw"
+            className="object-contain object-right mix-blend-multiply dark:mix-blend-normal"
           />
         </div>
 
@@ -124,7 +128,7 @@ export default function CareersPage() {
             alt={careersHero.image.alt}
             fill
             sizes="100vw"
-            className="[mask-image:linear-gradient(180deg,transparent,black_14%,black_86%,transparent)] object-cover"
+            className="object-cover mix-blend-multiply dark:mix-blend-normal"
           />
         </div>
       </section>

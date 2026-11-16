@@ -1,0 +1,56 @@
+<!doctype html>
+<!--
+  Blog hero artwork, in the style of the client's Careers mock: soft pink wall with a cyan curve
+  on the left, pastel sticky notes, the blog photo's subject cut out, and a hand-written line.
+  Render with Playwright at 1549×1015 → public/images/media/blog-hero-mock4.webp (?theme=dark for dark mode).
+-->
+<html><head><meta charset="utf-8" />
+<style>
+@font-face { font-family: Caveat; src: url(../../../src/fonts/caveat-latin-wght.woff2) format("woff2"); font-weight: 400 700; }
+html,body{margin:0;background:#f4f8fd}
+.stage{position:relative;width:1549px;height:1015px;overflow:hidden;
+  background:
+    radial-gradient(60% 55% at 92% 8%, rgba(244,248,253,.75), transparent 70%),
+    linear-gradient(100deg,#f4f8fd 0%,#fbf1f8 26%,#fbe1ef 52%,#f9d6ec 78%,#f7d9ef 100%);}
+/* cyan curve on the left: a cyan ellipse with a white ellipse over it = soft crescent */
+.cy{position:absolute;left:-560px;top:40px;width:1120px;height:1460px;border-radius:50%;
+  background:radial-gradient(closest-side, #dff7ff 0%, #b7ecfa 62%, #93dcf3 86%, rgba(147,220,243,0) 100%);filter:blur(6px)}
+.wh{position:absolute;left:-760px;top:-120px;width:1180px;height:1380px;border-radius:50%;
+  background:radial-gradient(closest-side, #f4f8fd 0%, #f4f8fd 74%, rgba(244,248,253,0) 100%);filter:blur(18px)}
+.pinkwash{position:absolute;inset:0;background:radial-gradient(45% 60% at 70% 55%, rgba(246,190,224,.45), transparent 70%)}
+.note{position:absolute;border-radius:5px;box-shadow:0 18px 30px -16px rgba(120,80,150,.35), 0 2px 4px rgba(120,80,150,.08)}
+.note.l::before,.note.l::after{content:"";position:absolute;left:16%;right:22%;height:7px;border-radius:9px;background:rgba(80,80,140,.13)}
+.note.l::before{top:30%}.note.l::after{top:46%;right:36%}
+.pink{background:linear-gradient(160deg,#fbd0e4,#f6bcd8)}
+.blue{background:linear-gradient(160deg,#b9e7fb,#93d8f6)}
+.lav{background:linear-gradient(160deg,#efe2fb,#dcc8f6)}
+.yel{background:linear-gradient(160deg,#fdf5b3,#f9e88a)}
+.woman{position:absolute;left:418px;top:168px;width:712px;height:auto;filter:drop-shadow(0 30px 40px rgba(150,90,160,.12))}
+.script{position:absolute;left:930px;top:110px;white-space:nowrap;transform:rotate(-13deg);transform-origin:left top;
+  font-family:Caveat;font-weight:700;font-size:90px;line-height:.92;letter-spacing:.5px;
+  background:linear-gradient(95deg,#2f6df3 0%,#4a55f0 40%,#7b3df0 72%,#a83ff0 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.script span{display:block}
+.swoosh{position:absolute;left:1050px;top:318px;width:310px;transform:rotate(-17deg)}
+.dark .stage{}
+</style></head>
+<body><div class="stage" id="s">
+  <div class="cy"></div><div class="wh"></div><div class="pinkwash"></div>
+
+  <!-- left cluster -->
+  <div class="note pink"  style="left:168px;top:170px;width:190px;height:190px;transform:rotate(-16deg)"></div>
+  <div class="note blue l" style="left:395px;top:78px;width:172px;height:172px;transform:rotate(6deg)"></div>
+  <div class="note lav l" style="left:268px;top:282px;width:196px;height:180px;transform:rotate(-21deg)"></div>
+  <div class="note yel"   style="left:160px;top:460px;width:160px;height:160px;transform:rotate(5deg)"></div>
+  <div class="note pink"  style="left:236px;top:758px;width:200px;height:190px;transform:rotate(21deg)"></div>
+
+  <img class="woman" src="woman-cut.png" alt="">
+
+  <!-- right cluster -->
+  <div class="note yel"   style="left:1225px;top:398px;width:160px;height:160px;transform:rotate(-13deg)"></div>
+  <div class="note blue"  style="left:1162px;top:578px;width:160px;height:150px;transform:rotate(32deg)"></div>
+  <div class="note lav l" style="left:1262px;top:722px;width:196px;height:186px;transform:rotate(-8deg)"></div>
+
+  <div class="script"><span>Learn More,</span><span style="padding-left:48px">Grow</span><span style="padding-left:120px">Together.</span></div>
+  <svg class="swoosh" viewBox="0 0 380 40"><defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#3b5bf0"/><stop offset=".75" stop-color="#8b3df0"/><stop offset="1" stop-color="#b03ff0" stop-opacity=".2"/></linearGradient></defs>
+    <path d="M6 32 C 110 14, 240 6, 374 6" fill="none" stroke="url(#g)" stroke-width="7" stroke-linecap="round"/></svg>
+</div></body></html>
