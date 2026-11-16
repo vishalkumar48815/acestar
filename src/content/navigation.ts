@@ -54,7 +54,7 @@ export const solutionLinks: NavLink[] = [
 
 export const mainNav: NavItem[] = [
   { label: "Solutions", href: "/creative-software/", children: solutionLinks },
-  { label: "Partners", href: "/clients-partners/" },
+  // { label: "Partners", href: "/clients-partners/" },
   // { label: "TechCare", href: "/techcare" },
   { label: "About Us", href: "/company-profile/", children: aboutNavLinks },
   { label: "Media", href: "/news", children: mediaNavLinks },
