@@ -47,7 +47,7 @@ export function Hero() {
 
           <h1
             id="hero-title"
-            className="mt-5 font-display text-[clamp(2.375rem,1rem+3.85vw,4.625rem)] leading-[1.03] font-extrabold tracking-[-0.042em] text-ink"
+            className="mt-5 font-display text-[clamp(2.3rem,1rem+3.4vw,4.5rem)] leading-[1.03] font-extrabold tracking-[-0.042em] text-ink"
           >
             {hero.titleLines.map((line, i) => {
               const { plain, accent } = splitLine(line);
