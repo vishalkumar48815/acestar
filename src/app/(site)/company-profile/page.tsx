@@ -97,9 +97,15 @@ export default function CompanyProfilePage() {
             id="vision-title"
             data-reveal
             suppressHydrationWarning
-            className="mx-auto mt-6 max-w-[54rem] font-display text-[clamp(1.5rem,1rem+2vw,2.5rem)] leading-[1.18] font-bold tracking-[-0.03em] text-balance text-ink"
+            className="mx-auto mt-6 max-w-[64rem] font-display text-[clamp(1.5rem,1rem+2vw,2.5rem)] leading-[1.18] font-bold tracking-[-0.03em] text-balance text-ink"
           >
-            {vision.body}
+            {/* Two lines on larger screens: break after "business growth and" (as in the mock) */}
+            {vision.body.split(/(?<= and) /).map((line, i) => (
+              <span key={line} className={i ? "sm:block" : undefined}>
+                {i ? " " : null}
+                {line}
+              </span>
+            ))}
           </h2>
 
           <div data-reveal suppressHydrationWarning className="mt-12 lg:mt-14">
@@ -205,7 +211,7 @@ export default function CompanyProfilePage() {
             >
               {promise.title}
             </h2>
-            <div className="mx-auto mt-6 flex max-w-[44rem] flex-col gap-3 text-[1.0625rem] leading-relaxed text-pretty text-fg-muted">
+            <div className="mx-auto mt-5 flex max-w-[50rem] flex-col gap-3 text-[1.0625rem] leading-relaxed text-balance text-fg-muted">
               {promise.paragraphs.map((p) => (
                 <p key={p.slice(0, 24)}>{p}</p>
               ))}

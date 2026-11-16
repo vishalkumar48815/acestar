@@ -88,7 +88,7 @@ export const principles = {
       body: "We uphold high standards of expertise, quality and service in everything we do.",
     },
     {
-      title: "Responsiveness & Respect",
+      title: "Responsive & Respectful",
       body: "We respond promptly, take ownership and treat everyone with respect.",
     },
   ],
@@ -98,9 +98,7 @@ export const promise = {
   eyebrow: "Our Promise",
   title: "Do It Differently.",
   paragraphs: [
-    "For us, it is more than a tagline.",
-    "It is a commitment to challenge conventional thinking, embrace innovation, invest in people and continuously improve how we serve.",
-    "We measure success not only by business growth, but also by the value we create for customers, the opportunities we provide our people and the impact we make on the next generation.",
+    "A commitment to challenge conventional thinking, embrace innovation, invest in people and create meaningful impact for our customers, our people and the next generation.",
   ],
   closing: "Acestar: Growing Businesses. Empowering People. Creating Impact.",
 };

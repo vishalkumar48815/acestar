@@ -11,15 +11,18 @@
   /* Surfaces */
   --bg: #f4f8fd;
   --bg-elevated: #ffffff;
-  --fg: #0e1a2b;
+  --fg: #494f63;
+  /* dark grey, not black (client mock) */
   --fg-muted: #3d4b60;
   --fg-subtle: #5f6d82;
   --line: rgb(14 26 43 / 0.09);
 
   /* Brand */
   --brand: #1880e8;
-  --brand-ink: #1468c4; /* brand colour for text; AA on --bg */
-  --eyebrow: #5b21d6; /* section eyebrows (solid purple, client spec) */
+  --brand-ink: #1468c4;
+  /* brand colour for text; AA on --bg */
+  --eyebrow: #5b21d6;
+  /* section eyebrows (solid purple, client spec) */
   --brand-soft: rgb(24 128 232 / 0.1);
 
   /* Glass */
@@ -42,7 +45,8 @@
   --grid-line: transparent;
   --accent-from: #3b63f3;
   --accent-to: #a24df0;
-  --ink: #0b1020; /* headline ink (new UI) */
+  --ink: #30364b;
+  /* headline ink: dark slate grey, as in the client mocks */
   --btn-gradient: linear-gradient(95deg, #3b63f3 0%, #6a5cf4 50%, #a24df0 100%);
   --btn-gradient-shadow: 0 16px 34px -14px rgb(91 84 240 / 0.75);
 
@@ -67,7 +71,8 @@
 
   --brand: #1880e8;
   --brand-ink: #7cc0ff;
-  --eyebrow: #b9a3ff; /* section eyebrows (solid purple, client spec) */
+  --eyebrow: #b9a3ff;
+  /* section eyebrows (solid purple, client spec) */
   --brand-soft: rgb(24 128 232 / 0.16);
 
   --glass-bg: rgb(255 255 255 / 0.055);
@@ -104,7 +109,8 @@
     --fg-subtle: #8593a8;
     --line: rgb(255 255 255 / 0.09);
     --brand-ink: #7cc0ff;
-    --eyebrow: #b9a3ff; /* section eyebrows (solid purple, client spec) */
+    --eyebrow: #b9a3ff;
+    /* section eyebrows (solid purple, client spec) */
     --brand-soft: rgb(24 128 232 / 0.16);
     --glass-bg: rgb(255 255 255 / 0.055);
     --glass-bg-strong: rgb(13 22 40 / 0.78);
@@ -131,15 +137,18 @@
   --accent-from: #0e9fb4;
   --accent-to: #19b6a2;
   --brand-ink: #0b7f92;
-  --eyebrow: #0b7f92; /* TechCare teal */
+  --eyebrow: #0b7f92;
+  /* TechCare teal */
   --brand-soft: rgb(14 159 180 / 0.1);
   --btn-gradient: linear-gradient(95deg, #0b93ab 0%, #12a9ab 50%, #1fbb9f 100%);
   --btn-gradient-shadow: 0 16px 34px -14px rgb(14 150 170 / 0.7);
 }
+
 :root[data-theme="dark"] .theme-techcare {
   --accent-from: #3fd0d8;
   --accent-to: #4fe0c0;
   --brand-ink: #6fdde4;
-  --eyebrow: #6fdde4; /* TechCare teal */
+  --eyebrow: #6fdde4;
+  /* TechCare teal */
   --brand-soft: rgb(63 208 216 / 0.14);
 }
