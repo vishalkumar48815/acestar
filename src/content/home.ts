@@ -29,7 +29,7 @@ export const solutions = {
       title: "AI Solutions",
       body: "Enterprise AI solutions for productivity and innovation.",
       href: "/solutions/ai",
-      image: { src: "/images/solutions/our-solutions/ai-2.webp", width: 640, height: 440 },
+      image: { src: "/images/solutions/our-solutions/ai-3.webp", width: 1320, height: 900 },
     },
     {
       key: "creative",
@@ -43,21 +43,21 @@ export const solutions = {
       title: "High-Performance Computing & TechCare",
       body: "High-performance computing with flexible TechCare options.",
       href: "/high-performance-computer/",
-      image: { src: "/images/solutions/our-solutions/computers-2.webp", width: 640, height: 440 },
+      image: { src: "/images/solutions/our-solutions/computers-3.webp", width: 1280, height: 880 },
     },
     {
       key: "workflow",
       title: "Digital Workflow",
       body: "e-Signatures and intelligent workflows to work smarter.",
       href: "/digital-workflow/",
-      image: { src: "/images/solutions/our-solutions/workflow-2.webp", width: 640, height: 440 },
+      image: { src: "/images/solutions/our-solutions/workflow-3.webp", width: 1280, height: 880 },
     },
     {
       key: "training",
       title: "Professional Training & Certification",
       body: "Industry-recognized training and certification to upskill and grow.",
       href: "/solutions/training-certification",
-      image: { src: "/images/solutions/our-solutions/training-2.webp", width: 640, height: 440 },
+      image: { src: "/images/solutions/our-solutions/training-3.webp", width: 1280, height: 880 },
     },
   ],
 } as const;

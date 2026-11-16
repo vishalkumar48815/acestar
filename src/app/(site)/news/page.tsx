@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { PressFeed } from "@/components/media/press-feed";
 import { PageHero } from "@/components/solutions/page-hero";
 import { Section } from "@/components/solutions/primitives";
@@ -15,22 +16,48 @@ export default async function NewsPage() {
 
   return (
     <>
-      <PageHero
-        hero={{
-          eyebrow: "Media Coverage",
-          title: "News and Highlights.",
-          accent: "Highlights.",
-          lead: "Discover what's new at Acestar, from industry news and events to key milestones and announcements.",
-          primary: { label: "Latest stories", href: "#stories" },
-          secondary: { label: "Read our blog", href: "/blogs/" },
-          crumbs: [{ label: "Home", href: "/" }, { label: "Media" }, { label: "News" }],
-          // Newspaper artwork from the client mock (public/images/news/hero-bg.png, cut out), on the right
-          image: { src: "/images/news/hero-art3.webp", width: 3300, height: 1300, alt: "" },
-          // Dark mode: a dark redesign of the same artwork (scripts/hero-art/news-dark)
-          imageDark: { src: "/images/news/hero-art3-dark.webp", width: 3300, height: 1300, alt: "" },
-          imageFit: "backdrop",
-        }}
-      />
+      <div className="relative isolate">
+        {/* Soft wave background behind the whole hero (white keyed out, so it also glows on the dark theme) */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 -z-10 [mask-image:linear-gradient(180deg,#000_70%,transparent)]"
+        >
+          <Image
+            src="/images/news/news-hero-waves.webp"
+            alt=""
+            fill
+            priority
+            quality={90}
+            sizes="100vw"
+            className="object-cover object-[75%_100%] dark:opacity-80"
+            style={{ animation: "hero-art-in 1.4s var(--ease-out) both" }}
+          />
+        </div>
+        <PageHero
+          hero={{
+            eyebrow: "Media Coverage",
+            title: "News and Highlights.",
+            accent: "Highlights.",
+            lead: "Discover what's new at Acestar, from industry news and events to key milestones and announcements.",
+            primary: { label: "Latest stories", href: "#stories" },
+            secondary: { label: "Read our blog", href: "/blogs/" },
+            crumbs: [{ label: "Home", href: "/" }, { label: "Media" }, { label: "News" }],
+          }}
+          visual={
+            <Image
+              src="/images/news/news-hero-paper.webp"
+              width={1519}
+              height={1036}
+              alt="Acestar news page featuring an Acestar and Microsoft Copilot billboard"
+              priority
+              quality={90}
+              sizes="(min-width: 1024px) 600px, 92vw"
+              className="h-auto w-full"
+              style={{ animation: "hero-art-in 1.1s var(--ease-out) 200ms both" }}
+            />
+          }
+        />
+      </div>
 
       <Section id="stories" labelledBy="stories-title" className="pt-0 lg:pt-4">
         <h2 id="stories-title" className="sr-only">
