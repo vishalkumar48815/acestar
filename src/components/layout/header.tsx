@@ -215,7 +215,13 @@ export function Header() {
 
             <div className="flex items-center gap-1">
               <ThemeToggle />
-              <ButtonLink href="/contact-acestarian/" size="md" className="hidden rounded-full sm:inline-flex">
+              {/* Purple outline (not solid black), filling softly on hover */}
+              <ButtonLink
+                href="/contact-acestarian/"
+                variant="ghost"
+                size="md"
+                className="hidden rounded-full text-[#5b21d6] shadow-[inset_0_0_0_1.5px_#6a4cf0] hover:-translate-y-0.5 hover:bg-[#ece7ff] sm:inline-flex dark:text-[#c9b8ff] dark:shadow-[inset_0_0_0_1.5px_#8f7bff] dark:hover:bg-[rgb(162_140_255/0.16)]"
+              >
                 Talk to us
               </ButtonLink>
               <button
