@@ -1,14 +1,15 @@
 "use client";
 
-import { useId, useRef, useState, type FormEvent } from "react";
+import { useEffect, useId, useRef, useState, type FormEvent } from "react";
 import { FormNotice, SelectField, TextArea, TextField } from "@/components/forms/fields";
 import { Button } from "@/components/ui/button";
-import { ArrowUpRight, Briefcase, ChevronDown, Clock, Paperclip, Send, X } from "@/components/ui/icons";
+import { Paperclip, Send, X } from "@/components/ui/icons";
 import type { Job } from "@/content/pages/careers";
 import { EMAIL_RE, PHONE_RE, deliverForm, formEndpoints } from "@/lib/forms";
 import { cn } from "@/lib/utils";
 
 const GENERAL = "General application";
+const INTERNSHIP = "Internship / fresh graduate";
 const MAX_CV_BYTES = 5 * 1024 * 1024;
 const CV_TYPES = ".pdf,.doc,.docx";
 const JOIN_OPTIONS = ["Immediately", "Within 2 weeks", "Within 1 month", "Within 2 months", "3 months or more"];
@@ -19,10 +20,9 @@ const formatSize = (bytes: number) =>
 type Errors = Partial<Record<"name" | "email" | "phone" | "role" | "join" | "cv", string>>;
 type Status = { tone: "success" | "error" | "info"; text: string } | null;
 
-/** Open roles (expandable) beside an application form; "Apply" pre-selects the role. */
+/** The careers application form. Role cards on the page link here and pre-select their role. */
 export function JobBoard({ jobs, to }: { jobs: Job[]; to: string }) {
   const uid = useId();
-  const [open, setOpen] = useState<string | null>(jobs[0]?.slug ?? null);
   const [role, setRole] = useState("");
   const [errors, setErrors] = useState<Errors>({});
   const [status, setStatus] = useState<Status>(null);
@@ -51,6 +51,25 @@ export function JobBoard({ jobs, to }: { jobs: Job[]; to: string }) {
     formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
     window.setTimeout(() => formRef.current?.querySelector<HTMLInputElement>("input[name=name]")?.focus(), 450);
   };
+
+  // Links elsewhere on the page: #role-<slug> and #apply-internship pre-select the role in the form.
+  useEffect(() => {
+    const onHash = () => {
+      const h = decodeURIComponent(window.location.hash.slice(1));
+      if (h.startsWith("role-")) {
+        const job = jobs.find((j) => j.slug === h.slice(5));
+        if (job) applyFor(job.title);
+      } else if (h === "apply-internship") {
+        applyFor(INTERNSHIP);
+      }
+    };
+    const t = window.setTimeout(onHash, 0);
+    window.addEventListener("hashchange", onHash);
+    return () => {
+      window.clearTimeout(t);
+      window.removeEventListener("hashchange", onHash);
+    };
+  }, [jobs]);
 
   const validate = (data: FormData): Errors => {
     const next: Errors = {};
@@ -113,108 +132,7 @@ export function JobBoard({ jobs, to }: { jobs: Job[]; to: string }) {
   };
 
   return (
-    <div className="grid gap-8 lg:grid-cols-[1.15fr_1fr] lg:gap-10">
-      {/* ---------------------------------------------------------------- Roles */}
-      <div>
-        <div className="mb-5 flex items-center justify-between gap-4">
-          <h2
-            id="roles-title"
-            className="font-display text-[clamp(1.5rem,1.15rem+1.2vw,2.125rem)] font-bold tracking-[-0.03em] text-ink"
-          >
-            Open roles
-          </h2>
-          <span className="rounded-full bg-brand-soft px-3 py-1 text-sm font-semibold text-brand-ink">
-            {jobs.length} positions
-          </span>
-        </div>
-        <ul className="flex flex-col gap-3">
-          {jobs.map((job) => {
-            const expanded = open === job.slug;
-            const panelId = `${uid}-${job.slug}`;
-            return (
-              <li
-                key={job.slug}
-                className={cn(
-                  "overflow-hidden rounded-[1.25rem] border transition-[border-color,box-shadow,background-color] duration-300",
-                  expanded
-                    ? "border-[color-mix(in_oklab,var(--accent-from)_40%,var(--line))] bg-white/80 shadow-[0_24px_48px_-30px_rgb(40_50_140/0.45)] dark:bg-white/[0.05]"
-                    : "border-line bg-white/50 hover:border-[color-mix(in_oklab,var(--accent-from)_30%,var(--line))] dark:bg-white/[0.02]",
-                )}
-              >
-                <h3>
-                  <button
-                    type="button"
-                    aria-expanded={expanded}
-                    aria-controls={panelId}
-                    onClick={() => setOpen(expanded ? null : job.slug)}
-                    className="flex w-full items-start gap-4 p-5 text-left"
-                  >
-                    <span
-                      className={cn(
-                        "grid size-11 shrink-0 place-items-center rounded-xl transition-colors",
-                        expanded ? "bg-[image:var(--btn-gradient)] text-white" : "bg-brand-soft text-brand-ink",
-                      )}
-                    >
-                      <Briefcase className="size-5" />
-                    </span>
-                    <span className="min-w-0 flex-1">
-                      <span className="block text-[1.0625rem] leading-snug font-semibold text-ink">{job.title}</span>
-                      <span className="mt-1 block text-sm text-fg-subtle">{job.team}</span>
-                    </span>
-                    <ChevronDown
-                      className={cn(
-                        "mt-3 size-5 shrink-0 text-fg-subtle transition-transform duration-300",
-                        expanded && "rotate-180",
-                      )}
-                    />
-                  </button>
-                </h3>
-                <div
-                  id={panelId}
-                  className={cn(
-                    "grid transition-[grid-template-rows] duration-500 ease-out-expo",
-                    expanded ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
-                  )}
-                >
-                  <div className="overflow-hidden" inert={!expanded}>
-                    <div className="px-5 pb-5 sm:pl-[4.75rem]">
-                      <p className="flex items-start gap-2 text-[0.9375rem] text-fg">
-                        <Clock className="mt-0.5 size-4 shrink-0 text-brand-ink" />
-                        {job.experience}
-                      </p>
-                      <ul className="mt-3 flex flex-col gap-2">
-                        {job.skills.map((s) => (
-                          <li key={s} className="flex gap-2.5 text-[0.9375rem] leading-relaxed text-fg-muted">
-                            <span
-                              aria-hidden="true"
-                              className="mt-2.5 size-1.5 shrink-0 rounded-full bg-[image:var(--btn-gradient)]"
-                            />
-                            {s}
-                          </li>
-                        ))}
-                      </ul>
-                      <div className="mt-5 flex flex-wrap items-center gap-3">
-                        <Button variant="gradient" size="md" className="px-6" onClick={() => applyFor(job.title)}>
-                          Apply for this role
-                        </Button>
-                        <a
-                          href={job.legacyUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex min-h-11 items-center gap-1.5 text-sm font-semibold text-brand-ink hover:underline"
-                        >
-                          Full job description <ArrowUpRight className="size-4" />
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-
+    <div className="mx-auto max-w-3xl">
       {/* ---------------------------------------------------------------- Form */}
       <form
         ref={formRef}
@@ -222,16 +140,18 @@ export function JobBoard({ jobs, to }: { jobs: Job[]; to: string }) {
         noValidate
         onSubmit={onSubmit}
         aria-labelledby="apply-title"
-        className="scroll-mt-28 self-start rounded-[1.75rem] border border-white/80 bg-white/70 p-6 shadow-[0_40px_80px_-50px_rgb(40_50_140/0.5)] backdrop-blur-xl sm:p-8 lg:sticky lg:top-24 dark:border-white/[0.08] dark:bg-white/[0.03]"
+        className="scroll-mt-28 rounded-[1.75rem] border border-white/80 bg-white/70 p-6 shadow-[0_40px_80px_-50px_rgb(40_50_140/0.5)] backdrop-blur-xl sm:p-10 dark:border-white/[0.08] dark:bg-white/[0.03]"
       >
-        <p className="text-gradient text-[0.6875rem] font-semibold tracking-[0.34em] uppercase">Apply now</p>
+        <p className="text-center text-[0.6875rem] font-bold tracking-[0.34em] text-eyebrow-ink uppercase sm:text-xs">
+          Apply now
+        </p>
         <h2
           id="apply-title"
-          className="mt-3 font-display text-[1.625rem] leading-tight font-bold tracking-[-0.03em] text-ink"
+          className="mt-3 text-center font-display text-[clamp(1.625rem,1.2rem+1.4vw,2.25rem)] leading-tight font-bold tracking-[-0.03em] text-ink"
         >
           Send us your application.
         </h2>
-        <p className="mt-2 text-[0.9375rem] leading-relaxed text-fg-muted">
+        <p className="mx-auto mt-2 max-w-lg text-center text-[0.9375rem] leading-relaxed text-fg-muted">
           We read every application. Prefer email? Send your CV to{" "}
           <a href={`mailto:${to}`} className="font-semibold text-brand-ink hover:underline">
             {to}
@@ -258,6 +178,7 @@ export function JobBoard({ jobs, to }: { jobs: Job[]; to: string }) {
               </option>
             ))}
             <option value={GENERAL}>{GENERAL}</option>
+            <option value={INTERNSHIP}>{INTERNSHIP}</option>
           </SelectField>
           <TextField
             id={`${uid}-name`}

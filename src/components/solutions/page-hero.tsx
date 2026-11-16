@@ -112,19 +112,48 @@ export function PageHero({ hero, visual }: { hero: Hero; visual?: ReactNode }) {
             </ol>
           </nav>
 
-          <p
-            className="mt-6 text-gradient text-[0.6875rem] font-semibold tracking-[0.34em] uppercase sm:text-xs"
-            style={enter(60)}
-          >
-            {hero.eyebrow}
-          </p>
+          {hero.keyword ? null : (
+            <p
+              className="mt-6 text-[0.6875rem] font-bold tracking-[0.34em] text-eyebrow-ink uppercase sm:text-xs"
+              style={enter(60)}
+            >
+              {hero.eyebrow}
+            </p>
+          )}
           <h1
             id="page-title"
-            className="mt-4 font-display text-[clamp(2.25rem,1.2rem+3.2vw,4rem)] leading-[1.04] font-extrabold tracking-[-0.04em] text-balance text-ink"
+            className={cn(
+              "font-display text-[clamp(2.25rem,1.2rem+3.2vw,4rem)] leading-[1.04] font-extrabold tracking-[-0.04em] text-balance text-ink",
+              hero.keyword ? "mt-6" : "mt-4",
+            )}
             style={enter(140)}
           >
-            <Title title={hero.title} accent={hero.accent} />
+            {hero.keyword ? (
+              <>
+                {/* Keyword line: styled as the eyebrow, but part of the heading for SEO */}
+                <span
+                  className="mb-4 block font-sans text-[0.6875rem] leading-normal font-bold tracking-[0.34em] text-eyebrow-ink uppercase sm:text-xs"
+                  style={enter(60)}
+                >
+                  {hero.keyword}
+                </span>
+                <span className="block">
+                  <Title title={hero.title} accent={hero.accent} />
+                </span>
+              </>
+            ) : (
+              <Title title={hero.title} accent={hero.accent} />
+            )}
           </h1>
+          {hero.subheading ? (
+            <h2
+              className="mt-5 flex items-center gap-3 text-[clamp(1rem,0.94rem+0.3vw,1.1875rem)] leading-snug font-semibold text-ink"
+              style={enter(200)}
+            >
+              <span aria-hidden="true" className="h-0.5 w-8 shrink-0 rounded-full bg-[image:var(--btn-gradient)]" />
+              {hero.subheading}
+            </h2>
+          ) : null}
           <p
             className="mt-5 max-w-[36rem] text-[clamp(1.0625rem,0.97rem+0.35vw,1.25rem)] leading-[1.6] text-pretty text-fg-muted"
             style={enter(260)}

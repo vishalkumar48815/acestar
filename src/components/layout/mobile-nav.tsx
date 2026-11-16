@@ -14,8 +14,11 @@ import { ThemeSegmented } from "./theme-toggle";
 type Props = { open: boolean; onClose: () => void };
 
 /** Full-screen frosted menu for phones and tablets. */
+/** Paths end in "/" on this site; compare them without it. */
+const trim = (path: string) => path.replace(/\/+$/, "") || "/";
+
 export function MobileNav({ open, onClose }: Props) {
-  const pathname = usePathname();
+  const pathname = trim(usePathname());
   const panelRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
   const lastPath = useRef(pathname);
@@ -60,7 +63,7 @@ export function MobileNav({ open, onClose }: Props) {
 
   // Dropdown items become labelled groups; TechCare (in Solutions and the top bar) is listed once.
   const seen = new Set<string>();
-  const groups = [...mainNav, { label: "Contact", href: "/contact" } as NavLink & { children?: NavLink[] }]
+  const groups = [...mainNav, { label: "Contact", href: "/contact-acestarian/" } as NavLink & { children?: NavLink[] }]
     .map((item) => ({
       title: item.children ? item.label : undefined,
       links: (item.children ?? [item])
@@ -124,7 +127,7 @@ export function MobileNav({ open, onClose }: Props) {
               ) : null}
               <ul className="divide-y divide-line overflow-hidden rounded-2xl border border-white/80 bg-white/70 shadow-[0_1px_2px_rgb(30_40_90/0.05)] dark:border-white/[0.08] dark:bg-white/[0.03]">
                 {group.links.map(({ link }) => {
-                  const active = pathname === link.href;
+                  const active = pathname === trim(link.href);
                   return (
                     <li key={link.href}>
                       <Link
@@ -146,7 +149,7 @@ export function MobileNav({ open, onClose }: Props) {
                               <Link
                                 href={sub.href}
                                 onClick={onClose}
-                                aria-current={pathname === sub.href ? "page" : undefined}
+                                aria-current={pathname === trim(sub.href) ? "page" : undefined}
                                 className="inline-flex min-h-9 max-w-full items-center gap-1.5 rounded-full bg-brand-soft px-3 text-[0.8125rem] font-medium text-brand-ink"
                               >
                                 <span aria-hidden="true">↳</span>

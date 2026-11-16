@@ -100,7 +100,7 @@ export function Header() {
                       aria-controls={`nav-${slug(item.label)}`}
                       onClick={() => setOpenDropdown((v) => (v === item.label ? null : item.label))}
                       className={cn(
-                        "inline-flex min-h-11 items-center gap-1 rounded-full px-4 text-[0.9375rem] font-medium transition-colors hover:text-fg",
+                        "inline-flex min-h-11 items-center gap-1 rounded-full px-3 text-[0.9375rem] font-medium whitespace-nowrap transition-colors hover:text-fg xl:px-4",
                         item.children.some((c) => isActive(c.href)) ? "text-fg" : "text-fg-muted",
                       )}
                     >
@@ -125,7 +125,7 @@ export function Header() {
                       {/* Near-opaque panel so the text stays readable over any page artwork */}
                       <ul className="flex flex-col gap-0.5 rounded-3xl border border-line bg-[color-mix(in_srgb,var(--bg)_96%,transparent)] p-2 shadow-[0_24px_60px_-24px_rgb(30_40_110/0.35)] backdrop-blur-2xl dark:shadow-[0_24px_60px_-24px_rgb(0_0_0/0.7)]">
                         {item.children.map((child) => {
-                          // "/about" must not stay highlighted on "/about/awards".
+                          // "/company-profile/" must not stay highlighted on "/awards/".
                           const inSection =
                             isActive(child.href) &&
                             !item.children!.some(
@@ -202,7 +202,7 @@ export function Header() {
                       href={item.href}
                       aria-current={isActive(item.href) ? "page" : undefined}
                       className={cn(
-                        "inline-flex min-h-11 items-center rounded-full px-4 text-[0.9375rem] font-medium transition-colors hover:text-fg",
+                        "inline-flex min-h-11 items-center rounded-full px-3 text-[0.9375rem] font-medium whitespace-nowrap transition-colors hover:text-fg xl:px-4",
                         isActive(item.href) ? "text-fg" : "text-fg-muted",
                       )}
                     >
@@ -215,7 +215,7 @@ export function Header() {
 
             <div className="flex items-center gap-1">
               <ThemeToggle />
-              <ButtonLink href="/contact" size="md" className="hidden rounded-full sm:inline-flex">
+              <ButtonLink href="/contact-acestarian/" size="md" className="hidden rounded-full sm:inline-flex">
                 Talk to us
               </ButtonLink>
               <button

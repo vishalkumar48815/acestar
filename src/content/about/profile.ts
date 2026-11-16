@@ -1,89 +1,106 @@
-/** Company Profile — content from acestar.my/company-profile (text lightly tidied). */
-import type { PageHero, Stat } from "@/content/solutions/types";
-import { aboutAsset } from "./assets";
+/**
+ * Company Profile (Acestar 3.0 brief from the client, Nov 2026).
+ * Copy is the client's own wording; layout follows her design mock.
+ */
 
-export const hero: PageHero = {
-  eyebrow: "Company Profile",
-  title: "Your AI Enterprise Partner, since 2008.",
-  accent: "since 2008.",
-  lead: "Acestar Sdn. Bhd. is a leading AI Enterprise solutions provider in the region, specialising in AI, Creative Software, High Performance Computers and Digital Workflow Management.",
-  primary: { label: "Talk to us", href: "/contact" },
-  secondary: { label: "Our awards", href: "/about/awards" },
-  // Artwork from acestar.my (2025/10/1.png), mirrored so the subject sits on the right.
-  image: { src: "/images/pages/about/profile-hero-art.webp", width: 1920, height: 500, alt: "" },
-  imageFit: "backdrop",
-  crumbs: [{ label: "Home", href: "/" }, { label: "About Us" }, { label: "Company Profile" }],
-  chips: ["Adobe's only Platinum Partner in Malaysia", "Certiport Sole Distributor", "Est. 2008"],
+export const hero = {
+  title: "Thank you for your interest in",
+  accent: "Our story.",
+  lead: "Discover what drives us, what we believe in, and the impact we aspire to create.",
 };
-
-export const stats: Stat[] = [
-  { value: "5,000+", label: "Clients across education, enterprise, SME and the public sector" },
-  { value: "70%+", label: "Of higher-education institutions in Malaysia covered" },
-  { value: "150,000+", label: "Adobe Creative Cloud licences deployed to date" },
-];
-
-export const ambition = [
-  "We will be even more focused and elite in delivering our services and specialisation.",
-  "We will take the IT industry by storm, in a class of its own.",
-];
 
 export const vision = {
   title: "Our Vision",
-  body: "To impact business growth every day, and power the workforce to be a happy, productive community.",
+  body: "To empower business growth and a happy, productive workforce through technology.",
 };
 
 export const mission = {
   title: "Our Mission",
-  body: "To help every workforce achieve more by taking care of their IT needs.",
+  body: "To simplify technology adoption and drive growth through trusted solutions and practical AI.",
 };
 
 export const story = {
-  title: "A partner to the world's leading technology brands.",
+  title: "Our Story",
+  subtitle: "Built on Trust. Driven by Innovation. Inspired by People.",
+  /** Shown first; the rest opens with "Our Journey". */
+  intro: [
+    "Founded in Malaysia in 2008, Acestar began with a vision to do things differently in the technology industry, going beyond selling products to helping organizations achieve more through technology.",
+    "What started as a specialist in creative software, high-performance computing and IT infrastructure has evolved into an award-winning enterprise technology solutions provider, serving more than 5,000 organizations across the corporate, education, government and other sectors.",
+  ],
+  more: [
+    "Over the past 18 years, Acestar has continuously evolved alongside the technology landscape. From creative software and cloud licensing to digital workflows, professional training, certification and advanced computing infrastructure, we have built our business around understanding customer needs and delivering solutions that create real value.",
+    "Today, as artificial intelligence reshapes industries and workplaces, Acestar is entering its next chapter, Acestar 3.0, bringing trusted enterprise AI technologies together with our established expertise to help organizations innovate, work smarter and grow.",
+    "Yet our purpose goes beyond technology.",
+    "We believe business success is built on people: the customers who trust us, the talented professionals who serve them, and the next generation preparing for the workforce.",
+    "This belief continues to shape our investments in professional development, youth empowerment, customer experience and building an elite team committed to service excellence.",
+    "At Acestar, we don't just embrace change. We believe in creating meaningful impact through technology, people and purpose.",
+  ],
+  signoff: "Do It Differently.",
+};
+
+export const beliefs = {
+  eyebrow: "Our 4S Core Beliefs",
+  body: "Our values guide how we innovate, serve our customers, develop our people and build long-term relationships.",
+  items: [
+    {
+      title: "Simplify",
+      tagline: "Work Better",
+      body: "We simplify complex technologies, making them practical, accessible and easier for organizations to adopt.",
+    },
+    {
+      title: "Scalability",
+      tagline: "Grow Further",
+      body: "We deliver solutions that support business growth, adapt to changing needs and create opportunities for long-term success.",
+    },
+    {
+      title: "Sustainability",
+      tagline: "Create Lasting Impact",
+      body: "We believe in responsible business growth, long-term partnerships and technology investments that deliver lasting value.",
+    },
+    {
+      title: "Supportive",
+      tagline: "Success Together",
+      body: "We foster a supportive culture that values teamwork, customer success, continuous learning and shared achievements. We also empower young talents through national championships, creating opportunities to showcase their skills internationally and make Malaysia proud.",
+    },
+  ],
+};
+
+/** "The principles that guide how we work" (from the client's design mock). */
+export const principles = {
+  eyebrow: "Our Core Values",
+  title: "The Principles That Guide How We Work.",
+  items: [
+    {
+      title: "Client Commitment",
+      body: "We put our clients first, delivering responsive service, trusted expertise and lasting value.",
+    },
+    {
+      title: "Integrity",
+      body: "We act with honesty, transparency and accountability, building long-term trust.",
+    },
+    { title: "Teamwork", body: "We collaborate, support one another and achieve more together." },
+    {
+      title: "Innovation",
+      body: "We challenge conventional thinking, embrace new ideas and find better ways to create value.",
+    },
+    {
+      title: "Professionalism",
+      body: "We uphold high standards of expertise, quality and service in everything we do.",
+    },
+    {
+      title: "Responsiveness & Respect",
+      body: "We respond promptly, take ownership and treat everyone with respect.",
+    },
+  ],
+};
+
+export const promise = {
+  eyebrow: "Our Promise",
+  title: "Do It Differently.",
   paragraphs: [
-    "Acestar is Adobe's only Platinum Partner in Malaysia, and a prominent partner to multinational brands such as HP (Hewlett Packard), Lenovo, Apple and Microsoft, to name a few.",
-    "We have served more than 5,000 clients across the education, enterprise, SME and public sector markets, covering more than 70% of higher-education institutions in Malaysia. More than 150,000 Adobe Creative Cloud licences have been deployed to date. As one of the first to advocate cloud licensing, we provide best-in-class Adobe Creative Cloud implementation and workshops as a value-added service to our clients.",
-    "Setting ourselves apart from the conventional, Acestar empowers your workforce and operating procedures with automation and digitisation through frictionless digital tools, helping companies build a super-efficient working ecosystem that improves operational performance, maximises resources and lets you scale rapidly. Expect carefree, hassle-free and always in control, meeting your company's immediate needs and future expectations.",
+    "For us, it is more than a tagline.",
+    "It is a commitment to challenge conventional thinking, embrace innovation, invest in people and continuously improve how we serve.",
+    "We measure success not only by business growth, but also by the value we create for customers, the opportunities we provide our people and the impact we make on the next generation.",
   ],
-  image: aboutAsset("2026/07/web-08.jpg", "The Acestar team with partners at an industry event"),
+  closing: "Acestar: Growing Businesses. Empowering People. Creating Impact.",
 };
-
-export const training = {
-  eyebrow: "Training & community",
-  title: "Building Malaysia's creative and digital talent.",
-  body: "For professional training and certification, Acestar is the appointed Certiport Sole Distributor in Malaysia, providing some of the certifications most in demand by employers, such as Adobe Certified Professional and Microsoft Office Specialist. Acestar has also paved the way for the country's creative multimedia industry, spearheading notable creative workshops and events.",
-  highlights: [
-    {
-      title: "Certiport Sole Distributor",
-      body: "Adobe Certified Professional, Microsoft Office Specialist and more, across Malaysia.",
-    },
-    {
-      title: "ACP Championship Malaysia",
-      body: "The national Adobe Certified Professional championship for students.",
-    },
-    { title: "SEA Connect Creative Conference", body: "Bringing the region's creative community together." },
-  ],
-  photos: [
-    aboutAsset("2026/07/web-11.jpg", "Micro-Credentials Education Summit, stage celebration with confetti"),
-    aboutAsset("2026/07/web-12.jpg", "Malaysia National Championship 2024 Grand Finale"),
-    aboutAsset(
-      "2022/09/acp-432-1.webp",
-      "Adobe Certified Professional and Microsoft Office Specialist Championship Malaysia 2022",
-    ),
-    aboutAsset("2026/07/web-24.jpg", "Winners on stage at the Micro-Credentials Education Summit"),
-    aboutAsset("2026/07/web-20-1.jpg", "Participants at the Micro-Credentials Education Summit"),
-  ].filter((p) => p !== undefined),
-};
-
-export const leadership = {
-  eyebrow: "Leadership",
-  name: "Natalie Sit",
-  role: "Group CEO",
-  body: "Natalie Sit continues to foresee new heights and great expansion, adding TechCare and Saleslive to the business as new ventures: an IT-as-a-Service model and an advanced CRM tool respectively. Built on Acestar's formidable relationships with partners and combined expertise across cloud licensing, managed services, business software and high-performance workstations, these homegrown innovations each set themselves in a class of their own.",
-  ventures: [
-    { label: "TechCare", body: "IT as a Service", href: "/techcare" },
-    { label: "Saleslive", body: "Advanced CRM", href: "https://www.sales.live/", external: true },
-  ],
-};
-
-/** "The next chapter of Acestar encapsulates…" */
-export const pillars = ["Simplicity.", "Scalability.", "Sustainability.", "Supportive."];

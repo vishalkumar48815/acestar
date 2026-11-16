@@ -1,21 +1,21 @@
 /** Digital Workflow Management — content from acestar.my/digital-workflow (text tidied). */
 import { site } from "@/content/site";
 import { asset } from "./assets";
-import type { Cta, Feature, Img, PageHero } from "./types";
+import type { Cta, Feature, Img, PageHero, SolutionBrief } from "./types";
 
 export const hero: PageHero = {
-  eyebrow: "Digital Workflow Management",
-  title: "Absolute efficiency for the hybrid way we work.",
-  accent: "the hybrid way we work.",
-  lead: "Utilising technology to drive absolute efficiency for today's hybrid working style, with best-in-class consultation and implementation.",
-  primary: { label: "Talk to a specialist", href: "/contact" },
-  secondary: { label: "Adobe Acrobat", href: "/solutions/digital-workflow/adobe-acrobat" },
+  eyebrow: "Simplify Work. Accelerate Business.",
+  title: "Digital Workflow Solutions in Malaysia.",
+  accent: "in Malaysia.",
+  lead: "Modern businesses need faster collaboration, smarter document management and secure digital workflows. Acestar modernizes everyday processes with Adobe Acrobat, Acrobat Studio, AI-powered documents, e-signatures and Microsoft 365.",
+  primary: { label: "Talk to Our Workflow Experts", href: "/contact-acestarian/" },
+  secondary: { label: "Adobe Acrobat", href: "/adobe-acrobat/" },
   image: asset(
     "2021/12/Digital-Workflow-Background.png",
     "Illustration of a team collaborating around a digital dashboard",
   ),
   imageFit: "backdrop",
-  crumbs: [{ label: "Home", href: "/" }, { label: "Solutions" }, { label: "Digital Workflow Management" }],
+  crumbs: [{ label: "Home", href: "/" }, { label: "Solutions" }, { label: "Digital Workflow" }],
   chips: ["Adobe Document Cloud", "Microsoft 365", "Faronics", "Saleslive", "Video Conferencing"],
 };
 
@@ -48,7 +48,7 @@ export const sections: WorkflowSection[] = [
         icon: asset("2021/11/adobe_sign.png", "Adobe Acrobat Sign icon"),
       },
     ],
-    link: { label: "Explore Adobe Acrobat", href: "/solutions/digital-workflow/adobe-acrobat" },
+    link: { label: "Explore Adobe Acrobat", href: "/adobe-acrobat/" },
   },
   {
     id: "microsoft-365",
@@ -128,3 +128,76 @@ export const sections: WorkflowSection[] = [
     ],
   },
 ];
+
+/** Acestar 3.0 brief: SEO copy, offerings and "Why Acestar". */
+export const brief: SolutionBrief = {
+  meta: {
+    title: "Adobe Acrobat Sign, Acrobat Studio and Microsoft 365 Malaysia",
+    description:
+      "Streamline business workflows with Adobe Acrobat Sign, Acrobat Studio, AI Assistant and Microsoft 365. Discover digital productivity solutions from Acestar Malaysia.",
+    keywords: [
+      "Adobe Acrobat Sign Malaysia",
+      "Adobe Acrobat Studio Malaysia",
+      "Acrobat AI Assistant Malaysia",
+      "Microsoft 365 reseller Malaysia",
+      "e-signature solutions Malaysia",
+      "digital workflow automation Malaysia",
+      "document management solutions Malaysia",
+    ],
+  },
+  overview: {
+    eyebrow: "Simplify work",
+    title: "Smarter documents. Faster approvals. Connected teams.",
+    paragraphs: [
+      "Modern businesses need faster collaboration, smarter document management and secure digital workflows.",
+      "Acestar helps organizations modernize everyday business processes through Adobe Acrobat, Acrobat Studio, AI-powered document productivity, electronic signatures and Microsoft 365.",
+      "Our solutions reduce manual processes, simplify collaboration and help employees work more efficiently.",
+    ],
+    offeringsTitle: "Our Digital Workflow Solutions",
+    offerings: [
+      {
+        title: "Adobe Acrobat Studio",
+        body: "Bring PDF productivity, AI-powered document experiences and creative tools together in a connected workspace.",
+      },
+      {
+        title: "Adobe Acrobat AI Assistant",
+        body: "Help employees understand, summarize and work with document information more efficiently using AI-powered assistance.",
+      },
+      {
+        title: "Adobe Acrobat Sign",
+        body: "Digitize approval and signature processes to reduce paperwork, accelerate document turnaround and support more efficient business operations.",
+      },
+      {
+        title: "Microsoft 365",
+        body: "Enable connected productivity through Microsoft Teams, Outlook, Word, Excel, PowerPoint, SharePoint and other Microsoft 365 services.",
+      },
+      {
+        title: "Intelligent Document Workflows",
+        body: "Improve document preparation, review, sharing, approvals and collaboration across teams.",
+      },
+      {
+        title: "Digital Workflow Consultation",
+        body: "Identify opportunities to replace manual processes with more efficient digital workflows and connected productivity tools.",
+      },
+    ],
+  },
+  why: {
+    title: "Why Choose Acestar?",
+    paragraphs: [
+      "As an established technology solutions provider and Adobe Platinum Partner in Malaysia, Acestar helps organizations select and implement digital workflow solutions suited to their business needs.",
+      "We support organizations seeking to modernize document processes, improve collaboration and make better use of their software investments.",
+    ],
+    highlights: [
+      { title: "Platinum Partner", body: "Adobe Platinum Partner in Malaysia." },
+      { title: "Acrobat & Sign", body: "AI-powered documents and e-signatures." },
+      { title: "Microsoft 365", body: "Connected productivity for every team." },
+      { title: "Consult first", body: "We map your processes before we recommend." },
+    ],
+  },
+  closing: {
+    eyebrow: "Work smarter",
+    title: "Transform the Way Your Business Works",
+    body: "Discover smarter document management, AI-powered productivity and digital collaboration with Acestar.",
+    cta: { label: "Explore Digital Workflow Solutions", href: "/contact-acestarian/" },
+  },
+};

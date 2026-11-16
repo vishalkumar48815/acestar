@@ -20,46 +20,52 @@ export const solutionTree: SolutionNode[] = [
     key: "ai",
     label: "AI Solutions",
     href: "/solutions/ai",
-    description: "Copilot, ChatGPT, Acrobat Studio & Firefly",
+    description: "OpenAI, Claude, Copilot & AI agents",
   },
   {
     key: "creative",
     label: "Creative Software",
-    href: "/solutions/creative-software",
+    href: "/creative-software/",
     description: "Adobe, Autodesk, Resolume & Boris FX",
     children: [
       {
         label: "Adobe Creative Cloud Pro",
-        href: "/solutions/creative-software/adobe-creative-cloud-pro",
+        href: "/creative-cloud/",
         description: "Plans, licensing & discount levels",
       },
     ],
   },
   {
     key: "computers",
-    label: "High Performance Computers",
-    href: "/solutions/workstations",
+    label: "High-Performance Computing & TechCare",
+    href: "/high-performance-computer/",
     description: "Apple, HP, Lenovo, Dell & Asus",
     children: [
       {
         label: "Apple Solution",
-        href: "/solutions/workstations/apple",
+        href: "/solution/apple/",
         description: "Apple Authorised Reseller, end to end",
       },
     ],
   },
   {
     key: "workflow",
-    label: "Digital Workflow Management",
-    href: "/solutions/digital-workflow",
+    label: "Digital Workflow",
+    href: "/digital-workflow/",
     description: "Document Cloud, Microsoft 365 & more",
     children: [
       {
         label: "Adobe Acrobat",
-        href: "/solutions/digital-workflow/adobe-acrobat",
+        href: "/adobe-acrobat/",
         description: "Acrobat Studio, Pro & Reader",
       },
     ],
+  },
+  {
+    key: "training",
+    label: "Training & Certification",
+    href: "/solutions/training-certification",
+    description: "ACP, MOS, ACU, Swift, ESB & AI skills",
   },
   {
     key: "techcare",

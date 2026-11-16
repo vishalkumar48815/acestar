@@ -1,67 +1,73 @@
 import type { Metadata } from "next";
-import { NewsSpotlight } from "@/components/media/news-spotlight";
 import { PressFeed } from "@/components/media/press-feed";
-import { ClosingCta } from "@/components/sections/home/closing-cta";
 import { PageHero } from "@/components/solutions/page-hero";
-import { Section, SectionHead } from "@/components/solutions/primitives";
+import { Section } from "@/components/solutions/primitives";
+import { ButtonLink } from "@/components/ui/button";
+import { ArrowRight, Newspaper } from "@/components/ui/icons";
+import { site } from "@/content/site";
 import { getPressItems } from "@/server/content/media";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "News",
-  description:
-    "Acestar in the press: Adobe Certified Professional world champions, MCES, awards and leadership stories, from The Star, Bernama, Astro Awani and more.",
-  alternates: { canonical: "/news" },
-};
+export const metadata: Metadata = pageMeta({ title: "News - Acestar", path: "/news/" });
 
 export default async function NewsPage() {
   const pressItems = await getPressItems();
-  const featuredPress = pressItems.find((p) => p.featured) ?? pressItems[0];
-  const headlines = pressItems.filter((p) => p !== featuredPress).slice(0, 4);
 
   return (
     <>
       <PageHero
         hero={{
-          eyebrow: "Media · News",
-          title: "Acestar in the news.",
-          accent: "in the news.",
-          lead: "Champions, summits, awards and leadership: how Malaysia's media has covered Acestar and the talent we champion.",
+          eyebrow: "Media Coverage",
+          title: "News and Highlights.",
+          accent: "Highlights.",
+          lead: "Discover what's new at Acestar, from industry news and events to key milestones and announcements.",
           primary: { label: "Latest stories", href: "#stories" },
-          secondary: { label: "Read our blog", href: "/blog" },
+          secondary: { label: "Read our blog", href: "/blogs/" },
           crumbs: [{ label: "Home", href: "/" }, { label: "Media" }, { label: "News" }],
-          // Illustration from acestar.my (2025/08), placed on the right
-          image: { src: "/images/media/hero-news-art2.webp", width: 3609, height: 1024, alt: "" },
+          // Newspaper artwork from the client mock (public/images/news/hero-bg.png, cut out), on the right
+          image: { src: "/images/news/hero-art3.webp", width: 3300, height: 1300, alt: "" },
+          // Dark mode: a dark redesign of the same artwork (scripts/hero-art/news-dark)
+          imageDark: { src: "/images/news/hero-art3-dark.webp", width: 3300, height: 1300, alt: "" },
           imageFit: "backdrop",
         }}
       />
 
-      <Section labelledBy="featured-title" className="pt-0 lg:pt-4">
-        {featuredPress ? (
-          <div data-reveal suppressHydrationWarning>
-            <NewsSpotlight top={featuredPress} headlines={headlines} />
-          </div>
-        ) : null}
-      </Section>
-
-      <Section id="stories" labelledBy="stories-title" className="pt-4 lg:pt-6">
-        <SectionHead
-          eyebrow="All coverage"
-          title="A decade of headlines, year by year."
-          body="Filter by language, search a name or publisher, or open any year to see every story."
-          id="stories-title"
-          className="mb-8"
-        />
+      <Section id="stories" labelledBy="stories-title" className="pt-0 lg:pt-4">
+        <h2 id="stories-title" className="sr-only">
+          Media coverage by year
+        </h2>
         <PressFeed items={pressItems} />
       </Section>
 
-      <ClosingCta
-        content={{
-          eyebrow: "Media enquiries",
-          title: "Writing about Acestar?",
-          body: "For interviews, press materials and event information, get in touch with our team.",
-          cta: { label: "Contact Us", href: "/contact" },
-        }}
-      />
+      {/* Media enquiries */}
+      <Section labelledBy="media-title" className="pt-0 lg:pt-0">
+        <div
+          data-reveal
+          suppressHydrationWarning
+          className="flex flex-col gap-6 rounded-[1.75rem] border border-white/90 bg-[linear-gradient(110deg,#eef3ff,#f5eeff)] p-6 sm:flex-row sm:items-center sm:p-8 lg:p-10 dark:border-white/[0.08] dark:bg-[linear-gradient(110deg,rgb(124_155_255/0.1),rgb(200_141_255/0.08))]"
+        >
+          <span className="grid size-16 shrink-0 place-items-center text-brand-ink sm:border-r sm:border-line sm:pr-6">
+            <Newspaper aria-hidden="true" className="size-11" strokeWidth={1.5} />
+          </span>
+          <div className="flex-1">
+            <h2
+              id="media-title"
+              className="font-display text-[clamp(1.5rem,1.1rem+1.2vw,2.125rem)] font-semibold tracking-[-0.03em] text-ink"
+            >
+              Media Enquiries
+            </h2>
+            <p className="mt-1 text-fg-muted">For media interviews, information or collaboration, please contact us.</p>
+          </div>
+          <ButtonLink
+            href={`mailto:${site.contact.email.media}`}
+            variant="glass"
+            className="min-h-13 shrink-0 rounded-full px-7 text-[0.9375rem]"
+          >
+            Contact Media Team
+            <ArrowRight aria-hidden="true" className="size-4 transition-transform group-hover/btn:translate-x-1" />
+          </ButtonLink>
+        </div>
+      </Section>
     </>
   );
 }

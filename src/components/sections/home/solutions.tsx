@@ -11,7 +11,7 @@ const tones: Record<(typeof solutions.items)[number]["key"], [string, string]> =
   creative: ["#fff0f6", "#fce6ef"],
   computers: ["#ecf4ff", "#e3eefd"],
   workflow: ["#ebf8f5", "#e2f4ef"],
-  techcare: ["#fff4ea", "#fdede0"],
+  training: ["#fff4ea", "#fdede0"],
 };
 
 const card = cn(
@@ -47,7 +47,7 @@ export function Solutions() {
     <section id="solutions" aria-labelledby="solutions-title" className="scroll-mt-24 pt-8 pb-20 lg:pt-12 lg:pb-24">
       <div className="container-page">
         <div data-reveal suppressHydrationWarning className="flex flex-col items-center text-center">
-          <p className="text-gradient text-[0.6875rem] font-semibold tracking-[0.34em] uppercase sm:text-xs">
+          <p className="text-[0.6875rem] font-bold tracking-[0.34em] text-eyebrow-ink uppercase sm:text-xs">
             {solutions.eyebrow}
           </p>
           <h2
@@ -56,6 +56,9 @@ export function Solutions() {
           >
             {solutions.title}
           </h2>
+          <p className="mt-4 max-w-[40rem] text-[clamp(1rem,0.95rem+0.25vw,1.125rem)] leading-relaxed text-fg-muted">
+            {solutions.lead}
+          </p>
         </div>
       </div>
 
@@ -79,7 +82,7 @@ export function Solutions() {
                 {/* Cursor spotlight + gradient rim on hover */}
                 <span aria-hidden="true" className={glow} />
 
-                <div className="relative h-36 xl:h-40">
+                <div className="relative -mx-2 h-40 xl:h-44">
                   <Image
                     src={item.image.src}
                     width={item.image.width}

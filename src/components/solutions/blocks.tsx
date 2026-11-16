@@ -263,7 +263,7 @@ export function RelatedSolutions({ current }: { current: string }) {
       <div className="container-page">
         <SectionHead eyebrow="Explore more" title="More from Acestar" id="related-title" />
         <CardSpotlight className="mt-8">
-          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {items.map((n, i) => (
               <li key={n.key} data-reveal suppressHydrationWarning style={delay(i)}>
                 <div
@@ -313,7 +313,8 @@ export function InnerPagePromo({
 }: {
   eyebrow: string;
   title: string;
-  body: string;
+  /** One paragraph, or several shown as separate paragraphs. */
+  body: string | string[];
   href: string;
   label: string;
   image?: Img;
@@ -334,7 +335,11 @@ export function InnerPagePromo({
         <h2 className="mt-3 font-display text-[clamp(1.625rem,1.1rem+1.8vw,2.5rem)] leading-[1.1] font-bold tracking-[-0.035em] text-balance">
           {title}
         </h2>
-        <p className="mt-3 max-w-lg leading-relaxed text-white/75">{body}</p>
+        {(Array.isArray(body) ? body : [body]).map((p, i) => (
+          <p key={p.slice(0, 24)} className={`${i ? "mt-2" : "mt-3"} max-w-lg leading-relaxed text-white/75`}>
+            {p}
+          </p>
+        ))}
         <span className="mt-6 inline-flex min-h-12 items-center gap-2 rounded-full bg-white px-6 font-semibold text-[#1b1f4a] transition-transform duration-300 group-hover/promo:-translate-y-0.5">
           {label}
           <ArrowRight
@@ -354,5 +359,76 @@ export function InnerPagePromo({
         />
       ) : null}
     </Link>
+  );
+}
+
+/** Light promo (image left, copy right): used beside a dark promo so the two read differently. */
+export function LightPromo({
+  id,
+  eyebrow,
+  title,
+  body,
+  points,
+  href,
+  label,
+  image,
+}: {
+  id: string;
+  eyebrow: string;
+  title: string;
+  body: string;
+  points?: string[];
+  href: string;
+  label: string;
+  image?: Img;
+}) {
+  return (
+    <div
+      data-reveal
+      suppressHydrationWarning
+      className="relative isolate grid items-center gap-8 lg:grid-cols-[1.1fr_1fr] lg:gap-14"
+    >
+      <span
+        aria-hidden="true"
+        className="absolute top-1/2 left-[25%] -z-10 size-[28rem] -translate-1/2 rounded-full bg-[radial-gradient(closest-side,rgb(120_150_255/0.18),transparent)]"
+      />
+      {image ? (
+        <Image
+          src={image.src}
+          width={image.width}
+          height={image.height}
+          alt={image.alt}
+          sizes="(min-width: 1024px) 560px, 90vw"
+          className="mx-auto w-full max-w-xl object-contain drop-shadow-[0_30px_40px_rgb(30_40_90/0.25)]"
+        />
+      ) : null}
+      <div>
+        <p className="text-[0.75rem] font-semibold tracking-[0.2em] text-fg-subtle uppercase">{eyebrow}</p>
+        <h2
+          id={id}
+          className="mt-3 font-display text-[clamp(1.75rem,1.2rem+1.8vw,2.5rem)] leading-[1.1] font-bold tracking-[-0.035em] text-ink"
+        >
+          {title}
+        </h2>
+        <p className="mt-4 max-w-md leading-relaxed text-fg-muted">{body}</p>
+        {points?.length ? (
+          <ul className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-1 text-[0.9375rem] font-medium text-fg sm:gap-x-3">
+            {points.map((p, i) => (
+              <li key={p} className="flex items-center gap-3">
+                {i ? <span aria-hidden="true" className="size-1 rounded-full bg-fg-subtle max-sm:hidden" /> : null}
+                {p}
+              </li>
+            ))}
+          </ul>
+        ) : null}
+        <Link
+          href={href}
+          className="group/btn mt-8 inline-flex min-h-12 items-center gap-2 rounded-full bg-[#0b1020] px-6 text-[0.9375rem] font-semibold text-white transition-transform hover:-translate-y-0.5 dark:bg-white dark:text-[#0b1020]"
+        >
+          {label}
+          <ArrowRight aria-hidden="true" className="size-4 transition-transform group-hover/btn:translate-x-1" />
+        </Link>
+      </div>
+    </div>
   );
 }

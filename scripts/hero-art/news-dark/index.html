@@ -1,0 +1,67 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<!-- Dark-mode News hero artwork. Render the 3300x1300 #stage with a transparent background to public/images/news/hero-art3-dark.webp. photo.png is cut from the client mock (public/images/news/hero-bg.png), AI-upscaled. -->
+<style>
+  html,body{margin:0;background:transparent}
+  .stage{position:relative;width:3300px;height:1300px;overflow:hidden;font-family:Georgia,"Times New Roman",serif}
+  .grp{position:absolute;left:1640px;top:200px;width:1560px;height:1000px}
+  .glow{position:absolute;border-radius:50%;filter:blur(60px)}
+  .sheet{position:absolute;border-radius:34px;background:linear-gradient(160deg,rgba(40,48,110,.92),rgba(20,24,64,.94));
+    border:2px solid rgba(160,170,255,.22);box-shadow:0 60px 120px -40px rgba(0,0,0,.8),inset 0 1px 0 rgba(255,255,255,.12)}
+  .line{position:absolute;height:16px;border-radius:9px;background:rgba(150,165,255,.28)}
+  .photo{position:absolute;border-radius:22px;overflow:hidden;border:2px solid rgba(255,255,255,.18);box-shadow:0 30px 60px -20px rgba(0,0,0,.7)}
+  .photo img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.05) brightness(.92)}
+  .news{position:absolute;font-weight:700;font-style:italic;font-size:104px;letter-spacing:2px;
+    background:linear-gradient(95deg,#9cc0ff,#7f9bff 45%,#c39bff);-webkit-background-clip:text;color:transparent;
+    filter:drop-shadow(0 0 18px rgba(130,150,255,.55))}
+  .tile{position:absolute;width:150px;height:150px;border-radius:32px;background:linear-gradient(160deg,rgba(48,56,130,.95),rgba(24,28,74,.95));
+    border:2px solid rgba(170,180,255,.28);box-shadow:0 30px 60px -20px rgba(0,0,0,.75),0 0 40px rgba(110,120,255,.25)}
+</style></head><body>
+<div class="stage" id="stage">
+ <div class="grp">
+  <div class="glow" style="left:260px;top:120px;width:1100px;height:760px;background:radial-gradient(closest-side,rgba(110,90,255,.7),transparent)"></div>
+  <div class="glow" style="left:720px;top:420px;width:760px;height:500px;background:radial-gradient(closest-side,rgba(60,140,255,.55),transparent)"></div>
+
+  <!-- swoosh -->
+  <svg style="position:absolute;left:-200px;top:520px" width="1300" height="480" viewBox="0 0 1300 480">
+   <defs><linearGradient id="sw" x1="0" x2="1"><stop offset="0" stop-color="#5b6cff" stop-opacity="0"/><stop offset=".6" stop-color="#7a5cff" stop-opacity=".55"/><stop offset="1" stop-color="#b06bff" stop-opacity=".2"/></linearGradient></defs>
+   <path d="M0 420 C 320 300, 640 360, 980 210 L 1300 120 L 1300 220 C 980 330, 640 470, 0 470 Z" fill="url(#sw)"/>
+  </svg>
+
+  <!-- ring, back half -->
+  <svg id="ringBack" style="position:absolute;left:0;top:0" width="1560" height="1000" viewBox="0 0 1560 1000">
+   <defs><linearGradient id="rg" x1="0" x2="1"><stop offset="0" stop-color="#4f8bff"/><stop offset=".55" stop-color="#6a5cff"/><stop offset="1" stop-color="#c06bff"/></linearGradient>
+   <filter id="gl"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+   <g transform="rotate(-14 820 640)" filter="url(#gl)"><path d="M 170 640 A 650 175 0 0 1 1470 640" fill="none" stroke="url(#rg)" stroke-width="16" stroke-linecap="round" opacity=".75"/></g>
+  </svg>
+
+  <!-- back sheets -->
+  <div class="sheet" style="left:1010px;top:150px;width:430px;height:720px;transform:rotate(7deg)">
+    <div class="line" style="left:60px;top:90px;width:300px"></div><div class="line" style="left:60px;top:130px;width:220px"></div>
+    <div style="position:absolute;left:60px;top:200px;width:310px;height:330px;border-radius:18px;background:rgba(120,140,255,.18)"></div>
+    <div class="line" style="left:60px;top:570px;width:300px"></div><div class="line" style="left:60px;top:610px;width:250px"></div>
+  </div>
+
+  <!-- front sheet -->
+  <div class="sheet" style="left:440px;top:40px;width:660px;height:860px;transform:rotate(4deg)">
+    <div class="news" style="left:56px;top:34px">NEWS</div>
+    <div class="line" style="left:410px;top:66px;width:200px"></div><div class="line" style="left:410px;top:104px;width:150px"></div>
+    <div class="photo" style="left:46px;top:180px;width:568px;height:450px"><img src="photo.png"></div>
+    <div class="line" style="left:46px;top:680px;width:560px"></div><div class="line" style="left:46px;top:722px;width:470px"></div><div class="line" style="left:46px;top:764px;width:520px"></div>
+  </div>
+
+  <!-- icon tile -->
+  <div class="tile" style="left:300px;top:300px;transform:rotate(-6deg)">
+   <svg viewBox="0 0 64 64" width="96" height="96" style="position:absolute;left:27px;top:27px" fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <defs><linearGradient id="ic" x1="0" x2="1"><stop offset="0" stop-color="#7fb0ff"/><stop offset="1" stop-color="#c49bff"/></linearGradient></defs>
+    <g stroke="url(#ic)"><rect x="8" y="12" width="40" height="40" rx="6"/><path d="M48 22h6a4 4 0 0 1 4 4v20a6 6 0 0 1-6 6H14"/><path d="M16 22h24M16 30h10M16 38h10M16 46h24"/><rect x="30" y="28" width="10" height="12" rx="2"/></g>
+   </svg>
+  </div>
+
+  <!-- ring, front half -->
+  <svg style="position:absolute;left:0;top:0" width="1560" height="1000" viewBox="0 0 1560 1000">
+   <g transform="rotate(-14 820 640)" filter="url(#gl)"><path d="M 170 640 A 650 175 0 0 0 1470 640" fill="none" stroke="url(#rg)" stroke-width="18" stroke-linecap="round"/></g>
+  </svg>
+ </div>
+</div>
+</body></html>

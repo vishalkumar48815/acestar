@@ -59,7 +59,7 @@ export function ClosingCta({ content = closingCta }: { content?: Content }) {
 
           <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
             <div className="max-w-xl">
-              <p className="text-gradient text-[0.6875rem] font-semibold tracking-[0.34em] uppercase sm:text-xs">
+              <p className="text-[0.6875rem] font-bold tracking-[0.34em] text-eyebrow-ink uppercase sm:text-xs">
                 {content.eyebrow}
               </p>
               <h2

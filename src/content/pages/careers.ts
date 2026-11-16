@@ -87,3 +87,60 @@ export const apply = {
   body: `Pick a role (or send a general application) and we'll be in touch. You can also email your CV to ${site.contact.email.careers}.`,
   to: site.contact.email.careers,
 };
+
+/* ------------------------------------------------------------------ Redesign (client mock, Acestar 3.0) */
+
+export const careersHero = {
+  eyebrow: "Careers at Acestar",
+  title: "Build Your Career.",
+  script: "Make an Impact.",
+  lead: "Join a team of passionate people, work on meaningful projects and grow your skills with the latest technology. At Acestar, your ideas matter and your career matters.",
+  // Artwork includes the "Great People Greater Together" script and the sticky notes
+  image: {
+    src: "/images/pages/careers/careers-hero-section-girl.webp",
+    width: 1549,
+    height: 1015,
+    alt: "A smiling Acestar team member surrounded by colourful sticky notes, with the words Great People Greater Together",
+  },
+};
+
+/** Short one-liners for the role cards (full details stay in the role list below). */
+export const roleSummaries: Record<string, string> = {
+  "product-manager-business-development-manager": "Lead products and partnerships that create real business value.",
+  "senior-executive-event-branding": "Plan and run impactful events, campaigns and brand content.",
+  "senior-legal-executive": "Guide contracts, compliance and corporate legal matters.",
+  "accounts-executive-inventory-logistics": "Keep accounts, inventory and logistics running smoothly.",
+  "inside-sales-representative": "Help customers find the right technology, from first call to close.",
+};
+
+export const internship = {
+  eyebrow: "Internship and fresh graduates",
+  title: "Start Your First Career with Us",
+  cta: "Apply for Internship",
+};
+
+export const whyJoin = {
+  eyebrow: "Why work with us",
+  title: "More Than Just a Job",
+  body: "We invest in people, because great technology starts with great teams.",
+  perks: [
+    { key: "learning", label: "Continuous Learning & Certification" },
+    { key: "team", label: "Supportive Team Culture" },
+    { key: "growth", label: "Structured Career Growth & Progression" },
+    { key: "rewards", label: "Rewards & Recognition" },
+  ],
+  image: {
+    src: "/images/pages/careers/why-work-with-us.webp",
+    width: 1717,
+    height: 916,
+    alt: "The Acestar office lounge with the Acestar logo and the words Grow and Give on the wall",
+  },
+};
+
+export const nextChapter = {
+  line1: "Your Next",
+  line2a: "Chapter",
+  line2b: "Starts Here.",
+  body: "If you're ready to learn, grow, and make a real impact, we'd love to hear from you.",
+  cta: "Explore Open Roles",
+};

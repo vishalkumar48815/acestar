@@ -4,13 +4,9 @@ import { ClosingCta } from "@/components/sections/home/closing-cta";
 import { PageHero } from "@/components/solutions/page-hero";
 import { Section, SectionHead } from "@/components/solutions/primitives";
 import { getAlbums } from "@/server/content/media";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Gallery",
-  description:
-    "Photos from the Micro-Credentials Education Summit, ACP championships, SEA Connect and Acestar's award nights.",
-  alternates: { canonical: "/gallery" },
-};
+export const metadata: Metadata = pageMeta({ title: "Gallery - Acestar", path: "/gallery/" });
 
 export default async function GalleryPage() {
   const albums = await getAlbums();

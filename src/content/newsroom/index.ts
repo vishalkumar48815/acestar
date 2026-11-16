@@ -53,7 +53,7 @@ export const isExternal = (url?: string) => Boolean(url && /^https?:\/\//.test(u
 
 export const mediaLinks = [
   { key: "news", label: "News", href: "/news", description: "Acestar in the press" },
-  { key: "blog", label: "Blog", href: "/blog", description: "Guides, tips & intern stories" },
+  { key: "blog", label: "Blog", href: "/blogs/", description: "Guides, tips & intern stories" },
   { key: "gallery", label: "Gallery", href: "/gallery", description: "Events & milestones" },
 ] as const;
 

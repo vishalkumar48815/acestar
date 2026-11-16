@@ -166,5 +166,5 @@ export async function getAlbums(): Promise<Album[]> {
 
 export async function getMediaRoutes() {
   const posts = await getBlogPosts();
-  return ["/news", "/blog", "/gallery", ...posts.map((p) => `/blog/${p.slug}`)];
+  return ["/news", "/blogs/", "/gallery", ...posts.map((p) => `/blog/${p.slug}`)];
 }

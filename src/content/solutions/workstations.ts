@@ -1,18 +1,18 @@
 /** High Performance Computers — content from acestar.my/high-performance-computer (text tidied). */
 import { asset } from "./assets";
-import type { DeviceBrand, PageHero } from "./types";
+import type { DeviceBrand, PageHero, SolutionBrief } from "./types";
 
 export const hero: PageHero = {
-  eyebrow: "High Performance Computers",
-  title: "Workstations built around the way you work.",
-  accent: "the way you work.",
-  lead: "With over a decade of technical expertise, we provide workstation customisation for industries spanning creative, commercial and education.",
-  primary: { label: "Talk to a specialist", href: "/contact" },
-  secondary: { label: "Apple Solution", href: "/solutions/workstations/apple" },
+  eyebrow: "Powerful Technology. Flexible IT Investment.",
+  title: "High-Performance Computing and TechCare in Malaysia.",
+  accent: "and TechCare in Malaysia.",
+  lead: "From professional workstations to AI supercomputers, Acestar delivers high-performance computing that helps organizations handle demanding workloads, accelerate innovation and improve productivity.",
+  primary: { label: "Consult Our Computing Experts", href: "/contact-acestarian/" },
+  secondary: { label: "Explore TechCare", href: "/techcare" },
   image: asset("2021/12/High-Performance-Computers-Background.png", "Hands typing on a laptop keyboard"),
   imageFit: "backdrop",
-  crumbs: [{ label: "Home", href: "/" }, { label: "Solutions" }, { label: "High Performance Computers" }],
-  chips: ["Apple", "HP", "Lenovo", "Dell", "Asus"],
+  crumbs: [{ label: "Home", href: "/" }, { label: "Solutions" }, { label: "High-Performance Computing & TechCare" }],
+  chips: ["HP", "Lenovo", "Apple", "Dell", "ASUS"],
 };
 
 export const brands: DeviceBrand[] = [
@@ -49,7 +49,7 @@ export const brands: DeviceBrand[] = [
         image: asset("2021/11/MacBook-Air.png", "MacBook Air"),
       },
     ],
-    link: { label: "Explore our Apple Solution", href: "/solutions/workstations/apple" },
+    link: { label: "Explore our Apple Solution", href: "/solution/apple/" },
   },
   {
     key: "hp",
@@ -155,3 +155,83 @@ export const brands: DeviceBrand[] = [
     products: [],
   },
 ];
+
+/** Acestar 3.0 brief: SEO copy, offerings, TechCare and "Why Acestar". */
+export const brief: SolutionBrief = {
+  meta: {
+    title: "AI Workstations, GPU Servers and IT Subscription Malaysia",
+    description:
+      "Explore AI workstations, GPU servers, professional computers and flexible TechCare IT subscriptions in Malaysia with Acestar.",
+    keywords: [
+      "high-performance computing Malaysia",
+      "AI workstation Malaysia",
+      "GPU server Malaysia",
+      "NVIDIA GPU workstation Malaysia",
+      "HP Z workstation Malaysia",
+      "Apple Mac business reseller Malaysia",
+      "IT subscription Malaysia",
+      "laptop subscription for business",
+    ],
+  },
+  overview: {
+    eyebrow: "Powerful technology",
+    title: "Built for demanding work, from desk to data centre.",
+    paragraphs: [
+      "From professional workstations to AI supercomputers, Acestar delivers high-performance computing solutions that help organizations handle demanding workloads, accelerate innovation and improve productivity.",
+      "We provide enterprise computing solutions from leading technology brands, including HP, Lenovo, Apple and Dell, together with flexible IT subscription options through TechCare.",
+    ],
+    offeringsTitle: "High-Performance Computing Solutions",
+    offerings: [
+      {
+        title: "Professional Workstations",
+        body: "High-performance desktop and mobile workstations for design, engineering, architecture, animation, video production and professional applications.",
+      },
+      {
+        title: "AI Workstations and GPU Computing",
+        body: "AI-ready computing systems designed for machine learning, model development, content creation and other GPU-intensive workloads.",
+      },
+      {
+        title: "GPU Servers and AI Supercomputers",
+        body: "Advanced computing infrastructure for organizations exploring AI development, data-intensive processing and enterprise AI workloads.",
+      },
+      {
+        title: "Apple Mac for Business",
+        body: "Acestar is one of the top Apple Authorized Resellers in Malaysia for the enterprise and education sectors. MacBook Pro, Mac Studio and other Apple computing solutions for professional creative and business environments.",
+      },
+      {
+        title: "Enterprise Computers and Devices",
+        body: "Business laptops, desktops and computing infrastructure selected to match organizational performance and deployment requirements.",
+      },
+    ],
+  },
+  why: {
+    title: "Why Choose Acestar?",
+    paragraphs: [
+      "Acestar combines technology consultation, hardware expertise and flexible acquisition models to help organizations make informed IT investments.",
+      "Whether you require a professional workstation, an AI computing environment or a company-wide device refresh, our team helps you select technology aligned with your performance requirements and budget.",
+    ],
+    highlights: [
+      { title: "HP", body: "One of the Top Authorized HP Resellers in Malaysia." },
+      { title: "Lenovo", body: "One of the Top Authorized Lenovo Resellers in Malaysia." },
+      { title: "Dell", body: "One of the Top Authorized Dell Resellers in Malaysia." },
+      { title: "ASUS", body: "One of the Top Authorized ASUS Resellers in Malaysia." },
+    ],
+  },
+  closing: {
+    eyebrow: "Let’s spec it",
+    title: "Power Your Business with the Right Technology",
+    body: "Explore high-performance computing solutions and TechCare subscription options tailored to your organization.",
+    cta: { label: "Consult Our Computing Experts", href: "/contact-acestarian/" },
+  },
+};
+
+/** TechCare block on the computing page (brief copy). */
+export const techcareBlock = {
+  eyebrow: "TechCare",
+  title: "TechCare: Flexible IT Subscription Solutions",
+  paragraphs: [
+    "TechCare offers an alternative approach to acquiring and refreshing business technology.",
+    "Instead of relying entirely on upfront hardware purchases, organizations can explore subscription-based IT acquisition models that support predictable budgeting and planned technology refresh cycles.",
+    "TechCare is suitable for businesses, corporations, educational institutions and government organizations seeking flexible technology investment options.",
+  ],
+};

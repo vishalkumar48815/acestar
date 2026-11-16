@@ -6,7 +6,9 @@ import { SESSION_COOKIE, verifySession } from "@/server/auth/token";
  * (requireAdmin() in every admin page and Server Action), so this never guards data by itself.
  */
 export async function proxy(request: NextRequest) {
-  const { pathname, search } = request.nextUrl;
+  const { search } = request.nextUrl;
+  // The site uses trailing slashes (old acestar.my URLs), so compare paths without one.
+  const pathname = request.nextUrl.pathname.replace(/\/+$/, "") || "/";
   const session = await verifySession(request.cookies.get(SESSION_COOKIE)?.value);
   const isLogin = pathname === "/admin/login";
 

@@ -2,6 +2,7 @@ import { ClosingCta } from "@/components/sections/home/closing-cta";
 import { Hero } from "@/components/sections/home/hero";
 import { Partners } from "@/components/sections/home/partners";
 import { Solutions } from "@/components/sections/home/solutions";
+import { WhyAcestar } from "@/components/sections/home/why-acestar";
 
 /** Homepage, in the order of the new design. */
 export default function HomePage() {
@@ -10,6 +11,7 @@ export default function HomePage() {
       <Hero />
       <Solutions />
       <Partners />
+      <WhyAcestar />
       <ClosingCta />
     </>
   );

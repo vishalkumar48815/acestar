@@ -4,25 +4,29 @@ import type { NextConfig } from "next";
  * Old WordPress URLs → new routes. Permanent (308) so search rankings carry over.
  * Keep this list in sync with the sitemap when pages are added.
  */
+/**
+ * The site keeps the old acestar.my URLs (client requirement, so search rankings carry over).
+ * These are only the working paths used during the rebuild, sent on to the live URL.
+ */
 const legacyRedirects: Array<[string, string]> = [
-  ["/company-profile", "/about"],
-  ["/awards", "/about/awards"],
-  ["/clients-partners", "/about/clients-partners"],
-  ["/creative-software", "/solutions/creative-software"],
-  ["/creative-cloud", "/solutions/creative-software/adobe-creative-cloud-pro"],
-  ["/high-performance-computer", "/solutions/workstations"],
-  ["/solution/apple", "/solutions/workstations/apple"],
-  ["/digital-workflow", "/solutions/digital-workflow"],
-  ["/adobe-acrobat", "/solutions/digital-workflow/adobe-acrobat"],
-  ["/blogs", "/blog"],
-  ["/stories", "/news"],
-  ["/career", "/careers"],
-  ["/contact-acestarian", "/contact"],
-  ["/techsupport", "/support"],
-  ["/acestar-privacy-policies", "/legal/privacy"],
-  ["/terms-of-use", "/legal/terms"],
-  ["/return-and-refund-policy", "/legal/refunds"],
-  ["/delivery-policy", "/legal/delivery"],
+  ["/about", "/company-profile/"],
+  ["/about/awards", "/awards/"],
+  ["/about/clients-partners", "/clients-partners/"],
+  ["/solutions/creative-software", "/creative-software/"],
+  ["/solutions/creative-software/adobe-creative-cloud-pro", "/creative-cloud/"],
+  ["/solutions/workstations", "/high-performance-computer/"],
+  ["/solutions/workstations/apple", "/solution/apple/"],
+  ["/solutions/digital-workflow", "/digital-workflow/"],
+  ["/solutions/digital-workflow/adobe-acrobat", "/adobe-acrobat/"],
+  ["/blog", "/blogs/"],
+  ["/stories", "/news/"],
+  ["/careers", "/career/"],
+  ["/contact", "/contact-acestarian/"],
+  ["/support", "/techsupport/"],
+  ["/legal/privacy", "/acestar-privacy-policies/"],
+  ["/legal/terms", "/terms-of-use/"],
+  ["/legal/refunds", "/return-and-refund-policy/"],
+  ["/legal/delivery", "/delivery-policy/"],
 ];
 
 const securityHeaders = [
@@ -36,6 +40,8 @@ const nextConfig: NextConfig = {
   cacheComponents: true,
   partialPrefetching: true,
   poweredByHeader: false,
+  // Old acestar.my URLs all end in "/" (WordPress), so the new site does too.
+  trailingSlash: true,
   images: {
     formats: ["image/avif", "image/webp"],
     // One high quality for every image: next/image snaps any other value to the closest
@@ -57,10 +63,7 @@ const nextConfig: NextConfig = {
     },
   },
   async redirects() {
-    return legacyRedirects.flatMap(([from, to]) => [
-      { source: from, destination: to, permanent: true },
-      { source: `${from}/`, destination: to, permanent: true },
-    ]);
+    return legacyRedirects.map(([from, to]) => ({ source: from, destination: to, permanent: true }));
   },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];

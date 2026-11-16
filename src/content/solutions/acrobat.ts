@@ -7,8 +7,8 @@ export const hero: PageHero = {
   title: "Reimagine PDF with Adobe Acrobat Studio.",
   accent: "Adobe Acrobat Studio.",
   lead: "The new Adobe Acrobat Studio brings together Acrobat, Express and e-sign to help you work smarter, all in one connected workspace.",
-  primary: { label: "Buy Adobe", href: "/contact" },
-  secondary: { label: "Book a demo", href: "/contact?topic=acrobat-demo" },
+  primary: { label: "Buy Adobe", href: "/contact-acestarian/" },
+  secondary: { label: "Book a demo", href: "/contact-acestarian/?topic=acrobat-demo" },
   image: asset(
     "2025/10/20250586_ADO_Acro_Studio_Channel_Collage_1200x960.png",
     "Collage of Acrobat Studio, PDF Spaces and AI Assistant screens",
@@ -16,7 +16,7 @@ export const hero: PageHero = {
   imageFit: "contain",
   crumbs: [
     { label: "Home", href: "/" },
-    { label: "Digital Workflow", href: "/solutions/digital-workflow" },
+    { label: "Digital Workflow", href: "/digital-workflow/" },
     { label: "Adobe Acrobat" },
   ],
 };

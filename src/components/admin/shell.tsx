@@ -17,7 +17,7 @@ const nav = [
 ] as const;
 
 export function AdminShell({ email, children }: { email: string; children: ReactNode }) {
-  const pathname = usePathname();
+  const pathname = usePathname().replace(/\/+$/, "") || "/";
   const [open, setOpen] = useState(false);
   // Close the mobile drawer on navigation (derived from the path, no effect needed).
   const [lastPath, setLastPath] = useState(pathname);

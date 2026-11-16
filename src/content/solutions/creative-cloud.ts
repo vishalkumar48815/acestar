@@ -4,16 +4,18 @@ import type { CompareTable, Feature, PageHero } from "./types";
 
 export const hero: PageHero = {
   eyebrow: "Top Adobe Reseller & Platinum Partner in Malaysia",
+  keyword: "Top Adobe Reseller & Platinum Partner in Malaysia",
   title: "Where creativity meets intelligence.",
+  subheading: "Authorized Adobe Resellers and Partners in Malaysia",
   accent: "meets intelligence.",
   lead: "Acestar is Malaysia's top Adobe partner and Platinum Reseller since 2008, with more than 150,000 Adobe licences deployed nationwide for businesses, educational institutions and the public sector, with genuine software and Adobe expert consultation.",
-  primary: { label: "Talk to us", href: "/contact" },
+  primary: { label: "Talk to us", href: "/contact-acestarian/" },
   secondary: { label: "See plans", href: "#plans" },
   image: asset("2025/10/2.png", "Hand drawing with a stylus on a tablet as colour flows from the screen"),
   imageFit: "backdrop",
   crumbs: [
     { label: "Home", href: "/" },
-    { label: "Creative Software", href: "/solutions/creative-software" },
+    { label: "Creative Software", href: "/creative-software/" },
     { label: "Adobe Creative Cloud Pro" },
   ],
   chips: ["Adobe Top Seller FY20", "Only Adobe Platinum Partner", "Since 2008"],

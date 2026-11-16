@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { partners, testimonials } from "@/content/home";
-import { TestimonialSlider } from "./testimonial-slider";
+import { partners } from "@/content/home";
+import { PartnersMore } from "./partners-more";
 
 export function Partners() {
   return (
@@ -14,7 +14,7 @@ export function Partners() {
             className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between lg:gap-12"
           >
             <div>
-              <p className="text-gradient text-[0.6875rem] font-semibold tracking-[0.34em] uppercase sm:text-xs">
+              <p className="text-[0.6875rem] font-bold tracking-[0.34em] text-eyebrow-ink uppercase sm:text-xs">
                 {partners.eyebrow}
               </p>
               <h2
@@ -73,11 +73,9 @@ export function Partners() {
               );
             })}
           </ul>
-        </div>
-      </div>
 
-      <div className="container-page py-10 lg:py-12">
-        <TestimonialSlider items={testimonials} />
+          <PartnersMore logos={partners.more} />
+        </div>
       </div>
     </section>
   );

@@ -9,7 +9,14 @@ export type Cta = { label: string; href: string; external?: boolean };
 
 export type PageHero = {
   eyebrow: string;
+  /**
+   * SEO keyword line carried over from the old site. Shown in the eyebrow position but placed
+   * inside the <h1>, so the heading reads "<keyword> <title>" to search engines.
+   */
+  keyword?: string;
   title: string;
+  /** Second keyword line from the old site, shown under the title as an <h2>. */
+  subheading?: string;
   /** Part of the title rendered with the brand gradient. */
   accent?: string;
   lead: string;
@@ -81,4 +88,13 @@ export type CompareTable = {
     rows: { label: string; cells: (string | boolean)[] }[];
   }[];
   note?: string;
+};
+
+/** Solution-page copy from the Acestar 3.0 brief: overview, offerings, "Why Acestar" and CTA. */
+export type SolutionBrief = {
+  meta: { title: string; description: string; keywords: string[] };
+  overview: { eyebrow: string; title: string; paragraphs: string[]; offeringsTitle: string; offerings: Step[] };
+  /** Intro paragraphs plus four short highlights, shown as a row like the AI page. */
+  why: { title: string; paragraphs: string[]; highlights: { title: string; body: string }[] };
+  closing: { eyebrow: string; title: string; body: string; cta: { label: string; href: string } };
 };

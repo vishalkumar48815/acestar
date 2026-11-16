@@ -8,54 +8,56 @@ import type { NewsItem, Offering, Pillar, Stat, Testimonial } from "@/types/cont
 export const hero = {
   eyebrow: ["AI", "Software", "IT Solutions"],
   /** Lines render as written; `accent` is the gradient tail of the headline. */
-  titleLines: ["Empowering Every", "Business with AI."],
-  accent: "with AI.",
+  titleLines: ["Empowering Business", "with AI & Technology."],
+  accent: "AI & Technology.",
   /** Short tagline under the headline; the second sentence gets the gradient. */
   // subtitle: ["Make AI Practical.", "Deliver Real Impact."],
   lead: "Make AI Practical. Deliver Real Impact.",
   primaryCta: { label: "Explore Our Solutions", href: "#solutions" },
+  secondaryCta: { label: "Talk to Our Experts", href: "/contact-acestarian/" },
   tagline: ["People", "Technology", "Possibilities"],
 };
 
 /** "Our Solutions" cards (copy from the new design; product lines from acestar.my). */
 export const solutions = {
   eyebrow: "Our Solutions",
-  title: "From AI to IT, We Help You Do More",
+  title: "From AI to IT, We Help You Do More.",
+  lead: "Enterprise-ready solutions and proven technologies to help businesses innovate, improve productivity and grow.",
   items: [
     {
       key: "ai",
       title: "AI Solutions",
-      body: "Practical AI solutions and agents to improve productivity and grow your business.",
+      body: "Enterprise AI solutions for productivity and innovation.",
       href: "/solutions/ai",
-      image: { src: "/images/solutions/ai.webp", width: 426, height: 438 },
+      image: { src: "/images/solutions/our-solutions/ai-2.webp", width: 640, height: 440 },
     },
     {
       key: "creative",
       title: "Creative Software",
-      body: "Adobe creative, design and marketing solutions for modern teams.",
-      href: "/solutions/creative-software",
-      image: { src: "/images/solutions/creative.webp", width: 398, height: 440 },
+      body: "Leading creative tools to create, design and innovate.",
+      href: "/creative-software/",
+      image: { src: "/images/solutions/our-solutions/creative-2.webp", width: 640, height: 440 },
     },
     {
       key: "computers",
-      title: "High Performance Computers",
-      body: "Apple, HP and Lenovo devices and workstations for professional work.",
-      href: "/solutions/workstations",
-      image: { src: "/images/solutions/computers.webp", width: 640, height: 415 },
+      title: "High-Performance Computing & TechCare",
+      body: "High-performance computing with flexible TechCare options.",
+      href: "/high-performance-computer/",
+      image: { src: "/images/solutions/our-solutions/computers-2.webp", width: 640, height: 440 },
     },
     {
       key: "workflow",
-      title: "Digital Workflow Management",
-      body: "Adobe Acrobat and e-sign solutions to streamline your business processes.",
-      href: "/solutions/digital-workflow",
-      image: { src: "/images/solutions/doc.webp", width: 403, height: 516 },
+      title: "Digital Workflow",
+      body: "e-Signatures and intelligent workflows to work smarter.",
+      href: "/digital-workflow/",
+      image: { src: "/images/solutions/our-solutions/workflow-2.webp", width: 640, height: 440 },
     },
     {
-      key: "techcare",
-      title: "TechCare",
-      body: "IT as a Service with flexible laptop subscription for businesses.",
-      href: "/techcare",
-      image: { src: "/images/solutions/laptop.webp", width: 640, height: 517 },
+      key: "training",
+      title: "Professional Training & Certification",
+      body: "Industry-recognized training and certification to upskill and grow.",
+      href: "/solutions/training-certification",
+      image: { src: "/images/solutions/our-solutions/training-2.webp", width: 640, height: 440 },
     },
   ],
 } as const;
@@ -66,9 +68,21 @@ export const solutions = {
  * from Simple Icons, CC0; Microsoft Copilot from Lobe Icons). Files: public/images/partners/ai.
  */
 export const partners = {
-  eyebrow: "Trusted by Businesses",
-  title: ["Technology Partners", "You Can Count On"],
-  lead: "We work with global technology leaders to bring the right solutions for your business.",
+  eyebrow: "Our Technology Partners",
+  title: ["Bringing You the Best in Technology."],
+  lead: "We work with leading global technology providers to bring the right solutions for your business.",
+  /** Revealed by "Show more" (official wordmarks from acestar.my). */
+  more: [
+    { name: "Apple", src: "/images/partners/wall/apple.webp", width: 583, height: 225 },
+    { name: "HP", src: "/images/partners/wall/hp.webp", width: 268, height: 268 },
+    { name: "Lenovo", src: "/images/partners/wall/lenovo.webp", width: 666, height: 193 },
+    { name: "ASUS", src: "/images/partners/wall/asus.webp", width: 800, height: 166 },
+    { name: "Adobe", src: "/images/partners/wall/adobe.webp", width: 667, height: 116 },
+    { name: "Microsoft", src: "/images/partners/wall/microsoft.webp", width: 730, height: 109 },
+    { name: "Autodesk", src: "/images/partners/wall/autodesk.webp", width: 693, height: 72 },
+    { name: "Jabra", src: "/images/partners/wall/jabra.webp", width: 800, height: 272 },
+    { name: "Logitech", src: "/images/partners/wall/logitech.webp", width: 434, height: 132 },
+  ],
   logos: [
     { vendor: "Adobe", product: "Acrobat Studio", icon: "/images/partners/ai/adobe-acrobat.webp" },
     { vendor: "Microsoft", product: "Copilot", icon: "/images/partners/ai/microsoft-copilot.svg" },
@@ -80,11 +94,31 @@ export const partners = {
   ],
 };
 
+/** "Why Acestar" band (client brief, Acestar 3.0). Figures from the brief; confirm before launch. */
+export const whyAcestar = {
+  eyebrow: "Why Acestar",
+  title: "The Proven Technology Partner You Can Trust.",
+  lead: "More than technology, we bring trusted expertise, professional services and a commitment to helping your business succeed.",
+  bandTitle: "Built on Trust. Proven by Results.",
+  stats: [
+    { value: "1 Million+", label: "Cloud Licenses Delivered" },
+    { value: "5,000+", label: "Organizations Served" },
+    { value: "18", label: "Years of Experience" },
+    { value: "2", label: "Countries Reached" },
+  ],
+};
+
+export const testimonialsHead = {
+  eyebrow: "Customer Testimonials",
+  title: "Trusted by Businesses. Proven Through Experience.",
+  cta: { label: "View Success Stories", href: "/clients-partners/" },
+};
+
 export const closingCta = {
   eyebrow: "Let’s Work Together",
   title: "Let’s Build What’s Next",
   body: "Talk to our team and discover how AI and technology can create real value for your business.",
-  cta: { label: "Contact Us", href: "/contact" },
+  cta: { label: "Contact Us", href: "/contact-acestarian/" },
 };
 
 export const stats: Stat[] = [
@@ -125,7 +159,7 @@ export const pillars: Pillar[] = [
     ],
     brands: ["Adobe", "Autodesk", "Video Copilot", "Resolume", "Boris FX"],
     fact: { value: "150,000+", label: "Adobe Creative Cloud licences deployed" },
-    href: "/solutions/creative-software",
+    href: "/creative-software/",
   },
   {
     key: "compute",
@@ -140,7 +174,7 @@ export const pillars: Pillar[] = [
     ],
     brands: ["Apple", "HP", "Lenovo", "Dell", "Asus"],
     fact: { value: "10+", label: "Years customising workstations" },
-    href: "/solutions/workstations",
+    href: "/high-performance-computer/",
   },
   {
     key: "collaborate",
@@ -155,7 +189,7 @@ export const pillars: Pillar[] = [
     ],
     brands: ["Acrobat Sign", "Microsoft 365", "Faronics", "Saleslive", "Zoom"],
     fact: { value: "20%+", label: "Productivity gain with Adobe Sign at TE Asia Healthcare" },
-    href: "/solutions/digital-workflow",
+    href: "/digital-workflow/",
   },
 ];
 
@@ -173,7 +207,7 @@ export const offerings: Offering[] = [
     eyebrow: "We train",
     title: "Training & certification",
     body: "As Malaysia's sole Certiport distributor, we help individuals and workforces build their skills through industry training and globally recognised certifications.",
-    cta: { label: "About Certiport", href: "/about#training" },
+    cta: { label: "About Certiport", href: "/company-profile/#training" },
   },
   {
     key: "serve",

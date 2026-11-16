@@ -20,25 +20,30 @@ export const solutionLinks: NavLink[] = [
   {
     label: "AI solutions",
     href: "/solutions/ai",
-    description: "Copilot, ChatGPT, Acrobat Studio & Firefly",
+    description: "OpenAI, Claude, Copilot & AI agents",
   },
   {
     label: "Creative software",
-    href: "/solutions/creative-software",
+    href: "/creative-software/",
     description: "Adobe, Autodesk, Resolume & Boris FX",
-    sub: [{ label: "Adobe Creative Cloud Pro", href: "/solutions/creative-software/adobe-creative-cloud-pro" }],
+    sub: [{ label: "Adobe Creative Cloud Pro", href: "/creative-cloud/" }],
   },
   {
-    label: "High performance computers",
-    href: "/solutions/workstations",
+    label: "High-performance computing",
+    href: "/high-performance-computer/",
     description: "Apple, HP, Lenovo, Dell & Asus",
-    sub: [{ label: "Apple Solution", href: "/solutions/workstations/apple" }],
+    sub: [{ label: "Apple Solution", href: "/solution/apple/" }],
   },
   {
     label: "Digital workflow",
-    href: "/solutions/digital-workflow",
+    href: "/digital-workflow/",
     description: "Document Cloud, Microsoft 365 & Zoom",
-    sub: [{ label: "Adobe Acrobat", href: "/solutions/digital-workflow/adobe-acrobat" }],
+    sub: [{ label: "Adobe Acrobat", href: "/adobe-acrobat/" }],
+  },
+  {
+    label: "Training & certification",
+    href: "/solutions/training-certification",
+    description: "ACP, MOS, ACU, Swift, ESB & AI skills",
   },
   {
     label: "TechCare",
@@ -48,12 +53,13 @@ export const solutionLinks: NavLink[] = [
 ];
 
 export const mainNav: NavItem[] = [
-  { label: "Solutions", href: "/solutions/creative-software", children: solutionLinks },
+  { label: "Solutions", href: "/creative-software/", children: solutionLinks },
+  { label: "Partners", href: "/clients-partners/" },
   // { label: "TechCare", href: "/techcare" },
-  { label: "About Us", href: "/about", children: aboutNavLinks },
+  { label: "About Us", href: "/company-profile/", children: aboutNavLinks },
   { label: "Media", href: "/news", children: mediaNavLinks },
-  { label: "Careers", href: "/careers" },
-  { label: "Tech Support", href: "/support" },
+  { label: "Careers", href: "/career/" },
+  { label: "Tech Support", href: "/techsupport/" },
 ];
 
 /** Footer columns in the new design. */
@@ -62,9 +68,10 @@ export const footerColumns: { title: string; links: NavLink[] }[] = [
     title: "Solutions",
     links: [
       { label: "AI Solutions", href: "/solutions/ai" },
-      { label: "Creative Software", href: "/solutions/creative-software" },
-      { label: "High Performance Computers", href: "/solutions/workstations" },
-      { label: "Digital Workflow", href: "/solutions/digital-workflow" },
+      { label: "Creative Software", href: "/creative-software/" },
+      { label: "High-Performance Computing", href: "/high-performance-computer/" },
+      { label: "Digital Workflow", href: "/digital-workflow/" },
+      { label: "Training & Certification", href: "/solutions/training-certification" },
       { label: "TechCare", href: "/techcare" },
     ],
   },
@@ -72,12 +79,12 @@ export const footerColumns: { title: string; links: NavLink[] }[] = [
   {
     title: "Company",
     links: [
-      { label: "Company Profile", href: "/about" },
-      { label: "Awards", href: "/about/awards" },
-      { label: "Clients & Partners", href: "/about/clients-partners" },
-      { label: "Careers", href: "/careers" },
-      { label: "Contact Us", href: "/contact" },
-      { label: "Tech Support", href: "/support" },
+      { label: "Company Profile", href: "/company-profile/" },
+      { label: "Awards", href: "/awards/" },
+      { label: "Clients & Partners", href: "/clients-partners/" },
+      { label: "Careers", href: "/career/" },
+      { label: "Contact Us", href: "/contact-acestarian/" },
+      { label: "Tech Support", href: "/techsupport/" },
     ],
   },
 ];
@@ -87,24 +94,24 @@ export const footerNav: { title: string; links: NavLink[] }[] = [
   {
     title: "Company",
     links: [
-      { label: "About", href: "/about" },
-      { label: "Awards", href: "/about/awards" },
+      { label: "About", href: "/company-profile/" },
+      { label: "Awards", href: "/awards/" },
       { label: "News", href: "/news" },
-      { label: "Careers", href: "/careers" },
+      { label: "Careers", href: "/career/" },
     ],
   },
   {
     title: "Help",
     links: [
-      { label: "Contact", href: "/contact" },
-      { label: "Tech support", href: "/support" },
+      { label: "Contact", href: "/contact-acestarian/" },
+      { label: "Tech support", href: "/techsupport/" },
     ],
   },
 ];
 
 export const legalNav: NavLink[] = [
-  { label: "Privacy", href: "/legal/privacy" },
-  { label: "Terms", href: "/legal/terms" },
-  { label: "Refunds", href: "/legal/refunds" },
-  { label: "Delivery", href: "/legal/delivery" },
+  { label: "Privacy", href: "/acestar-privacy-policies/" },
+  { label: "Terms", href: "/terms-of-use/" },
+  { label: "Refunds", href: "/return-and-refund-policy/" },
+  { label: "Delivery", href: "/delivery-policy/" },
 ];

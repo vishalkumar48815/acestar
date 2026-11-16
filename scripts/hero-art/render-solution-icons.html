@@ -158,6 +158,36 @@ if (icon === "laptop") {
   cam.position.z = 11.2;
 }
 
+
+if (icon === "cert") {
+  // Glass certificate card with text lines and a check seal
+  const card = new THREE.Mesh(new RoundedBoxGeometry(2.9, 2.05, 0.12, 6, 0.16), tinted(["#c9b8ff", "#9f86ff", "#7a6cf5"], 0.4));
+  root.add(card);
+  const face = (() => { const c = document.createElement("canvas"); c.width = 1024; c.height = 724; const g = c.getContext("2d");
+    g.fillStyle = "rgba(255,255,255,0.95)"; const bar = (x, y, w, h = 30) => { g.beginPath(); g.roundRect(x, y, w, h, h / 2); g.fill(); };
+    bar(300, 150, 560, 46); g.fillStyle = "rgba(255,255,255,0.7)"; bar(300, 250, 470); bar(300, 320, 400);
+    g.fillStyle = "rgba(255,255,255,0.95)"; g.beginPath(); g.arc(820, 540, 78, 0, Math.PI * 2); g.fill();
+    g.strokeStyle = "#7a6cf5"; g.lineWidth = 22; g.lineCap = "round"; g.lineJoin = "round";
+    g.beginPath(); g.moveTo(782, 542); g.lineTo(810, 572); g.lineTo(862, 512); g.stroke();
+    const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t; })();
+  const p = plane(2.9, 2.05, face); p.position.z = 0.065; card.add(p);
+  // Gold medal with a star, and two ribbon tails
+  const gold = new THREE.MeshPhysicalMaterial({ color: 0xf6c04d, metalness: 1, roughness: 0.22, clearcoat: 1, envMapIntensity: 1.6 });
+  const medal = new THREE.Group(); medal.position.set(-1.25, -0.05, 0.55); root.add(medal);
+  const ribbonMat = tinted(["#8f7bff", "#6a5cf0"], 0.2);
+  [[-0.24, -0.25], [0.24, 0.25]].forEach(([x, r]) => { const tail = new THREE.Mesh(new RoundedBoxGeometry(0.36, 0.95, 0.05, 2, 0.02), ribbonMat);
+    tail.position.set(x, -0.62, -0.08); tail.rotation.z = r; medal.add(tail); });
+  const disc = new THREE.Mesh(new THREE.CylinderGeometry(0.62, 0.62, 0.16, 64), gold); disc.rotation.x = Math.PI / 2; medal.add(disc);
+  const rim = new THREE.Mesh(new THREE.TorusGeometry(0.62, 0.06, 16, 64), gold); medal.add(rim);
+  const star = new THREE.Shape(); for (let i = 0; i < 10; i++) { const a = -Math.PI / 2 + (i * Math.PI) / 5, r = i % 2 ? 0.17 : 0.38;
+    i ? star.lineTo(Math.cos(a) * r, -Math.sin(a) * r) : star.moveTo(Math.cos(a) * r, -Math.sin(a) * r); }
+  const st = new THREE.Mesh(new THREE.ExtrudeGeometry(star, { depth: 0.08, bevelEnabled: true, bevelSize: 0.02, bevelThickness: 0.02 }),
+    new THREE.MeshPhysicalMaterial({ color: 0xffe08a, metalness: 0.35, roughness: 0.25, clearcoat: 1, emissive: 0xffc94d, emissiveIntensity: 0.35 }));
+  st.position.z = 0.08; medal.add(st);
+  root.rotation.set(-0.1, 0.38, 0.02); root.position.set(0.25, 0.1, 0);
+  cam.position.z = 10.4;
+}
+
 /* ---------- render twice + difference matte ---------- */
 async function shot(bg) {
   scene.background = new THREE.Color(bg);

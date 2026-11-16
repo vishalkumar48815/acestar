@@ -211,7 +211,7 @@ export function BrandExplorer({ brands }: { brands: Brand[] }) {
               >
                 <MessageCircle aria-hidden="true" className="size-4" /> Get a quote
               </ButtonLink>
-              <ButtonLink href="/contact" variant="glass" size="md" className="rounded-full px-6">
+              <ButtonLink href="/contact-acestarian/" variant="glass" size="md" className="rounded-full px-6">
                 Contact us
               </ButtonLink>
             </div>

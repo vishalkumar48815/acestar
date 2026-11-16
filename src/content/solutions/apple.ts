@@ -7,13 +7,13 @@ export const hero: PageHero = {
   title: "Apple, delivered the right way, start to finish.",
   accent: "start to finish.",
   lead: "From the first readiness check to the device that's still running smoothly three years later, we handle the full Apple lifecycle, not just the sale.",
-  primary: { label: "Talk to an Apple specialist", href: "/contact" },
+  primary: { label: "Talk to an Apple specialist", href: "/contact-acestarian/" },
   secondary: { label: "Call 03-2201 7688", href: "tel:+60322017688" },
   image: asset("2026/09/apple-banner-image.png", "iPad, iPhone and MacBook showing creative and business apps"),
   imageFit: "contain",
   crumbs: [
     { label: "Home", href: "/" },
-    { label: "High Performance Computers", href: "/solutions/workstations" },
+    { label: "High Performance Computers", href: "/high-performance-computer/" },
     { label: "Apple Solution" },
   ],
 };

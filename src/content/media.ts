@@ -53,7 +53,7 @@ export const media = {
     {
       title: "Paperwork. Without paper.",
       caption: "Adobe Acrobat Studio",
-      href: "/solutions/digital-workflow",
+      href: "/digital-workflow/",
       desktop: img(
         "campaigns.paperwork.desktop",
         "Paperwork. Without paper. Urusan dokumen tanpa kertas. Adobe Acrobat Studio",
@@ -63,7 +63,7 @@ export const media = {
     {
       title: "Made with Adobe Firefly",
       caption: "Generative AI for creatives",
-      href: "/solutions/creative-software",
+      href: "/creative-software/",
       desktop: img(
         "campaigns.firefly.desktop",
         "Basketball player shooting a hoop above the clouds, made with Adobe Firefly",
@@ -95,7 +95,7 @@ export const media = {
     {
       title: "Imagination is everything",
       caption: "Adobe Firefly, by Adobe's Platinum Reseller",
-      href: "/solutions/creative-software",
+      href: "/creative-software/",
       desktop: img(
         "campaigns.imagination.desktop",
         "Hummingbird artwork: Imaginasi ialah segalanya, imagination is everything, Albert Einstein",
@@ -104,7 +104,7 @@ export const media = {
     {
       title: "Boss, please sign!",
       caption: "Adobe Acrobat Sign",
-      href: "/solutions/digital-workflow",
+      href: "/digital-workflow/",
       mobile: img("campaigns.sign.mobile", "Tuan, sila tandatangan! Boss, please sign! Adobe Acrobat Sign"),
     },
   ] satisfies Campaign[],

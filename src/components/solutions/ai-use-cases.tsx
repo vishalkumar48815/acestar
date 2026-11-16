@@ -2,13 +2,14 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import type { AiTool, UseCase } from "@/content/solutions/ai";
+import { type AiTool, extraToolIcons, type UseCase } from "@/content/solutions/ai";
 import { cn } from "@/lib/utils";
 
 /** "What AI does for your team": pick a team, see three everyday tasks and the tool for each. */
 export function AiUseCases({ groups, tools }: { groups: { team: string; items: UseCase[] }[]; tools: AiTool[] }) {
   const [active, setActive] = useState(0);
-  const iconFor = (name: string) => tools.find((t) => t.name === name)?.icon;
+  const iconFor = (name: string) =>
+    tools.find((t) => t.name === name || t.aliases?.includes(name))?.icon ?? extraToolIcons[name];
 
   return (
     <div>

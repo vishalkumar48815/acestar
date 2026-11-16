@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { site } from "@/content/site";
-import { organizationJsonLd, toJsonLd } from "@/lib/seo";
+import { homeDescription, organizationJsonLd, toJsonLd } from "@/lib/seo";
 import { themeInitScript } from "@/lib/theme";
 import "./globals.css";
 
@@ -22,6 +22,24 @@ const script = localFont({
   preload: false,
 });
 
+/* Marker-style handwriting for short accents (Careers hero). Caveat, SIL Open Font License. */
+const marker = localFont({
+  src: "../fonts/caveat-latin-wght.woff2",
+  weight: "400 700",
+  variable: "--font-marker-face",
+  display: "swap",
+  preload: false,
+});
+
+/* Brush script for "Our Story" (Company Profile). Vujahday Script, SIL Open Font License. */
+const brush = localFont({
+  src: "../fonts/vujahday-script-latin-400.woff2",
+  weight: "400",
+  variable: "--font-brush-face",
+  display: "swap",
+  preload: false,
+});
+
 const mono = localFont({
   src: "../fonts/jetbrains-mono-latin-500.woff2",
   weight: "500",
@@ -32,11 +50,12 @@ const mono = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
+  // Same title format and home description as the old acestar.my (see src/lib/seo.ts).
   title: {
-    default: "Acestar Group | IT Solutions Provider in Malaysia",
-    template: `%s | ${site.name}`,
+    default: "Acestar Group",
+    template: `%s - ${site.name}`,
   },
-  description: site.description,
+  description: homeDescription,
   applicationName: site.name,
   alternates: { canonical: "/" },
   openGraph: {
@@ -44,8 +63,8 @@ export const metadata: Metadata = {
     locale: "en_MY",
     url: site.url,
     siteName: site.name,
-    title: `${site.name} | ${site.tagline}`,
-    description: site.description,
+    title: "Acestar Group",
+    description: homeDescription,
   },
   twitter: { card: "summary_large_image" },
   robots: { index: true, follow: true },
@@ -63,7 +82,11 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en-MY" suppressHydrationWarning className={`${sans.variable} ${script.variable} ${mono.variable}`}>
+    <html
+      lang="en-MY"
+      suppressHydrationWarning
+      className={`${sans.variable} ${script.variable} ${marker.variable} ${brush.variable} ${mono.variable}`}
+    >
       <head>
         {/* Runs before first paint: applies saved/system theme, no flash. */}
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />

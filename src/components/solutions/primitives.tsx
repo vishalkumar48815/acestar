@@ -42,7 +42,7 @@ export const spotlight = cn(
 
 export function Eyebrow({ children, className }: { children: ReactNode; className?: string }) {
   return (
-    <p className={cn("text-gradient text-[0.6875rem] font-semibold tracking-[0.34em] uppercase sm:text-xs", className)}>
+    <p className={cn("text-[0.6875rem] font-bold tracking-[0.34em] text-eyebrow-ink uppercase sm:text-xs", className)}>
       {children}
     </p>
   );

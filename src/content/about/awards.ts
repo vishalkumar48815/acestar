@@ -173,7 +173,7 @@ export const hero: PageHero = {
   accent: "highlights.",
   lead: `${awardCount} awards and recognitions since ${firstYear}, from our technology partners and Malaysia's leading business awards.`,
   primary: { label: "See the timeline", href: "#timeline" },
-  secondary: { label: "Company Profile", href: "/about" },
+  secondary: { label: "Company Profile", href: "/company-profile/" },
   // Artwork from acestar.my (2026/03/Banner-4.png), mirrored so the subject sits on the right.
   image: { src: "/images/pages/about/awards-hero-art.webp", width: 1920, height: 638, alt: "" },
   imageFit: "backdrop",

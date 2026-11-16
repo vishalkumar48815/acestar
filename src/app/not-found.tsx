@@ -26,7 +26,7 @@ export default function NotFound() {
               <ArrowLeft aria-hidden="true" className="size-4" />
               Back to home
             </ButtonLink>
-            <ButtonLink href="/contact" variant="glass">
+            <ButtonLink href="/contact-acestarian/" variant="glass">
               Contact us
             </ButtonLink>
           </div>

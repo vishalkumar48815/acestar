@@ -332,3 +332,28 @@ export const SlidersH = createIcon([
   ["line", { x1: "8", x2: "8", y1: "10", y2: "14" }],
   ["line", { x1: "16", x2: "16", y1: "18", y2: "22" }],
 ]);
+
+export const TrendingUp = createIcon([
+  ["path", { d: "M16 7h6v6" }],
+  ["path", { d: "m22 7-8.5 8.5-5-5L2 17" }],
+]);
+
+export const Megaphone = createIcon([
+  ["path", { d: "m3 11 18-5v12L3 14v-3z" }],
+  ["path", { d: "M11.6 16.8a3 3 0 1 1-5.8-1.6" }],
+]);
+
+export const Scale = createIcon([
+  ["path", { d: "m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" }],
+  ["path", { d: "m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" }],
+  ["path", { d: "M7 21h10" }],
+  ["path", { d: "M12 3v18" }],
+  ["path", { d: "M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2" }],
+]);
+
+export const Calculator = createIcon([
+  ["rect", { width: "16", height: "20", x: "4", y: "2", rx: "2" }],
+  ["path", { d: "M8 6h8" }],
+  ["path", { d: "M16 14v4" }],
+  ["path", { d: "M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M8 18h.01M12 18h.01" }],
+]);

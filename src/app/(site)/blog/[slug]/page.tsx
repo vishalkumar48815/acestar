@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: PageProps<"/blog/[slug]">): P
   return {
     title: post.title,
     description: post.excerpt.slice(0, 160),
-    alternates: { canonical: `/blog/${post.slug}` },
+    alternates: { canonical: `/blog/${post.slug}/` },
     openGraph: {
       type: "article",
       title: post.title,
@@ -91,7 +91,7 @@ async function Article({ params }: { params: Promise<{ slug: string }> }) {
               </li>
               <li className="flex items-center gap-1">
                 <ChevronRight aria-hidden="true" className="size-3.5 opacity-60" />
-                <Link href="/blog" className="hover:text-fg">
+                <Link href="/blogs/" className="hover:text-fg">
                   Blog
                 </Link>
               </li>
@@ -153,7 +153,7 @@ async function Article({ params }: { params: Promise<{ slug: string }> }) {
           )}
           <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-line pt-8">
             <Link
-              href="/blog"
+              href="/blogs/"
               className="inline-flex min-h-11 items-center gap-2 rounded-full border border-line bg-white/60 px-5 text-[0.9375rem] font-medium text-fg-muted transition-colors hover:text-fg dark:bg-white/[0.03]"
             >
               <ArrowLeft aria-hidden="true" className="size-4" />
@@ -167,7 +167,7 @@ async function Article({ params }: { params: Promise<{ slug: string }> }) {
       {related.length ? (
         <section aria-labelledby="related-title" className="pb-12 lg:pb-16">
           <div className="container-page">
-            <p className="text-gradient text-[0.6875rem] font-semibold tracking-[0.34em] uppercase sm:text-xs">
+            <p className="text-[0.6875rem] font-bold tracking-[0.34em] text-eyebrow-ink uppercase sm:text-xs">
               Keep reading
             </p>
             <h2

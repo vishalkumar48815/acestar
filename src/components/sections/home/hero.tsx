@@ -30,7 +30,7 @@ export function Hero() {
       <div className="relative container-page flex min-h-[min(100svh,54rem)] items-center pt-[min(80vw,34rem)] pb-16 lg:min-h-[min(100svh,50rem)] lg:pt-32 lg:pb-24">
         <div className="flex max-w-[48rem] flex-col items-start">
           <p
-            className="text-gradient text-[0.6875rem] font-semibold tracking-[0.34em] uppercase sm:text-xs"
+            className="text-[0.6875rem] font-bold tracking-[0.34em] text-eyebrow-ink uppercase sm:text-xs"
             style={enter(0)}
           >
             {hero.eyebrow.map((item, i) => (
@@ -78,7 +78,7 @@ export function Hero() {
             {hero.lead}
           </p>
 
-          <div className="mt-9 w-full sm:w-auto" style={enter(600)}>
+          <div className="mt-9 flex w-full flex-col gap-3 sm:w-auto sm:flex-row" style={enter(600)}>
             <ButtonLink
               href={hero.primaryCta.href}
               variant="gradient"
@@ -89,6 +89,13 @@ export function Hero() {
                 aria-hidden="true"
                 className="size-4 transition-transform duration-300 group-hover/btn:translate-x-1"
               />
+            </ButtonLink>
+            <ButtonLink
+              href={hero.secondaryCta.href}
+              variant="glass"
+              className="min-h-14 w-full rounded-full px-9 text-[0.9375rem] sm:w-auto"
+            >
+              {hero.secondaryCta.label}
             </ButtonLink>
           </div>
         </div>

@@ -27,7 +27,7 @@ export function NewsSpotlight({ top, headlines }: { top: PressItem; headlines: P
         <div className="flex items-center justify-between gap-3">
           <h2
             id="headlines-title"
-            className="text-gradient text-[0.6875rem] font-semibold tracking-[0.34em] uppercase sm:text-xs"
+            className="text-[0.6875rem] font-bold tracking-[0.34em] text-eyebrow-ink uppercase sm:text-xs"
           >
             Also in the headlines
           </h2>

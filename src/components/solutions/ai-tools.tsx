@@ -4,6 +4,7 @@ import { CardSpotlight } from "@/components/motion/card-spotlight";
 import { spotlight, toneCard, toneCycle, toneStyle } from "@/components/solutions/primitives";
 import { ArrowUpRight } from "@/components/ui/icons";
 import type { AiTool } from "@/content/solutions/ai";
+import { slugify } from "@/content/solutions/enquiry";
 import { cn } from "@/lib/utils";
 
 /** Compact grid of the AI tools Acestar delivers: icon, name, use-case tag and one line. */
@@ -45,8 +46,21 @@ export function AiTools({ tools }: { tools: AiTool[] }) {
                       className={cn(
                         "size-9 object-contain transition-transform duration-500 ease-out-expo group-hover/card:scale-110",
                         t.icon.darkInvert && "dark:invert",
+                        t.icon2 && "-translate-x-1 -translate-y-1 group-hover/card:scale-100",
                       )}
                     />
+                    {t.icon2 ? (
+                      <span className="absolute -right-2 -bottom-2 grid size-8 place-items-center rounded-xl bg-white shadow-[0_6px_14px_-6px_rgb(40_40_120/0.5)] ring-1 ring-white/80 dark:bg-[#1a2140] dark:ring-white/10">
+                        <Image
+                          src={t.icon2.src}
+                          alt=""
+                          width={22}
+                          height={22}
+                          unoptimized={t.icon2.src.endsWith(".svg")}
+                          className="size-5.5 object-contain"
+                        />
+                      </span>
+                    ) : null}
                   </span>
                   <span className="rounded-full bg-white/80 px-2.5 py-1 text-[0.6875rem] font-semibold tracking-wide text-brand-ink dark:bg-white/[0.06]">
                     {t.tag}
@@ -61,19 +75,29 @@ export function AiTools({ tools }: { tools: AiTool[] }) {
                   <span className="block text-[1.1875rem] font-semibold tracking-[-0.015em] text-ink">{t.name}</span>
                 </h3>
                 <p className="mt-2 text-[0.9375rem] leading-relaxed text-fg-muted">{t.body}</p>
-                {t.href ? (
-                  <Link
-                    href={t.href}
-                    className="mt-auto inline-flex items-center gap-1.5 pt-4 text-sm font-semibold text-brand-ink after:absolute after:inset-0 after:content-['']"
+                <div className="mt-auto flex items-center justify-between gap-3 pt-4">
+                  {t.href ? (
+                    <Link
+                      href={t.href}
+                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-ink after:absolute after:inset-0 after:content-['']"
+                    >
+                      Learn more
+                      <ArrowUpRight
+                        aria-hidden="true"
+                        className="size-4 transition-transform group-hover/card:translate-x-0.5 group-hover/card:-translate-y-0.5"
+                      />
+                      <span className="sr-only">about {title}</span>
+                    </Link>
+                  ) : (
+                    <span />
+                  )}
+                  <a
+                    href={`#enquiry-${slugify(t.name)}`}
+                    className="relative z-10 rounded-full bg-white/80 px-3.5 py-1.5 text-[0.8125rem] font-semibold text-ink transition-colors hover:bg-[image:var(--btn-gradient)] hover:text-white dark:bg-white/[0.08] dark:text-fg"
                   >
-                    Learn more
-                    <ArrowUpRight
-                      aria-hidden="true"
-                      className="size-4 transition-transform group-hover/card:translate-x-0.5 group-hover/card:-translate-y-0.5"
-                    />
-                    <span className="sr-only">about {title}</span>
-                  </Link>
-                ) : null}
+                    Enquire<span className="sr-only"> about {title}</span>
+                  </a>
+                </div>
               </article>
             </li>
           );

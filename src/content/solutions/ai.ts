@@ -4,22 +4,31 @@
  * training and support, as on the other solution pages. Review the copy with the business team.
  * Icons are the vendors' marks (public/images/partners/ai).
  */
-import type { Img, PageHero, Step } from "./types";
+import type { Img, PageHero, SolutionBrief, Step } from "./types";
 
 const icon = (file: string, alt: string): Img => ({ src: `/images/partners/ai/${file}`, width: 96, height: 96, alt });
 
 export const hero: PageHero = {
-  eyebrow: "AI Solutions",
-  title: "Practical AI that makes your team better at work.",
-  accent: "better at work.",
-  lead: "We help you choose the right AI tools, roll them out safely and get your people using them every day.",
-  primary: { label: "Talk to an AI specialist", href: "/contact" },
-  secondary: { label: "Explore use cases", href: "#use-cases" },
+  eyebrow: "Empowering Enterprises with Trusted AI",
+  title: "Enterprise AI Solutions in Malaysia.",
+  accent: "in Malaysia.",
+  lead: "Enterprise AI, automation and digital workforce solutions. Helping businesses work smarter, automate faster and grow with AI.",
+  primary: { label: "Talk to Our AI Experts", href: "#enquiry" },
+  secondary: { label: "Explore our AI portfolio", href: "#tools" },
   // Hummingbird artwork from the acestar.my Adobe Firefly banner (logo removed)
   image: { src: "/images/solutions/ai/ai-hero.webp", width: 3010, height: 845, alt: "" },
   imageFit: "backdrop",
   crumbs: [{ label: "Home", href: "/" }, { label: "Solutions" }, { label: "AI Solutions" }],
-  chips: ["Microsoft Copilot", "OpenAI", "Adobe Acrobat Studio", "Adobe Firefly", "GitLab", "Twilio"],
+  // Acestar 3.0 core services
+  chips: [
+    "Enterprise Licensing",
+    "AI Consulting",
+    "System Integration",
+    "AI Agent Development",
+    "Deployment",
+    "Training",
+    "Managed Services",
+  ],
 };
 
 export type AiTool = {
@@ -28,54 +37,142 @@ export type AiTool = {
   tag: string;
   body: string;
   icon: Img;
+  /** Short names used in the use-case tabs. */
+  aliases?: string[];
+  /** Second mark for integrations (e.g. Copilot + Acrobat Sign). */
+  icon2?: Img;
   href?: string;
 };
 
-/** The AI tools we deliver, shown as one compact grid. */
+/** Acestar 3.0 Enterprise AI Solutions Portfolio (client brief). */
 export const tools: AiTool[] = [
   {
-    name: "Acrobat Studio",
-    vendor: "Adobe",
-    tag: "Documents",
-    body: "Acrobat Pro with AI Assistant: summarise long PDFs, ask questions and get answers with citations.",
-    icon: icon("adobe-acrobat.webp", "Adobe Acrobat"),
-    href: "/solutions/digital-workflow/adobe-acrobat",
-  },
-  {
-    name: "Copilot",
-    vendor: "Microsoft",
-    tag: "Everyday work",
-    body: "AI in Word, Excel, PowerPoint, Outlook and Teams to draft, summarise meetings and analyse data.",
-    icon: icon("microsoft-copilot.svg", "Microsoft Copilot"),
-  },
-  {
-    name: "ChatGPT",
-    vendor: "OpenAI",
-    tag: "Everyday work",
-    body: "OpenAI's assistant for teams, with admin controls, for research, writing, coding and custom GPTs.",
+    name: "OpenAI Enterprise",
+    tag: "AI agents",
+    body: "Empower workplace productivity and automate business processes with AI agents and intelligent workflows.",
     icon: { ...icon("openai.svg", "OpenAI"), darkInvert: true },
+    aliases: ["ChatGPT"],
   },
   {
-    name: "GitLab",
-    tag: "Software teams",
-    body: "One DevSecOps platform with AI-assisted code suggestions, code review and vulnerability explanations.",
-    icon: icon("gitlab.svg", "GitLab"),
+    name: "Anthropic Enterprise",
+    tag: "Claude",
+    body: "Enable enterprise intelligence, knowledge automation and AI digital workforce solutions with Claude.",
+    icon: icon("claude.svg", "Claude"),
+    aliases: ["Claude"],
   },
   {
-    name: "Twilio",
-    tag: "Customer conversations",
-    body: "Messaging, voice and email APIs with AI assistants to automate conversations on SMS and WhatsApp.",
+    name: "Microsoft Copilot",
+    tag: "Productivity",
+    body: "Enhance workplace productivity with AI-powered assistance, automation and Microsoft 365 integration.",
+    icon: icon("microsoft-copilot.svg", "Microsoft Copilot"),
+    aliases: ["Copilot"],
+  },
+  {
+    name: "Adobe Acrobat AI Assistant & Studio",
+    tag: "Document AI",
+    body: "Transform document intelligence with AI-powered analysis, insights, content creation and collaboration.",
+    icon: icon("adobe-acrobat.webp", "Adobe Acrobat"),
+    aliases: ["Acrobat Studio"],
+    href: "/adobe-acrobat/",
+  },
+  {
+    name: "Microsoft Copilot + Adobe Acrobat Sign",
+    tag: "Integration",
+    body: "Streamline document workflows, approvals and e-signatures through Microsoft 365 and Adobe integration.",
+    icon: icon("microsoft-copilot.svg", "Microsoft Copilot"),
+    icon2: icon("adobe-acrobat.webp", "Adobe Acrobat Sign"),
+  },
+  {
+    name: "Figma Enterprise",
+    tag: "Product design",
+    body: "Accelerate digital product design, AI-powered prototyping and team collaboration.",
+    icon: icon("figma.svg", "Figma"),
+    aliases: ["Figma"],
+  },
+  {
+    name: "Twilio Enterprise",
+    tag: "Customer engagement",
+    body: "Transform customer engagement with AI voice agents, WhatsApp automation and omnichannel communication.",
     icon: icon("twilio.svg", "Twilio"),
+    aliases: ["Twilio"],
   },
   {
-    name: "Firefly",
-    vendor: "Adobe",
-    tag: "Creative & marketing",
-    body: "Commercially safe generative AI for images, Generative Fill and campaign variations in Creative Cloud.",
-    icon: icon("adobe-firefly.webp", "Adobe Firefly"),
-    href: "/solutions/creative-software/adobe-creative-cloud-pro",
+    name: "GitLab Enterprise",
+    tag: "DevSecOps",
+    body: "Accelerate secure software development with AI-powered DevSecOps, automation and collaboration.",
+    icon: icon("gitlab.svg", "GitLab"),
+    aliases: ["GitLab"],
+  },
+  {
+    name: "AI Digital Workforce Solutions",
+    tag: "Custom agents",
+    body: "Design, build and deploy custom AI agents to automate business processes and operations.",
+    icon: icon("ai-workforce.svg", "AI Digital Workforce"),
   },
 ];
+
+/** Acestar 3.0 brief: SEO copy, overview and "Why Acestar". */
+export const brief: SolutionBrief = {
+  meta: {
+    title: "Enterprise AI Solutions Malaysia",
+    description:
+      "Enterprise AI solutions in Malaysia: OpenAI, Claude, Microsoft Copilot, Acrobat AI, Figma, Twilio, GitLab and custom AI agents. Consultation, licensing, deployment and training from Acestar.",
+    keywords: [
+      "enterprise AI solutions Malaysia",
+      "AI solutions provider Malaysia",
+      "business AI solutions",
+      "Microsoft Copilot Malaysia",
+      "enterprise generative AI",
+      "AI adoption consulting Malaysia",
+    ],
+  },
+  overview: {
+    eyebrow: "Empowering enterprises with trusted AI",
+    title: "From AI exploration to real business value.",
+    paragraphs: [
+      "AI is transforming how businesses operate, collaborate and compete. Acestar helps organizations adopt enterprise-ready AI technologies that improve productivity, automate workflows and support business growth.",
+      "As an established IT solutions provider in Malaysia, we bring together trusted global AI technologies, practical implementation expertise and business-focused consultation to help organizations move from AI exploration to real business value.",
+    ],
+    offeringsTitle: "Our Enterprise AI Solutions",
+    offerings: [
+      {
+        title: "Enterprise AI Platforms",
+        body: "Explore enterprise AI solutions from leading technology providers, including OpenAI, Microsoft and other global innovators, with a focus on productivity, security and responsible adoption.",
+      },
+      {
+        title: "Microsoft Copilot and AI Productivity",
+        body: "Empower employees with AI-powered assistance for everyday tasks, document creation, collaboration and knowledge work.",
+      },
+      {
+        title: "AI Automation and Intelligent Workflows",
+        body: "Identify opportunities to streamline repetitive processes, improve response times and enable teams to work more efficiently.",
+      },
+      {
+        title: "AI for Developers and Technical Teams",
+        body: "Support software development, code collaboration and technical productivity with enterprise-ready AI development solutions.",
+      },
+      {
+        title: "AI Consultation and Adoption",
+        body: "From solution selection to deployment planning and user enablement, Acestar helps businesses adopt AI technologies with greater confidence.",
+      },
+    ],
+  },
+  why: {
+    title: "Why Choose Acestar?",
+    paragraphs: [
+      "With 18 years of technology experience and more than 5,000 organizations served, Acestar understands the importance of selecting solutions that are practical, scalable and aligned with business needs.",
+      "We combine trusted technologies, enterprise consultation and professional training to support your AI adoption journey.",
+    ],
+    // The AI page shows `reasons` below this text instead.
+    highlights: [],
+  },
+  closing: {
+    eyebrow: "Make AI practical",
+    title: "Make AI Practical for Your Business",
+    body: "Discover how Acestar can help your organization implement the right AI solutions for your workforce and business objectives.",
+    cta: { label: "Talk to Our AI Experts", href: "/contact-acestarian/" },
+  },
+};
 
 export const steps: Step[] = [
   {
@@ -99,19 +196,21 @@ export const steps: Step[] = [
 /* ---------------------------------------------------------------- use cases by team */
 
 export type UseCase = { task: string; tool: string };
+/** Tools in the use cases that are not in the AI portfolio grid. */
+export const extraToolIcons: Record<string, Img> = { Firefly: icon("adobe-firefly.webp", "Adobe Firefly") };
 export const useCases: { team: string; items: UseCase[] }[] = [
   {
     team: "Marketing",
     items: [
       { task: "Generate campaign visuals in minutes", tool: "Firefly" },
-      { task: "Resize one design for every channel", tool: "Firefly" },
+      { task: "Prototype campaign pages with AI", tool: "Figma" },
       { task: "Draft social posts and email copy", tool: "ChatGPT" },
     ],
   },
   {
     team: "Finance",
     items: [
-      { task: "Summarise long reports and contracts", tool: "Acrobat Studio" },
+      { task: "Analyse long reports and contracts", tool: "Claude" },
       { task: "Spot trends in spreadsheets", tool: "Copilot" },
       { task: "Prepare board-ready slides from data", tool: "Copilot" },
     ],
@@ -137,7 +236,7 @@ export const useCases: { team: string; items: UseCase[] }[] = [
     items: [
       { task: "Suggest and review code", tool: "GitLab" },
       { task: "Explain security vulnerabilities", tool: "GitLab" },
-      { task: "Write scripts and documentation", tool: "ChatGPT" },
+      { task: "Write scripts and documentation", tool: "Claude" },
     ],
   },
   {
@@ -153,10 +252,10 @@ export const useCases: { team: string; items: UseCase[] }[] = [
 /* ---------------------------------------------------------------- why Acestar */
 
 export const reasons = [
-  { title: "Since 2008", body: "Adobe Platinum Partner with 18 years in software." },
-  { title: "Done for you", body: "Licensing, setup and security, end to end." },
-  { title: "Trained teams", body: "Hands-on sessions from Malaysia's Certiport distributor." },
-  { title: "Local support", body: "A team in Kuala Lumpur when you need help." },
+  { title: "18 years", body: "Of technology experience, since 2008." },
+  { title: "5,000+", body: "Organizations served across Malaysia." },
+  { title: "Trusted tech", body: "Enterprise AI from global leaders." },
+  { title: "Consult & train", body: "Consultation and training for real adoption." },
 ];
 
 /* ---------------------------------------------------------------- responsible AI */
