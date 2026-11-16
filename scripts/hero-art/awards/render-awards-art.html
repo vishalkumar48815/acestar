@@ -1,0 +1,85 @@
+<!doctype html>
+<!--
+  Awards hero artwork: a gold trophy in a laurel wreath, with Acestar's real award logos
+  (public/images/pages/about/awards) on floating cards. Transparent background, one image for
+  light and dark. Render: node ../render.js awards 1200 1000 out.png, then resize to 1440×1200 → public/images/pages/about/awards-hero-trophy.webp
+-->
+<html><head><meta charset="utf-8" />
+<style>
+  html,body{margin:0;background:transparent}
+  .stage{position:relative;width:1200px;height:1000px;overflow:hidden;font-family:Inter,system-ui,sans-serif}
+  .glow{position:absolute;border-radius:50%;filter:blur(30px)}
+  .card{position:absolute;background:#fff;border-radius:22px;padding:14px;box-shadow:0 30px 60px -28px rgb(60 40 140/.45),0 6px 16px -8px rgb(60 40 140/.18);border:1px solid rgb(120 100 200/.12)}
+  .card img{display:block;width:100%;height:100%;object-fit:contain}
+  .spark{position:absolute}
+  .dot{position:absolute;border-radius:50%}
+</style></head>
+<body><div class="stage" id="s">
+  <div class="glow" style="left:260px;top:170px;width:680px;height:680px;background:radial-gradient(closest-side,rgb(255 200 90/.55),rgb(255 190 80/.18) 55%,transparent 75%)"></div>
+  <div class="glow" style="left:120px;top:60px;width:560px;height:560px;background:radial-gradient(closest-side,rgb(120 100 255/.28),transparent 70%)"></div>
+  <div class="glow" style="left:600px;top:420px;width:560px;height:560px;background:radial-gradient(closest-side,rgb(200 90 240/.22),transparent 70%)"></div>
+
+  <!-- trophy + laurel -->
+  <svg style="position:absolute;left:330px;top:150px;width:540px;height:700px" viewBox="0 0 540 700">
+    <defs>
+      <linearGradient id="gold" x1="0" x2="1" y1="0" y2="1">
+        <stop offset="0" stop-color="#fff1b8"/><stop offset=".25" stop-color="#ffd25a"/><stop offset=".55" stop-color="#f0a92a"/><stop offset=".8" stop-color="#d98a12"/><stop offset="1" stop-color="#ffcf5a"/>
+      </linearGradient>
+      <linearGradient id="goldV" x1="0" x2="1">
+        <stop offset="0" stop-color="#c97f10"/><stop offset=".3" stop-color="#ffd760"/><stop offset=".5" stop-color="#fff0b0"/><stop offset=".7" stop-color="#f4b334"/><stop offset="1" stop-color="#c2780c"/>
+      </linearGradient>
+      <linearGradient id="base" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#3a3f73"/><stop offset="1" stop-color="#22264f"/></linearGradient>
+      <linearGradient id="leaf" x1="0" x2="1"><stop offset="0" stop-color="#8b6bff"/><stop offset="1" stop-color="#4e6bf5"/></linearGradient>
+    </defs>
+    <!-- laurel (left/right arcs of leaves) -->
+    <g id="lau" fill="url(#leaf)" opacity=".95">
+      <path d="M118 520 C 60 440, 52 330, 96 230" fill="none" stroke="url(#leaf)" stroke-width="6" stroke-linecap="round"/>
+      <g transform="translate(108 500) rotate(-30)"><ellipse rx="13" ry="30"/></g>
+      <g transform="translate(86 455) rotate(-18)"><ellipse rx="13" ry="30"/></g>
+      <g transform="translate(74 405) rotate(-6)"><ellipse rx="13" ry="30"/></g>
+      <g transform="translate(72 352) rotate(6)"><ellipse rx="13" ry="30"/></g>
+      <g transform="translate(78 300) rotate(18)"><ellipse rx="13" ry="29"/></g>
+      <g transform="translate(94 252) rotate(32)"><ellipse rx="12" ry="27"/></g>
+      <g transform="translate(140 492) rotate(-70)"><ellipse rx="12" ry="27"/></g>
+      <g transform="translate(110 440) rotate(-62)"><ellipse rx="12" ry="27"/></g>
+      <g transform="translate(100 388) rotate(-55)"><ellipse rx="12" ry="26"/></g>
+      <g transform="translate(100 335) rotate(-45)"><ellipse rx="11" ry="25"/></g>
+      <g transform="translate(112 284) rotate(-32)"><ellipse rx="11" ry="23"/></g>
+    </g>
+    <use href="#lau" transform="translate(540 0) scale(-1 1)"/>
+    <!-- cup -->
+    <path d="M150 110 H390 C 390 260, 340 330, 270 345 C 200 330, 150 260, 150 110 Z" fill="url(#gold)"/>
+    <path d="M168 122 H232 C 230 230, 246 300, 262 336 C 204 318, 168 250, 168 122 Z" fill="#fff" opacity=".28"/>
+    <!-- handles -->
+    <path d="M152 140 C 92 140, 88 230, 168 262" fill="none" stroke="url(#goldV)" stroke-width="18" stroke-linecap="round"/>
+    <path d="M388 140 C 448 140, 452 230, 372 262" fill="none" stroke="url(#goldV)" stroke-width="18" stroke-linecap="round"/>
+    <ellipse cx="270" cy="110" rx="122" ry="20" fill="#ffe08a"/>
+    <ellipse cx="270" cy="112" rx="104" ry="13" fill="#d98f18" opacity=".55"/>
+    <!-- star -->
+    <path d="M270 168 l17 36 40 5 -29 27 8 40 -36 -20 -36 20 8 -40 -29 -27 40 -5z" fill="#fff6d2" opacity=".95"/>
+    <!-- stem + base -->
+    <path d="M250 342 H290 L300 420 H240 Z" fill="url(#goldV)"/>
+    <rect x="212" y="418" width="116" height="26" rx="8" fill="url(#goldV)"/>
+    <rect x="176" y="444" width="188" height="86" rx="14" fill="url(#base)"/>
+    <rect x="206" y="470" width="128" height="34" rx="6" fill="url(#goldV)"/>
+    <text x="270" y="494" text-anchor="middle" font-family="Inter,system-ui" font-weight="800" font-size="18" fill="#5a3a00" letter-spacing="2">SINCE 2008</text>
+  </svg>
+
+  <!-- real award logos on cards -->
+  <div class="card" style="left:70px;top:120px;width:230px;height:160px;transform:rotate(-8deg)"><img src="../../../public/images/pages/about/awards/2021-11-adobe-partner-of-the-year-award.webp"></div>
+  <div class="card" style="left:880px;top:90px;width:230px;height:160px;transform:rotate(7deg)"><img src="../../../public/images/pages/about/awards/2021-11-adobe-top-seller-fy20.webp"></div>
+  <div class="card" style="left:30px;top:420px;width:210px;height:145px;transform:rotate(5deg)"><img src="../../../public/images/pages/about/awards/2021-11-e50-2019.webp"></div>
+  <div class="card" style="left:950px;top:380px;width:210px;height:145px;transform:rotate(-6deg)"><img src="../../../public/images/pages/about/awards/2021-11-ey-enterpreneur-of-the-year-2018.webp"></div>
+  <div class="card" style="left:140px;top:700px;width:220px;height:150px;transform:rotate(-4deg)"><img src="../../../public/images/pages/about/awards/2021-11-platinum-business-award-2018.webp"></div>
+  <div class="card" style="left:850px;top:680px;width:220px;height:150px;transform:rotate(8deg)"><img src="../../../public/images/pages/about/awards/2021-11-soba-10-years-most-award-won.webp"></div>
+
+  <!-- sparkles -->
+  <svg class="spark" style="left:350px;top:110px;width:40px" viewBox="0 0 24 24"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z" fill="#ffc94a"/></svg>
+  <svg class="spark" style="left:820px;top:300px;width:30px" viewBox="0 0 24 24"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z" fill="#8b6bff"/></svg>
+  <svg class="spark" style="left:300px;top:610px;width:26px" viewBox="0 0 24 24"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z" fill="#e2589d"/></svg>
+  <svg class="spark" style="left:780px;top:880px;width:34px" viewBox="0 0 24 24"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z" fill="#ffc94a"/></svg>
+  <span class="dot" style="left:560px;top:90px;width:14px;height:14px;background:#ffc94a"></span>
+  <span class="dot" style="left:250px;top:330px;width:12px;height:12px;background:#3b63f3;opacity:.7"></span>
+  <span class="dot" style="left:900px;top:600px;width:14px;height:14px;background:#a24df0;opacity:.7"></span>
+  <span class="dot" style="left:470px;top:900px;width:10px;height:10px;background:#e2589d;opacity:.7"></span>
+</div></body></html>

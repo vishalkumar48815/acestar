@@ -1,0 +1,81 @@
+<!doctype html>
+<!--
+  Blog hero artwork: a laptop showing an article (a real Acestar blog cover), with floating icon cards
+  for the blog's categories. Transparent background, one image for light and dark.
+  Render: node ../render.js blog-desk 1200 1000 out.png, then resize to 1440×1200 → public/images/media/blog-hero-desk2.webp
+-->
+<html><head><meta charset="utf-8" />
+<style>
+  html,body{margin:0;background:transparent}
+  .stage{position:relative;width:1200px;height:1000px;overflow:hidden;font-family:Inter,system-ui,sans-serif;color:#30364b}
+  .glow{position:absolute;border-radius:50%;filter:blur(30px)}
+  .card{position:absolute;background:#fff;border-radius:22px;box-shadow:0 30px 60px -28px rgb(60 40 140/.45),0 6px 16px -8px rgb(60 40 140/.16);border:1px solid rgb(120 100 200/.12)}
+  .bar{height:12px;border-radius:99px;background:#e6e9f2}
+  .ico{display:grid;place-items:center;width:56px;height:56px;border-radius:16px;color:#fff}
+  .lbl{font-weight:700;font-size:24px;letter-spacing:-.01em}
+  .sub{font-size:16px;color:#6b7280;margin-top:4px}
+</style></head>
+<body><div class="stage" id="s">
+  <div class="glow" style="left:200px;top:140px;width:760px;height:720px;background:radial-gradient(closest-side,rgb(110 110 255/.35),transparent 72%)"></div>
+  <div class="glow" style="left:560px;top:420px;width:560px;height:520px;background:radial-gradient(closest-side,rgb(210 100 240/.28),transparent 70%)"></div>
+
+  <!-- laptop -->
+  <div style="position:absolute;left:210px;top:250px;width:780px">
+    <div style="background:#1d2140;border-radius:30px 30px 10px 10px;padding:20px;box-shadow:0 50px 90px -40px rgb(40 30 120/.65)">
+      <div style="background:#f7f8fc;border-radius:12px;height:460px;overflow:hidden;position:relative">
+        <!-- browser bar -->
+        <div style="display:flex;gap:8px;align-items:center;height:38px;padding:0 16px;background:#eceffa">
+          <i style="width:11px;height:11px;border-radius:50%;background:#ff6b6b"></i><i style="width:11px;height:11px;border-radius:50%;background:#ffc94a"></i><i style="width:11px;height:11px;border-radius:50%;background:#3ccf8e"></i>
+          <span style="margin-left:14px;flex:1;height:18px;border-radius:9px;background:#fff"></span>
+        </div>
+        <div style="display:grid;grid-template-columns:1.15fr 1fr;gap:22px;padding:24px">
+          <div style="border-radius:14px;overflow:hidden;height:230px;background:#ddd">
+            <img src="../../../public/images/media/blog/6-adobe-photoshop-tips-tricks-beginners-can-learn-cover.webp" style="width:100%;height:100%;object-fit:cover">
+          </div>
+          <div>
+            <span style="display:inline-block;padding:7px 14px;border-radius:99px;background:#ece7ff;color:#5b21d6;font-weight:700;font-size:14px">Tips &amp; tricks</span>
+            <div style="margin-top:16px;font-weight:800;font-size:27px;line-height:1.15;letter-spacing:-.02em">6 Photoshop tips beginners can learn</div>
+            <div class="bar" style="margin-top:18px;width:92%"></div>
+            <div class="bar" style="margin-top:10px;width:80%"></div>
+            <div class="bar" style="margin-top:10px;width:86%"></div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:0 24px">
+          <div style="height:120px;border-radius:12px;background:#fff;box-shadow:0 6px 18px -10px rgb(60 60 120/.35);padding:12px"><div style="height:56px;border-radius:8px;background:linear-gradient(135deg,#bcd2ff,#d9c6ff)"></div><div class="bar" style="margin-top:12px;width:85%;height:9px"></div><div class="bar" style="margin-top:8px;width:60%;height:9px"></div></div>
+          <div style="height:120px;border-radius:12px;background:#fff;box-shadow:0 6px 18px -10px rgb(60 60 120/.35);padding:12px"><div style="height:56px;border-radius:8px;background:linear-gradient(135deg,#ffd6e8,#ffe3c2)"></div><div class="bar" style="margin-top:12px;width:80%;height:9px"></div><div class="bar" style="margin-top:8px;width:55%;height:9px"></div></div>
+          <div style="height:120px;border-radius:12px;background:#fff;box-shadow:0 6px 18px -10px rgb(60 60 120/.35);padding:12px"><div style="height:56px;border-radius:8px;background:linear-gradient(135deg,#c6f1ec,#c8e4ff)"></div><div class="bar" style="margin-top:12px;width:88%;height:9px"></div><div class="bar" style="margin-top:8px;width:50%;height:9px"></div></div>
+        </div>
+      </div>
+    </div>
+    <div style="position:relative;left:-60px;width:900px;height:28px;border-radius:4px 4px 28px 28px;background:linear-gradient(#dfe2ee,#a9aecb);box-shadow:0 30px 40px -24px rgb(40 30 120/.6)"><span style="position:absolute;left:50%;top:0;width:140px;height:10px;margin-left:-70px;border-radius:0 0 10px 10px;background:#b9bed6"></span></div>
+  </div>
+
+  <!-- category cards -->
+  <div class="card" style="left:40px;top:120px;padding:20px 26px 20px 20px;display:flex;gap:16px;align-items:center;transform:rotate(-5deg)">
+    <span class="ico" style="background:linear-gradient(135deg,#3b63f3,#6a5cf4)"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5V5a2 2 0 0 1 2-2h12v18H6.5A2.5 2.5 0 0 1 4 19.5Z"/><path d="M8 7h6M8 11h6"/></svg></span>
+    <div><div class="lbl">Product guides</div><div class="sub">Adobe, Autodesk &amp; more</div></div>
+  </div>
+  <div class="card" style="left:860px;top:110px;padding:20px 26px 20px 20px;display:flex;gap:16px;align-items:center;transform:rotate(6deg)">
+    <span class="ico" style="background:linear-gradient(135deg,#a24df0,#e2589d)"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2Z"/></svg></span>
+    <div><div class="lbl">Tips &amp; tricks</div><div class="sub">Shortcuts that save time</div></div>
+  </div>
+  <div class="card" style="left:40px;top:720px;padding:20px 26px 20px 20px;display:flex;gap:16px;align-items:center;transform:rotate(4deg)">
+    <span class="ico" style="background:linear-gradient(135deg,#ffb35c,#f0607d)"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+    <div><div class="lbl">Life at Acestar</div><div class="sub">Stories from our team</div></div>
+  </div>
+  <div class="card" style="left:900px;top:720px;padding:18px 24px;display:flex;gap:14px;align-items:center;transform:rotate(-6deg)">
+    <span class="ico" style="width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,#22b8e6,#3b63f3)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-8v18L3 13v-2Z"/><path d="M7 13v5a2 2 0 0 0 4 0v-3"/></svg></span>
+    <div class="lbl" style="font-size:22px">Announcements</div>
+  </div>
+  <!-- search chip -->
+  <div class="card" style="left:380px;top:120px;padding:14px 22px;border-radius:99px;display:flex;gap:12px;align-items:center;width:340px">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8a90a8" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    <span style="font-size:19px;color:#8a90a8">Search articles…</span>
+  </div>
+
+  <svg style="position:absolute;left:760px;top:60px;width:38px" viewBox="0 0 24 24"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z" fill="#a24df0"/></svg>
+  <svg style="position:absolute;left:345px;top:880px;width:28px" viewBox="0 0 24 24"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z" fill="#3b63f3"/></svg>
+  <svg style="position:absolute;left:1040px;top:600px;width:30px" viewBox="0 0 24 24"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z" fill="#e2589d"/></svg>
+  <span style="position:absolute;left:1120px;top:330px;width:14px;height:14px;border-radius:50%;background:#ffc94a"></span>
+  <span style="position:absolute;left:150px;top:470px;width:12px;height:12px;border-radius:50%;background:#a24df0;opacity:.7"></span>
+</div></body></html>

@@ -174,9 +174,14 @@ export const hero: PageHero = {
   lead: `${awardCount} awards and recognitions since ${firstYear}, from our technology partners and Malaysia's leading business awards.`,
   primary: { label: "See the timeline", href: "#timeline" },
   secondary: { label: "Company Profile", href: "/company-profile/" },
-  // Artwork from acestar.my (2026/03/Banner-4.png), mirrored so the subject sits on the right.
-  image: { src: "/images/pages/about/awards-hero-art.webp", width: 1920, height: 638, alt: "" },
-  imageFit: "backdrop",
+  // Gold trophy with Acestar's real award logos (scripts/hero-art/awards/render-awards-art.html)
+  image: {
+    src: "/images/pages/about/awards-hero-trophy.webp",
+    width: 1440,
+    height: 1200,
+    alt: "Gold trophy surrounded by Acestar's awards from Adobe, EY, Enterprise 50, Platinum Business Awards and SOBA",
+  },
+  imageFit: "contain",
   crumbs: [{ label: "Home", href: "/" }, { label: "About Us" }, { label: "Awards" }],
 };
 

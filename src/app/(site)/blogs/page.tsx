@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { BlogIndex } from "@/components/media/blog-index";
 import { ClosingCta } from "@/components/sections/home/closing-cta";
 import { Section, SectionHead } from "@/components/solutions/primitives";
@@ -15,9 +16,9 @@ export default async function BlogPage() {
   const latest = blogPosts[0];
   return (
     <>
-      {/* Hero, in the same style as the client's Careers mock (no artwork for now) */}
+      {/* Hero, in the same style as the client's Careers mock, with the "reading desk" artwork on the right */}
       <section aria-labelledby="blog-title" className="relative isolate overflow-hidden">
-        <div className="container-page pt-32 pb-10 lg:pt-40 lg:pb-16">
+        <div className="container-page grid items-center gap-10 pt-32 pb-10 lg:grid-cols-[1fr_1.05fr] lg:gap-8 lg:pt-32 lg:pb-14">
           <div className="max-w-[44rem]" style={{ animation: "fade-up 0.9s var(--ease-out) both" }}>
             <p className="flex items-center gap-3 text-[0.6875rem] font-bold tracking-[0.3em] text-eyebrow-ink uppercase sm:text-xs">
               <span aria-hidden="true" className="h-px w-8 bg-[var(--accent-from)]" />
@@ -73,6 +74,18 @@ export default async function BlogPage() {
               </ButtonLink>
             </div>
           </div>
+          {/* Laptop with a real Acestar article and the blog's categories (scripts/hero-art/blog-desk) */}
+          <Image
+            src="/images/media/blog-hero-desk2.webp"
+            width={1440}
+            height={1200}
+            alt="Laptop showing an Acestar blog article, with cards for product guides, tips and tricks, life at Acestar and announcements"
+            priority
+            quality={90}
+            sizes="(min-width: 1024px) 620px, 92vw"
+            className="mx-auto h-auto w-full max-w-[40rem]"
+            style={{ animation: "hero-art-in 1.1s var(--ease-out) 200ms both" }}
+          />
         </div>
       </section>
 
