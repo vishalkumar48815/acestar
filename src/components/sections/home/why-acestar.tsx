@@ -83,14 +83,14 @@ export function WhyAcestar() {
                 {testimonialsHead.title}
               </h2>
             </div>
-            <ButtonLink
+            {/* <ButtonLink
               href={testimonialsHead.cta.href}
               variant="glass"
               className="min-h-12 shrink-0 self-start rounded-full px-6 text-[0.9375rem] lg:self-auto"
             >
               {testimonialsHead.cta.label}
               <ArrowRight aria-hidden="true" className="size-4 transition-transform group-hover/btn:translate-x-0.5" />
-            </ButtonLink>
+            </ButtonLink> */}
           </div>
           <div className="mt-10">
             <TestimonialSlider items={testimonials} />

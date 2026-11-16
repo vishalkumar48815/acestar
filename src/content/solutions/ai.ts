@@ -9,7 +9,7 @@ import type { Img, PageHero, SolutionBrief, Step } from "./types";
 const icon = (file: string, alt: string): Img => ({ src: `/images/partners/ai/${file}`, width: 96, height: 96, alt });
 
 export const hero: PageHero = {
-  eyebrow: "Empowering Enterprises with Trusted AI",
+  eyebrow: "AI Solutions",
   title: "Enterprise AI Solutions in Malaysia.",
   accent: "in Malaysia.",
   lead: "Enterprise AI, automation and digital workforce solutions. Helping businesses work smarter, automate faster and grow with AI.",

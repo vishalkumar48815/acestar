@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/contact/contact-form";
-import { PageHero } from "@/components/solutions/page-hero";
 import { Eyebrow } from "@/components/solutions/primitives";
 import { ArrowUpRight, Mail, MapPin, Phone } from "@/components/ui/icons";
-import { ContactVisual } from "@/components/visuals/contact-visual";
-import { form, hero, visit } from "@/content/pages/contact";
+import { form, visit } from "@/content/pages/contact";
 import { site } from "@/content/site";
 import { pageMeta } from "@/lib/seo";
 
@@ -18,10 +16,16 @@ const direct = [
 export default function ContactPage() {
   return (
     <>
-      <PageHero hero={hero} visual={<ContactVisual city="Bangsar South, KL" phone={site.contact.phone.display} />} />
-
-      {/* Message form, centred, with the two direct contacts at the top */}
-      <section id="message" aria-labelledby="message-title" className="scroll-mt-24 pt-2 pb-12 lg:pb-16">
+      {/* No hero: the page opens on the message form, centred, with the two direct contacts at the top */}
+      <section
+        id="message"
+        aria-labelledby="message-title"
+        className="relative isolate scroll-mt-24 pt-28 pb-12 lg:pt-36 lg:pb-16"
+      >
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 top-0 -z-10 h-[34rem] bg-[radial-gradient(60%_70%_at_85%_10%,color-mix(in_oklab,var(--accent-to)_16%,transparent),transparent_70%),radial-gradient(50%_60%_at_5%_0%,color-mix(in_oklab,var(--accent-from)_12%,transparent),transparent_70%)]"
+        />
         <div className="container-page">
           <div
             data-reveal
@@ -29,12 +33,13 @@ export default function ContactPage() {
             className="mx-auto max-w-3xl rounded-[1.75rem] border border-white/80 bg-white/70 p-6 shadow-[0_40px_80px_-50px_rgb(40_50_140/0.5)] backdrop-blur-xl sm:p-8 lg:p-10 dark:border-white/[0.08] dark:bg-white/[0.03]"
           >
             <Eyebrow>{form.eyebrow}</Eyebrow>
-            <h2
+            {/* The page's main heading now that there is no hero */}
+            <h1
               id="message-title"
-              className="mt-3 font-display text-[clamp(1.625rem,1.2rem+1.4vw,2.25rem)] leading-tight font-bold tracking-[-0.03em] text-ink"
+              className="mt-3 font-display text-[clamp(1.75rem,1.2rem+1.8vw,2.5rem)] leading-tight font-bold tracking-[-0.03em] text-ink"
             >
               {form.title}
-            </h2>
+            </h1>
             <p className="mt-2 leading-relaxed text-fg-muted">{form.body}</p>
 
             <ul aria-label="Contact us directly" className="mt-6 grid gap-3 sm:grid-cols-2">

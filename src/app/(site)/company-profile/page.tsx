@@ -63,19 +63,19 @@ export default function CompanyProfilePage() {
       {/* Hero */}
       <section
         aria-labelledby="profile-title"
-        className="relative isolate overflow-hidden pt-36 pb-12 lg:pt-44 lg:pb-16"
+        className="relative isolate overflow-hidden pt-36 pb-8 lg:pt-44 lg:pb-10"
       >
         <Ribbons className="top-10 -right-10 -z-10 h-[22rem] w-[36rem] opacity-80 max-sm:w-[22rem]" />
         <div className="container-page text-center">
           <h1
             id="profile-title"
-            className="mx-auto max-w-[56rem] font-display text-[clamp(2.125rem,1.2rem+3.4vw,4rem)] leading-[1.08] font-extrabold tracking-[-0.04em] text-balance text-ink"
+            className="mx-auto max-w-[70rem] font-display text-[clamp(1.6rem,1.1rem+2.5vw,3rem)] leading-[1.08] font-extrabold tracking-[-0.04em] text-balance text-ink"
             style={{ animation: "fade-up 0.9s var(--ease-out) both" }}
           >
             {hero.title} <span className="text-gradient">{hero.accent}</span>
           </h1>
           <p
-            className="mx-auto mt-5 max-w-[42rem] text-[clamp(1.0625rem,0.95rem+0.4vw,1.25rem)] leading-relaxed text-fg-muted"
+            className="mx-auto mt-2 max-w-[45rem] text-[clamp(1.06rem,0.95rem+0.3vw,1.1rem)] leading-relaxed text-fg-muted"
             style={{ animation: "fade-up 0.9s var(--ease-out) 120ms both" }}
           >
             {hero.lead}
@@ -104,7 +104,7 @@ export default function CompanyProfilePage() {
 
           <div data-reveal suppressHydrationWarning className="mt-12 lg:mt-14">
             <Lined>{mission.title}</Lined>
-            <p className="mx-auto mt-4 max-w-[38rem] text-[clamp(1.0625rem,0.98rem+0.35vw,1.25rem)] leading-relaxed text-fg-muted">
+            <p className="mx-auto mt-2 max-w-[38rem] text-[clamp(1.0625rem,0.98rem+0.35vw,1.25rem)] leading-relaxed text-fg-muted">
               {mission.body}
             </p>
           </div>

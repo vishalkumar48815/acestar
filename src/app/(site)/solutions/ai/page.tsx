@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import { ClosingCta } from "@/components/sections/home/closing-cta";
 import { Steps } from "@/components/solutions/blocks";
-import { AiReasons, AiFaq, AiSafety } from "@/components/solutions/ai-sections";
+import { AiFaq, AiSafety } from "@/components/solutions/ai-sections";
 import { AiTools } from "@/components/solutions/ai-tools";
 import { AiUseCases } from "@/components/solutions/ai-use-cases";
 import { BriefOverview } from "@/components/solutions/brief-sections";
 import { EnterpriseEnquiry } from "@/components/solutions/enterprise-enquiry";
 import { PageHero } from "@/components/solutions/page-hero";
 import { Section, SectionHead } from "@/components/solutions/primitives";
-import { brief, faqs, hero, reasons, safety, steps, tools, useCases } from "@/content/solutions/ai";
+import { brief, faqs, hero, safety, steps, tools, useCases } from "@/content/solutions/ai";
 
 export const metadata: Metadata = {
   title: brief.meta.title,
@@ -22,7 +22,7 @@ export default function AiSolutionsPage() {
     <>
       <PageHero hero={hero} />
 
-      <BriefOverview overview={brief.overview} />
+      <BriefOverview overview={brief.overview} showOfferings={false} />
 
       <Section id="tools" labelledBy="tools-title" className="pt-0 lg:pt-0">
         <SectionHead
@@ -39,21 +39,6 @@ export default function AiSolutionsPage() {
         <AiUseCases groups={useCases} tools={tools} />
       </Section> */}
 
-      <Section id="why" labelledBy="why-title">
-        <SectionHead
-          eyebrow="Why Acestar"
-          title={brief.why.title}
-          body={brief.why.paragraphs.map((p, i) => (
-            <span key={p.slice(0, 24)} className={i ? "mt-3 block" : "block"}>
-              {p}
-            </span>
-          ))}
-          id="why-title"
-          className="mb-10"
-        />
-        <AiReasons items={reasons} />
-      </Section>
-
       {/* <Section id="how-we-deliver" labelledBy="deliver-title">
         <SectionHead
           eyebrow="How we deliver"
@@ -64,20 +49,14 @@ export default function AiSolutionsPage() {
         <Steps steps={steps} />
       </Section> */}
 
-      <section aria-labelledby="safety-title" className="py-12 lg:py-16">
+      {/* <section aria-labelledby="safety-title" className="py-12 lg:py-16">
         <div className="container-page">
           <AiSafety items={safety} />
         </div>
-      </section>
+      </section> */}
 
-      <Section labelledBy="enquiry-heading" className="pt-0 lg:pt-0">
-        <h2 id="enquiry-heading" className="sr-only">
-          Enterprise enquiry
-        </h2>
-        <div className="mx-auto max-w-4xl">
-          <EnterpriseEnquiry />
-        </div>
-      </Section>
+      {/* Hidden until "Talk to Our AI Experts" or an "Enquire" link is clicked */}
+      <EnterpriseEnquiry />
 
       <Section id="faq" labelledBy="faq-title">
         <div className="grid gap-8 lg:grid-cols-[0.8fr_1.6fr] lg:gap-14">

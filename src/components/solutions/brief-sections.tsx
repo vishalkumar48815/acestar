@@ -7,47 +7,82 @@ const h2 =
   "font-display text-[clamp(1.75rem,1.15rem+2vw,2.625rem)] leading-[1.1] font-bold tracking-[-0.035em] text-balance text-ink";
 
 /** Intro copy on the left, the list of offerings on the right (rows, not boxes). */
-export function BriefOverview({ overview, id = "overview" }: { overview: SolutionBrief["overview"]; id?: string }) {
+function OverviewParagraphs({ paragraphs, className }: { paragraphs: string[]; className?: string }) {
+  return (
+    <div
+      className={`mt-5 flex flex-col gap-4 text-[clamp(1rem,0.95rem+0.25vw,1.125rem)] leading-relaxed text-pretty text-fg-muted ${className ?? ""}`}
+    >
+      {paragraphs.map((p) => (
+        <p key={p.slice(0, 32)}>{p}</p>
+      ))}
+    </div>
+  );
+}
+
+export function BriefOverview({
+  overview,
+  id = "overview",
+  showOfferings = true,
+}: {
+  overview: SolutionBrief["overview"];
+  id?: string;
+  /** false = intro only, without the numbered offerings list. */
+  showOfferings?: boolean;
+}) {
   return (
     <Section id={id} labelledBy={`${id}-title`}>
-      <div className="grid gap-10 lg:grid-cols-[1fr_1.25fr] lg:gap-16">
-        <div data-reveal suppressHydrationWarning className="lg:sticky lg:top-28 lg:self-start">
+      <div
+        className={
+          showOfferings
+            ? "grid gap-10 lg:grid-cols-[1fr_1.25fr] lg:gap-16"
+            : "grid gap-5 lg:grid-cols-[1fr_1.15fr] lg:items-center lg:gap-16"
+        }
+      >
+        <div
+          data-reveal
+          suppressHydrationWarning
+          className={showOfferings ? "lg:sticky lg:top-28 lg:self-start" : undefined}
+        >
           <Eyebrow>{overview.eyebrow}</Eyebrow>
           <h2 id={`${id}-title`} className={`mt-4 ${h2}`}>
             {overview.title}
           </h2>
-          <div className="mt-5 flex flex-col gap-4 text-[clamp(1rem,0.95rem+0.25vw,1.125rem)] leading-relaxed text-pretty text-fg-muted">
-            {overview.paragraphs.map((p) => (
-              <p key={p.slice(0, 32)}>{p}</p>
-            ))}
+          {showOfferings ? <OverviewParagraphs paragraphs={overview.paragraphs} /> : null}
+        </div>
+        {/* Intro only: title on the left, description on the right */}
+        {showOfferings ? null : (
+          <div data-reveal suppressHydrationWarning>
+            <OverviewParagraphs paragraphs={overview.paragraphs} className="lg:mt-9" />
           </div>
-        </div>
-        <div>
-          <h3 className="text-[0.8125rem] font-bold tracking-[0.22em] text-eyebrow-ink uppercase">
-            {overview.offeringsTitle}
-          </h3>
-          <ol className="mt-4 divide-y divide-line border-y border-line">
-            {overview.offerings.map((o, i) => (
-              <li
-                key={o.title}
-                data-reveal
-                suppressHydrationWarning
-                style={delay(i)}
-                className="group/row grid grid-cols-[2.75rem_1fr] gap-x-4 py-5 sm:py-6"
-              >
-                <span className="text-gradient font-display text-xl font-bold tabular-nums">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <span>
-                  <span className="block text-[1.125rem] leading-snug font-semibold tracking-[-0.015em] text-ink transition-colors group-hover/row:text-brand-ink">
-                    {o.title}
+        )}
+        {showOfferings ? (
+          <div>
+            <h3 className="text-[0.8125rem] font-bold tracking-[0.22em] text-eyebrow-ink uppercase">
+              {overview.offeringsTitle}
+            </h3>
+            <ol className="mt-4 divide-y divide-line border-y border-line">
+              {overview.offerings.map((o, i) => (
+                <li
+                  key={o.title}
+                  data-reveal
+                  suppressHydrationWarning
+                  style={delay(i)}
+                  className="group/row grid grid-cols-[2.75rem_1fr] gap-x-4 py-5 sm:py-6"
+                >
+                  <span className="text-gradient font-display text-xl font-bold tabular-nums">
+                    {String(i + 1).padStart(2, "0")}
                   </span>
-                  <span className="mt-1.5 block text-[0.9375rem] leading-relaxed text-fg-muted">{o.body}</span>
-                </span>
-              </li>
-            ))}
-          </ol>
-        </div>
+                  <span>
+                    <span className="block text-[1.125rem] leading-snug font-semibold tracking-[-0.015em] text-ink transition-colors group-hover/row:text-brand-ink">
+                      {o.title}
+                    </span>
+                    <span className="mt-1.5 block text-[0.9375rem] leading-relaxed text-fg-muted">{o.body}</span>
+                  </span>
+                </li>
+              ))}
+            </ol>
+          </div>
+        ) : null}
       </div>
     </Section>
   );
