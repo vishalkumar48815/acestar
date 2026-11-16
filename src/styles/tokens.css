@@ -134,14 +134,21 @@
 
 /* TechCare brand (teal, from the TechCare logo). Scoped to the /techcare page. */
 .theme-techcare {
+  /* Montserrat and the softer teal of the client's TechCare mock */
+  --font-inter: var(--font-montserrat);
+  --font-display: var(--font-montserrat), system-ui, sans-serif;
+  --font-sans: var(--font-montserrat), system-ui, sans-serif;
+  font-family: var(--font-sans);
+  --tc-teal: #56bbb3;
+  --tc-yellow: #f9ec4c;
   --accent-from: #0e9fb4;
   --accent-to: #19b6a2;
   --brand-ink: #0b7f92;
   --eyebrow: #0b7f92;
   /* TechCare teal */
   --brand-soft: rgb(14 159 180 / 0.1);
-  --btn-gradient: linear-gradient(95deg, #0b93ab 0%, #12a9ab 50%, #1fbb9f 100%);
-  --btn-gradient-shadow: 0 16px 34px -14px rgb(14 150 170 / 0.7);
+  --btn-gradient: linear-gradient(95deg, #74c6b8 0%, #4fa9a3 55%, #3a8f8f 100%);
+  --btn-gradient-shadow: 0 16px 34px -16px rgb(40 130 130 / 0.6);
 }
 
 :root[data-theme="dark"] .theme-techcare {

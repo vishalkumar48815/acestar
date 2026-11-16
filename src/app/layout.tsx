@@ -40,6 +40,15 @@ const brush = localFont({
   preload: false,
 });
 
+/* TechCare brand typeface, used only on the TechCare page (client mock). Montserrat, SIL Open Font License. */
+const techcare = localFont({
+  src: "../fonts/montserrat-latin-wght.woff2",
+  weight: "100 900",
+  variable: "--font-montserrat",
+  display: "swap",
+  preload: false,
+});
+
 const mono = localFont({
   src: "../fonts/jetbrains-mono-latin-500.woff2",
   weight: "500",
@@ -85,7 +94,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en-MY"
       suppressHydrationWarning
-      className={`${sans.variable} ${script.variable} ${marker.variable} ${brush.variable} ${mono.variable}`}
+      className={`${sans.variable} ${script.variable} ${marker.variable} ${brush.variable} ${techcare.variable} ${mono.variable}`}
     >
       <head>
         {/* Runs before first paint: applies saved/system theme, no flash. */}
