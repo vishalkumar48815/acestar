@@ -7,7 +7,7 @@ import { Section, SectionHead, spotlight, toneCard, toneStyle, type Tone } from 
 import { ButtonLink } from "@/components/ui/button";
 import { ArrowRight, ArrowUpRight, ChevronRight } from "@/components/ui/icons";
 import { site } from "@/content/site";
-import { closing, higherView, outcomes, packages, subscription } from "@/content/solutions/techcare";
+import { closing, higherView, outcomes, subscription } from "@/content/solutions/techcare";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
