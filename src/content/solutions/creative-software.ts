@@ -23,9 +23,8 @@ export const intro = {
   segments: ["Enterprises", "SMEs", "Education", "Government"],
 };
 
-const links: Record<string, Brand["link"]> = {
-  adobe: { label: "Explore Adobe Creative Cloud Pro", href: "/creative-cloud/" },
-};
+/* No in-tab link for Adobe: the hero button and the Creative Cloud Pro banner already go to /creative-cloud/. */
+const links: Record<string, Brand["link"]> = {};
 
 export const brands: Brand[] = creativeBrandData.map((b) => ({
   key: b.key,
@@ -66,29 +65,24 @@ export const brief: SolutionBrief = {
     ],
   },
   overview: {
-    eyebrow: "Creative software, simplified",
-    title: "Empower creativity at every level.",
+    eyebrow: "What we do",
+    title: "Creative software, simplified.",
     paragraphs: [
-      "Acestar is an award-winning Adobe Platinum Partner, Top Adobe Authorized Reseller in Malaysia, and established creative software reseller, helping businesses, creative agencies, educational institutions and government organizations access industry-leading creative technologies.",
-      "From software licensing and deployment to renewal management and technical consultation, we simplify creative technology adoption for organizations of every size.",
+      "As an established creative software reseller, Acestar simplifies creative technology adoption for organizations of every size, from software licensing and deployment to renewal management and technical consultation.",
     ],
     offeringsTitle: "Our Creative Software Solutions",
     offerings: [
       {
         title: "Adobe Creative Cloud",
-        body: "Access professional creative applications including Adobe Photoshop, Illustrator, Premiere Pro, InDesign, After Effects and other Adobe Creative Cloud solutions.",
+        body: "Access the full suite of professional Adobe Creative Cloud applications, from design and photography to video and motion.",
       },
       {
         title: "Adobe Firefly and Creative AI",
         body: "Bring generative AI into creative workflows to accelerate content creation, visual exploration and production.",
       },
       {
-        title: "Creative Software Licensing",
-        body: "Purchase, renew and manage genuine creative software subscriptions with expert guidance on suitable licensing plans.",
-      },
-      {
-        title: "Enterprise Creative Deployment",
-        body: "Simplify software provisioning, license administration and deployment across creative teams and organizations.",
+        title: "Licensing, Renewals and Deployment",
+        body: "Buy, renew and deploy genuine creative software, with expert guidance on the right plans.",
       },
       {
         title: "Creative Technology Consultation",
@@ -99,7 +93,6 @@ export const brief: SolutionBrief = {
   why: {
     title: "Why Choose Acestar for Adobe?",
     paragraphs: [
-      "Acestar is recognized as a Top Adobe Reseller and Adobe Platinum Partner in Malaysia, with extensive experience supporting creative software licensing and enterprise deployment.",
       "Our award-winning Adobe partnership reflects our commitment to product expertise, customer service and long-term client relationships.",
       "Whether you are purchasing new Adobe licenses, renewing existing subscriptions or managing enterprise-wide deployments, Acestar provides the consultation and support your organization needs.",
     ],

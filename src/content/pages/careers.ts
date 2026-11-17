@@ -85,7 +85,7 @@ export const apply = {
   eyebrow: "Apply now",
   title: "Send us your application.",
   body: `Pick a role (or send a general application) and we'll be in touch. You can also email your CV to ${site.contact.email.careers}.`,
-  to: site.contact.email.careers,
+  to: site.contact.email.support,
 };
 
 /* ------------------------------------------------------------------ Redesign (client mock, Acestar 3.0) */

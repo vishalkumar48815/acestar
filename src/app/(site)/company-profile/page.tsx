@@ -65,17 +65,19 @@ export default function CompanyProfilePage() {
         aria-labelledby="profile-title"
         className="relative isolate overflow-hidden pt-36 pb-8 lg:pt-44 lg:pb-10"
       >
-        <Ribbons className="top-10 -right-10 -z-10 h-[22rem] w-[36rem] opacity-80 max-sm:w-[22rem]" />
+        <div aria-hidden="true" className="art-frame -z-10">
+          <Ribbons className="top-10 -right-10 h-[22rem] w-[36rem] opacity-80 max-sm:w-[22rem]" />
+        </div>
         <div className="container-page text-center">
           <h1
             id="profile-title"
-            className="mx-auto max-w-[70rem] font-display text-[clamp(1.6rem,1.1rem+2.5vw,3rem)] leading-[1.08] font-extrabold tracking-[-0.04em] text-balance text-ink"
+            className="mx-auto max-w-[70rem] font-display text-[clamp(1.3rem,1.1rem+2.1vw,2.6rem)] leading-[1.08] font-extrabold tracking-[-0.04em] text-balance text-ink"
             style={{ animation: "fade-up 0.9s var(--ease-out) both" }}
           >
             {hero.title} <span className="text-gradient">{hero.accent}</span>
           </h1>
           <p
-            className="mx-auto mt-2 max-w-[45rem] text-[clamp(1.06rem,0.95rem+0.3vw,1.1rem)] leading-relaxed text-fg-muted"
+            className="mx-auto mt-2 max-w-[45rem] text-[clamp(1.0rem,0.95rem+0.3vw,1.1rem)] leading-relaxed text-fg-muted"
             style={{ animation: "fade-up 0.9s var(--ease-out) 120ms both" }}
           >
             {hero.lead}
@@ -219,26 +221,31 @@ export default function CompanyProfilePage() {
             <p className="mt-6 font-semibold text-ink">{promise.closing}</p>
           </div>
         </div>
-        <svg
-          aria-hidden="true"
-          viewBox="0 0 1440 220"
-          preserveAspectRatio="none"
-          className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-40 w-full lg:h-52"
-        >
-          <defs>
-            <linearGradient id="wave-a" x1="0" x2="1">
-              <stop offset="0" stopColor="#5ab8ff" stopOpacity="0.55" />
-              <stop offset="0.5" stopColor="#8fa8ff" stopOpacity="0.25" />
-              <stop offset="1" stopColor="#a24df0" stopOpacity="0.5" />
-            </linearGradient>
-            <linearGradient id="wave-b" x1="0" x2="1">
-              <stop offset="0" stopColor="#3b63f3" stopOpacity="0.35" />
-              <stop offset="1" stopColor="#c48bff" stopOpacity="0.45" />
-            </linearGradient>
-          </defs>
-          <path d="M0 120 C 320 40, 620 200, 960 120 S 1300 60, 1440 90 L 1440 220 L 0 220 Z" fill="url(#wave-a)" />
-          <path d="M0 170 C 380 110, 700 230, 1060 160 S 1360 130, 1440 150 L 1440 220 L 0 220 Z" fill="url(#wave-b)" />
-        </svg>
+        <div aria-hidden="true" className="art-frame -z-10">
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 1440 220"
+            preserveAspectRatio="none"
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-40 w-full lg:h-52"
+          >
+            <defs>
+              <linearGradient id="wave-a" x1="0" x2="1">
+                <stop offset="0" stopColor="#5ab8ff" stopOpacity="0.55" />
+                <stop offset="0.5" stopColor="#8fa8ff" stopOpacity="0.25" />
+                <stop offset="1" stopColor="#a24df0" stopOpacity="0.5" />
+              </linearGradient>
+              <linearGradient id="wave-b" x1="0" x2="1">
+                <stop offset="0" stopColor="#3b63f3" stopOpacity="0.35" />
+                <stop offset="1" stopColor="#c48bff" stopOpacity="0.45" />
+              </linearGradient>
+            </defs>
+            <path d="M0 120 C 320 40, 620 200, 960 120 S 1300 60, 1440 90 L 1440 220 L 0 220 Z" fill="url(#wave-a)" />
+            <path
+              d="M0 170 C 380 110, 700 230, 1060 160 S 1360 130, 1440 150 L 1440 220 L 0 220 Z"
+              fill="url(#wave-b)"
+            />
+          </svg>
+        </div>
       </section>
     </>
   );

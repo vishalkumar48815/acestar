@@ -31,34 +31,6 @@ export const whatIs = {
   ],
 };
 
-export const packages = {
-  eyebrow: "Our packages",
-  title: "A plan for every role.",
-  items: [
-    {
-      name: "Essential",
-      tagline: "Your everyday work partner",
-      audience: "Core solutions for operational employees",
-      body: "Ensuring your workforce is equipped to perform daily operations productively and efficiently.",
-      image: asset("2025/07/Asset-42x.png", "Latte with leaf art"),
-    },
-    {
-      name: "Essential+",
-      tagline: "Do the presentation with confidence",
-      audience: "Enhanced performance for first- and middle-line management",
-      body: "Enhanced processing capabilities for outcome-driven results and efficient workflows.",
-      image: asset("2025/07/Asset-52x.png", "Black coffee in a white cup"),
-    },
-    {
-      name: "Elite",
-      tagline: "Take your business to new heights",
-      audience: "Strategic solutions for senior executives",
-      body: "Exceptional performance and security to support critical decision-making.",
-      image: asset("2025/07/Asset-62x.png", "Espresso in a small white cup"),
-    },
-  ],
-};
-
 export const closing = {
   eyebrow: "Get started",
   title: "Ready to Simplify Your Business IT?",

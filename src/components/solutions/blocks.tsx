@@ -229,12 +229,12 @@ export function CompareTable({ table }: { table: Table }) {
   );
 }
 
-/* ---------------------------------------------------------------- Image marquee */
+/* ---------------------------------------------------------------- Image marquee (capped at the content width) */
 
 export function Marquee({ images }: { images: Img[] }) {
   const row = [...images, ...images];
   return (
-    <div className="group/marquee relative overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_8%,#000_92%,transparent)]">
+    <div className="group/marquee relative mx-auto max-w-[80rem] overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_8%,#000_92%,transparent)]">
       <ul className="flex w-max [animation:marquee_60s_linear_infinite] group-hover/marquee:[animation-play-state:paused] motion-reduce:[animation:none]">
         {row.map((img, i) => (
           <li key={`${img.src}-${i}`} aria-hidden={i >= images.length ? true : undefined} className="shrink-0 pr-4">

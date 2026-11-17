@@ -22,10 +22,11 @@ export default function AiSolutionsPage() {
     <>
       <PageHero hero={hero} />
 
-      <BriefOverview overview={brief.overview} showOfferings={false} />
+      <BriefOverview overview={brief.overview} showOfferings={false} align="center" />
 
       <Section id="tools" labelledBy="tools-title" className="pt-0 lg:pt-0">
         <SectionHead
+          // align="center"
           eyebrow="Acestar 3.0 · Enterprise AI portfolio"
           title="Enterprise solutions, and what we do with them."
           id="tools-title"
@@ -49,18 +50,18 @@ export default function AiSolutionsPage() {
         <Steps steps={steps} />
       </Section> */}
 
-      {/* <section aria-labelledby="safety-title" className="py-12 lg:py-16">
+      <section aria-labelledby="safety-title" className="py-12 lg:py-16">
         <div className="container-page">
           <AiSafety items={safety} />
         </div>
-      </section> */}
+      </section>
 
       {/* Hidden until "Talk to Our AI Experts" or an "Enquire" link is clicked */}
       <EnterpriseEnquiry />
 
       <Section id="faq" labelledBy="faq-title">
-        <div className="grid gap-8 lg:grid-cols-[0.8fr_1.6fr] lg:gap-14">
-          <SectionHead eyebrow="FAQ" title="Questions, answered." id="faq-title" />
+        <SectionHead eyebrow="FAQ" title="Questions, answered." id="faq-title" align="center" className="mb-8" />
+        <div className="mx-auto max-w-3xl">
           <AiFaq items={faqs} />
         </div>
       </Section>

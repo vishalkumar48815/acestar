@@ -58,19 +58,20 @@ export default function CareersPage() {
           photo's white edges into the page colour, so no box edge shows around it. The white area
           outside the cyan curve on the left is faded out in the image itself.
         */}
-        <div
-          aria-hidden="true"
-          className="absolute top-[5.5rem] right-0 bottom-0 -z-10 hidden w-[54%] lg:block"
-          style={{ animation: "hero-art-in 1.2s var(--ease-out) both" }}
-        >
-          <Image
-            src={careersHero.image.src}
-            alt=""
-            fill
-            priority
-            sizes="54vw"
-            className="object-contain object-right mix-blend-multiply dark:mix-blend-normal"
-          />
+        <div aria-hidden="true" className="art-frame -z-10 hidden lg:block">
+          <div
+            className="absolute top-[5.5rem] right-0 bottom-0 w-[54%] min-[100rem]:right-20"
+            style={{ animation: "hero-art-in 1.2s var(--ease-out) both" }}
+          >
+            <Image
+              src={careersHero.image.src}
+              alt=""
+              fill
+              priority
+              sizes="(min-width: 1440px) 778px, 54vw"
+              className="object-contain object-right mix-blend-multiply dark:mix-blend-normal"
+            />
+          </div>
         </div>
 
         <div className="container-page pt-32 pb-10 lg:flex lg:min-h-[44rem] lg:items-center lg:pt-28 lg:pb-16">
@@ -297,33 +298,35 @@ export default function CareersPage() {
         aria-label="Your next chapter"
         className="relative isolate overflow-hidden pt-16 pb-20 lg:pt-20 lg:pb-28"
       >
-        <svg
-          aria-hidden="true"
-          viewBox="0 0 1440 420"
-          preserveAspectRatio="none"
-          className="pointer-events-none absolute inset-0 -z-10 h-full w-full dark:opacity-30"
-        >
-          <defs>
-            <linearGradient id="chapter-a" x1="0" x2="1">
-              <stop offset="0" stopColor="#dbe6ff" />
-              <stop offset="1" stopColor="#efe4ff" />
-            </linearGradient>
-            <linearGradient id="chapter-b" x1="0" x2="1">
-              <stop offset="0" stopColor="#cfe0ff" stopOpacity="0.9" />
-              <stop offset="1" stopColor="#e6d2ff" stopOpacity="0.9" />
-            </linearGradient>
-          </defs>
-          <path
-            d="M0 40 C 360 0, 720 90, 1080 60 S 1380 30, 1440 50 L 1440 420 L 0 420 Z"
-            fill="url(#chapter-a)"
-            opacity="0.55"
-          />
-          <path
-            d="M0 360 C 300 320, 520 400, 860 380 S 1300 320, 1440 340 L 1440 420 L 0 420 Z"
-            fill="url(#chapter-b)"
-            opacity="0.8"
-          />
-        </svg>
+        <div aria-hidden="true" className="art-frame -z-10">
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 1440 420"
+            preserveAspectRatio="none"
+            className="pointer-events-none absolute inset-0 h-full w-full dark:opacity-30"
+          >
+            <defs>
+              <linearGradient id="chapter-a" x1="0" x2="1">
+                <stop offset="0" stopColor="#dbe6ff" />
+                <stop offset="1" stopColor="#efe4ff" />
+              </linearGradient>
+              <linearGradient id="chapter-b" x1="0" x2="1">
+                <stop offset="0" stopColor="#cfe0ff" stopOpacity="0.9" />
+                <stop offset="1" stopColor="#e6d2ff" stopOpacity="0.9" />
+              </linearGradient>
+            </defs>
+            <path
+              d="M0 40 C 360 0, 720 90, 1080 60 S 1380 30, 1440 50 L 1440 420 L 0 420 Z"
+              fill="url(#chapter-a)"
+              opacity="0.55"
+            />
+            <path
+              d="M0 360 C 300 320, 520 400, 860 380 S 1300 320, 1440 340 L 1440 420 L 0 420 Z"
+              fill="url(#chapter-b)"
+              opacity="0.8"
+            />
+          </svg>
+        </div>
         <div className="container-page grid items-center gap-10 lg:grid-cols-[1.15fr_auto_1fr_auto] lg:gap-12">
           <h2 className="relative -rotate-[6deg] pb-6 font-marker text-[clamp(2.75rem,1.8rem+3.4vw,4.75rem)] leading-[1] font-bold">
             <span className="block bg-[linear-gradient(95deg,#3aa0f5_0%,#3b5bf0_45%,#3b5bf0_60%)] bg-clip-text pr-2 text-transparent">

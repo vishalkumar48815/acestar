@@ -18,20 +18,19 @@ export default async function NewsPage() {
     <>
       <div className="relative isolate">
         {/* Soft wave background behind the whole hero (white keyed out, so it also glows on the dark theme) */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 -z-10 [mask-image:linear-gradient(180deg,#000_70%,transparent)]"
-        >
-          <Image
-            src="/images/news/news-hero-waves.webp"
-            alt=""
-            fill
-            priority
-            quality={90}
-            sizes="100vw"
-            className="object-cover object-[75%_100%] dark:opacity-80"
-            style={{ animation: "hero-art-in 1.4s var(--ease-out) both" }}
-          />
+        <div aria-hidden="true" className="art-frame -z-10">
+          <div className="absolute inset-0 [mask-image:linear-gradient(180deg,#000_70%,transparent)]">
+            <Image
+              src="/images/news/news-hero-waves.webp"
+              alt=""
+              fill
+              priority
+              quality={90}
+              sizes="(min-width: 1440px) 1440px, 100vw"
+              className="object-cover object-[75%_100%] dark:opacity-80"
+              style={{ animation: "hero-art-in 1.4s var(--ease-out) both" }}
+            />
+          </div>
         </div>
         <PageHero
           hero={{

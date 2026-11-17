@@ -8,7 +8,7 @@ export const creativeBrandData: BrandData[] = [
     banner: "2026/03/8.png",
     logo: "2026/03/ALL-LOGO-119.png",
     description:
-      "Adobe Creative Cloud offers a comprehensive collection of the best, most effective and advanced creative software and applications which are miles ahead of others in the market today. With first rate products such as the ever-popular Photoshop, Illustrator, InDesign, etc., the Adobe brand is the first and natural choice of the creative community when it comes to cutting-edge graphic design, video editing, web development, photography, UX, and social media. They are now made even more powerful with integrated essentials and the power to collaborate with anyone, anywhere. Creative Cloud keeps your inspiration flowing with more than just great apps.",
+      "Adobe Creative Cloud offers a comprehensive collection of the best, most effective and advanced creative software and applications which are miles ahead of others in the market today. With first rate products such as the ever-popular Photoshop, Illustrator, InDesign, etc., the Adobe brand is the first and natural choice of the creative community when it comes to cutting-edge graphic design, video editing, web development, photography, UX, and social media.",
     groups: [
       {
         products: [
@@ -168,7 +168,7 @@ export const creativeBrandData: BrandData[] = [
     video: {
       poster: "2026/03/adobe-video.png",
       caption:
-        "Adobe Certified Professional (ACP) is a globally recognized certification that validates practical and professional skills in Adobe software, helping individuals boost employability and stand out in the creative industry.",
+        "Now even more powerful with integrated essentials and the power to collaborate with anyone, anywhere. Creative Cloud keeps your inspiration flowing with more than just great apps.",
     },
   },
   {

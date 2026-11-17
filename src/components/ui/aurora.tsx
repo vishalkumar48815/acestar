@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
  */
 export function Aurora({ className }: { className?: string }) {
   return (
-    <div aria-hidden="true" className={cn("pointer-events-none absolute inset-0 -z-10 overflow-hidden", className)}>
+    <div aria-hidden="true" className={cn("art-frame -z-10 overflow-hidden", className)}>
       <div
         className="aurora-blob top-[-22%] right-[-12%] aspect-square w-[62%] min-w-[22rem] bg-[var(--aurora-1)]"
         style={{ animation: "aurora-drift-a 18s ease-in-out infinite" }}

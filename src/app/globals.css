@@ -267,6 +267,50 @@ html.lenis body {
   }
 }
 
+/*
+ * Decorative artwork stops growing at 90rem (1440px): the 80rem content column plus a small margin.
+ * On wide screens or when the browser is zoomed out it stays with the content, and its faded sides
+ * end right at the content column's edges. Up to 1440px wide nothing changes (90rem cap).
+ */
+.art-frame {
+  position: absolute;
+  inset-block: 0;
+  left: 50%;
+  width: 100%;
+  max-width: 90rem;
+  translate: -50% 0;
+  pointer-events: none;
+}
+
+/* Normal large screens (1440-1600px): just soften the frame's edges */
+@media (width >= 90rem) {
+  .art-frame {
+    mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  }
+}
+
+/* Wider screens / zoomed out: nothing shows outside the 80rem content column; fades in over 5rem */
+@media (width >= 100rem) {
+  .art-frame {
+    mask-image: linear-gradient(90deg, transparent 5rem, #000 10rem, #000 calc(100% - 10rem), transparent calc(100% - 5rem));
+  }
+}
+
+/* Plain colour behind the home hero artwork, visible beyond its frame */
+.hero-fill {
+  background-color: #f8f8fe;
+}
+
+:root[data-theme="dark"] .hero-fill {
+  background-color: #070b1a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .hero-fill {
+    background-color: #070b1a;
+  }
+}
+
 @keyframes hero-art-in {
   from {
     opacity: 0;

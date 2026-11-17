@@ -45,7 +45,7 @@
   --grid-line: transparent;
   --accent-from: #3b63f3;
   --accent-to: #a24df0;
-  --ink: #30364b;
+  --ink: #54596e;
   /* headline ink: dark slate grey, as in the client mocks */
   --btn-gradient: linear-gradient(95deg, #3b63f3 0%, #6a5cf4 50%, #a24df0 100%);
   --btn-gradient-shadow: 0 16px 34px -14px rgb(91 84 240 / 0.75);
@@ -97,6 +97,51 @@
   --danger: #ff7a8f;
   --success: #4fd1a1;
 }
+
+/*
+ * Always-dark area (e.g. the footer): same values as the dark theme, scoped to one element, so it
+ * stays dark whichever theme the visitor picked.
+ */
+.theme-dark {
+  color-scheme: dark;
+  --bg: #060b16;
+  --bg-elevated: #0b1322;
+  --fg: #eef3fb;
+  --fg-muted: #a9b6ca;
+  --fg-subtle: #8593a8;
+  --line: rgb(255 255 255 / 0.09);
+
+  --brand: #1880e8;
+  --brand-ink: #7cc0ff;
+  --eyebrow: #b9a3ff;
+  /* section eyebrows (solid purple, client spec) */
+  --brand-soft: rgb(24 128 232 / 0.16);
+
+  --glass-bg: rgb(255 255 255 / 0.055);
+  --glass-bg-strong: rgb(13 22 40 / 0.78);
+  --glass-border: rgb(255 255 255 / 0.12);
+  --glass-shadow: 0 24px 60px -24px rgb(0 0 0 / 0.75);
+  --glass-highlight: inset 0 1px 0 rgb(255 255 255 / 0.08);
+
+  --btn-primary-bg: #1880e8;
+  --btn-primary-fg: #ffffff;
+  --btn-primary-shadow: 0 12px 36px -8px rgb(24 128 232 / 0.85);
+
+  --aurora-1: rgb(24 128 232 / 0.55);
+  --aurora-2: rgb(0 184 255 / 0.32);
+  --aurora-3: rgb(58 77 255 / 0.34);
+  --cursor-glow: rgb(70 160 255 / 0.2);
+  --grid-line: rgb(255 255 255 / 0.035);
+  --accent-from: #7c9bff;
+  --accent-to: #c88dff;
+  --ink: #f2f4fb;
+
+  --danger: #ff7a8f;
+  --success: #4fd1a1;
+  background-color: var(--bg);
+  color: var(--fg);
+}
+
 
 /* No-JS fallback: follow the OS until the theme script runs */
 @media (prefers-color-scheme: dark) {

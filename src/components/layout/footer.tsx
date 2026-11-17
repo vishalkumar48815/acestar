@@ -7,11 +7,12 @@ import { COPYRIGHT_YEAR, site } from "@/content/site";
 
 export function Footer() {
   const { contact } = site;
+  // Always dark, whichever theme the visitor picked (see .theme-dark in tokens.css).
   return (
-    <footer className="relative pt-6 lg:pt-8">
+    <footer className="theme-dark relative border-t border-line pt-10 lg:pt-14">
       <div className="container-page grid gap-10 pb-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_1.2fr_0.6fr_0.8fr_1.2fr] lg:gap-8">
         <div className="flex flex-col gap-4">
-          <Logo />
+          <Logo tone="dark" />
           <p className="text-sm text-fg-muted">{site.footerTagline}</p>
           <ul className="mt-2 flex items-center gap-4" aria-label="Social media">
             {site.social.map((s) => (

@@ -36,6 +36,8 @@ export type PageHero = {
   imageScrim?: boolean;
   /** Backdrop only: start the artwork below the fixed header instead of behind it. */
   imageBelowHeader?: boolean;
+  /** "center": text-only hero with everything centred (no image or side visual). */
+  align?: "start" | "center";
   crumbs: Crumb[];
   chips?: string[];
 };

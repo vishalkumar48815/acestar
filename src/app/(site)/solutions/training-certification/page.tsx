@@ -22,7 +22,7 @@ export default function TrainingCertificationPage() {
       <PageHero hero={hero} />
 
       {/* Intro (title left, text right); the programme list is now the badge wall below */}
-      <BriefOverview overview={brief.overview} showOfferings={false} />
+      <BriefOverview overview={brief.overview} showOfferings={false} align="center" />
 
       {/* Layout inspired by the client's reference sites; wording from the brief */}
       {/* <AudienceCards content={audiences} /> */}

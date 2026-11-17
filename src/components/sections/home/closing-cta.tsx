@@ -64,7 +64,7 @@ export function ClosingCta({ content = closingCta }: { content?: Content }) {
               </p>
               <h2
                 id="cta-title"
-                className="mt-4 font-display text-[clamp(2rem,1.2rem+2.6vw,3.125rem)] leading-[1.05] font-bold tracking-[-0.04em] text-ink"
+                className="mt-4 font-display text-[clamp(1.6rem,1.2rem+2.2vw,2.6rem)] leading-[1.05] font-bold tracking-[-0.04em] text-ink"
               >
                 {content.title}
               </h2>

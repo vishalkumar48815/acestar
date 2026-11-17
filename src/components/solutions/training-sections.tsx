@@ -122,6 +122,7 @@ export function CertBadges({ content, id = "certifications" }: { content: typeof
   return (
     <Section id={id} labelledBy={`${id}-title`}>
       <SectionHead
+        align="center"
         eyebrow={content.eyebrow}
         title={content.title}
         body={content.body}
@@ -144,7 +145,7 @@ export function CertBadges({ content, id = "certifications" }: { content: typeof
                   alt={`${b.name} logo`}
                   width={240}
                   height={120}
-                  className="h-[3.75rem] w-auto max-w-full object-contain sm:max-w-[11rem] transition-transform duration-500 group-hover/b:-translate-y-1"
+                  className="h-[3.75rem] w-auto max-w-full object-contain transition-transform duration-500 group-hover/b:-translate-y-1 sm:max-w-[11rem]"
                 />
               </span>
             ) : (
@@ -245,6 +246,18 @@ const valueIcons = [
 export function CertValue({ content, id = "value" }: { content: typeof Value; id?: string }) {
   return (
     <Section id={id} labelledBy={`${id}-title`}>
+      <SectionHead
+        eyebrow={content.eyebrow}
+        title={content.title}
+        body={content.body.map((p, i) => (
+          <span key={p.slice(0, 24)} className={i ? "mt-3 block" : "block"}>
+            {p}
+          </span>
+        ))}
+        id={`${id}-title`}
+        align="center"
+        className="mb-10"
+      />
       <div className="grid items-center gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-14">
         {/* Illustrated certificate with a verified badge */}
         <div
@@ -285,17 +298,7 @@ export function CertValue({ content, id = "value" }: { content: typeof Value; id
           </span>
         </div>
         <div>
-          <SectionHead
-            eyebrow={content.eyebrow}
-            title={content.title}
-            body={content.body.map((p, i) => (
-              <span key={p.slice(0, 24)} className={i ? "mt-3 block" : "block"}>
-                {p}
-              </span>
-            ))}
-            id={`${id}-title`}
-          />
-          <ul className="mt-8 grid gap-4 sm:grid-cols-2">
+          <ul className="grid gap-4 sm:grid-cols-2">
             {content.items.map((v, i) => {
               const { icon: Icon, bg } = valueIcons[i];
               return (

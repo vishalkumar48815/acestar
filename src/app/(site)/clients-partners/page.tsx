@@ -33,6 +33,7 @@ export default function ClientsPartnersPage() {
       <Section labelledBy="clients-title" className="pt-0 lg:pt-4">
         <StatStrip stats={stats} />
         <SectionHead
+          // align="center"
           eyebrow="Some of our clients"
           title="From national institutions to world-class studios."
           id="clients-title"
@@ -83,7 +84,13 @@ export default function ClientsPartnersPage() {
       </Section>
 
       <Section labelledBy="voices-title" className="pt-4 lg:pt-6">
-        <SectionHead eyebrow="In their words" title="What our clients say." id="voices-title" className="mb-8" />
+        <SectionHead
+          // align="center"
+          eyebrow="In their words"
+          title="What our clients say."
+          id="voices-title"
+          className="mb-8"
+        />
         <div className={cn(panel, "p-6 sm:p-8 lg:p-10")}>
           <TestimonialSlider items={testimonials} />
         </div>
@@ -91,6 +98,7 @@ export default function ClientsPartnersPage() {
 
       <Section id="partners" labelledBy="partners-title" className="pt-4 lg:pt-6">
         <SectionHead
+          align="center"
           eyebrow="Our key partners"
           title="Partnered with the world's technology leaders."
           body="Long-standing partnerships mean better pricing, faster support and certified expertise for our clients."

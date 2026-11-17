@@ -63,7 +63,11 @@ export function SectionHead({ eyebrow, title, body, align = "start", id, classNa
     <div
       data-reveal
       suppressHydrationWarning
-      className={cn("flex max-w-2xl flex-col", align === "center" && "mx-auto items-center text-center", className)}
+      className={cn(
+        "flex flex-col",
+        align === "center" ? "mx-auto max-w-[56rem] items-center text-center" : "max-w-2xl",
+        className,
+      )}
     >
       {eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}
       <h2
@@ -76,7 +80,12 @@ export function SectionHead({ eyebrow, title, body, align = "start", id, classNa
         {title}
       </h2>
       {body ? (
-        <p className="mt-4 text-[clamp(1rem,0.95rem+0.25vw,1.125rem)] leading-relaxed text-pretty text-fg-muted">
+        <p
+          className={cn(
+            "mt-4 text-[clamp(1rem,0.95rem+0.25vw,1.125rem)] leading-relaxed text-pretty text-fg-muted",
+            align === "center" && "max-w-[40rem]",
+          )}
+        >
           {body}
         </p>
       ) : null}

@@ -34,6 +34,7 @@ export default function CreativeCloudProPage() {
 
       <Section id="apps" labelledBy="apps-title">
         <SectionHead
+          align="center"
           eyebrow="Creative Cloud Pro"
           title="Every app you need, plus Adobe AI."
           body="Over 20 apps including Photoshop, Illustrator, Premiere Pro and Acrobat Pro, with unlimited standard Firefly generative AI."
@@ -69,6 +70,7 @@ export default function CreativeCloudProPage() {
 
       <Section id="compare" labelledBy="compare-title">
         <SectionHead
+          align="center"
           eyebrow="Compare"
           title="Find the right Creative Cloud plan."
           id="compare-title"
@@ -78,12 +80,25 @@ export default function CreativeCloudProPage() {
       </Section>
 
       <Section id="whats-new" labelledBy="new-title">
-        <SectionHead eyebrow="What's new" title="Firefly and Express, built in." id="new-title" className="mb-8" />
+        <SectionHead
+          align="center"
+          eyebrow="What's new"
+          title="Firefly and Express, built in."
+          id="new-title"
+          className="mb-8"
+        />
         <SplitRows items={whatsNew} />
       </Section>
 
       <Section id="plans" labelledBy="plans-title">
-        <SectionHead eyebrow={plans.eyebrow} title={plans.title} body={plans.body} id="plans-title" className="mb-8" />
+        <SectionHead
+          align="center"
+          eyebrow={plans.eyebrow}
+          title={plans.title}
+          body={plans.body}
+          id="plans-title"
+          className="mb-8"
+        />
         <div className="grid gap-4 lg:grid-cols-[1fr_1fr_0.9fr]">
           {plans.items.map((plan, i) => (
             <article

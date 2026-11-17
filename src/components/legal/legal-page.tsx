@@ -11,7 +11,7 @@ export function LegalPageView({ page }: { page: LegalPage }) {
     <article className="relative isolate pb-20 lg:pb-28">
       <div
         aria-hidden="true"
-        className="absolute inset-x-0 top-0 -z-10 h-[30rem] bg-[radial-gradient(60%_70%_at_85%_10%,color-mix(in_oklab,var(--accent-to)_14%,transparent),transparent_70%),radial-gradient(50%_60%_at_5%_0%,color-mix(in_oklab,var(--accent-from)_10%,transparent),transparent_70%)]"
+        className="art-frame -z-10 h-[30rem] bg-[radial-gradient(60%_70%_at_85%_10%,color-mix(in_oklab,var(--accent-to)_14%,transparent),transparent_70%),radial-gradient(50%_60%_at_5%_0%,color-mix(in_oklab,var(--accent-from)_10%,transparent),transparent_70%)]"
       />
       <header className="container-page pt-28 lg:pt-36">
         <nav aria-label="Breadcrumb" style={enter(0)}>

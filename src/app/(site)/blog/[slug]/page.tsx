@@ -79,7 +79,7 @@ async function Article({ params }: { params: Promise<{ slug: string }> }) {
       <article className="relative isolate">
         <div
           aria-hidden="true"
-          className="absolute inset-x-0 top-0 -z-10 h-[38rem] bg-[radial-gradient(60%_70%_at_85%_10%,color-mix(in_oklab,var(--accent-to)_16%,transparent),transparent_70%),radial-gradient(50%_60%_at_5%_0%,color-mix(in_oklab,var(--accent-from)_12%,transparent),transparent_70%)]"
+          className="art-frame -z-10 h-[38rem] bg-[radial-gradient(60%_70%_at_85%_10%,color-mix(in_oklab,var(--accent-to)_16%,transparent),transparent_70%),radial-gradient(50%_60%_at_5%_0%,color-mix(in_oklab,var(--accent-from)_12%,transparent),transparent_70%)]"
         />
         <header className="container-page max-w-[52rem] pt-28 lg:pt-36">
           <nav aria-label="Breadcrumb" style={enter(0)}>

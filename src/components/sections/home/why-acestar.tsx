@@ -13,32 +13,40 @@ export function WhyAcestar() {
     <>
       <section aria-labelledby="why-title" className="relative isolate overflow-hidden py-16 lg:py-24">
         {/* Soft lavender waves behind the band, as in the design */}
-        <svg
-          aria-hidden="true"
-          viewBox="0 0 1440 600"
-          preserveAspectRatio="none"
-          className="pointer-events-none absolute inset-0 -z-10 h-full w-full opacity-70 dark:opacity-25"
-        >
-          <defs>
-            <linearGradient id="why-wave" x1="0" x2="1" y1="0" y2="0">
-              <stop offset="0" stopColor="#c9c2f7" stopOpacity="0.55" />
-              <stop offset="1" stopColor="#c7d6fb" stopOpacity="0.5" />
-            </linearGradient>
-          </defs>
-          <path d="M760 0 C 980 40, 1160 120, 1440 110 L 1440 0 Z" fill="url(#why-wave)" opacity="0.6" />
-          <path d="M0 520 C 260 470, 420 600, 700 600 L 0 600 Z" fill="url(#why-wave)" />
-          <path d="M1100 600 C 1250 520, 1350 470, 1440 470 L 1440 600 Z" fill="url(#why-wave)" opacity="0.8" />
-        </svg>
+        <div aria-hidden="true" className="art-frame -z-10">
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 1440 600"
+            preserveAspectRatio="none"
+            className="pointer-events-none absolute inset-0 h-full w-full opacity-70 dark:opacity-25"
+          >
+            <defs>
+              <linearGradient id="why-wave" x1="0" x2="1" y1="0" y2="0">
+                <stop offset="0" stopColor="#c9c2f7" stopOpacity="0.55" />
+                <stop offset="1" stopColor="#c7d6fb" stopOpacity="0.5" />
+              </linearGradient>
+            </defs>
+            <path d="M760 0 C 980 40, 1160 120, 1440 110 L 1440 0 Z" fill="url(#why-wave)" opacity="0.6" />
+            <path d="M0 520 C 260 470, 420 600, 700 600 L 0 600 Z" fill="url(#why-wave)" />
+            <path d="M1100 600 C 1250 520, 1350 470, 1440 470 L 1440 600 Z" fill="url(#why-wave)" opacity="0.8" />
+          </svg>
+        </div>
         <div className="container-page">
-          <div data-reveal suppressHydrationWarning className="max-w-[46rem]">
-            <p className={eyebrow}>{whyAcestar.eyebrow}</p>
+          <div
+            data-reveal
+            suppressHydrationWarning
+            className="mx-auto flex max-w-[56rem] flex-col items-center text-center"
+          >
+            <p className="text-[0.6875rem] font-bold tracking-[0.34em] text-eyebrow-ink uppercase sm:text-xs">
+              {whyAcestar.eyebrow}
+            </p>
             <h2
               id="why-title"
-              className="mt-3 font-display text-[clamp(1.5rem,1.2rem+1.1vw,2.125rem)] leading-tight font-semibold tracking-[-0.025em] text-ink"
+              className="mt-4 font-display text-[clamp(1.875rem,1.15rem+2.3vw,2.875rem)] leading-[1.1] font-bold tracking-[-0.035em] text-balance text-ink"
             >
               {whyAcestar.title}
             </h2>
-            <p className="mt-4 text-[clamp(1.0625rem,0.98rem+0.35vw,1.25rem)] leading-relaxed text-fg">
+            <p className="mt-4 max-w-[40rem] text-[clamp(1rem,0.95rem+0.25vw,1.125rem)] leading-relaxed text-fg-muted">
               {whyAcestar.lead}
             </p>
           </div>
@@ -48,7 +56,7 @@ export function WhyAcestar() {
             suppressHydrationWarning
             className="mt-10 rounded-[1.5rem] border border-white/80 bg-[#f4f2fd]/85 px-6 py-7 shadow-[0_1px_2px_rgb(60_40_160/0.04)] backdrop-blur-sm sm:px-8 lg:mt-12 lg:px-10 lg:py-8 dark:border-white/[0.08] dark:bg-white/[0.04]"
           >
-            <p className="text-[1.0625rem] font-medium text-ink lg:text-[1.125rem]">{whyAcestar.bandTitle}</p>
+            <p className="text-[1.0625rem] font-medium text-center text-ink lg:text-[1.125rem]">{whyAcestar.bandTitle}</p>
             <dl className="mt-6 grid grid-cols-2 gap-y-8 lg:grid-cols-4">
               {whyAcestar.stats.map((s, i) => (
                 <div

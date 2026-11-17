@@ -49,12 +49,19 @@ export default function AppleSolutionPage() {
       </div>
 
       <Section id="capabilities" labelledBy="cap-title" className="pt-0 lg:pt-0">
-        <SectionHead eyebrow={capabilities.eyebrow} title={capabilities.title} id="cap-title" className="mb-8" />
+        <SectionHead
+          align="center"
+          eyebrow={capabilities.eyebrow}
+          title={capabilities.title}
+          id="cap-title"
+          className="mb-8"
+        />
         <FeatureGrid items={capabilities.items} columns={3} />
       </Section>
 
       <Section id="industries" labelledBy="ind-title">
         <SectionHead
+          align="center"
           eyebrow={industries.eyebrow}
           title={industries.title}
           body={industries.body}
@@ -103,9 +110,16 @@ export default function AppleSolutionPage() {
       </Section>
 
       <Section id="why" labelledBy="why-title">
+        <SectionHead
+          eyebrow={why.eyebrow}
+          title={why.title}
+          body={why.body}
+          id="why-title"
+          align="center"
+          className="mb-10"
+        />
         <div className="grid gap-8 lg:grid-cols-[1.25fr_1fr] lg:gap-10">
           <div>
-            <SectionHead eyebrow={why.eyebrow} title={why.title} body={why.body} id="why-title" className="mb-8" />
             <FeatureGrid items={why.items} columns={2} tone="violet" />
           </div>
           <aside

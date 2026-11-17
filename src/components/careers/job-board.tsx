@@ -113,7 +113,7 @@ export function JobBoard({ jobs, to }: { jobs: Job[]; to: string }) {
     });
     setPending(false);
     if (!result.ok) {
-      setStatus({ tone: "error", text: `${result.message} You can also email your CV to ${to}.` });
+      setStatus({ tone: "error", text: `${result.message}` });
       return;
     }
     if (result.via === "email") {
@@ -151,11 +151,7 @@ export function JobBoard({ jobs, to }: { jobs: Job[]; to: string }) {
           Send us your application.
         </h2>
         <p className="mx-auto mt-2 max-w-lg text-center text-[0.9375rem] leading-relaxed text-fg-muted">
-          We read every application. Prefer email? Send your CV to{" "}
-          <a href={`mailto:${to}`} className="font-semibold text-brand-ink hover:underline">
-            {to}
-          </a>
-          .
+          We read every application. Prefer email? Send us your CV.
         </p>
 
         <div className="mt-6 grid gap-4">

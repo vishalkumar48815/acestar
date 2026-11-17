@@ -5,7 +5,8 @@ import { useId, useState } from "react";
 import { ArrowRight } from "@/components/ui/icons";
 import { cn } from "@/lib/utils";
 
-type Logo = { name: string; src: string; width: number; height: number };
+/** wide: very long wordmarks (about 6:1) get almost the full tile width so they don't look tiny. */
+type Logo = { name: string; src: string; width: number; height: number; wide?: boolean };
 
 /** "Show more" under the partner cards: reveals the hardware and software brands as a logo wall. */
 export function PartnersMore({ logos }: { logos: readonly Logo[] }) {
@@ -29,7 +30,8 @@ export function PartnersMore({ logos }: { logos: readonly Logo[] }) {
               key={logo.name}
               style={{ transitionDelay: open ? `${i * 40}ms` : "0ms" }}
               className={cn(
-                "grid h-20 place-items-center rounded-2xl border border-white/90 bg-white/80 px-4 shadow-[0_1px_2px_rgb(30_40_90/0.05)] transition-[opacity,transform] duration-500",
+                "grid h-20 place-items-center rounded-2xl border border-white/90 bg-white/80 shadow-[0_1px_2px_rgb(30_40_90/0.05)] transition-[opacity,transform] duration-500",
+                logo.wide ? "px-1.5" : "px-4",
                 open ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0",
                 "dark:border-white/[0.08] dark:bg-white/90",
               )}
@@ -40,7 +42,10 @@ export function PartnersMore({ logos }: { logos: readonly Logo[] }) {
                 height={logo.height}
                 alt={logo.name}
                 sizes="140px"
-                className="max-h-8 w-auto max-w-[88%] object-contain sm:max-h-9"
+                className={cn(
+                  "max-h-8 w-auto object-contain sm:max-h-9",
+                  logo.wide ? "max-w-full" : "max-w-[88%]",
+                )}
               />
             </li>
           ))}

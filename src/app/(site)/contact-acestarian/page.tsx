@@ -24,7 +24,7 @@ export default function ContactPage() {
       >
         <div
           aria-hidden="true"
-          className="absolute inset-x-0 top-0 -z-10 h-[34rem] bg-[radial-gradient(60%_70%_at_85%_10%,color-mix(in_oklab,var(--accent-to)_16%,transparent),transparent_70%),radial-gradient(50%_60%_at_5%_0%,color-mix(in_oklab,var(--accent-from)_12%,transparent),transparent_70%)]"
+          className="art-frame -z-10 h-[34rem] bg-[radial-gradient(60%_70%_at_85%_10%,color-mix(in_oklab,var(--accent-to)_16%,transparent),transparent_70%),radial-gradient(50%_60%_at_5%_0%,color-mix(in_oklab,var(--accent-from)_12%,transparent),transparent_70%)]"
         />
         <div className="container-page">
           <div

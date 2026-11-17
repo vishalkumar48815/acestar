@@ -1,4 +1,5 @@
 import type { SolutionBrief } from "@/content/solutions/types";
+import { cn } from "@/lib/utils";
 import { AiReasons } from "./ai-sections";
 import { Eyebrow, Section, SectionHead } from "./primitives";
 
@@ -10,7 +11,10 @@ const h2 =
 function OverviewParagraphs({ paragraphs, className }: { paragraphs: string[]; className?: string }) {
   return (
     <div
-      className={`mt-5 flex flex-col gap-4 text-[clamp(1rem,0.95rem+0.25vw,1.125rem)] leading-relaxed text-pretty text-fg-muted ${className ?? ""}`}
+      className={cn(
+        "mt-5 flex flex-col gap-4 text-[clamp(1rem,0.95rem+0.25vw,1.125rem)] leading-relaxed text-pretty text-fg-muted",
+        className,
+      )}
     >
       {paragraphs.map((p) => (
         <p key={p.slice(0, 32)}>{p}</p>
@@ -23,12 +27,32 @@ export function BriefOverview({
   overview,
   id = "overview",
   showOfferings = true,
+  align = "start",
 }: {
   overview: SolutionBrief["overview"];
   id?: string;
   /** false = intro only, without the numbered offerings list. */
   showOfferings?: boolean;
+  /** Intro only: "center" stacks eyebrow, title and description in the middle. */
+  align?: "start" | "center";
 }) {
+  if (!showOfferings && align === "center") {
+    return (
+      <Section id={id} labelledBy={`${id}-title`}>
+        <div
+          data-reveal
+          suppressHydrationWarning
+          className="mx-auto flex max-w-[56rem] flex-col items-center text-center"
+        >
+          <Eyebrow>{overview.eyebrow}</Eyebrow>
+          <h2 id={`${id}-title`} className={`mt-4 text-balance ${h2}`}>
+            {overview.title}
+          </h2>
+          <OverviewParagraphs paragraphs={overview.paragraphs} className="mt-4 max-w-[44rem]" />
+        </div>
+      </Section>
+    );
+  }
   return (
     <Section id={id} labelledBy={`${id}-title`}>
       <div
@@ -117,6 +141,7 @@ export function BriefWhy({ why, id = "why" }: { why: SolutionBrief["why"]; id?: 
           </span>
         ))}
         id={`${id}-title`}
+        align="center"
         className="mb-10"
       />
       {why.highlights.length ? <AiReasons items={why.highlights} /> : null}

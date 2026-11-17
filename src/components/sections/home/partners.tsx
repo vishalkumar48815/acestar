@@ -8,27 +8,24 @@ export function Partners() {
     <section aria-labelledby="partners-title">
       <div className="bg-[linear-gradient(180deg,#f5f6fd,#f2f4fc)] py-16 lg:py-20 dark:bg-[linear-gradient(180deg,rgb(255_255_255/0.025),rgb(255_255_255/0.01))]">
         <div className="container-page">
-          <div
-            data-reveal
-            suppressHydrationWarning
-            className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between lg:gap-12"
-          >
-            <div>
-              <p className="text-[0.6875rem] font-bold tracking-[0.34em] text-eyebrow-ink uppercase sm:text-xs">
-                {partners.eyebrow}
-              </p>
-              <h2
-                id="partners-title"
-                className="mt-4 font-display text-[clamp(1.875rem,1.15rem+2.3vw,2.75rem)] leading-[1.08] font-bold tracking-[-0.035em] text-ink"
-              >
-                {partners.title.map((line) => (
-                  <span key={line} className="block">
-                    {line}
-                  </span>
-                ))}
-              </h2>
-            </div>
-            <p className="max-w-sm text-[0.9375rem] leading-relaxed text-fg-muted lg:mb-2">{partners.lead}</p>
+          {/* Centred like "Our Solutions": eyebrow, title, then description */}
+          <div data-reveal suppressHydrationWarning className="flex flex-col items-center text-center">
+            <p className="text-[0.6875rem] font-bold tracking-[0.34em] text-eyebrow-ink uppercase sm:text-xs">
+              {partners.eyebrow}
+            </p>
+            <h2
+              id="partners-title"
+              className="mt-4 font-display text-[clamp(1.875rem,1.15rem+2.3vw,2.875rem)] leading-[1.1] font-bold tracking-[-0.035em] text-ink"
+            >
+              {partners.title.map((line) => (
+                <span key={line} className="block">
+                  {line}
+                </span>
+              ))}
+            </h2>
+            <p className="mt-4 max-w-[40rem] text-[clamp(1rem,0.95rem+0.25vw,1.125rem)] leading-relaxed text-fg-muted">
+              {partners.lead}
+            </p>
           </div>
 
           <ul

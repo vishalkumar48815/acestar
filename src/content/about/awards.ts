@@ -174,14 +174,8 @@ export const hero: PageHero = {
   lead: `${awardCount} awards and recognitions since ${firstYear}, from our technology partners and Malaysia's leading business awards.`,
   primary: { label: "See the timeline", href: "#timeline" },
   secondary: { label: "Company Profile", href: "/company-profile/" },
-  // Gold trophy with Acestar's real award logos (scripts/hero-art/awards/render-awards-art.html)
-  image: {
-    src: "/images/pages/about/awards-hero-trophy.webp",
-    width: 1440,
-    height: 1200,
-    alt: "Gold trophy surrounded by Acestar's awards from Adobe, EY, Enterprise 50, Platinum Business Awards and SOBA",
-  },
-  imageFit: "contain",
+  // Text-only, centred hero (the trophy artwork is no longer shown)
+  align: "center",
   crumbs: [{ label: "Home", href: "/" }, { label: "About Us" }, { label: "Awards" }],
 };
 

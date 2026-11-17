@@ -1,5 +1,4 @@
 /** Digital Workflow Management — content from acestar.my/digital-workflow (text tidied). */
-import { site } from "@/content/site";
 import { asset } from "./assets";
 import type { Cta, Feature, Img, PageHero, SolutionBrief } from "./types";
 
@@ -16,7 +15,7 @@ export const hero: PageHero = {
   ),
   imageFit: "backdrop",
   crumbs: [{ label: "Home", href: "/" }, { label: "Solutions" }, { label: "Digital Workflow" }],
-  chips: ["Adobe Document Cloud", "Microsoft 365", "Faronics", "Saleslive", "Video Conferencing"],
+  chips: ["Adobe Document Cloud", "Microsoft 365", "Faronics", "Video Conferencing"],
 };
 
 export type WorkflowSection = {
@@ -91,15 +90,6 @@ export const sections: WorkflowSection[] = [
       { value: "30,000", label: "customers" },
       { value: "150", label: "countries" },
     ],
-  },
-  {
-    id: "saleslive",
-    name: "Saleslive",
-    banner: asset("2021/12/Saleslive-Background.png", "Saleslive banner"),
-    intro: "A powerful app developed to help your business get more business.",
-    story:
-      "Saleslive is a cloud-based CRM platform that helps organisations streamline sales processes and operations, from leads to campaigns.",
-    link: { label: "Visit sales.live", href: site.externalLinks.saleslive, external: true },
   },
   {
     id: "video-conferencing",

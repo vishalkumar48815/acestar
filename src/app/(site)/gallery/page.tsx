@@ -31,6 +31,7 @@ export default async function GalleryPage() {
 
       <Section id="photos" labelledBy="photos-title" className="pt-0 lg:pt-4">
         <SectionHead
+          align="center"
           eyebrow="Memories with Acestar"
           title="Every milestone, shared together."
           body="Since 2008, the moments with our customers, partners, students and team that keep us moving forward."

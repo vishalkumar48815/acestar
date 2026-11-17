@@ -186,59 +186,6 @@ export default function TechCarePage() {
         </div>
       </section>
 
-      {/* Packages */}
-      <Section id="packages" labelledBy="pkg-title">
-        <SectionHead
-          eyebrow={packages.eyebrow}
-          title={packages.title}
-          align="center"
-          id="pkg-title"
-          className="mb-10"
-        />
-        <CardSpotlight>
-          <ul className="grid gap-4 md:grid-cols-3">
-            {packages.items.map((pkg, i) => (
-              <li key={pkg.name} data-reveal suppressHydrationWarning>
-                <article
-                  data-spotlight
-                  className={cn(toneCard, "group/card flex h-full flex-col p-6 lg:p-7")}
-                  style={toneStyle(packageTones[i])}
-                >
-                  <span aria-hidden="true" className={spotlight} />
-                  <div className="relative mx-auto h-36 w-36">
-                    {pkg.image ? (
-                      <Image
-                        src={pkg.image.src}
-                        width={pkg.image.width}
-                        height={pkg.image.height}
-                        alt={pkg.image.alt}
-                        sizes="144px"
-                        className="h-full w-full object-contain transition-transform duration-700 ease-out-expo group-hover/card:scale-105 group-hover/card:-rotate-3"
-                      />
-                    ) : null}
-                  </div>
-                  <h3 className="mt-6 font-display text-[1.75rem] font-extrabold tracking-[-0.03em] text-ink">
-                    {pkg.name}
-                  </h3>
-                  <p className="text-gradient font-semibold">{pkg.tagline}</p>
-                  <p className="mt-4 text-[0.9375rem] font-medium text-fg">{pkg.audience}</p>
-                  <p className="mt-2 text-[0.9375rem] leading-relaxed text-fg-muted">{pkg.body}</p>
-                  <a
-                    href={site.externalLinks.techcare}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-auto inline-flex items-center gap-1.5 pt-6 text-sm font-semibold text-brand-ink hover:underline"
-                  >
-                    Know more <ArrowUpRight aria-hidden="true" className="size-4" />
-                    <span className="sr-only"> about {pkg.name} on techcareasia.com</span>
-                  </a>
-                </article>
-              </li>
-            ))}
-          </ul>
-        </CardSpotlight>
-      </Section>
-
       {/* Outcomes (client mock) */}
       <Section id="outcomes" labelledBy="outcomes-title" className="pt-0 lg:pt-0">
         <div className="flex gap-5">

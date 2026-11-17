@@ -77,8 +77,8 @@ export const partners = {
     { name: "HP", src: "/images/partners/wall/hp.webp", width: 268, height: 268 },
     { name: "Lenovo", src: "/images/partners/wall/lenovo.webp", width: 666, height: 193 },
     { name: "ASUS", src: "/images/partners/wall/asus.webp", width: 800, height: 166 },
-    { name: "Adobe", src: "/images/partners/wall/adobe.webp", width: 667, height: 116 },
-    { name: "Microsoft", src: "/images/partners/wall/microsoft.webp", width: 730, height: 109 },
+    { name: "Adobe", src: "/images/partners/wall/adobe.webp", width: 667, height: 116, wide: true },
+    { name: "Microsoft", src: "/images/partners/wall/microsoft.webp", width: 730, height: 109, wide: true },
     { name: "Autodesk", src: "/images/partners/wall/autodesk.webp", width: 693, height: 72 },
     { name: "Jabra", src: "/images/partners/wall/jabra.webp", width: 800, height: 272 },
     { name: "Logitech", src: "/images/partners/wall/logitech.webp", width: 434, height: 132 },
@@ -97,7 +97,7 @@ export const partners = {
 /** "Why Acestar" band (client brief, Acestar 3.0). Figures from the brief; confirm before launch. */
 export const whyAcestar = {
   eyebrow: "Why Acestar",
-  title: "The Proven Technology Partner You Can Trust.",
+  title: "The Proven & Trusted Technology Partner.",
   lead: "More than technology, we bring trusted expertise, professional services and a commitment to helping your business succeed.",
   bandTitle: "Built on Trust. Proven by Results.",
   stats: [

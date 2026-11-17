@@ -29,12 +29,13 @@ export function PageHero({ hero, visual }: { hero: Hero; visual?: ReactNode }) {
   const fit = hero.imageFit ?? "cover";
   const side = Boolean(visual) || (hero.image && (fit === "cover" || fit === "contain"));
   const cover = fit === "cover";
+  const centered = hero.align === "center" && !side && !(hero.image && fit === "backdrop");
   return (
     <section aria-labelledby="page-title" className="relative isolate overflow-hidden">
       {/* Soft brand glow behind the hero */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-[radial-gradient(60%_70%_at_85%_10%,color-mix(in_oklab,var(--accent-to)_16%,transparent),transparent_70%),radial-gradient(50%_60%_at_5%_0%,color-mix(in_oklab,var(--accent-from)_12%,transparent),transparent_70%)]"
+        className="art-frame -z-10 bg-[radial-gradient(60%_70%_at_85%_10%,color-mix(in_oklab,var(--accent-to)_16%,transparent),transparent_70%),radial-gradient(50%_60%_at_5%_0%,color-mix(in_oklab,var(--accent-from)_12%,transparent),transparent_70%)]"
       />
       {hero.image && fit === "backdrop" ? (
         /*
@@ -44,7 +45,9 @@ export function PageHero({ hero, visual }: { hero: Hero; visual?: ReactNode }) {
         <div
           aria-hidden="true"
           className={cn(
-            "absolute inset-x-0 -z-10 h-[min(80vw,26rem)] [mask-image:linear-gradient(180deg,#000_62%,transparent)] opacity-[var(--art-o)] lg:h-auto lg:[mask-image:linear-gradient(180deg,#000_82%,transparent)] dark:opacity-[calc(var(--art-o)*var(--art-dark))]",
+            "absolute left-1/2 -z-10 h-[min(80vw,26rem)] w-full max-w-[90rem] -translate-x-1/2 [mask-image:linear-gradient(180deg,#000_62%,transparent)] opacity-[var(--art-o)] lg:h-auto lg:[mask-image:linear-gradient(180deg,#000_82%,transparent)] dark:opacity-[calc(var(--art-o)*var(--art-dark))]",
+            /* Stops growing at 1440px; edges soften from 1440px, and from 1600px nothing shows outside the 80rem column */
+            "min-[90rem]:[mask-image:linear-gradient(180deg,#000_82%,transparent),linear-gradient(90deg,transparent,#000_6%,#000_94%,transparent)] min-[90rem]:[mask-composite:intersect] min-[100rem]:[mask-image:linear-gradient(180deg,#000_82%,transparent),linear-gradient(90deg,transparent_5rem,#000_10rem,#000_calc(100%-10rem),transparent_calc(100%-5rem))]",
             /* Header is 62px tall on phones, 78px from lg up */
             hero.imageBelowHeader ? "top-[3.875rem] lg:top-[4.875rem] lg:bottom-0" : "top-0 lg:inset-y-0",
           )}
@@ -60,7 +63,7 @@ export function PageHero({ hero, visual }: { hero: Hero; visual?: ReactNode }) {
             alt=""
             fill
             priority
-            sizes="100vw"
+            sizes="(min-width: 1440px) 1440px, 100vw"
             quality={90}
             className={cn("object-cover object-right", hero.imageDark && "dark:hidden")}
             style={{ animation: "hero-art-in 1.4s var(--ease-out) both" }}
@@ -71,7 +74,7 @@ export function PageHero({ hero, visual }: { hero: Hero; visual?: ReactNode }) {
               alt=""
               fill
               priority
-              sizes="100vw"
+              sizes="(min-width: 1440px) 1440px, 100vw"
               quality={90}
               className="hidden object-cover object-right dark:block"
               style={{ animation: "hero-art-in 1.4s var(--ease-out) both" }}
@@ -102,9 +105,20 @@ export function PageHero({ hero, visual }: { hero: Hero; visual?: ReactNode }) {
           fit === "backdrop" && "lg:min-h-[38rem] lg:pb-20",
         )}
       >
-        <div className={cn("flex min-w-0 flex-col items-start", !side && "max-w-[46rem]")}>
+        <div
+          className={cn(
+            "flex min-w-0 flex-col",
+            centered ? "mx-auto max-w-[52rem] items-center text-center" : "items-start",
+            !side && !centered && "max-w-[46rem]",
+          )}
+        >
           <nav aria-label="Breadcrumb" style={enter(0)}>
-            <ol className="flex flex-wrap items-center gap-1 text-[0.8125rem] text-fg-subtle">
+            <ol
+              className={cn(
+                "flex flex-wrap items-center gap-1 text-[0.8125rem] text-fg-subtle",
+                centered && "justify-center",
+              )}
+            >
               {hero.crumbs.map((c, i) => (
                 <li key={c.label} className="flex items-center gap-1">
                   {i > 0 && <ChevronRight aria-hidden="true" className="size-3.5 opacity-60" />}
@@ -163,14 +177,20 @@ export function PageHero({ hero, visual }: { hero: Hero; visual?: ReactNode }) {
             </h2>
           ) : null}
           <p
-            className="mt-5 max-w-[36rem] text-[clamp(1.0625rem,0.97rem+0.35vw,1.25rem)] leading-[1.6] text-pretty text-fg-muted"
+            className={cn(
+              "mt-5 text-[clamp(1.0625rem,0.97rem+0.35vw,1.25rem)] leading-[1.6] text-pretty text-fg-muted",
+              centered ? "max-w-[40rem]" : "max-w-[36rem]",
+            )}
             style={enter(260)}
           >
             {hero.lead}
           </p>
 
           {(hero.primary || hero.secondary) && (
-            <div className="mt-8 flex w-full flex-col gap-3 sm:w-auto sm:flex-row" style={enter(360)}>
+            <div
+              className={cn("mt-8 flex w-full flex-col gap-3 sm:w-auto sm:flex-row", centered && "sm:justify-center")}
+              style={enter(360)}
+            >
               {hero.primary && (
                 <ButtonLink
                   href={hero.primary.href}
@@ -199,7 +219,11 @@ export function PageHero({ hero, visual }: { hero: Hero; visual?: ReactNode }) {
           )}
 
           {hero.chips?.length ? (
-            <ul className="mt-8 flex flex-wrap gap-2" style={enter(460)} aria-label="Highlights">
+            <ul
+              className={cn("mt-8 flex flex-wrap gap-2", centered && "justify-center")}
+              style={enter(460)}
+              aria-label="Highlights"
+            >
               {hero.chips.map((chip) => (
                 <li
                   key={chip}

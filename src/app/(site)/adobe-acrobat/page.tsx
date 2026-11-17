@@ -63,6 +63,7 @@ export default function AdobeAcrobatPage() {
 
       <Section id="whats-new" labelledBy="new-title">
         <SectionHead
+          align="center"
           eyebrow="What's new"
           title="The modern PDF: connected, intelligent, creative."
           id="new-title"
@@ -73,6 +74,7 @@ export default function AdobeAcrobatPage() {
 
       <Section id="features" labelledBy="feat-title">
         <SectionHead
+          align="center"
           eyebrow="Everyday PDF tools"
           title="Everything you need to work with PDFs."
           id="feat-title"
@@ -83,6 +85,7 @@ export default function AdobeAcrobatPage() {
 
       <Section id="compare" labelledBy="compare-title">
         <SectionHead
+          align="center"
           eyebrow="Compare"
           title="Which Acrobat is right for your team?"
           id="compare-title"
@@ -106,6 +109,7 @@ export default function AdobeAcrobatPage() {
 
       <Section id="stories" labelledBy="stories-title">
         <SectionHead
+          align="center"
           eyebrow="Customer stories"
           title="See Acrobat AI Assistant at work."
           id="stories-title"

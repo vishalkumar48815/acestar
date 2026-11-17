@@ -107,45 +107,53 @@ export function HeroBackdrop() {
   const src = candidate && candidate !== failed ? candidate : undefined;
 
   return (
-    <div ref={rootRef} aria-hidden="true" className="pointer-events-none absolute inset-0 -z-20 overflow-hidden">
-      <div
-        ref={layerRef}
-        className="absolute inset-0 will-change-transform"
-        style={{ animation: "hero-art-in 1.6s var(--ease-out) both" }}
-      >
-        <div className="hero-art absolute inset-0" />
-        {src && (
-          <video
-            key={src}
-            ref={videoRef}
-            muted
-            loop
-            playsInline
-            autoPlay
-            preload="auto"
-            disablePictureInPicture
-            onPlaying={() => setPlaying(true)}
-            onEmptied={() => setPlaying(false)}
-            className={cn(
-              "absolute top-0 left-0 w-full transition-opacity duration-1000 ease-out-expo",
-              "max-lg:h-auto lg:h-full lg:object-cover lg:object-[68%_50%]",
-              playing ? "opacity-100" : "opacity-0",
-            )}
-          >
-            <source src={`${src}.webm`} type="video/webm" />
-            {/* Errors surface on the last <source>, not the <video> */}
-            <source
-              src={`${src}.mp4`}
-              type="video/mp4"
-              onError={() => {
-                setPlaying(false);
-                setFailed(src);
-              }}
-            />
-          </video>
-        )}
+    <div
+      ref={rootRef}
+      aria-hidden="true"
+      className="hero-fill pointer-events-none absolute inset-0 -z-20 overflow-hidden"
+    >
+      {/* Artwork stops growing at 1440px and stays centred, so on very wide screens (or when zoomed out)
+          it keeps its place beside the headline; the edges fade into the plain background colour. */}
+      <div className="art-frame">
+        <div
+          ref={layerRef}
+          className="absolute inset-0 will-change-transform"
+          style={{ animation: "hero-art-in 1.6s var(--ease-out) both" }}
+        >
+          <div className="hero-art absolute inset-0" />
+          {src && (
+            <video
+              key={src}
+              ref={videoRef}
+              muted
+              loop
+              playsInline
+              autoPlay
+              preload="auto"
+              disablePictureInPicture
+              onPlaying={() => setPlaying(true)}
+              onEmptied={() => setPlaying(false)}
+              className={cn(
+                "absolute top-0 left-0 w-full transition-opacity duration-1000 ease-out-expo",
+                "max-lg:h-auto lg:h-full lg:object-cover lg:object-[68%_50%]",
+                playing ? "opacity-100" : "opacity-0",
+              )}
+            >
+              <source src={`${src}.webm`} type="video/webm" />
+              {/* Errors surface on the last <source>, not the <video> */}
+              <source
+                src={`${src}.mp4`}
+                type="video/mp4"
+                onError={() => {
+                  setPlaying(false);
+                  setFailed(src);
+                }}
+              />
+            </video>
+          )}
+        </div>
+        <NeuralField className="absolute inset-0 h-full w-full [mask-image:linear-gradient(to_bottom,#000_0%,#000_26%,transparent_42%)] lg:[mask-image:linear-gradient(to_right,transparent_28%,#000_62%)]" />
       </div>
-      <NeuralField className="absolute inset-0 h-full w-full [mask-image:linear-gradient(to_bottom,#000_0%,#000_26%,transparent_42%)] lg:[mask-image:linear-gradient(to_right,transparent_28%,#000_62%)]" />
     </div>
   );
 }
