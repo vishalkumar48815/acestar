@@ -357,3 +357,20 @@ export const Calculator = createIcon([
   ["path", { d: "M16 14v4" }],
   ["path", { d: "M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M8 18h.01M12 18h.01" }],
 ]);
+
+/* Training & Certification page */
+export const UserRound = createIcon([
+  ["circle", { cx: "12", cy: "8", r: "4" }],
+  ["path", { d: "M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1" }],
+]);
+export const Heart = createIcon([
+  ["path", { d: "M12 21s-7-4.4-9.3-9A5 5 0 0 1 12 6a5 5 0 0 1 9.3 6c-2.3 4.6-9.3 9-9.3 9Z" }],
+]);
+export const ListFilter = createIcon([
+  ["path", { d: "M4 6h16M4 12h10M4 18h7" }],
+  ["circle", { cx: "18", cy: "16", r: "3" }],
+]);
+export const MonitorCheck = createIcon([
+  ["rect", { width: "18", height: "13", x: "3", y: "4", rx: "2" }],
+  ["path", { d: "M8 21h8M12 17v4M8 10l2.5 2.5L16 8" }],
+]);

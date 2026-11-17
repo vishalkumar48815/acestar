@@ -22,7 +22,7 @@ export default function DigitalWorkflowPage() {
         ))}
       </div>
       <BriefWhy why={brief.why} />
-      <RelatedSolutions current="workflow" />
+      {/* <RelatedSolutions current="workflow" /> */}
       <ClosingCta content={brief.closing} />
     </>
   );

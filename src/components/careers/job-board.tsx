@@ -1,16 +1,15 @@
 "use client";
 
 import { useEffect, useId, useRef, useState, type FormEvent } from "react";
-import { FormNotice, SelectField, TextArea, TextField } from "@/components/forms/fields";
+import { FormNotice, Honeypot, SelectField, TextArea, TextField } from "@/components/forms/fields";
 import { Button } from "@/components/ui/button";
 import { Paperclip, Send, X } from "@/components/ui/icons";
 import type { Job } from "@/content/pages/careers";
-import { EMAIL_RE, PHONE_RE, deliverForm, formEndpoints } from "@/lib/forms";
+import { EMAIL_RE, MAX_CV_BYTES, PHONE_RE, deliverForm } from "@/lib/forms";
 import { cn } from "@/lib/utils";
 
 const GENERAL = "General application";
 const INTERNSHIP = "Internship / fresh graduate";
-const MAX_CV_BYTES = 5 * 1024 * 1024;
 const CV_TYPES = ".pdf,.doc,.docx";
 const JOIN_OPTIONS = ["Immediately", "Within 2 weeks", "Within 1 month", "Within 2 months", "3 months or more"];
 
@@ -30,12 +29,11 @@ export function JobBoard({ jobs, to }: { jobs: Job[]; to: string }) {
   const [cv, setCv] = useState<File | null>(null);
   const cvRef = useRef<HTMLInputElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
-  const uploads = Boolean(formEndpoints.careers);
 
   /** Keeps the chosen CV in state and in the (visually hidden) file input that the form submits. */
   const pickCv = (file: File | null) => {
     if (file && file.size > MAX_CV_BYTES) {
-      setErrors((e) => ({ ...e, cv: "Your CV must be 5 MB or smaller." }));
+      setErrors((e) => ({ ...e, cv: "Your CV must be 4 MB or smaller." }));
       if (cvRef.current) cvRef.current.value = "";
       setCv(null);
       return;
@@ -82,7 +80,7 @@ export function JobBoard({ jobs, to }: { jobs: Job[]; to: string }) {
     if (!String(data.get("role") ?? "")) next.role = "Please choose a role.";
     if (!String(data.get("join") ?? "")) next.join = "Please tell us when you can join.";
     if (!cv) next.cv = "Please attach your CV (PDF or Word).";
-    else if (cv.size > MAX_CV_BYTES) next.cv = "Your CV must be 5 MB or smaller.";
+    else if (cv.size > MAX_CV_BYTES) next.cv = "Your CV must be 4 MB or smaller.";
     return next;
   };
 
@@ -140,8 +138,9 @@ export function JobBoard({ jobs, to }: { jobs: Job[]; to: string }) {
         noValidate
         onSubmit={onSubmit}
         aria-labelledby="apply-title"
-        className="scroll-mt-28 rounded-[1.75rem] border border-white/80 bg-white/70 p-6 shadow-[0_40px_80px_-50px_rgb(40_50_140/0.5)] backdrop-blur-xl sm:p-10 dark:border-white/[0.08] dark:bg-white/[0.03]"
+        className="relative scroll-mt-28 rounded-[1.75rem] border border-white/80 bg-white/70 p-6 shadow-[0_40px_80px_-50px_rgb(40_50_140/0.5)] backdrop-blur-xl sm:p-10 dark:border-white/[0.08] dark:bg-white/[0.03]"
       >
+        <Honeypot />
         <p className="text-center text-[0.6875rem] font-bold tracking-[0.34em] text-eyebrow-ink uppercase sm:text-xs">
           Apply now
         </p>
@@ -249,7 +248,7 @@ export function JobBoard({ jobs, to }: { jobs: Job[]; to: string }) {
             >
               <Paperclip className="size-5 shrink-0 text-brand-ink" />
               <span className="text-[0.9375rem] text-fg-muted">
-                {cv ? "Replace file" : "Attach your CV"} · PDF or Word, up to 5 MB
+                {cv ? "Replace file" : "Attach your CV"} · PDF or Word, up to 4 MB
               </span>
               <input
                 ref={cvRef}
@@ -294,12 +293,6 @@ export function JobBoard({ jobs, to }: { jobs: Job[]; to: string }) {
             rows={3}
           />
 
-          {!uploads ? (
-            <FormNotice tone="info">
-              When you press send, your email app opens with your details filled in. Attach the CV you chose before
-              sending.
-            </FormNotice>
-          ) : null}
           {status ? <FormNotice tone={status.tone}>{status.text}</FormNotice> : null}
 
           <Button type="submit" variant="gradient" className="w-full" disabled={pending}>

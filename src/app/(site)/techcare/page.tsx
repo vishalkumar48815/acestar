@@ -301,7 +301,7 @@ export default function TechCarePage() {
         </div>
       </section>
 
-      <RelatedSolutions current="techcare" />
+      {/* <RelatedSolutions current="techcare" /> */}
     </div>
   );
 }

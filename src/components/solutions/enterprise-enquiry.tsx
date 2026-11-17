@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useId, useRef, useState, type FormEvent } from "react";
-import { FormNotice, SelectField, TextArea, TextField } from "@/components/forms/fields";
+import { FormNotice, SelectField, TextArea, TextField, Honeypot } from "@/components/forms/fields";
 import { Button } from "@/components/ui/button";
 import { Send, X } from "@/components/ui/icons";
 import { site } from "@/content/site";
@@ -92,7 +92,7 @@ export function EnterpriseEnquiry({ id = "enquiry" }: { id?: string }) {
     }
     setPending(true);
     setStatus(null);
-    const result = await deliverForm("contact", data, {
+    const result = await deliverForm("enquiry", data, {
       to: site.contact.email.sales,
       subject: `Enterprise enquiry: ${solution.label} (${get("company")})`,
       fields: [
@@ -146,7 +146,8 @@ export function EnterpriseEnquiry({ id = "enquiry" }: { id?: string }) {
         </h2>
         <p className="mt-2 text-fg-muted">Choose a solution and we&apos;ll ask only what matters for it.</p>
 
-        <form noValidate onSubmit={onSubmit} className="mt-8 grid gap-5">
+        <form noValidate onSubmit={onSubmit} className="relative mt-8 grid gap-5">
+          <Honeypot />
           <SelectField
             id={`${uid}-solution`}
             name="solution"

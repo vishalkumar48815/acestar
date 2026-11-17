@@ -1,17 +1,20 @@
 /**
- * Form delivery for a statically hosted site.
+ * Form delivery.
  *
- * Set an endpoint (e.g. Formspree, Basin, a Zoho/HubSpot webhook or your own API) in `.env.local`:
- *   NEXT_PUBLIC_CONTACT_FORM_ENDPOINT=https://...
- *   NEXT_PUBLIC_CAREERS_FORM_ENDPOINT=https://...
- * The form is POSTed there as multipart/form-data (so CV uploads work).
- * Without an endpoint, the visitor's email app opens with everything pre-filled instead,
- * so the form never silently fails.
+ * Contact, Careers and the enterprise enquiry are POSTed (multipart/form-data, so CV uploads
+ * work) to the site's own API, src/app/api/forms/[kind]/route.ts, which emails them to the
+ * team through Twilio SendGrid. Until SendGrid is configured, the API answers "not configured"
+ * and the visitor's email app opens with everything pre-filled instead, so a form never
+ * silently fails. Tech Support is separate (Zoho Desk, later).
  */
 export const formEndpoints = {
-  contact: process.env.NEXT_PUBLIC_CONTACT_FORM_ENDPOINT ?? "",
-  careers: process.env.NEXT_PUBLIC_CAREERS_FORM_ENDPOINT ?? "",
+  contact: "/api/forms/contact/",
+  careers: "/api/forms/careers/",
+  enquiry: "/api/forms/enquiry/",
 };
+
+/** CV upload limit. Kept under Vercel's 4.5 MB request limit for serverless functions. */
+export const MAX_CV_BYTES = 4 * 1024 * 1024;
 
 export type FormKind = keyof typeof formEndpoints;
 
@@ -36,14 +39,20 @@ export async function deliverForm(
   data: FormData,
   fallback: { to: string; subject: string; fields: [string, string][] },
 ): Promise<SubmitResult> {
-  const endpoint = formEndpoints[kind];
-  if (!endpoint) {
+  const openEmailApp = (): SubmitResult => {
     window.location.href = mailtoLink(fallback.to, fallback.subject, fallback.fields);
     return { ok: true, via: "email" };
-  }
+  };
   try {
-    const res = await fetch(endpoint, { method: "POST", body: data, headers: { Accept: "application/json" } });
-    if (!res.ok) return { ok: false, message: `The server responded with ${res.status}.` };
+    const res = await fetch(formEndpoints[kind], {
+      method: "POST",
+      body: data,
+      headers: { Accept: "application/json" },
+    });
+    const body = (await res.json().catch(() => ({}))) as { fallback?: boolean; message?: string };
+    if (res.status === 503 && body.fallback) return openEmailApp();
+    if (!res.ok)
+      return { ok: false, message: body.message ?? `Something went wrong (${res.status}). Please try again.` };
     return { ok: true, via: "endpoint" };
   } catch {
     return { ok: false, message: "We couldn't reach the server. Check your connection and try again." };

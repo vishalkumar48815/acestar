@@ -32,7 +32,7 @@ export default function CreativeSoftwarePage() {
 
       <BriefWhy why={brief.why} />
 
-      <RelatedSolutions current="creative" />
+      {/* <RelatedSolutions current="creative" /> */}
 
       <Section labelledBy="ccpro-promo" className="pt-0 lg:pt-0">
         <InnerPagePromo

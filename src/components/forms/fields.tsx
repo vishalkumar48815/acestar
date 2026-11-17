@@ -153,3 +153,18 @@ export function FormNotice({ tone, children }: { tone: "success" | "error" | "in
     </div>
   );
 }
+
+/**
+ * Spam trap: hidden from people (and screen readers), but bots fill it in. The form API quietly
+ * drops any submission where it has a value.
+ */
+export function Honeypot() {
+  return (
+    <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
+      <label>
+        Website
+        <input type="text" name="website" tabIndex={-1} autoComplete="off" defaultValue="" />
+      </label>
+    </div>
+  );
+}

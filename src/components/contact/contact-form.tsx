@@ -1,10 +1,10 @@
 "use client";
 
 import { useId, useState, type FormEvent } from "react";
-import { FormNotice, TextArea, TextField } from "@/components/forms/fields";
+import { FormNotice, TextArea, TextField, Honeypot } from "@/components/forms/fields";
 import { Button } from "@/components/ui/button";
 import { Send } from "@/components/ui/icons";
-import { EMAIL_RE, PHONE_RE, deliverForm, formEndpoints } from "@/lib/forms";
+import { EMAIL_RE, PHONE_RE, deliverForm } from "@/lib/forms";
 
 type Key = "name" | "phone" | "email" | "company" | "subject" | "message";
 type Errors = Partial<Record<Key, string>>;
@@ -70,12 +70,8 @@ export function ContactForm({ to }: { to: string }) {
   };
 
   return (
-    <form
-      noValidate
-      onSubmit={onSubmit}
-      className="grid gap-4"
-      aria-describedby={formEndpoints.contact ? undefined : `${uid}-note`}
-    >
+    <form noValidate onSubmit={onSubmit} className="relative grid gap-4">
+      <Honeypot />
       <div className="grid gap-4 sm:grid-cols-2">
         <TextField
           id={`${uid}-name`}
@@ -133,11 +129,6 @@ export function ContactForm({ to }: { to: string }) {
         placeholder="Tell us what you need: products, number of users, timeline…"
         error={errors.message}
       />
-      {!formEndpoints.contact ? (
-        <p id={`${uid}-note`} className="text-[0.8125rem] text-fg-subtle">
-          Sending opens your email app with your message ready to go.
-        </p>
-      ) : null}
       {status ? <FormNotice tone={status.tone}>{status.text}</FormNotice> : null}
       <Button
         type="submit"

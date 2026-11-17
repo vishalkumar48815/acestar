@@ -59,7 +59,7 @@ export default function WorkstationsPage() {
 
       <BriefWhy why={brief.why} />
 
-      <RelatedSolutions current="computers" />
+      {/* <RelatedSolutions current="computers" /> */}
       <ClosingCta content={brief.closing} />
     </>
   );

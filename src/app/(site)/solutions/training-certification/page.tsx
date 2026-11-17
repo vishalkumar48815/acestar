@@ -5,7 +5,8 @@ import { BriefOverview, BriefWhy } from "@/components/solutions/brief-sections";
 import { PageHero } from "@/components/solutions/page-hero";
 import { Section, SectionHead, toneCard, toneStyle } from "@/components/solutions/primitives";
 import { Check } from "@/components/ui/icons";
-import { brief, hero, upskilling } from "@/content/solutions/training";
+import { audiences, badges, brief, hero, pathway, upskilling, value } from "@/content/solutions/training";
+import { AudienceCards, CertBadges, CertPathway, CertValue } from "@/components/solutions/training-sections";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -20,7 +21,14 @@ export default function TrainingCertificationPage() {
     <>
       <PageHero hero={hero} />
 
-      <BriefOverview overview={brief.overview} />
+      {/* Intro (title left, text right); the programme list is now the badge wall below */}
+      <BriefOverview overview={brief.overview} showOfferings={false} />
+
+      {/* Modelled on certiport.pearsonvue.com and acestarsolution.com (client reference sites) */}
+      {/* <AudienceCards content={audiences} /> */}
+      <CertBadges content={badges} />
+      {/* <CertPathway content={pathway} /> */}
+      <CertValue content={value} />
 
       <Section id="upskilling" labelledBy="upskilling-title" className="pt-0 lg:pt-0">
         <div
@@ -53,7 +61,7 @@ export default function TrainingCertificationPage() {
 
       <BriefWhy why={brief.why} />
 
-      <RelatedSolutions current="training" />
+      {/* <RelatedSolutions current="training" /> */}
       <ClosingCta content={brief.closing} />
     </>
   );

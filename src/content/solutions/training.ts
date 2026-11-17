@@ -11,7 +11,7 @@ export const hero: PageHero = {
   accent: "in Malaysia.",
   lead: "Technology is evolving rapidly, and workforce skills must evolve with it. Acestar helps working adults, corporate teams, educators and emerging professionals build practical skills and validate them with recognized credentials.",
   primary: { label: "Explore Training and Certification", href: "/contact-acestarian/" },
-  secondary: { label: "Our certifications", href: "#overview" },
+  secondary: { label: "Our certifications", href: "#certifications" },
   image: { src: "/images/solutions/certificate-hero.webp", width: 1252, height: 939, alt: "" },
   imageFit: "contain",
   crumbs: [{ label: "Home", href: "/" }, { label: "Solutions" }, { label: "Training & Certification" }],
@@ -112,5 +112,136 @@ export const upskilling = {
     "Professional competency development",
     "Digital transformation programs",
     "Structured workforce upskilling",
+  ],
+};
+
+/* ---------- Sections modelled on certiport.pearsonvue.com and acestarsolution.com ---------- */
+
+/** "Who it's for" (Certiport's learner / educator / buyer split). */
+export const audiences = {
+  eyebrow: "Training for every stage",
+  title: "Built for teams, campuses and careers.",
+  items: [
+    {
+      key: "corporate",
+      title: "Corporate teams",
+      body: "Upskill your workforce with measurable, recognised skills.",
+      points: [
+        "Microsoft Copilot & AI productivity",
+        "MOS for everyday productivity",
+        "Structured workforce upskilling",
+      ],
+      cta: { label: "For organisations", href: "#upskilling" },
+    },
+    {
+      key: "education",
+      title: "Schools & universities",
+      body: "Bring industry certification into the curriculum.",
+      points: ["ACP, ACU & Swift pathways", "Graduate employability", "Educator support"],
+      cta: { label: "For educators", href: "/contact-acestarian/" },
+    },
+    {
+      key: "individual",
+      title: "Individuals",
+      body: "Prove your skills and stand out in your career.",
+      points: ["Choose your certification", "Train & take the exam", "Share your digital badge"],
+      cta: { label: "Get certified", href: "/contact-acestarian/" },
+    },
+  ],
+} as const;
+
+/** Certification portfolio as digital-badge tiles (same programmes as the brief). */
+export const badges = {
+  eyebrow: "Our certification portfolio",
+  title: "Credentials employers recognise.",
+  body: "Globally recognised certification pathways, plus practical AI training for today's workplace.",
+  items: [
+    {
+      code: "ACP",
+      name: "Adobe Certified Professional",
+      detail: "Photoshop, Illustrator, Premiere Pro",
+      tag: "Creative",
+      from: "#ff5f6d",
+      to: "#c9184a",
+    },
+    {
+      code: "MOS",
+      name: "Microsoft Office Specialist",
+      detail: "Word, Excel, PowerPoint",
+      tag: "Productivity",
+      from: "#22b8e6",
+      to: "#1468c4",
+    },
+    {
+      code: "ACU",
+      name: "Autodesk Certified User",
+      detail: "Design & engineering apps",
+      tag: "Design",
+      from: "#3ccfb0",
+      to: "#0b7f92",
+    },
+    {
+      code: "Swift",
+      name: "App Development with Swift",
+      detail: "Apple's coding ecosystem",
+      tag: "Coding",
+      from: "#ffb35c",
+      to: "#f0607d",
+    },
+    {
+      code: "ESB",
+      name: "Entrepreneurship & Small Business",
+      detail: "Business & entrepreneurial skills",
+      tag: "Business",
+      from: "#7b5cf5",
+      to: "#3b2bb5",
+    },
+    {
+      code: "AI",
+      name: "Copilot & AI Productivity",
+      detail: "Practical AI at work",
+      tag: "Training",
+      from: "#3b63f3",
+      to: "#a24df0",
+    },
+    {
+      code: "GenAI",
+      name: "Generative AI",
+      detail: "Concepts, uses & responsible AI",
+      tag: "Training",
+      from: "#e2589d",
+      to: "#a24df0",
+    },
+  ],
+  helper: {
+    title: "Not sure where to start?",
+    body: "We'll match the right pathway to your team.",
+    cta: { label: "Talk to us", href: "/contact-acestarian/" },
+  },
+};
+
+/** "How it works" (Certiport's My Pathway idea). */
+export const pathway = {
+  eyebrow: "How it works",
+  title: "From learning to a verified credential.",
+  body: "A clear path for individuals and teams, in four steps.",
+  steps: [
+    { title: "Choose a pathway", body: "ACP, MOS, ACU, Swift, ESB or AI skills, matched to the role." },
+    { title: "Train with Acestar", body: "Practical, workplace-focused training for teams and learners." },
+    { title: "Take the exam", body: "Sit the certification exam and validate your skills." },
+    { title: "Earn your credential", body: "A globally recognised certificate and digital badge to share." },
+  ],
+};
+
+/** "Value of certification" (acestarsolution.com, rewritten; no dated salary figures). */
+export const value = {
+  eyebrow: "Value of certification",
+  title: "Skills are the currency of today's economy.",
+  body: "Certification is an independent, third-party proof of skill that helps people and teams stand out.",
+  items: [
+    { title: "Validated knowledge", body: "Proof of skill, not just attendance" },
+    { title: "More marketable", body: "Stand out in a crowded job market" },
+    { title: "Greater credibility", body: "Respect from peers and employers" },
+    { title: "More confidence", body: "Work with skills you can prove" },
   ],
 };
