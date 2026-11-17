@@ -35,6 +35,22 @@ export default function SupportPage() {
             </p>
             <TicketForm zoho={zoho} />
           </div>
+
+          {/*
+            TEMPORARY: the original Zoho Desk embed (public/zoho/support-ticket-embed.html), kept
+            under the new form while the new one is tested. Delete this block once it's confirmed.
+          */}
+          <div className="mx-auto mt-10 max-w-3xl rounded-[1.75rem] border border-dashed border-line bg-white/60 p-6 sm:p-8 dark:bg-white/[0.02]">
+            <p className="text-[0.75rem] font-bold tracking-[0.2em] text-fg-subtle uppercase">
+              Original Zoho form (temporary)
+            </p>
+            <iframe
+              src="/zoho/support-ticket-embed.html"
+              title="Zoho Desk support ticket form"
+              loading="lazy"
+              className="mt-4 h-[50rem] w-full rounded-xl border-0 bg-white"
+            />
+          </div>
         </div>
       </section>
     </>

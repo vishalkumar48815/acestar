@@ -1,4 +1,5 @@
 import "server-only";
+import { logoPng } from "./logo";
 
 /*
  * Internal notification emails for website forms. Short and plain on purpose: the team only
@@ -46,7 +47,10 @@ export function render(t: Template) {
   const html = `<!doctype html>
 <html><body style="margin:0;padding:24px 12px;background:#f4f6fa;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#30364b">
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;margin:0 auto;background:#ffffff;border-radius:14px;border:1px solid #e6e9f2">
-    <tr><td style="padding:28px 28px 8px">
+    <tr><td style="padding:24px 28px 18px;border-bottom:1px solid #eef0f5">
+      <img src="cid:${logoPng.cid}" width="${Math.round(logoPng.width / 2.5)}" height="${Math.round(logoPng.height / 2.5)}" alt="Acestar" style="display:block;border:0;outline:none;height:auto">
+    </td></tr>
+    <tr><td style="padding:22px 28px 8px">
       <div style="font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#5b21d6">${esc(t.form)}</div>
       <h1 style="margin:8px 0 6px;font-size:20px;line-height:1.3;color:#30364b">${esc(t.heading)}</h1>
       <p style="margin:0;font-size:15px;line-height:1.55;color:#4b5468">${esc(t.intro)}</p>

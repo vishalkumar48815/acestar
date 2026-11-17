@@ -23,11 +23,14 @@ export function BriefOverview({
   overview,
   id = "overview",
   showOfferings = true,
+  collapsible = false,
 }: {
   overview: SolutionBrief["overview"];
   id?: string;
   /** false = intro only, without the numbered offerings list. */
   showOfferings?: boolean;
+  /** true = offerings as cards showing only the title; the description opens on click. */
+  collapsible?: boolean;
 }) {
   return (
     <Section id={id} labelledBy={`${id}-title`}>
@@ -60,31 +63,73 @@ export function BriefOverview({
             <h3 className="text-[0.8125rem] font-bold tracking-[0.22em] text-eyebrow-ink uppercase">
               {overview.offeringsTitle}
             </h3>
-            <ol className="mt-4 divide-y divide-line border-y border-line">
-              {overview.offerings.map((o, i) => (
-                <li
-                  key={o.title}
-                  data-reveal
-                  suppressHydrationWarning
-                  style={delay(i)}
-                  className="group/row grid grid-cols-[2.75rem_1fr] gap-x-4 py-5 sm:py-6"
-                >
-                  <span className="text-gradient font-display text-xl font-bold tabular-nums">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span>
-                    <span className="block text-[1.125rem] leading-snug font-semibold tracking-[-0.015em] text-ink transition-colors group-hover/row:text-brand-ink">
-                      {o.title}
+            {collapsible ? (
+              <OfferingAccordion offerings={overview.offerings} name={`${id}-offerings`} />
+            ) : (
+              <ol className="mt-4 divide-y divide-line border-y border-line">
+                {overview.offerings.map((o, i) => (
+                  <li
+                    key={o.title}
+                    data-reveal
+                    suppressHydrationWarning
+                    style={delay(i)}
+                    className="group/row grid grid-cols-[2.75rem_1fr] gap-x-4 py-5 sm:py-6"
+                  >
+                    <span className="text-gradient font-display text-xl font-bold tabular-nums">
+                      {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span className="mt-1.5 block text-[0.9375rem] leading-relaxed text-fg-muted">{o.body}</span>
-                  </span>
-                </li>
-              ))}
-            </ol>
+                    <span>
+                      <span className="block text-[1.125rem] leading-snug font-semibold tracking-[-0.015em] text-ink transition-colors group-hover/row:text-brand-ink">
+                        {o.title}
+                      </span>
+                      <span className="mt-1.5 block text-[0.9375rem] leading-relaxed text-fg-muted">{o.body}</span>
+                    </span>
+                  </li>
+                ))}
+              </ol>
+            )}
           </div>
         ) : null}
       </div>
     </Section>
+  );
+}
+
+/**
+ * Offerings as an accordion: a short list of titles, each opening its description on click
+ * (one open at a time). Native <details>, so it works without JavaScript and with the keyboard.
+ */
+function OfferingAccordion({ offerings, name }: { offerings: SolutionBrief["overview"]["offerings"]; name: string }) {
+  return (
+    <ol className="mt-5 flex flex-col gap-3">
+      {offerings.map((o, i) => (
+        <li key={o.title} data-reveal suppressHydrationWarning style={delay(i)}>
+          <details
+            name={name}
+            className="group/acc rounded-2xl border border-line bg-white/70 transition-[border-color,background-color,box-shadow] duration-300 open:border-[color-mix(in_oklab,var(--eyebrow)_35%,transparent)] open:bg-white open:shadow-[0_24px_50px_-34px_rgb(60_50_160/0.45)] hover:border-[color-mix(in_oklab,var(--eyebrow)_30%,transparent)] dark:bg-white/[0.03] dark:open:bg-white/[0.06]"
+          >
+            <summary className="flex cursor-pointer list-none items-center gap-4 px-5 py-4 sm:px-6 sm:py-5 [&::-webkit-details-marker]:hidden">
+              <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-brand-soft font-display text-[0.9375rem] font-bold text-eyebrow-ink tabular-nums transition-colors duration-300 group-open/acc:bg-[image:var(--btn-gradient)] group-open/acc:text-white">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <span className="flex-1 text-[1.0625rem] leading-snug font-semibold tracking-[-0.015em] text-ink sm:text-[1.125rem]">
+                {o.title}
+              </span>
+              <span
+                aria-hidden="true"
+                className="relative grid size-8 shrink-0 place-items-center rounded-full border border-line text-fg-muted transition-[transform,background-color,color,border-color] duration-300 group-open/acc:rotate-45 group-open/acc:border-transparent group-open/acc:bg-brand-soft group-open/acc:text-eyebrow-ink"
+              >
+                <span className="absolute h-0.5 w-3 rounded-full bg-current" />
+                <span className="absolute h-3 w-0.5 rounded-full bg-current" />
+              </span>
+            </summary>
+            <p className="animate-[fade-up_0.45s_var(--ease-out)_both] px-5 pb-5 pl-[4.75rem] text-[0.9375rem] leading-relaxed text-fg-muted sm:px-6 sm:pb-6 sm:pl-[5rem]">
+              {o.body}
+            </p>
+          </details>
+        </li>
+      ))}
+    </ol>
   );
 }
 

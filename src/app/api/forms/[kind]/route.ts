@@ -1,12 +1,12 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { enquirySolutions } from "@/content/solutions/enquiry";
 import { EMAIL_RE, MAX_CV_BYTES, PHONE_RE } from "@/lib/forms";
-import { type Attachment, emailConfigured, sendMail } from "@/server/email/sendgrid";
+import { type Attachment, emailConfigured, sendMail } from "@/server/email/send";
 import { careersEmail, contactEmail, enquiryEmail } from "@/server/email/templates";
 
 /*
  * POST /api/forms/<kind>/  (contact | careers | enquiry)
- * Receives the website forms as multipart/form-data and emails them to the team via SendGrid.
+ * Receives the website forms as multipart/form-data and emails them to the team (Twilio Email API, see src/server/email/send.ts).
  * Tech Support is not handled here (it will go to Zoho Desk).
  */
 

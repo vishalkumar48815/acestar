@@ -3,7 +3,7 @@
  *
  * Contact, Careers and the enterprise enquiry are POSTed (multipart/form-data, so CV uploads
  * work) to the site's own API, src/app/api/forms/[kind]/route.ts, which emails them to the
- * team through Twilio SendGrid. Until SendGrid is configured, the API answers "not configured"
+ * team through the Twilio Email API. Until it is configured, the API answers "not configured"
  * and the visitor's email app opens with everything pre-filled instead, so a form never
  * silently fails. Tech Support is separate (Zoho Desk, later).
  */
@@ -13,7 +13,7 @@ export const formEndpoints = {
   enquiry: "/api/forms/enquiry/",
 };
 
-/** CV upload limit. Kept under Vercel's 4.5 MB request limit for serverless functions. */
+/** CV upload limit: under Vercel's 4.5 MB request limit and Twilio's 5 MB attachment limit. */
 export const MAX_CV_BYTES = 4 * 1024 * 1024;
 
 export type FormKind = keyof typeof formEndpoints;

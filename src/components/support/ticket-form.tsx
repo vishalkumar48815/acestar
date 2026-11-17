@@ -1,22 +1,26 @@
 "use client";
 
-import { useId, useRef, useState, type FormEvent } from "react";
-import { FormNotice, SelectField, TextArea, TextField } from "@/components/forms/fields";
+import { useCallback, useEffect, useId, useRef, useState, type FormEvent } from "react";
+import { FormNotice, SelectField, TextArea, TextField, control } from "@/components/forms/fields";
 import { Button } from "@/components/ui/button";
-import { Check, Paperclip, Send, X } from "@/components/ui/icons";
+import { Check, Paperclip, RefreshCw, Send, X } from "@/components/ui/icons";
 import type { zoho as ZohoConfig } from "@/content/pages/support";
+import { site } from "@/content/site";
 import { EMAIL_RE, PHONE_RE } from "@/lib/forms";
 import { cn } from "@/lib/utils";
 
-type Key = "Company" | "Contact Name" | "Email" | "Phone" | "Product" | "Subject" | "Customer Sector";
+type Key =
+  "Company" | "Contact Name" | "Email" | "Phone" | "Product" | "Subject" | "Customer Sector" | "zsWebFormCaptchaWord";
 type Errors = Partial<Record<Key | "files", string>>;
 
 const formatSize = (b: number) =>
   b > 1024 * 1024 ? `${(b / 1024 / 1024).toFixed(1)} MB` : `${Math.ceil(b / 1024)} KB`;
 
 /**
- * Tech-support ticket form. Posts straight to the existing Zoho Desk web-to-case endpoint, with the
- * same field names, into a hidden iframe so the visitor stays on the page and sees a confirmation.
+ * Tech-support ticket form. Posts straight to the Zoho Desk web-to-case endpoint (same field names
+ * as the Zoho embed) into a hidden iframe, so the visitor stays on the page. Zoho requires its
+ * captcha. On success Zoho redirects the frame to our own /zoho/return.html, which we can read to
+ * confirm the ticket was created; anything else (e.g. a wrong captcha) is shown as an error.
  */
 export function TicketForm({ zoho }: { zoho: typeof ZohoConfig }) {
   const uid = useId();
@@ -26,7 +30,40 @@ export function TicketForm({ zoho }: { zoho: typeof ZohoConfig }) {
   const [errors, setErrors] = useState<Errors>({});
   const [product, setProduct] = useState("");
   const [files, setFiles] = useState<File[]>([]);
-  const [state, setState] = useState<"idle" | "sending" | "done">("idle");
+  const [state, setState] = useState<"idle" | "sending" | "done" | "failed">("idle");
+  const [captcha, setCaptcha] = useState<{ url: string; digest: string } | null>(null);
+  const [captchaState, setCaptchaState] = useState<"loading" | "ready" | "error">("loading");
+
+  const applyCaptcha = useCallback((data: { url: string; digest: string } | null) => {
+    setCaptcha(data);
+    setCaptchaState(data ? "ready" : "error");
+  }, []);
+
+  /** Asks Zoho for a fresh captcha image and its digest. */
+  const fetchCaptcha = useCallback(async () => {
+    try {
+      const res = await fetch(`${zoho.captchaEndpoint}&_=${Date.now()}`);
+      const data = (await res.json()) as { captchaUrl?: string; captchaDigest?: string };
+      return data.captchaUrl && data.captchaDigest ? { url: data.captchaUrl, digest: data.captchaDigest } : null;
+    } catch {
+      return null;
+    }
+  }, [zoho.captchaEndpoint]);
+
+  const loadCaptcha = useCallback(async () => {
+    setCaptchaState("loading");
+    applyCaptcha(await fetchCaptcha());
+  }, [applyCaptcha, fetchCaptcha]);
+
+  useEffect(() => {
+    let alive = true;
+    void fetchCaptcha().then((data) => {
+      if (alive) applyCaptcha(data);
+    });
+    return () => {
+      alive = false;
+    };
+  }, [applyCaptcha, fetchCaptcha]);
 
   const isSoftware = product.startsWith("Software - ADOBE");
   const isHardware = product.startsWith("Hardware");
@@ -78,6 +115,7 @@ export function TicketForm({ zoho }: { zoho: typeof ZohoConfig }) {
     if (v("Subject").length < 3) e.Subject = "Please add a short subject.";
     if (!v("Customer Sector") || v("Customer Sector") === zoho.placeholder)
       e["Customer Sector"] = "Please choose your sector.";
+    if (!v("zsWebFormCaptchaWord")) e.zsWebFormCaptchaWord = "Please type the characters shown in the image.";
     return e;
   };
 
@@ -91,18 +129,35 @@ export function TicketForm({ zoho }: { zoho: typeof ZohoConfig }) {
       form.querySelector<HTMLElement>(`[name="${first}"]`)?.focus();
       return;
     }
+    // Where Zoho sends the frame after a successful ticket (our own page, so we can confirm it).
+    const ret = form.elements.namedItem("returnURL") as HTMLInputElement | null;
+    if (ret) ret.value = new URL(zoho.returnPath, window.location.origin).href;
     // Let the browser post the form into the hidden iframe.
     submitted.current = true;
     setState("sending");
   };
 
-  const onFrameLoad = () => {
+  const onFrameLoad = (event: React.SyntheticEvent<HTMLIFrameElement>) => {
     if (!submitted.current) return;
     submitted.current = false;
-    setState("done");
-    formRef.current?.reset();
-    setProduct("");
-    setFiles([]);
+    // Readable only if Zoho redirected the frame back to our return page, i.e. the ticket was created.
+    let created = false;
+    try {
+      created = event.currentTarget.contentWindow?.location.pathname === zoho.returnPath;
+    } catch {
+      created = false;
+    }
+    if (created) {
+      setState("done");
+      formRef.current?.reset();
+      setProduct("");
+      setFiles([]);
+    } else {
+      setState("failed");
+      const word = formRef.current?.elements.namedItem("zsWebFormCaptchaWord") as HTMLInputElement | null;
+      if (word) word.value = "";
+    }
+    void loadCaptcha();
   };
 
   if (state === "done") {
@@ -116,7 +171,14 @@ export function TicketForm({ zoho }: { zoho: typeof ZohoConfig }) {
           Thank you. Our support team has your request and will contact you by email. Keep an eye on your inbox for your
           ticket number.
         </p>
-        <Button variant="glass" className="rounded-full" onClick={() => setState("idle")}>
+        <Button
+          variant="glass"
+          className="rounded-full"
+          onClick={() => {
+            setState("idle");
+            void loadCaptcha();
+          }}
+        >
           Submit another ticket
         </Button>
       </div>
@@ -140,6 +202,10 @@ export function TicketForm({ zoho }: { zoho: typeof ZohoConfig }) {
         {Object.entries(zoho.hidden).map(([name, value]) => (
           <input key={name} type="hidden" name={name} value={value} />
         ))}
+        <input type="hidden" name="xJdfEaS" value={captcha?.digest ?? ""} />
+        {/* Value set on submit (not managed by React, so a re-render can't clear it) */}
+        <input type="hidden" name="returnURL" />
+        <input type="hidden" name="zsCaptchaSrc" value="" />
 
         <div className="grid gap-4 sm:grid-cols-2">
           <TextField
@@ -231,7 +297,7 @@ export function TicketForm({ zoho }: { zoho: typeof ZohoConfig }) {
         <div className={cn("grid gap-4 sm:grid-cols-2", !isSoftware && !isHardware && "hidden")}>
           <TextField
             id={`${uid}-vip`}
-            name="Adobe VIP Number"
+            name={zoho.vipField}
             label="Adobe VIP number"
             maxLength={120}
             placeholder="Found in your Adobe Admin Console"
@@ -333,15 +399,72 @@ export function TicketForm({ zoho }: { zoho: typeof ZohoConfig }) {
           ))}
         </div>
 
+        {/* Zoho's captcha (required by Zoho Desk) */}
+        <div className="flex flex-col gap-1.5">
+          <label htmlFor={`${uid}-captcha`} className="text-[0.875rem] font-semibold text-ink">
+            Verification <span className="text-brand-ink">*</span>
+          </label>
+          <div className="flex flex-wrap items-center gap-3">
+            <div className="grid h-12 min-w-[9.5rem] place-items-center overflow-hidden rounded-xl border border-line bg-white px-2">
+              {captchaState === "ready" && captcha ? (
+                // eslint-disable-next-line @next/next/no-img-element -- one-off image served by Zoho
+                <img src={captcha.url} alt="Verification characters" className="h-10 w-auto" />
+              ) : (
+                <span className="text-[0.8125rem] text-fg-subtle">
+                  {captchaState === "loading" ? "Loading…" : "Couldn't load"}
+                </span>
+              )}
+            </div>
+            <button
+              type="button"
+              onClick={() => void loadCaptcha()}
+              className="inline-flex min-h-11 items-center gap-2 rounded-full px-3 text-[0.875rem] font-semibold text-brand-ink hover:bg-brand-soft/60"
+            >
+              <RefreshCw aria-hidden="true" className="size-4" />
+              New code
+            </button>
+            <input
+              id={`${uid}-captcha`}
+              name="zsWebFormCaptchaWord"
+              required
+              autoComplete="off"
+              autoCapitalize="off"
+              spellCheck={false}
+              maxLength={20}
+              placeholder="Type the characters"
+              aria-invalid={errors.zsWebFormCaptchaWord ? true : undefined}
+              aria-describedby={errors.zsWebFormCaptchaWord ? `${uid}-captcha-error` : undefined}
+              className={cn(control, "h-12 min-w-[12rem] flex-1")}
+            />
+          </div>
+          {errors.zsWebFormCaptchaWord ? (
+            <p id={`${uid}-captcha-error`} role="alert" className="text-[0.8125rem] font-medium text-danger">
+              {errors.zsWebFormCaptchaWord}
+            </p>
+          ) : null}
+          {captchaState === "error" ? (
+            <p className="text-[0.8125rem] text-fg-muted">
+              The verification image couldn&apos;t load. Try &ldquo;New code&rdquo;, or email{" "}
+              {site.contact.email.support}.
+            </p>
+          ) : null}
+        </div>
+
         {Object.keys(errors).some((k) => k !== "files" && errors[k as Key]) ? (
           <FormNotice tone="error">Please check the highlighted fields.</FormNotice>
+        ) : null}
+        {state === "failed" ? (
+          <FormNotice tone="error">
+            Zoho couldn&apos;t accept the ticket. The verification code may not have matched: please type the new code
+            and submit again.
+          </FormNotice>
         ) : null}
 
         <Button
           type="submit"
           variant="gradient"
           className="w-full sm:w-auto sm:justify-self-start sm:px-9"
-          disabled={state === "sending"}
+          disabled={state === "sending" || captchaState !== "ready"}
         >
           {state === "sending" ? "Submitting…" : "Submit ticket"}
           <Send className="size-4" />

@@ -35,18 +35,24 @@ export const help = [
 ];
 
 /**
- * Zoho Desk web form ("zsWebToCase") used by the old site. Field names and option values must
- * match Zoho exactly, including the "Hardware - Levono" spelling, or tickets will not map.
+ * Zoho Desk "Advanced Web Form" (web-to-case), from the embed code in Zoho Desk → Setup →
+ * Channels → Web Forms. Field names and option values must match Zoho exactly, including the
+ * "Hardware - Levono" spelling and "First Name" (which holds the Adobe VIP number), or the ticket
+ * fields won't map. If the form is regenerated in Zoho, copy the new hidden values here.
  */
 export const zoho = {
   action: "https://ticket.acestar.my/support/WebToCase",
   hidden: {
     xnQsjsdp: "edbsnc636ba9e67ecba5131c972409c704922",
-    xmIwtLD: "edbsn14d07518f3e1e49d30c1d4e07b364d367ad807769197f2c670b93178f2cf2413",
-    xJdfEaS: "",
+    xmIwtLD: "edbsn3904faed6b9df9d6cb3019e54793e446ae5c9272100c90d63b939ae301747ae8",
     actionType: "Q2FzZXM=",
-    returnURL: "*",
   },
+  /** Zoho's captcha (required by the web form): returns { captchaUrl, captchaDigest }. */
+  captchaEndpoint: "https://desk.zoho.com/support/GenerateCaptcha?action=getNewCaptcha",
+  /** Same-origin page Zoho redirects to after a successful ticket (lets the form confirm success). */
+  returnPath: "/zoho/return.html",
+  /** Field that carries the Adobe VIP number in Zoho. */
+  vipField: "First Name",
   placeholder: "Please Choose One",
   products: [
     {

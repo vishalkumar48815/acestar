@@ -16,7 +16,7 @@ export default function CreativeSoftwarePage() {
     <>
       <PageHero hero={hero} />
 
-      <BriefOverview overview={brief.overview} />
+      <BriefOverview overview={brief.overview} collapsible />
 
       <Section id="brands" labelledBy="brands-title">
         <SectionHead
