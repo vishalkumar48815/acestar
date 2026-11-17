@@ -171,11 +171,12 @@ export const hero: PageHero = {
   eyebrow: "Awards & Recognition",
   title: "Success highlights.",
   accent: "highlights.",
-  lead: `${awardCount} awards and recognitions since ${firstYear}, from our technology partners and Malaysia's leading business awards.`,
+  lead: `${awardCount} awards and recognitions from our technology partners and Malaysia's leading business awards.`,
   primary: { label: "See the timeline", href: "#timeline" },
   secondary: { label: "Company Profile", href: "/company-profile/" },
   // Text-only, centred hero (the trophy artwork is no longer shown)
   align: "center",
+  showCrumbs: false,
   crumbs: [{ label: "Home", href: "/" }, { label: "About Us" }, { label: "Awards" }],
 };
 

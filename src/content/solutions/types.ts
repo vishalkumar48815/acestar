@@ -38,6 +38,8 @@ export type PageHero = {
   imageBelowHeader?: boolean;
   /** "center": text-only hero with everything centred (no image or side visual). */
   align?: "start" | "center";
+  /** false hides the breadcrumb trail above the eyebrow. */
+  showCrumbs?: boolean;
   crumbs: Crumb[];
   chips?: string[];
 };

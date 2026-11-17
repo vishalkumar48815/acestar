@@ -112,31 +112,36 @@ export function PageHero({ hero, visual }: { hero: Hero; visual?: ReactNode }) {
             !side && !centered && "max-w-[46rem]",
           )}
         >
-          <nav aria-label="Breadcrumb" style={enter(0)}>
-            <ol
-              className={cn(
-                "flex flex-wrap items-center gap-1 text-[0.8125rem] text-fg-subtle",
-                centered && "justify-center",
-              )}
-            >
-              {hero.crumbs.map((c, i) => (
-                <li key={c.label} className="flex items-center gap-1">
-                  {i > 0 && <ChevronRight aria-hidden="true" className="size-3.5 opacity-60" />}
-                  {c.href ? (
-                    <Link href={c.href} className="transition-colors hover:text-fg">
-                      {c.label}
-                    </Link>
-                  ) : (
-                    <span aria-current={i === hero.crumbs.length - 1 ? "page" : undefined}>{c.label}</span>
-                  )}
-                </li>
-              ))}
-            </ol>
-          </nav>
+          {hero.showCrumbs === false ? null : (
+            <nav aria-label="Breadcrumb" style={enter(0)}>
+              <ol
+                className={cn(
+                  "flex flex-wrap items-center gap-1 text-[0.8125rem] text-fg-subtle",
+                  centered && "justify-center",
+                )}
+              >
+                {hero.crumbs.map((c, i) => (
+                  <li key={c.label} className="flex items-center gap-1">
+                    {i > 0 && <ChevronRight aria-hidden="true" className="size-3.5 opacity-60" />}
+                    {c.href ? (
+                      <Link href={c.href} className="transition-colors hover:text-fg">
+                        {c.label}
+                      </Link>
+                    ) : (
+                      <span aria-current={i === hero.crumbs.length - 1 ? "page" : undefined}>{c.label}</span>
+                    )}
+                  </li>
+                ))}
+              </ol>
+            </nav>
+          )}
 
           {hero.keyword ? null : (
             <p
-              className="mt-6 text-[0.6875rem] font-bold tracking-[0.34em] text-eyebrow-ink uppercase sm:text-xs"
+              className={cn(
+                "text-[0.6875rem] font-bold tracking-[0.34em] text-eyebrow-ink uppercase sm:text-xs",
+                hero.showCrumbs === false ? "" : "mt-6",
+              )}
               style={enter(60)}
             >
               {hero.eyebrow}
@@ -145,7 +150,11 @@ export function PageHero({ hero, visual }: { hero: Hero; visual?: ReactNode }) {
           <h1
             id="page-title"
             className={cn(
-              "font-display text-[clamp(2.25rem,1.2rem+3.2vw,4rem)] leading-[1.04] font-extrabold tracking-[-0.04em] text-balance text-ink",
+              "font-display leading-[1.04] text-balance text-ink",
+              /* Centred text-only heroes use a calmer, corporate title size */
+              centered
+                ? "text-[clamp(2.125rem,1.45rem+2.2vw,3.375rem)] font-bold tracking-[-0.035em]"
+                : "text-[clamp(2.25rem,1.2rem+3.2vw,4rem)] font-extrabold tracking-[-0.04em]",
               hero.keyword ? "mt-6" : "mt-4",
             )}
             style={enter(140)}

@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import { AwardTimeline } from "@/components/about/award-timeline";
 import { ClosingCta } from "@/components/sections/home/closing-cta";
-import { StatStrip } from "@/components/solutions/blocks";
 import { PageHero } from "@/components/solutions/page-hero";
 import { Section, SectionHead } from "@/components/solutions/primitives";
-import { awardCount, awardYears, hero, quote, stats } from "@/content/about/awards";
+import { awardYears, hero, quote } from "@/content/about/awards";
 import { site } from "@/content/site";
 import { pageMeta } from "@/lib/seo";
 
@@ -16,15 +15,28 @@ export default function AwardsPage() {
       <PageHero hero={hero} />
 
       <Section labelledBy="quote-title" className="pt-0 lg:pt-4">
-        <StatStrip stats={stats} />
-        <figure data-reveal suppressHydrationWarning className="mx-auto mt-14 max-w-3xl text-center lg:mt-16">
-          <h2 id="quote-title" className="sr-only">
-            Our philosophy
+        <figure data-reveal suppressHydrationWarning className="mx-auto max-w-2xl pt-4 text-center lg:pt-6">
+          {/* Small caps label with a line either side (same style as "Our Mission" on Company Profile) */}
+          <h2
+            id="quote-title"
+            className="mb-8 flex items-center justify-center gap-4 text-[0.8125rem] font-bold tracking-[0.22em] text-ink uppercase sm:gap-6 sm:text-[0.9375rem]"
+          >
+            <span
+              aria-hidden="true"
+              className="h-px w-10 bg-[linear-gradient(90deg,transparent,var(--accent-from))] sm:w-28"
+            />
+            Our Achievements
+            <span
+              aria-hidden="true"
+              className="h-px w-10 bg-[linear-gradient(90deg,var(--accent-from),transparent)] sm:w-28"
+            />
           </h2>
-          <blockquote className="font-display text-[clamp(1.5rem,1.05rem+1.6vw,2.375rem)] leading-[1.2] font-bold tracking-[-0.03em] text-balance text-ink">
+          <blockquote className="font-display text-[clamp(1.25rem,1.05rem+0.7vw,1.625rem)] leading-[1.4] font-medium tracking-[-0.015em] text-balance text-ink">
             <p>&ldquo;{quote.text}&rdquo;</p>
           </blockquote>
-          <figcaption className="mt-4 text-fg-subtle">— {quote.author}</figcaption>
+          <figcaption className="mt-4 text-[0.75rem] font-semibold tracking-[0.2em] text-fg-subtle uppercase">
+            {quote.author}
+          </figcaption>
         </figure>
       </Section>
 

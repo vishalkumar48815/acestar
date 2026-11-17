@@ -12,7 +12,41 @@ const delay = (i: number) => ({ "--reveal-delay": `${i * 70}ms` }) as CSSPropert
 
 /* ---------------------------------------------------------------- Stats */
 
-export function StatStrip({ stats, className }: { stats: Stat[]; className?: string }) {
+export function StatStrip({
+  stats,
+  className,
+  variant = "card",
+}: {
+  stats: Stat[];
+  className?: string;
+  /** "minimal": centred figures between thin rules, no card (quieter, corporate look). */
+  variant?: "card" | "minimal";
+}) {
+  if (variant === "minimal") {
+    return (
+      <dl
+        className={cn(
+          "mx-auto grid max-w-5xl divide-y divide-line border-y border-line sm:grid-cols-3 sm:divide-x sm:divide-y-0",
+          className,
+        )}
+      >
+        {stats.map((s, i) => (
+          <div
+            key={s.label}
+            data-reveal
+            suppressHydrationWarning
+            style={delay(i)}
+            className="flex flex-col items-center gap-2 px-6 py-7 text-center lg:py-9"
+          >
+            <dt className="order-2 max-w-[19rem] text-[0.875rem] leading-snug text-fg-muted">{s.label}</dt>
+            <dd className="order-1 font-display text-[clamp(1.625rem,1.25rem+1.2vw,2.25rem)] leading-none font-bold tracking-[-0.03em] text-ink">
+              {s.value}
+            </dd>
+          </div>
+        ))}
+      </dl>
+    );
+  }
   return (
     <dl className={cn(panel, "grid divide-y divide-line sm:grid-cols-3 sm:divide-x sm:divide-y-0", className)}>
       {stats.map((s, i) => (
