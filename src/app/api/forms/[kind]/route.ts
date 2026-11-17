@@ -121,7 +121,9 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
     }
   } catch (error) {
     console.error(`[forms/${kind}]`, error);
-    return fail(502, "We couldn't send your message right now.");
+    // On localhost only, include the provider's reason (e.g. "domain not verified") to help setup.
+    const detail = process.env.NODE_ENV !== "production" && error instanceof Error ? { detail: error.message } : {};
+    return fail(502, "We couldn't send your message right now.", detail);
   }
 
   return NextResponse.json({ ok: true });
