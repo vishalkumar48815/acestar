@@ -72,7 +72,7 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
       if (name.length < 2 || subject.length < 3 || message.length < 2)
         return fail(400, "Please fill in all required fields.");
       const mail = contactEmail({ name, company: field(data, "company", 160), phone, email, subject, message });
-      await sendMail({ ...mail, replyTo: { email, name } });
+      await sendMail(mail);
     }
 
     if (kind === "careers") {
@@ -99,7 +99,7 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
         message: field(data, "message", 5000),
         cvName: safeName,
       });
-      await sendMail({ ...mail, replyTo: { email, name }, attachments });
+      await sendMail({ ...mail, attachments });
     }
 
     if (kind === "enquiry") {
@@ -117,7 +117,7 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
         timeline: field(data, "timeline", 80),
         message: field(data, "message", 5000),
       });
-      await sendMail({ ...mail, replyTo: { email, name: contact } });
+      await sendMail(mail);
     }
   } catch (error) {
     console.error(`[forms/${kind}]`, error);

@@ -34,6 +34,8 @@ export type PageHero = {
   imageOpacity?: number;
   /** Backdrop only: a solid fade behind the text so a full-colour photo can sit on the right. */
   imageScrim?: boolean;
+  /** Backdrop only: start the artwork below the fixed header instead of behind it. */
+  imageBelowHeader?: boolean;
   crumbs: Crumb[];
   chips?: string[];
 };

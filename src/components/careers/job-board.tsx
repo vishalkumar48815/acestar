@@ -33,7 +33,7 @@ export function JobBoard({ jobs, to }: { jobs: Job[]; to: string }) {
   /** Keeps the chosen CV in state and in the (visually hidden) file input that the form submits. */
   const pickCv = (file: File | null) => {
     if (file && file.size > MAX_CV_BYTES) {
-      setErrors((e) => ({ ...e, cv: "Your CV must be 4 MB or smaller." }));
+      setErrors((e) => ({ ...e, cv: "Your CV must be 3 MB or smaller." }));
       if (cvRef.current) cvRef.current.value = "";
       setCv(null);
       return;
@@ -80,7 +80,7 @@ export function JobBoard({ jobs, to }: { jobs: Job[]; to: string }) {
     if (!String(data.get("role") ?? "")) next.role = "Please choose a role.";
     if (!String(data.get("join") ?? "")) next.join = "Please tell us when you can join.";
     if (!cv) next.cv = "Please attach your CV (PDF or Word).";
-    else if (cv.size > MAX_CV_BYTES) next.cv = "Your CV must be 4 MB or smaller.";
+    else if (cv.size > MAX_CV_BYTES) next.cv = "Your CV must be 3 MB or smaller.";
     return next;
   };
 
@@ -248,7 +248,7 @@ export function JobBoard({ jobs, to }: { jobs: Job[]; to: string }) {
             >
               <Paperclip className="size-5 shrink-0 text-brand-ink" />
               <span className="text-[0.9375rem] text-fg-muted">
-                {cv ? "Replace file" : "Attach your CV"} · PDF or Word, up to 4 MB
+                {cv ? "Replace file" : "Attach your CV"} · PDF or Word, up to 3 MB
               </span>
               <input
                 ref={cvRef}

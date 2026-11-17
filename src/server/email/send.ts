@@ -2,16 +2,19 @@ import "server-only";
 import { logoPng } from "./logo";
 
 /**
- * Sends the website's notification emails.
+ * Sends the website's notification emails through the Twilio Email API.
+ * Used by the Contact, Careers and Enterprise enquiry forms (Tech Support goes to Zoho Desk).
  *
- * Twilio Email API (default): POST https://comms.twilio.com/v1/Emails, HTTP Basic auth with a
- * Twilio API key SID + secret (or Account SID + Auth Token).
- *   TWILIO_API_KEY_SID / TWILIO_API_KEY_SECRET   (or TWILIO_ACCOUNT_SID / TWILIO_AUTH_TOKEN)
- * Twilio SendGrid (optional alternative, used only if SENDGRID_API_KEY is set and no Twilio keys are).
- *   SENDGRID_API_KEY
- * Both:
- *   FORMS_EMAIL_FROM   Address on a domain verified in Twilio, e.g. "Acestar Website <website@acestar.my>"
- *   FORMS_EMAIL_TO     Where form submissions go (default icare@acestar.my). Comma-separate for several.
+ *   POST https://comms.twilio.com/v1/Emails  ·  HTTP Basic auth  ·  202 Accepted on success
+ *
+ * Environment:
+ *   TWILIO_API_KEY_SID / TWILIO_API_KEY_SECRET   API key ("SK…") + secret
+ *     (or TWILIO_ACCOUNT_SID / TWILIO_AUTH_TOKEN)
+ *   FORMS_EMAIL_FROM   Address on a sender domain verified in Twilio, e.g. "Acestar Website <website@acestar.my>"
+ *   FORMS_EMAIL_TO     Where submissions go (default icare@acestar.my). Comma-separate for several.
+ *
+ * Twilio does not allow a Reply-To header, so each template carries a "Reply to <visitor>" button instead.
+ * The whole request must stay under 5 MB (attachments are base64), hence MAX_CV_BYTES in lib/forms.
  */
 
 export type Attachment = { filename: string; type: string; content: Buffer };
@@ -20,12 +23,12 @@ export type Mail = {
   subject: string;
   text: string;
   html: string;
-  /** The visitor's address, so the team can simply hit reply. */
-  replyTo?: { email: string; name?: string };
   attachments?: Attachment[];
 };
 
 type Address = { email: string; name?: string };
+
+const TWILIO_EMAIL_URL = "https://comms.twilio.com/v1/Emails";
 
 function twilioAuth() {
   const user = process.env.TWILIO_API_KEY_SID || process.env.TWILIO_ACCOUNT_SID;
@@ -33,8 +36,7 @@ function twilioAuth() {
   return user && pass ? `Basic ${Buffer.from(`${user}:${pass}`).toString("base64")}` : null;
 }
 
-export const emailConfigured = () =>
-  Boolean(process.env.FORMS_EMAIL_FROM && (twilioAuth() || process.env.SENDGRID_API_KEY));
+export const emailConfigured = () => Boolean(process.env.FORMS_EMAIL_FROM && twilioAuth());
 
 /** "Name <email@x.com>" or "email@x.com" → { email, name } */
 function parseAddress(value: string): Address {
@@ -42,12 +44,11 @@ function parseAddress(value: string): Address {
   return m ? { email: m[2].trim(), name: m[1].trim().replace(/^"|"$/g, "") || undefined } : { email: value.trim() };
 }
 
-/** For a Reply-To header: quotes the name so commas etc. don't break it. */
-const formatAddress = (a: Address) => (a.name ? `"${a.name.replace(/["\\\r\n]/g, "")}" <${a.email}>` : a.email);
-
 export async function sendMail(mail: Mail) {
+  const auth = twilioAuth();
   const fromValue = process.env.FORMS_EMAIL_FROM;
-  if (!fromValue || !emailConfigured()) throw new Error("Email is not configured.");
+  if (!auth || !fromValue) throw new Error("Email is not configured.");
+
   const from = parseAddress(fromValue);
   const to = (process.env.FORMS_EMAIL_TO || "icare@acestar.my")
     .split(",")
@@ -55,20 +56,12 @@ export async function sendMail(mail: Mail) {
     .filter(Boolean)
     .map(parseAddress);
 
-  const auth = twilioAuth();
-  const res = auth ? await viaTwilio(auth, from, to, mail) : await viaSendGrid(from, to, mail);
-  if (!res.ok) {
-    const detail = await res.text().catch(() => "");
-    throw new Error(`${auth ? "Twilio" : "SendGrid"} responded ${res.status}: ${detail.slice(0, 300)}`);
-  }
-}
-
-function viaTwilio(auth: string, from: Address, to: Address[], mail: Mail) {
-  // TWILIO_EMAIL_API_URL / SENDGRID_API_URL only exist for local testing against a mock server.
-  return fetch(process.env.TWILIO_EMAIL_API_URL || "https://comms.twilio.com/v1/Emails", {
+  // TWILIO_EMAIL_API_URL only exists for local testing against a mock server.
+  const res = await fetch(process.env.TWILIO_EMAIL_API_URL || TWILIO_EMAIL_URL, {
     method: "POST",
     headers: { Authorization: auth, "Content-Type": "application/json" },
     body: JSON.stringify({
+      // Twilio requires a sender name.
       from: { address: from.email, name: from.name ?? "Acestar Website" },
       to: to.map((t) => ({ address: t.email, ...(t.name ? { name: t.name } : {}) })),
       content: {
@@ -84,41 +77,12 @@ function viaTwilio(auth: string, from: Address, to: Address[], mail: Mail) {
           })),
         ],
       },
-      headers: mail.replyTo ? { "Reply-To": formatAddress(mail.replyTo) } : undefined,
       tags: { source: "website-form" },
     }),
   });
-}
 
-function viaSendGrid(from: Address, to: Address[], mail: Mail) {
-  return fetch(process.env.SENDGRID_API_URL || "https://api.sendgrid.com/v3/mail/send", {
-    method: "POST",
-    headers: { Authorization: `Bearer ${process.env.SENDGRID_API_KEY}`, "Content-Type": "application/json" },
-    body: JSON.stringify({
-      personalizations: [{ to }],
-      from,
-      reply_to: mail.replyTo,
-      subject: mail.subject,
-      content: [
-        { type: "text/plain", value: mail.text },
-        { type: "text/html", value: mail.html },
-      ],
-      attachments: [
-        {
-          filename: logoPng.filename,
-          type: logoPng.type,
-          content: logoPng.base64,
-          disposition: "inline",
-          content_id: logoPng.cid,
-        },
-        ...(mail.attachments ?? []).map((a) => ({
-          filename: a.filename,
-          type: a.type,
-          content: a.content.toString("base64"),
-          disposition: "attachment",
-        })),
-      ],
-      tracking_settings: { click_tracking: { enable: false }, open_tracking: { enable: false } },
-    }),
-  });
+  if (!res.ok) {
+    const detail = await res.text().catch(() => "");
+    throw new Error(`Twilio Email responded ${res.status}: ${detail.slice(0, 300)}`);
+  }
 }

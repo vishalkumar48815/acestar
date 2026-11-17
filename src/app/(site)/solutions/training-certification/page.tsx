@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ClosingCta } from "@/components/sections/home/closing-cta";
 import { RelatedSolutions } from "@/components/solutions/blocks";
-import { BriefOverview, BriefWhy } from "@/components/solutions/brief-sections";
+import { BriefOverview } from "@/components/solutions/brief-sections";
 import { PageHero } from "@/components/solutions/page-hero";
 import { Section, SectionHead, toneCard, toneStyle } from "@/components/solutions/primitives";
 import { Check } from "@/components/ui/icons";
@@ -24,10 +24,11 @@ export default function TrainingCertificationPage() {
       {/* Intro (title left, text right); the programme list is now the badge wall below */}
       <BriefOverview overview={brief.overview} showOfferings={false} />
 
-      {/* Modelled on certiport.pearsonvue.com and acestarsolution.com (client reference sites) */}
+      {/* Layout inspired by the client's reference sites; wording from the brief */}
       {/* <AudienceCards content={audiences} /> */}
       <CertBadges content={badges} />
       {/* <CertPathway content={pathway} /> */}
+      {/* "Why Choose Acestar?" from the brief, beside the certificate illustration */}
       <CertValue content={value} />
 
       <Section id="upskilling" labelledBy="upskilling-title" className="pt-0 lg:pt-0">
@@ -58,8 +59,6 @@ export default function TrainingCertificationPage() {
           </ul>
         </div>
       </Section>
-
-      <BriefWhy why={brief.why} />
 
       {/* <RelatedSolutions current="training" /> */}
       <ClosingCta content={brief.closing} />

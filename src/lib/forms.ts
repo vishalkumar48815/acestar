@@ -14,7 +14,8 @@ export const formEndpoints = {
 };
 
 /** CV upload limit: under Vercel's 4.5 MB request limit and Twilio's 5 MB attachment limit. */
-export const MAX_CV_BYTES = 4 * 1024 * 1024;
+/** 3 MB: base64 grows a file by a third and Twilio Email caps the whole request at 5 MB. */
+export const MAX_CV_BYTES = 3 * 1024 * 1024;
 
 export type FormKind = keyof typeof formEndpoints;
 

@@ -43,7 +43,11 @@ export function PageHero({ hero, visual }: { hero: Hero; visual?: ReactNode }) {
          */
         <div
           aria-hidden="true"
-          className="absolute inset-x-0 top-0 -z-10 h-[min(80vw,26rem)] [mask-image:linear-gradient(180deg,#000_62%,transparent)] opacity-[var(--art-o)] lg:inset-y-0 lg:h-auto lg:[mask-image:linear-gradient(180deg,#000_82%,transparent)] dark:opacity-[calc(var(--art-o)*var(--art-dark))]"
+          className={cn(
+            "absolute inset-x-0 -z-10 h-[min(80vw,26rem)] [mask-image:linear-gradient(180deg,#000_62%,transparent)] opacity-[var(--art-o)] lg:h-auto lg:[mask-image:linear-gradient(180deg,#000_82%,transparent)] dark:opacity-[calc(var(--art-o)*var(--art-dark))]",
+            /* Header is 62px tall on phones, 78px from lg up */
+            hero.imageBelowHeader ? "top-[3.875rem] lg:top-[4.875rem] lg:bottom-0" : "top-0 lg:inset-y-0",
+          )}
           style={
             {
               "--art-o": hero.imageOpacity ?? 1,
@@ -89,7 +93,11 @@ export function PageHero({ hero, visual }: { hero: Hero; visual?: ReactNode }) {
       <div
         className={cn(
           "container-page grid items-center gap-10 lg:pt-36",
-          fit === "backdrop" && hero.image ? "pt-[min(68vw,22rem)]" : "pt-28",
+          fit === "backdrop" && hero.image
+            ? hero.imageBelowHeader
+              ? "pt-[calc(min(68vw,22rem)+3.875rem)]"
+              : "pt-[min(68vw,22rem)]"
+            : "pt-28",
           side ? "pb-12 lg:grid-cols-[1.05fr_1fr] lg:gap-14 lg:pb-16" : "pb-10 lg:pb-12",
           fit === "backdrop" && "lg:min-h-[38rem] lg:pb-20",
         )}
@@ -123,7 +131,7 @@ export function PageHero({ hero, visual }: { hero: Hero; visual?: ReactNode }) {
           <h1
             id="page-title"
             className={cn(
-              "font-display text-[clamp(2rem,1.2rem+3vw,3.5rem)] leading-[1.04] font-extrabold tracking-[-0.04em] text-balance text-ink",
+              "font-display text-[clamp(2.25rem,1.2rem+3.2vw,4rem)] leading-[1.04] font-extrabold tracking-[-0.04em] text-balance text-ink",
               hero.keyword ? "mt-6" : "mt-4",
             )}
             style={enter(140)}
@@ -132,7 +140,7 @@ export function PageHero({ hero, visual }: { hero: Hero; visual?: ReactNode }) {
               <>
                 {/* Keyword line: styled as the eyebrow, but part of the heading for SEO */}
                 <span
-                  className="mb-4 block font-sans text-[0.5rem] leading-normal font-bold tracking-[0.34em] text-eyebrow-ink uppercase sm:text-xs"
+                  className="mb-4 block font-sans text-[0.6875rem] leading-normal font-bold tracking-[0.34em] text-eyebrow-ink uppercase sm:text-xs"
                   style={enter(60)}
                 >
                   {hero.keyword}

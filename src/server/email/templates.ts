@@ -16,8 +16,8 @@ type Template = {
   rows: Row[];
   /** Longer free text (message, notes), shown in its own block. */
   note?: { label: string; value: string };
-  /** Closing line, e.g. how to reply. */
-  footer: string;
+  /** The visitor: Twilio Email has no Reply-To, so the email shows a "Reply to …" button. */
+  reply: { email: string; name: string; subject: string };
 };
 
 const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -29,6 +29,9 @@ const sentAt = () =>
     timeZone: "Asia/Kuala_Lumpur",
   }).format(new Date());
 
+const mailto = (r: Template["reply"]) =>
+  `mailto:${encodeURIComponent(r.email).replace(/%40/g, "@")}?subject=${encodeURIComponent(`Re: ${r.subject}`)}`;
+
 export function render(t: Template) {
   const rows = t.rows.filter(([, v]) => v.trim());
   const when = sentAt();
@@ -39,7 +42,7 @@ export function render(t: Template) {
     ...rows.map(([k, v]) => `${k}: ${v}`),
     ...(t.note?.value.trim() ? ["", `${t.note.label}:`, t.note.value.trim()] : []),
     "",
-    t.footer,
+    `Reply to ${t.reply.name}: ${t.reply.email}`,
     "",
     `Sent from the ${t.form.toLowerCase()} on acestar.my, ${when} (MYT)`,
   ].join("\n");
@@ -76,7 +79,8 @@ export function render(t: Template) {
         : ""
     }
     <tr><td style="padding:18px 28px 26px">
-      <p style="margin:0;font-size:14px;line-height:1.55;color:#4b5468">${esc(t.footer)}</p>
+      <a href="${esc(mailto(t.reply))}" style="display:inline-block;padding:11px 20px;border-radius:999px;background:#5b21d6;color:#ffffff;font-size:14px;font-weight:700;text-decoration:none">Reply to ${esc(t.reply.name)}</a>
+      <p style="margin:10px 0 0;font-size:13px;color:#6b7280">or write to <a href="mailto:${esc(t.reply.email)}" style="color:#5b21d6">${esc(t.reply.email)}</a></p>
       <p style="margin:14px 0 0;font-size:12px;color:#9aa1b2">Sent from the ${esc(t.form.toLowerCase())} on acestar.my · ${esc(when)} (MYT)</p>
     </td></tr>
   </table>
@@ -108,7 +112,7 @@ export function contactEmail(d: {
         ["Email", d.email],
       ],
       note: { label: "Message", value: d.message },
-      footer: `Hit reply to answer ${d.name} directly.`,
+      reply: { email: d.email, name: d.name, subject: d.subject },
     }),
   };
 }
@@ -137,7 +141,7 @@ export function careersEmail(d: {
         ["CV", d.cvName ?? ""],
       ],
       note: { label: "Additional note", value: d.message },
-      footer: `Hit reply to get back to ${d.name}.`,
+      reply: { email: d.email, name: d.name, subject: `Your application for ${d.role}` },
     }),
   };
 }
@@ -168,7 +172,7 @@ export function enquiryEmail(d: {
         ["Timeline", d.timeline],
       ],
       note: { label: "Additional requirements", value: d.message },
-      footer: `Hit reply to reach ${d.contact} directly.`,
+      reply: { email: d.email, name: d.contact, subject: `Your ${d.solution} enquiry` },
     }),
   };
 }

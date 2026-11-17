@@ -1,3 +1,6 @@
+import fs from "node:fs";
+import path from "node:path";
+import Image from "next/image";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import { Section, SectionHead } from "@/components/solutions/primitives";
@@ -23,8 +26,8 @@ import type {
 import { cn } from "@/lib/utils";
 
 /*
- * Training & Certification sections, modelled on certiport.pearsonvue.com (audiences, badges,
- * pathway) and acestarsolution.com (value of certification), using the client brief's content.
+ * Training & Certification sections. Layout inspired by the client's reference sites
+ * (certiport.pearsonvue.com, acestarsolution.com); all wording comes from the client brief.
  */
 
 const card =
@@ -101,6 +104,20 @@ export function AudienceCards({ content, id = "audiences" }: { content: typeof A
 }
 
 /* ---------- A · Certification badge wall ---------- */
+
+/**
+ * Official certification badges. Drop a file named after the programme code into
+ * public/images/pages/training/badges/ (e.g. acp.png, mos.svg, genai.webp) and it replaces that
+ * card's placeholder hexagon on the next build. No code change needed.
+ */
+const BADGE_DIR = "images/pages/training/badges";
+function officialBadge(code: string) {
+  for (const ext of ["svg", "webp", "png"]) {
+    const file = `${code.toLowerCase()}.${ext}`;
+    if (fs.existsSync(path.join(process.cwd(), "public", BADGE_DIR, file))) return `/${BADGE_DIR}/${file}`;
+  }
+  return null;
+}
 export function CertBadges({ content, id = "certifications" }: { content: typeof Badges; id?: string }) {
   return (
     <Section id={id} labelledBy={`${id}-title`}>
@@ -120,17 +137,30 @@ export function CertBadges({ content, id = "certifications" }: { content: typeof
             style={delay(i)}
             className={cn(card, "group/b flex flex-col items-center px-4 py-7 text-center sm:px-5")}
           >
-            <span
-              aria-hidden="true"
-              className={cn(
-                "relative grid h-[6.5rem] w-[5.875rem] place-items-center text-[1.375rem] font-black tracking-[-0.02em] text-white transition-transform duration-500 group-hover/b:-translate-y-1 group-hover/b:rotate-3",
-                hex,
-              )}
-              style={{ backgroundImage: `linear-gradient(150deg, ${b.from}, ${b.to})` }}
-            >
-              <span className={cn("absolute inset-[6px] bg-white/[0.14]", hex)} />
-              <span className="relative">{b.code}</span>
-            </span>
+            {officialBadge(b.code) ? (
+              <span className="grid h-[6.5rem] w-full min-w-0 place-items-center">
+                <Image
+                  src={officialBadge(b.code)!}
+                  alt={`${b.name} logo`}
+                  width={240}
+                  height={120}
+                  className="h-[3.75rem] w-auto max-w-full object-contain sm:max-w-[11rem] transition-transform duration-500 group-hover/b:-translate-y-1"
+                />
+              </span>
+            ) : (
+              // Placeholder until the official badge file is added (see BADGE_DIR above)
+              <span
+                aria-hidden="true"
+                className={cn(
+                  "relative grid h-[6.5rem] w-[5.875rem] place-items-center text-[1.375rem] font-black tracking-[-0.02em] text-white transition-transform duration-500 group-hover/b:-translate-y-1 group-hover/b:rotate-3",
+                  hex,
+                )}
+                style={{ backgroundImage: `linear-gradient(150deg, ${b.from}, ${b.to})` }}
+              >
+                <span className={cn("absolute inset-[6px] bg-white/[0.14]", hex)} />
+                <span className="relative">{b.code}</span>
+              </span>
+            )}
             <h3 className="mt-5 text-[1.0625rem] leading-snug font-bold text-ink">{b.name}</h3>
             <p className="mt-1.5 text-[0.875rem] leading-snug text-fg-muted">{b.detail}</p>
             <span className="mt-3 rounded-full bg-brand-soft px-3 py-1 text-[0.6875rem] font-bold tracking-[0.12em] text-eyebrow-ink uppercase">
@@ -204,7 +234,7 @@ export function CertPathway({ content, id = "pathway" }: { content: typeof Pathw
   );
 }
 
-/* ---------- D · Value of certification ---------- */
+/* ---------- D · Why Acestar, beside a certificate illustration ---------- */
 const valueIcons = [
   { icon: Check, bg: "bg-[linear-gradient(135deg,#3b63f3,#6a5cf4)]" },
   { icon: ArrowUpRight, bg: "bg-[linear-gradient(135deg,#a24df0,#e2589d)]" },
@@ -255,7 +285,16 @@ export function CertValue({ content, id = "value" }: { content: typeof Value; id
           </span>
         </div>
         <div>
-          <SectionHead eyebrow={content.eyebrow} title={content.title} body={content.body} id={`${id}-title`} />
+          <SectionHead
+            eyebrow={content.eyebrow}
+            title={content.title}
+            body={content.body.map((p, i) => (
+              <span key={p.slice(0, 24)} className={i ? "mt-3 block" : "block"}>
+                {p}
+              </span>
+            ))}
+            id={`${id}-title`}
+          />
           <ul className="mt-8 grid gap-4 sm:grid-cols-2">
             {content.items.map((v, i) => {
               const { icon: Icon, bg } = valueIcons[i];
