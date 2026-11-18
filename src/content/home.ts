@@ -40,7 +40,7 @@ export const solutions = {
     },
     {
       key: "computers",
-      title: "High-Performance Computing & TechCare",
+      title: "High-Performance Computing",
       body: "High-performance computing with flexible TechCare options.",
       href: "/high-performance-computer/",
       image: { src: "/images/solutions/our-solutions/computers-3.webp", width: 1280, height: 880 },

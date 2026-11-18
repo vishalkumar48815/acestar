@@ -41,7 +41,7 @@ function CampaignPicture({ campaign, eager }: { campaign: Campaign; eager: boole
       ) : null}
       <picture>
         <source media="(min-width: 768px)" srcSet={d.srcSet} sizes={d.sizes} />
-        {}
+        { }
         <img
           {...m}
           alt={m.alt}
@@ -165,9 +165,9 @@ export function Campaigns() {
                       style={
                         active
                           ? {
-                              animation: `campaign-progress ${DURATION_MS}ms linear both`,
-                              animationPlayState: running ? "running" : "paused",
-                            }
+                            animation: `campaign-progress ${DURATION_MS}ms linear both`,
+                            animationPlayState: running ? "running" : "paused",
+                          }
                           : undefined
                       }
                       onAnimationEnd={() => go(1)}

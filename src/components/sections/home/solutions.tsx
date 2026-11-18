@@ -15,7 +15,7 @@ const tones: Record<(typeof solutions.items)[number]["key"], [string, string]> =
 };
 
 const card = cn(
-  "group/card relative isolate flex h-full min-h-[23rem] flex-col overflow-hidden rounded-[1.25rem] p-6 pb-5",
+  "group/card relative isolate flex h-full min-h-[23rem] flex-col items-center overflow-hidden rounded-[1.25rem] p-6 pb-5 text-center",
   "border border-white/90 bg-[linear-gradient(170deg,var(--tone-a),var(--tone-b))]",
   "shadow-[inset_0_1px_0_rgb(255_255_255/0.9),0_1px_2px_rgb(30_40_90/0.05)]",
   "transition-[transform,box-shadow] duration-500 ease-out-expo",
@@ -34,8 +34,9 @@ const glow = cn(
   "after:[mask:linear-gradient(#000_0_0)_content-box_exclude,linear-gradient(#000_0_0)]",
 );
 
+/* "Learn more" pill at the foot of each centred card */
 const arrow = cn(
-  "grid size-10 place-items-center rounded-full transition-all duration-300",
+  "inline-flex min-h-10 items-center gap-1.5 rounded-full px-4 text-[0.8125rem] font-semibold transition-all duration-300",
   "bg-white text-ink shadow-[0_4px_12px_-4px_rgb(30_40_90/0.18)]",
   "group-hover/card:bg-[image:var(--btn-gradient)] group-hover/card:text-white group-hover/card:shadow-[var(--btn-gradient-shadow)]",
   "group-focus-visible/card:bg-[image:var(--btn-gradient)] group-focus-visible/card:text-white",
@@ -82,7 +83,7 @@ export function Solutions() {
                 {/* Cursor spotlight + gradient rim on hover */}
                 <span aria-hidden="true" className={glow} />
 
-                <div className="relative -mx-2 h-40 xl:h-44">
+                <div className="relative -mx-2 h-40 self-stretch xl:h-44">
                   <Image
                     src={item.image.src}
                     width={item.image.width}
@@ -100,6 +101,7 @@ export function Solutions() {
 
                 <span className="mt-auto pt-6">
                   <span className={arrow}>
+                    Explore
                     <ArrowRight
                       aria-hidden="true"
                       className="size-4 transition-transform duration-300 group-hover/card:translate-x-0.5"
