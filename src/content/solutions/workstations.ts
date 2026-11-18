@@ -11,7 +11,7 @@ export const hero: PageHero = {
   secondary: { label: "Explore TechCare", href: "/techcare" },
   image: asset("2021/12/High-Performance-Computers-Background.png", "Hands typing on a laptop keyboard"),
   imageFit: "backdrop",
-  crumbs: [{ label: "Home", href: "/" }, { label: "Solutions" }, { label: "High-Performance Computing & TechCare" }],
+  crumbs: [{ label: "Home", href: "/" }, { label: "Solutions" }, { label: "High-Performance Computing" }],
   chips: ["HP", "Lenovo", "Apple", "Dell", "ASUS"],
 };
 

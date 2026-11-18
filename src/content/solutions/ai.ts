@@ -82,13 +82,13 @@ export const tools: AiTool[] = [
     icon: icon("microsoft-copilot.svg", "Microsoft Copilot"),
     icon2: icon("adobe-acrobat.webp", "Adobe Acrobat Sign"),
   },
-  {
-    name: "Figma Enterprise",
-    tag: "Product design",
-    body: "Accelerate digital product design, AI-powered prototyping and team collaboration.",
-    icon: icon("figma.svg", "Figma"),
-    aliases: ["Figma"],
-  },
+  // {
+  //   name: "Figma Enterprise",
+  //   tag: "Product design",
+  //   body: "Accelerate digital product design, AI-powered prototyping and team collaboration.",
+  //   icon: icon("figma.svg", "Figma"),
+  //   aliases: ["Figma"],
+  // },
   {
     name: "Twilio Enterprise",
     tag: "Customer engagement",

@@ -22,12 +22,13 @@ const packageTones: Tone[] = ["mint", "sky", "violet"];
 const h2 =
   "font-display text-[clamp(1.875rem,1.2rem+2.1vw,2.875rem)] leading-[1.12] font-bold tracking-[-0.02em] text-[#4a4857] dark:text-ink";
 
-/** Artwork from public/images/pages/techcare (giraffe cut out from its baked-in checkerboard). */
+/** Artwork from public/images/pages/techcare. */
 const art = {
   giraffe: {
-    src: "/images/pages/techcare/giraffe.webp",
-    width: 736,
-    height: 1499,
+    // Lossless WebP of upside-gown-giraffe-img.png, full 969×1622 (served as-is, not resized)
+    src: "/images/pages/techcare/upside-gown-giraffe-img.webp",
+    width: 969,
+    height: 1622,
     alt: "A giraffe bending its long neck over to look at you upside down",
   },
   computers: {
@@ -54,8 +55,7 @@ export default function TechCarePage() {
               height={art.giraffe.height}
               alt={art.giraffe.alt}
               priority
-              quality={90}
-              sizes="(min-width: 1024px) 320px, 60vw"
+              unoptimized
               className="absolute bottom-0 left-1/2 h-full w-auto max-w-none -translate-x-[46%] lg:left-[8%] lg:translate-x-0"
             />
           </div>
@@ -144,7 +144,7 @@ export default function TechCarePage() {
                 </div>
                 <div className="pl-7">
                   <span aria-hidden="true" className="mt-5 block h-2 w-24 rounded-full bg-[var(--tc-yellow)]" />
-                  <p className="mt-5 max-w-[22rem] text-[clamp(1.0625rem,1rem+0.25vw,1.1875rem)] leading-[1.5] text-[#3f3f48] font-medium dark:text-fg-muted">
+                  <p className="mt-5 max-w-[22rem] text-[clamp(1.0625rem,1rem+0.25vw,1.1875rem)] leading-[1.5] font-medium text-[#3f3f48] dark:text-fg-muted">
                     {subscription.body}
                   </p>
                 </div>

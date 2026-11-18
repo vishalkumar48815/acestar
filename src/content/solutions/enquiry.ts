@@ -62,16 +62,16 @@ export const enquirySolutions: EnquirySolution[] = [
       { name: "esign", label: "E-signature requirements" },
     ],
   },
-  {
-    key: "figma-enterprise",
-    label: "Figma Enterprise",
-    fields: [
-      { name: "designers", label: "Number of designers / developers", type: "number", placeholder: "e.g. 15" },
-      { name: "tools", label: "Current design tools", placeholder: "e.g. Adobe XD, Sketch" },
-      { name: "teamSize", label: "Team size", placeholder: "e.g. 3 product teams" },
-      { name: "aiDesign", label: "AI design requirements", placeholder: "e.g. Figma Make, prototyping" },
-    ],
-  },
+  // {
+  //   key: "figma-enterprise",
+  //   label: "Figma Enterprise",
+  //   fields: [
+  //     { name: "designers", label: "Number of designers / developers", type: "number", placeholder: "e.g. 15" },
+  //     { name: "tools", label: "Current design tools", placeholder: "e.g. Adobe XD, Sketch" },
+  //     { name: "teamSize", label: "Team size", placeholder: "e.g. 3 product teams" },
+  //     { name: "aiDesign", label: "AI design requirements", placeholder: "e.g. Figma Make, prototyping" },
+  //   ],
+  // },
   {
     key: "twilio-enterprise",
     label: "Twilio Enterprise",

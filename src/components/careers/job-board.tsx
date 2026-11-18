@@ -10,6 +10,8 @@ import { cn } from "@/lib/utils";
 
 const GENERAL = "General application";
 const INTERNSHIP = "Internship / fresh graduate";
+/** Last option in the role list: reveals a text box so applicants can type a role we haven't listed. */
+const OTHER = "__other";
 const CV_TYPES = ".pdf,.doc,.docx";
 const JOIN_OPTIONS = ["Immediately", "Within 2 weeks", "Within 1 month", "Within 2 months", "3 months or more"];
 
@@ -23,6 +25,7 @@ type Status = { tone: "success" | "error" | "info"; text: string } | null;
 export function JobBoard({ jobs, to }: { jobs: Job[]; to: string }) {
   const uid = useId();
   const [role, setRole] = useState("");
+  const [customRole, setCustomRole] = useState("");
   const [errors, setErrors] = useState<Errors>({});
   const [status, setStatus] = useState<Status>(null);
   const [pending, setPending] = useState(false);
@@ -77,7 +80,8 @@ export function JobBoard({ jobs, to }: { jobs: Job[]; to: string }) {
     if (name.length < 2) next.name = "Please enter your full name.";
     if (!EMAIL_RE.test(email)) next.email = "Please enter a valid email address, e.g. name@company.com.";
     if (!PHONE_RE.test(phone)) next.phone = "Please enter a valid phone number, e.g. 012-345 6789.";
-    if (!String(data.get("role") ?? "")) next.role = "Please choose a role.";
+    if (!String(data.get("role") ?? "").trim())
+      next.role = role === OTHER ? "Please type the role you're interested in." : "Please choose a role.";
     if (!String(data.get("join") ?? "")) next.join = "Please tell us when you can join.";
     if (!cv) next.cv = "Please attach your CV (PDF or Word).";
     else if (cv.size > MAX_CV_BYTES) next.cv = "Your CV must be 3 MB or smaller.";
@@ -97,7 +101,7 @@ export function JobBoard({ jobs, to }: { jobs: Job[]; to: string }) {
       return;
     }
     setPending(true);
-    const r = String(data.get("role"));
+    const r = String(data.get("role")).trim();
     const result = await deliverForm("careers", data, {
       to,
       subject: `Job application: ${r}`,
@@ -125,6 +129,7 @@ export function JobBoard({ jobs, to }: { jobs: Job[]; to: string }) {
       setStatus({ tone: "success", text: "Thank you! Your application has been sent. Our team will be in touch." });
       form.reset();
       setRole("");
+      setCustomRole("");
       pickCv(null);
     }
   };
@@ -157,12 +162,16 @@ export function JobBoard({ jobs, to }: { jobs: Job[]; to: string }) {
         <div className="mt-6 grid gap-4">
           <SelectField
             id={`${uid}-role`}
-            name="role"
+            // With "Other" chosen, the text box below is what submits as "role".
+            name={role === OTHER ? undefined : "role"}
             label="Role"
             required
             value={role}
-            onChange={(e) => setRole(e.target.value)}
-            error={errors.role}
+            onChange={(e) => {
+              setRole(e.target.value);
+              setErrors((er) => ({ ...er, role: undefined }));
+            }}
+            error={role === OTHER ? undefined : errors.role}
           >
             <option value="" disabled>
               Choose a role
@@ -174,7 +183,25 @@ export function JobBoard({ jobs, to }: { jobs: Job[]; to: string }) {
             ))}
             <option value={GENERAL}>{GENERAL}</option>
             <option value={INTERNSHIP}>{INTERNSHIP}</option>
+            <option value={OTHER}>Other (type your own role)</option>
           </SelectField>
+          {role === OTHER ? (
+            <TextField
+              id={`${uid}-role-other`}
+              name="role"
+              label="Your role"
+              required
+              autoFocus
+              maxLength={160}
+              value={customRole}
+              onChange={(e) => {
+                setCustomRole(e.target.value);
+                setErrors((er) => ({ ...er, role: undefined }));
+              }}
+              placeholder="e.g. UI/UX Designer"
+              error={errors.role}
+            />
+          ) : null}
           <TextField
             id={`${uid}-name`}
             name="name"

@@ -165,11 +165,6 @@ export const creativeBrandData: BrandData[] = [
         ],
       },
     ],
-    video: {
-      poster: "2026/03/adobe-video.png",
-      caption:
-        "Now even more powerful with integrated essentials and the power to collaborate with anyone, anywhere. Creative Cloud keeps your inspiration flowing with more than just great apps.",
-    },
   },
   {
     key: "autodesk",

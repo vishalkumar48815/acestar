@@ -15,7 +15,7 @@ export default function AwardsPage() {
       <PageHero hero={hero} />
 
       <Section labelledBy="quote-title" className="pt-0 lg:pt-4">
-        <figure data-reveal suppressHydrationWarning className="mx-auto max-w-2xl pt-4 text-center lg:pt-6">
+        <figure data-reveal suppressHydrationWarning className="mx-auto max-w-2xl pt-0 text-center lg:pt-2">
           {/* Small caps label with a line either side (same style as "Our Mission" on Company Profile) */}
           <h2
             id="quote-title"
@@ -25,7 +25,7 @@ export default function AwardsPage() {
               aria-hidden="true"
               className="h-px w-10 bg-[linear-gradient(90deg,transparent,var(--accent-from))] sm:w-28"
             />
-            Our Achievements
+            Learn & Grow
             <span
               aria-hidden="true"
               className="h-px w-10 bg-[linear-gradient(90deg,var(--accent-from),transparent)] sm:w-28"
@@ -40,7 +40,7 @@ export default function AwardsPage() {
         </figure>
       </Section>
 
-      <Section id="timeline" labelledBy="timeline-title" className="pt-4 lg:pt-6">
+      <Section id="timeline" labelledBy="timeline-title" className="pt-2 lg:pt-4">
         <SectionHead
           eyebrow="Timeline"
           title="Recognised year after year."

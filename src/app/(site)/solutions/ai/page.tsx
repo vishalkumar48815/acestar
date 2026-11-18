@@ -24,7 +24,7 @@ export default function AiSolutionsPage() {
 
       <BriefOverview overview={brief.overview} showOfferings={false} align="center" />
 
-      <Section id="tools" labelledBy="tools-title" className="pt-0 lg:pt-0">
+      <Section id="tools" labelledBy="tools-title" className="pt-12 lg:pt-16 bg-olive-600/5">
         <SectionHead
           // align="center"
           eyebrow="Acestar 3.0 · Enterprise AI portfolio"

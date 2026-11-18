@@ -150,12 +150,12 @@ export function PageHero({ hero, visual }: { hero: Hero; visual?: ReactNode }) {
           <h1
             id="page-title"
             className={cn(
-              "font-display leading-[1.04] text-balance text-ink",
+              "font-display leading-[1.08] text-balance text-ink",
               /* Centred text-only heroes use a calmer, corporate title size */
               centered
                 ? "text-[clamp(2.125rem,1.45rem+2.2vw,3.375rem)] font-bold tracking-[-0.035em]"
-                : "text-[clamp(2.25rem,1.2rem+3.2vw,4rem)] font-extrabold tracking-[-0.04em]",
-              hero.keyword ? "mt-6" : "mt-4",
+                : "text-[clamp(2.25rem,1.2rem+3.2vw,4rem)] font-extrabold tracking-[-0.04em] leading-20",
+              hero.keyword ? "mt-3" : "mt-0",
             )}
             style={enter(140)}
           >
@@ -178,7 +178,7 @@ export function PageHero({ hero, visual }: { hero: Hero; visual?: ReactNode }) {
           </h1>
           {hero.subheading ? (
             <h2
-              className="mt-5 flex items-center gap-3 text-[clamp(1rem,0.94rem+0.3vw,1.1875rem)] leading-snug font-semibold text-ink"
+              className="mt-2 flex items-center gap-3 text-[clamp(1rem,0.94rem+0.3vw,1.1875rem)] leading-snug font-semibold text-ink"
               style={enter(200)}
             >
               <span aria-hidden="true" className="h-0.5 w-8 shrink-0 rounded-full bg-[image:var(--btn-gradient)]" />
@@ -187,7 +187,7 @@ export function PageHero({ hero, visual }: { hero: Hero; visual?: ReactNode }) {
           ) : null}
           <p
             className={cn(
-              "mt-5 text-[clamp(1.0625rem,0.97rem+0.35vw,1.25rem)] leading-[1.6] text-pretty text-fg-muted",
+              "mt-2 text-[clamp(1.0625rem,0.97rem+0.35vw,1.25rem)] leading-[1.6] text-pretty text-fg-muted",
               centered ? "max-w-[40rem]" : "max-w-[36rem]",
             )}
             style={enter(260)}
@@ -197,7 +197,7 @@ export function PageHero({ hero, visual }: { hero: Hero; visual?: ReactNode }) {
 
           {(hero.primary || hero.secondary) && (
             <div
-              className={cn("mt-8 flex w-full flex-col gap-3 sm:w-auto sm:flex-row", centered && "sm:justify-center")}
+              className={cn("mt-6 flex w-full flex-col gap-3 sm:w-auto sm:flex-row", centered && "sm:justify-center")}
               style={enter(360)}
             >
               {hero.primary && (
