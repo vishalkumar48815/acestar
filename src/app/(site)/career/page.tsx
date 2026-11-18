@@ -74,7 +74,7 @@ export default function CareersPage() {
           </div>
         </div>
 
-        <div className="container-page pt-32 pb-10 lg:flex lg:min-h-[44rem] lg:items-center lg:pt-28 lg:pb-16">
+        <div className="container-page pt-32 pb-10 lg:flex lg:min-h-[44rem] lg:items-end lg:pt-28 lg:pb-16">
           <div className="max-w-[40rem] lg:max-w-[46%]" style={{ animation: "fade-up 0.9s var(--ease-out) both" }}>
             <Eyebrow>{careersHero.eyebrow}</Eyebrow>
             <h1 id="careers-title" className="mt-5 text-ink">
