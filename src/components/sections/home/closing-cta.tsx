@@ -12,7 +12,7 @@ export function ClosingCta({ content = closingCta }: { content?: Content }) {
         <div
           data-reveal
           suppressHydrationWarning
-          className="relative isolate overflow-hidden rounded-[1.75rem] border border-white/80 bg-[linear-gradient(110deg,#f3f4fe_0%,#eef1fd_55%,#f1ebfd_100%)] px-7 py-12 sm:px-12 lg:px-14 lg:py-14 dark:border-white/[0.08] dark:bg-[linear-gradient(110deg,#0e1530,#121a3a_55%,#1c1640)]"
+          className="relative isolate overflow-hidden rounded-[1.75rem] border border-white/80 bg-[linear-gradient(110deg,#f3f4fe_0%,#eef1fd_55%,#f1ebfd_100%)] px-5 py-9 sm:px-12 sm:py-12 lg:px-14 lg:py-14 dark:border-white/[0.08] dark:bg-[linear-gradient(110deg,#0e1530,#121a3a_55%,#1c1640)]"
         >
           {/* Flowing silk waves (original SVG), drifting slowly */}
           <svg
@@ -64,7 +64,7 @@ export function ClosingCta({ content = closingCta }: { content?: Content }) {
               </p>
               <h2
                 id="cta-title"
-                className="mt-4 font-display text-[clamp(1.6rem,1.2rem+2.2vw,2.6rem)] leading-[1.05] font-bold tracking-[-0.04em] text-ink"
+                className="mt-4 font-display text-[clamp(1.4rem,1.2rem+2.2vw,2.6rem)] leading-[1.05] font-bold tracking-[-0.04em] text-ink"
               >
                 {content.title}
               </h2>
@@ -75,7 +75,7 @@ export function ClosingCta({ content = closingCta }: { content?: Content }) {
             <ButtonLink
               href={content.cta.href}
               variant="gradient"
-              className="min-h-14 w-full shrink-0 px-10 text-base sm:w-auto"
+              className="min-h-14 w-full shrink-0 px-10 text-base max-sm:min-h-12 max-sm:px-5 max-sm:text-[0.9375rem] sm:w-auto"
             >
               {content.cta.label}
               <ArrowRight

@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 const packageTones: Tone[] = ["mint", "sky", "violet"];
 const h2 =
-  "font-display text-[clamp(1.875rem,1.2rem+2.1vw,2.875rem)] leading-[1.12] font-bold tracking-[-0.02em] text-[#4a4857] dark:text-ink";
+  "font-display text-[clamp(1.5rem,1.2rem+2.1vw,2.875rem)] leading-[1.12] font-bold tracking-[-0.02em] text-[#4a4857] dark:text-ink";
 
 /** Artwork from public/images/pages/techcare. */
 const art = {
@@ -239,7 +239,7 @@ export default function TechCarePage() {
             <p className="flex-1 text-[1.0625rem] leading-relaxed text-white/90">{closing.body}</p>
             <Link
               href="/contact-acestarian/"
-              className="group/c inline-flex min-h-14 shrink-0 items-center justify-center gap-2 self-start rounded-full bg-white px-8 text-[1.0625rem] font-semibold text-[#2c2b3a] shadow-[0_12px_30px_-16px_rgb(0_0_0/0.4)] transition-transform hover:-translate-y-0.5 lg:self-center"
+              className="group/c inline-flex min-h-14 shrink-0 items-center justify-center gap-2 self-start rounded-full bg-white px-6 md:px-8 text-[0.9rem] md:text-[1.0625rem] font-semibold text-[#2c2b3a] shadow-[0_12px_30px_-16px_rgb(0_0_0/0.4)] transition-transform hover:-translate-y-0.5 lg:self-center"
             >
               Talk to Our Experts
               <ArrowRight aria-hidden="true" className="size-4 transition-transform group-hover/c:translate-x-1" />

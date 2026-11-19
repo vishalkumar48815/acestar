@@ -5,7 +5,7 @@ import { TestimonialSlider } from "./testimonial-slider";
 
 const eyebrow = "text-eyebrow-ink text-[0.75rem] font-bold tracking-[0.22em] uppercase sm:text-[0.8125rem]";
 const h2 =
-  "mt-4 font-display text-[clamp(1.75rem,1.1rem+2.1vw,2.625rem)] leading-[1.1] font-bold tracking-[-0.035em] text-ink";
+  "mt-4 font-display text-[clamp(1.5rem,1.1rem+2.1vw,2.625rem)] leading-[1.1] font-bold tracking-[-0.035em] text-ink";
 
 /** "Why Acestar" with the proof band, then customer testimonials. */
 export function WhyAcestar() {
@@ -42,7 +42,7 @@ export function WhyAcestar() {
             </p>
             <h2
               id="why-title"
-              className="mt-4 font-display text-[clamp(1.875rem,1.15rem+2.3vw,2.875rem)] leading-[1.1] font-bold tracking-[-0.035em] text-balance text-ink"
+              className="mt-4 font-display text-[clamp(1.5rem,1.15rem+2.3vw,2.875rem)] leading-[1.1] font-bold tracking-[-0.035em] text-balance text-ink"
             >
               {whyAcestar.title}
             </h2>
@@ -68,7 +68,7 @@ export function WhyAcestar() {
                   }
                 >
                   <dt className="mt-2 text-[0.9375rem] font-medium text-eyebrow-ink sm:text-[1.0625rem]">{s.label}</dt>
-                  <dd className="text-[clamp(1.75rem,1.3rem+1.4vw,2.375rem)] leading-none font-medium tracking-[-0.02em] text-ink">
+                  <dd className="text-[clamp(1.5rem,1.3rem+1.4vw,2.375rem)] leading-none font-medium tracking-[-0.02em] text-ink">
                     {s.value}
                   </dd>
                 </div>

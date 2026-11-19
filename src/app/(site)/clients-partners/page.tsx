@@ -48,10 +48,10 @@ export default function ClientsPartnersPage() {
               style={delay(i)}
               className={cn(
                 panel,
-                "group/c flex flex-col items-center gap-3 p-5 transition-transform duration-500 ease-out-expo hover:-translate-y-1 sm:p-6",
+                "group/c flex flex-col items-center gap-2.5 p-3 transition-transform duration-500 ease-out-expo hover:-translate-y-1 sm:gap-3 sm:p-6",
               )}
             >
-              <div className="relative h-20 w-full rounded-xl bg-white">
+              <div className="relative h-16 w-full rounded-xl bg-white sm:h-20">
                 {c.logo ? (
                   <Image
                     src={c.logo.src}
@@ -64,8 +64,10 @@ export default function ClientsPartnersPage() {
                 ) : null}
               </div>
               <span className="text-center">
-                <span className="block text-[0.9375rem] font-semibold text-ink">{c.name}</span>
-                <span className="block text-[0.8125rem] text-fg-subtle">{c.sector}</span>
+                <span className="block text-[0.875rem] leading-snug font-semibold text-ink sm:text-[0.9375rem]">
+                  {c.name}
+                </span>
+                <span className="block text-[0.75rem] text-fg-subtle sm:text-[0.8125rem]">{c.sector}</span>
               </span>
             </li>
           ))}

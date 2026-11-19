@@ -36,7 +36,7 @@ export default function ContactPage() {
             {/* The page's main heading now that there is no hero */}
             <h1
               id="message-title"
-              className="mt-3 font-display text-[clamp(1.75rem,1.2rem+1.8vw,2.5rem)] leading-tight font-bold tracking-[-0.03em] text-ink"
+              className="mt-3 font-display text-[clamp(1.5rem,1.2rem+1.8vw,2.5rem)] leading-tight font-bold tracking-[-0.03em] text-ink"
             >
               {form.title}
             </h1>
@@ -106,7 +106,7 @@ export default function ContactPage() {
               <p className="text-[0.6875rem] font-semibold tracking-[0.34em] text-white/70 uppercase">Office</p>
               <h2
                 id="visit-title"
-                className="mt-3 font-display text-[clamp(1.75rem,1.3rem+1.6vw,2.5rem)] leading-tight font-bold tracking-[-0.03em]"
+                className="mt-3 font-display text-[clamp(1.5rem,1.3rem+1.6vw,2.5rem)] leading-tight font-bold tracking-[-0.03em]"
               >
                 {visit.title}
               </h2>

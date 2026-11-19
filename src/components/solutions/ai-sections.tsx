@@ -48,7 +48,7 @@ export function AiSafety({ items }: { items: { key: string; title: string; body:
           <p className="text-[0.6875rem] font-semibold tracking-[0.34em] text-white/60 uppercase">Responsible AI</p>
           <h2
             id="safety-title"
-            className="mt-3 font-display text-[clamp(1.75rem,1.3rem+1.6vw,2.5rem)] leading-tight font-bold tracking-[-0.03em]"
+            className="mt-3 font-display text-[clamp(1.5rem,1.3rem+1.6vw,2.5rem)] leading-tight font-bold tracking-[-0.03em]"
           >
             Secure by default.
           </h2>

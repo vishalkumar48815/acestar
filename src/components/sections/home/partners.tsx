@@ -15,7 +15,7 @@ export function Partners() {
             </p>
             <h2
               id="partners-title"
-              className="mt-4 font-display text-[clamp(1.875rem,1.15rem+2.3vw,2.875rem)] leading-[1.1] font-bold tracking-[-0.035em] text-ink"
+              className="mt-4 font-display text-[clamp(1.5rem,1.15rem+2.3vw,2.875rem)] leading-[1.1] font-bold tracking-[-0.035em] text-ink"
             >
               {partners.title.map((line) => (
                 <span key={line} className="block">
@@ -30,7 +30,7 @@ export function Partners() {
 
           <ul
             aria-label="Technology partners"
-            className="mt-10 grid grid-cols-2 gap-3 border-t border-line pt-10 sm:grid-cols-3 sm:gap-4 xl:grid-cols-6"
+            className="mt-8 grid grid-cols-2 gap-2.5 border-t border-line pt-8 sm:mt-10 sm:grid-cols-3 sm:gap-4 sm:pt-10 xl:grid-cols-6"
           >
             {partners.logos.map((logo, i) => {
               const name = logo.vendor ? `${logo.vendor} ${logo.product}` : logo.product;
@@ -41,8 +41,8 @@ export function Partners() {
                   suppressHydrationWarning
                   style={{ "--reveal-delay": `${i * 70}ms` } as React.CSSProperties}
                 >
-                  <div className="group flex h-full items-center gap-3 rounded-2xl border border-white/90 bg-white/75 px-3.5 py-3 shadow-[0_1px_2px_rgb(30_40_90/0.05)] transition-[transform,box-shadow] duration-500 ease-out-expo hover:-translate-y-1 hover:shadow-[0_20px_40px_-24px_rgb(70_70_180/0.4)] sm:px-4 sm:py-3.5 dark:border-white/[0.08] dark:bg-white/[0.04]">
-                    <span className="grid size-10 shrink-0 place-items-center sm:size-11">
+                  <div className="group flex h-full items-center gap-2.5 rounded-2xl border border-white/90 bg-white/75 px-3 py-2.5 shadow-[0_1px_2px_rgb(30_40_90/0.05)] transition-[transform,box-shadow] duration-500 ease-out-expo hover:-translate-y-1 hover:shadow-[0_20px_40px_-24px_rgb(70_70_180/0.4)] sm:px-4 sm:py-3.5 dark:border-white/[0.08] dark:bg-white/[0.04]">
+                    <span className="grid size-8 shrink-0 place-items-center sm:size-11">
                       <Image
                         src={logo.icon}
                         alt=""
@@ -57,11 +57,11 @@ export function Partners() {
                     </span>
                     <span className="min-w-0 leading-tight">
                       {logo.vendor ? (
-                        <span className="block text-[0.6875rem] font-medium tracking-wide text-fg-subtle uppercase">
+                        <span className="block truncate text-[0.625rem] font-medium tracking-wide text-fg-subtle uppercase sm:text-[0.6875rem]">
                           {logo.vendor}
                         </span>
                       ) : null}
-                      <span className="block text-[0.9375rem] font-semibold tracking-[-0.01em] text-ink sm:text-base">
+                      <span className="block text-[0.875rem] font-semibold tracking-[-0.01em] text-ink sm:text-base">
                         {logo.product}
                       </span>
                     </span>

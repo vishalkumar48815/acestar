@@ -127,7 +127,7 @@ export function Pillars() {
                 )}
               >
                 <span className="text-eyebrow text-brand-ink">{pillar.eyebrow}</span>
-                <h3 className="font-display text-[clamp(1.75rem,1.3rem+2vw,2.75rem)] leading-[1.05] font-bold tracking-[-0.03em]">
+                <h3 className="font-display text-[clamp(1.5rem,1.3rem+2vw,2.75rem)] leading-[1.05] font-bold tracking-[-0.03em]">
                   {pillar.title}
                 </h3>
                 <p className="max-w-[32rem] text-lead text-fg-muted">{pillar.summary}</p>

@@ -130,11 +130,11 @@ export function BrandExplorer({ brands }: { brands: Brand[] }) {
         </div>
 
         {total > 0 && (
-          <CardSpotlight className="border-t border-line bg-white/30 p-4 sm:p-6 lg:p-8 dark:bg-transparent">
+          <CardSpotlight className="border-t border-line bg-white/30 p-3 sm:p-6 lg:p-8 dark:bg-transparent">
             {brand.groups.map((group, gi) => (
               <div key={group.title ?? gi} className={cn(gi > 0 && "mt-8")}>
                 {group.title ? <h4 className="mb-3 text-eyebrow text-fg-subtle">{group.title}</h4> : null}
-                <ul className="grid grid-cols-2 gap-2.5 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+                <ul className="grid grid-cols-3 gap-2 max-[359px]:grid-cols-2 sm:gap-2.5 lg:grid-cols-4 xl:grid-cols-5">
                   {group.products.map((p, pi) => (
                     <li
                       key={p.id}
@@ -145,11 +145,13 @@ export function BrandExplorer({ brands }: { brands: Brand[] }) {
                         data-spotlight
                         onClick={() => setProduct(p)}
                         aria-haspopup="dialog"
-                        className="group/card relative isolate flex h-full w-full items-center gap-3 rounded-2xl border border-line bg-white/70 p-3 text-left transition-[transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_30px_-18px_rgb(60_60_160/0.35)] dark:bg-white/[0.03]"
+                        className="group/card relative isolate flex h-full w-full flex-col items-center justify-center gap-2 rounded-2xl border border-line bg-white/70 px-1.5 py-3 text-center transition-[transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_30px_-18px_rgb(60_60_160/0.35)] sm:flex-row sm:justify-start sm:gap-3 sm:p-3 sm:text-left dark:bg-white/[0.03]"
                       >
                         <span aria-hidden="true" className={spotlight} />
                         <AppIcon icon={p.icon} name={p.name} className="size-10" />
-                        <span className="min-w-0 text-[0.875rem] leading-snug font-semibold text-ink">{p.name}</span>
+                        <span className="w-full min-w-0 text-[0.75rem] leading-tight font-semibold text-balance break-words text-ink sm:w-auto sm:text-[0.875rem] sm:leading-snug">
+                          {p.name}
+                        </span>
                       </button>
                     </li>
                   ))}

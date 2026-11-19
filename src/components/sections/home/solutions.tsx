@@ -53,7 +53,7 @@ export function Solutions() {
           </p>
           <h2
             id="solutions-title"
-            className="mt-4 font-display text-[clamp(1.875rem,1.15rem+2.3vw,2.875rem)] leading-[1.1] font-bold tracking-[-0.035em] text-ink"
+            className="mt-4 font-display text-[clamp(1.5rem,1.15rem+2.3vw,2.875rem)] leading-[1.1] font-bold tracking-[-0.035em] text-ink"
           >
             {solutions.title}
           </h2>

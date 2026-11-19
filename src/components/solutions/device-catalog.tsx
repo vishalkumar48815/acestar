@@ -66,9 +66,9 @@ export function DeviceCatalog({ brands }: { brands: DeviceBrand[] }) {
       >
         <div className={cn(panel, "overflow-hidden")}>
           <BannerStrip banner={brand.banner} title={brand.name} />
-          <div className="grid gap-6 p-6 sm:p-8 lg:grid-cols-[1fr_auto] lg:items-end lg:gap-12 lg:p-10">
-            <div className="max-w-3xl">
-              <p className="text-[1.0625rem] leading-relaxed text-fg">{brand.intro}</p>
+          <div className="grid gap-6 p-5 sm:p-8 lg:grid-cols-[1fr_auto] lg:items-end lg:gap-12 lg:p-10">
+            <div className="max-w-3xl min-w-0">
+              <p className="text-[1rem] leading-relaxed text-fg sm:text-[1.0625rem]">{brand.intro}</p>
               <div
                 className={cn(
                   "grid transition-[grid-template-rows] duration-500 ease-out-expo",

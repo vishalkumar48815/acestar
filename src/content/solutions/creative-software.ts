@@ -8,7 +8,7 @@ export const hero: PageHero = {
   title: "Creative Software Solutions in Malaysia.",
   accent: "in Malaysia.",
   lead: "Great creative work begins with the right technology. Acestar is an award-winning Adobe Platinum Partner and Top Adobe Authorized Reseller in Malaysia, helping businesses, agencies, schools and government access industry-leading creative tools.",
-  primary: { label: "Talk to Our Creative Software Experts", href: "/contact-acestarian/" },
+  primary: { label: "Talk to Our Software Experts", href: "/contact-acestarian/" },
   secondary: { label: "Adobe Creative Cloud Pro", href: "/creative-cloud/" },
   image: asset("2026/03/Banner-3.png", "Luminous violet jaguar made of light"),
   imageFit: "backdrop",
@@ -107,6 +107,6 @@ export const brief: SolutionBrief = {
     eyebrow: "Let’s create",
     title: "Your Trusted Adobe Partner in Malaysia",
     body: "Empower your creative teams with genuine software, expert consultation and dependable support.",
-    cta: { label: "Talk to Our Creative Software Experts", href: "/contact-acestarian/" },
+    cta: { label: "Talk to Our Software Experts", href: "/contact-acestarian/" },
   },
 };

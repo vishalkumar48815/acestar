@@ -50,11 +50,14 @@ export function PageHero({ hero, visual }: { hero: Hero; visual?: ReactNode }) {
             "min-[90rem]:[mask-image:linear-gradient(180deg,#000_82%,transparent),linear-gradient(90deg,transparent,#000_6%,#000_94%,transparent)] min-[90rem]:[mask-composite:intersect] min-[100rem]:[mask-image:linear-gradient(180deg,#000_82%,transparent),linear-gradient(90deg,transparent_5rem,#000_10rem,#000_calc(100%-10rem),transparent_calc(100%-5rem))]",
             /* Header is 62px tall on phones, 78px from lg up */
             hero.imageBelowHeader ? "top-[3.875rem] lg:top-[4.875rem] lg:bottom-0" : "top-0 lg:inset-y-0",
+            /* imageShiftY (wide screens): move the whole fading frame, so its bottom still fades out */
+            hero.imageShiftY && "xl:top-(--art-y) xl:bottom-[calc(var(--art-y)*-1)]",
           )}
           style={
             {
               "--art-o": hero.imageOpacity ?? 1,
               "--art-dark": hero.imageDark ? 1 : hero.imageScrim ? 0.8 : 0.45,
+              "--art-y": hero.imageShiftY ?? "0%",
             } as CSSProperties
           }
         >
@@ -150,12 +153,14 @@ export function PageHero({ hero, visual }: { hero: Hero; visual?: ReactNode }) {
           <h1
             id="page-title"
             className={cn(
-              "font-display leading-[1.08] text-balance text-ink",
+              "font-display text-balance text-ink",
               /* Centred text-only heroes use a calmer, corporate title size */
               centered
-                ? "text-[clamp(2.125rem,1.45rem+2.2vw,3.375rem)] font-bold tracking-[-0.035em]"
-                : "text-[clamp(2.25rem,1.2rem+3.2vw,4rem)] font-extrabold tracking-[-0.04em] leading-20",
-              hero.keyword ? "mt-3" : "mt-0",
+                ? "text-[clamp(1.75rem,1.45rem+2.2vw,3.375rem)] font-bold tracking-[-0.035em]"
+                : "text-[clamp(1.875rem,1.2rem+3.2vw,4rem)] font-extrabold tracking-[-0.04em]",
+              /* Must come AFTER the text-[…] size: cn() (tailwind-merge) drops a line-height listed before a font-size */
+              "leading-[1.08]",
+              hero.keyword ? "mt-6" : "mt-4",
             )}
             style={enter(140)}
           >
@@ -178,7 +183,7 @@ export function PageHero({ hero, visual }: { hero: Hero; visual?: ReactNode }) {
           </h1>
           {hero.subheading ? (
             <h2
-              className="mt-2 flex items-center gap-3 text-[clamp(1rem,0.94rem+0.3vw,1.1875rem)] leading-snug font-semibold text-ink"
+              className="mt-5 flex items-center gap-3 text-[clamp(1rem,0.94rem+0.3vw,1.1875rem)] leading-snug font-semibold text-ink"
               style={enter(200)}
             >
               <span aria-hidden="true" className="h-0.5 w-8 shrink-0 rounded-full bg-[image:var(--btn-gradient)]" />
@@ -187,7 +192,7 @@ export function PageHero({ hero, visual }: { hero: Hero; visual?: ReactNode }) {
           ) : null}
           <p
             className={cn(
-              "mt-2 text-[clamp(1.0625rem,0.97rem+0.35vw,1.25rem)] leading-[1.6] text-pretty text-fg-muted",
+              "mt-5 text-[clamp(1rem,0.94rem+0.35vw,1.25rem)] leading-[1.6] text-pretty text-fg-muted",
               centered ? "max-w-[40rem]" : "max-w-[36rem]",
             )}
             style={enter(260)}
@@ -197,7 +202,7 @@ export function PageHero({ hero, visual }: { hero: Hero; visual?: ReactNode }) {
 
           {(hero.primary || hero.secondary) && (
             <div
-              className={cn("mt-6 flex w-full flex-col gap-3 sm:w-auto sm:flex-row", centered && "sm:justify-center")}
+              className={cn("mt-8 flex w-full flex-col gap-3 sm:w-auto sm:flex-row", centered && "sm:justify-center")}
               style={enter(360)}
             >
               {hero.primary && (

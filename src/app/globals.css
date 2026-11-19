@@ -130,6 +130,13 @@
     text-rendering: optimizeLegibility;
   }
 
+  /* Phones: 15px base (not 16px), so text, spacing and components are ~6% more compact (app-like) */
+  @media (width < 40rem) {
+    html {
+      font-size: 93.75%;
+    }
+  }
+
   body {
     background: var(--bg);
     color: var(--fg);

@@ -35,7 +35,7 @@ const perkIcon = { learning: GraduationCap, team: Users, growth: TrendingUp, rew
 const eyebrow =
   "flex items-center gap-3 text-[0.6875rem] font-bold tracking-[0.3em] text-eyebrow-ink uppercase sm:text-xs";
 const h2 =
-  "font-display text-[clamp(1.875rem,1.2rem+2.2vw,2.875rem)] leading-[1.08] font-bold tracking-[-0.035em] text-ink";
+  "font-display text-[clamp(1.5rem,1.2rem+2.2vw,2.875rem)] leading-[1.08] font-bold tracking-[-0.035em] text-ink";
 const delay = (i: number) => ({ "--reveal-delay": `${i * 70}ms` }) as React.CSSProperties;
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
@@ -328,11 +328,11 @@ export default function CareersPage() {
           </svg>
         </div>
         <div className="container-page grid items-center gap-10 lg:grid-cols-[1.15fr_auto_1fr_auto] lg:gap-12">
-          <h2 className="relative -rotate-[6deg] pb-6 font-marker text-[clamp(2.75rem,1.8rem+3.4vw,4.75rem)] leading-[1] font-bold">
+          <h2 className="relative -rotate-[6deg] pb-6 font-marker text-[clamp(2.125rem,1.4rem+3.4vw,4.75rem)] leading-[1.05] font-bold">
             <span className="block bg-[linear-gradient(95deg,#3aa0f5_0%,#3b5bf0_45%,#3b5bf0_60%)] bg-clip-text pr-2 text-transparent">
               {nextChapter.line1}
             </span>
-            <span className="block pl-[8%] whitespace-nowrap">
+            <span className="block pl-[8%] sm:whitespace-nowrap">
               <span className="bg-[linear-gradient(95deg,#3a8ff5,#3b5bf0)] bg-clip-text text-transparent">
                 {nextChapter.line2a}
               </span>{" "}
@@ -367,7 +367,7 @@ export default function CareersPage() {
             className="hidden h-28 w-px bg-[linear-gradient(180deg,transparent,#8b5cf6,transparent)] lg:block"
           />
           <div>
-            <p className="max-w-sm text-[1.0625rem] leading-relaxed text-fg">{nextChapter.body}</p>
+            <p className="max-w-sm text-[1rem] leading-relaxed text-fg sm:text-[1.0625rem]">{nextChapter.body}</p>
             <ButtonLink href="#open-roles" variant="gradient" className="mt-6 min-h-13 px-7 text-[0.9375rem]">
               {nextChapter.cta}
               <ArrowRight aria-hidden="true" className="size-4 transition-transform group-hover/btn:translate-x-1" />

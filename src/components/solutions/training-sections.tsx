@@ -129,23 +129,27 @@ export function CertBadges({ content, id = "certifications" }: { content: typeof
         id={`${id}-title`}
         className="mb-10"
       />
-      <ul className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 lg:gap-5">
+      <ul className="grid gap-2.5 sm:grid-cols-2 sm:gap-4 md:grid-cols-3 lg:grid-cols-4 lg:gap-5">
         {content.items.map((b, i) => (
           <li
             key={b.code}
             data-reveal
             suppressHydrationWarning
             style={delay(i)}
-            className={cn(card, "group/b flex flex-col items-center px-4 py-7 text-center sm:px-5")}
+            className={cn(
+              card,
+              /* Phones: a compact list row (logo left, text right). From 640px: a centred tile. */
+              "group/b grid grid-cols-[5.75rem_1fr] items-center gap-x-3.5 px-4 py-4 text-left sm:flex sm:flex-col sm:items-center sm:px-5 sm:py-7 sm:text-center",
+            )}
           >
             {officialBadge(b.code) ? (
-              <span className="grid h-[6.5rem] w-full min-w-0 place-items-center">
+              <span className="row-span-3 grid h-14 w-full min-w-0 place-items-center sm:h-[6.5rem]">
                 <Image
                   src={officialBadge(b.code)!}
                   alt={`${b.name} logo`}
                   width={240}
                   height={120}
-                  className="h-[3.75rem] w-auto max-w-full object-contain transition-transform duration-500 group-hover/b:-translate-y-1 sm:max-w-[11rem]"
+                  className="max-h-12 w-auto max-w-full object-contain transition-transform duration-500 group-hover/b:-translate-y-1 sm:h-[3.75rem] sm:max-h-none sm:max-w-[11rem]"
                 />
               </span>
             ) : (
@@ -153,7 +157,7 @@ export function CertBadges({ content, id = "certifications" }: { content: typeof
               <span
                 aria-hidden="true"
                 className={cn(
-                  "relative grid h-[6.5rem] w-[5.875rem] place-items-center text-[1.375rem] font-black tracking-[-0.02em] text-white transition-transform duration-500 group-hover/b:-translate-y-1 group-hover/b:rotate-3",
+                  "relative row-span-3 grid h-16 w-[3.625rem] place-items-center justify-self-center text-[0.9375rem] font-black tracking-[-0.02em] text-white transition-transform duration-500 group-hover/b:-translate-y-1 group-hover/b:rotate-3 sm:h-[6.5rem] sm:w-[5.875rem] sm:text-[1.375rem]",
                   hex,
                 )}
                 style={{ backgroundImage: `linear-gradient(150deg, ${b.from}, ${b.to})` }}
@@ -162,9 +166,13 @@ export function CertBadges({ content, id = "certifications" }: { content: typeof
                 <span className="relative">{b.code}</span>
               </span>
             )}
-            <h3 className="mt-5 text-[1.0625rem] leading-snug font-bold text-ink">{b.name}</h3>
-            <p className="mt-1.5 text-[0.875rem] leading-snug text-fg-muted">{b.detail}</p>
-            <span className="mt-3 rounded-full bg-brand-soft px-3 py-1 text-[0.6875rem] font-bold tracking-[0.12em] text-eyebrow-ink uppercase">
+            <h3 className="w-full text-[0.9375rem] leading-snug font-bold text-ink sm:mt-5 sm:text-[1.0625rem]">
+              {b.name}
+            </h3>
+            <p className="mt-0.5 text-[0.8125rem] leading-snug text-fg-muted sm:mt-1.5 sm:text-[0.875rem]">
+              {b.detail}
+            </p>
+            <span className="mt-2 justify-self-start rounded-full bg-brand-soft px-2.5 py-1 text-[0.625rem] font-bold tracking-[0.12em] text-eyebrow-ink uppercase sm:mt-3 sm:px-3 sm:text-[0.6875rem]">
               {b.tag}
             </span>
           </li>
@@ -173,7 +181,7 @@ export function CertBadges({ content, id = "certifications" }: { content: typeof
           data-reveal
           suppressHydrationWarning
           style={delay(content.items.length)}
-          className="col-span-2 flex flex-col items-center justify-center rounded-[1.375rem] bg-[linear-gradient(150deg,#eef2ff,#f4ecff)] p-7 text-center md:col-span-1 dark:bg-[linear-gradient(150deg,rgb(59_99_243/0.14),rgb(162_77_240/0.12))]"
+          className="flex flex-col items-center justify-center rounded-[1.375rem] bg-[linear-gradient(150deg,#eef2ff,#f4ecff)] p-7 text-center sm:col-span-2 md:col-span-1 dark:bg-[linear-gradient(150deg,rgb(59_99_243/0.14),rgb(162_77_240/0.12))]"
         >
           <p className="font-display text-xl font-bold tracking-[-0.02em] text-ink">{content.helper.title}</p>
           <p className="mt-2 text-[0.9375rem] text-fg-muted">{content.helper.body}</p>

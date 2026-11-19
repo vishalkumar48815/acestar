@@ -51,7 +51,7 @@ export function Beyond() {
                   <h3
                     className={cn(
                       "relative font-display font-bold tracking-[-0.03em]",
-                      featured ? "text-[clamp(2rem,1.4rem+2.4vw,3.25rem)] leading-[1.02]" : "text-heading",
+                      featured ? "text-[clamp(1.75rem,1.4rem+2.4vw,3.25rem)] leading-[1.02]" : "text-heading",
                     )}
                   >
                     {item.title}

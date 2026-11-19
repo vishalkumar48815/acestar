@@ -102,7 +102,7 @@ export function Hero() {
 
         {/* Handwritten tagline, as in the brand artwork */}
         <p
-          className="pointer-events-none absolute right-[max(1.25rem,2.5%)] bottom-[11%] hidden -rotate-[14deg] font-script text-[clamp(2.25rem,0.6rem+2.6vw,3.5rem)] leading-[0.92] text-ink lg:block"
+          className="pointer-events-none absolute right-[max(1.25rem,2.5%)] bottom-[11%] hidden -rotate-[14deg] font-script text-[clamp(1.875rem,0.6rem+2.6vw,3.5rem)] leading-[0.92] text-ink lg:block"
           style={enter(900)}
         >
           {hero.tagline.map((word, i) => (

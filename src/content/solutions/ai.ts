@@ -18,6 +18,8 @@ export const hero: PageHero = {
   // Hummingbird artwork from the acestar.my Adobe Firefly banner (logo removed)
   image: { src: "/images/solutions/ai/ai-hero.webp", width: 3010, height: 845, alt: "" },
   imageFit: "backdrop",
+  // The bird sits low in the original banner; lift it level with the headline on desktop
+  imageShiftY: "-16%",
   crumbs: [{ label: "Home", href: "/" }, { label: "Solutions" }, { label: "AI Solutions" }],
   // Acestar 3.0 core services
   chips: [

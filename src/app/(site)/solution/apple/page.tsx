@@ -151,11 +151,11 @@ export default function AppleSolutionPage() {
           <h2 id="trusted-title" className="text-eyebrow text-fg-subtle">
             Trusted by
           </h2>
-          <ul className="flex flex-wrap justify-center gap-x-8 gap-y-3">
+          <ul className="flex flex-wrap justify-center gap-x-5 gap-y-2 sm:gap-x-8 sm:gap-y-3">
             {trustedBy.map((name) => (
               <li
                 key={name}
-                className="font-display text-[clamp(1.0625rem,0.95rem+0.5vw,1.375rem)] font-bold tracking-[-0.02em] text-fg-muted"
+                className="font-display text-[clamp(0.9375rem,0.85rem+0.5vw,1.375rem)] font-bold tracking-[-0.02em] text-fg-muted"
               >
                 {name}
               </li>

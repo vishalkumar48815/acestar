@@ -5,6 +5,7 @@ import { CardSpotlight } from "@/components/motion/card-spotlight";
 import { ArrowRight } from "@/components/ui/icons";
 import { solutionTree } from "@/content/solutions";
 import type { CompareTable as Table, Feature, Img, Stat, Step } from "@/content/solutions/types";
+import { ResponsiveLabel } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { AppIcon, Mark, SectionHead, panel, spotlight, toneCard, toneCycle, toneStyle, type Tone } from "./primitives";
 
@@ -201,22 +202,25 @@ function Cell({ value }: { value: string | boolean }) {
 export function CompareTable({ table }: { table: Table }) {
   return (
     <div data-reveal suppressHydrationWarning className={cn(panel, "overflow-hidden")}>
+      <p className="border-b border-line px-3 py-2 text-[0.75rem] text-fg-subtle sm:hidden">
+        Swipe sideways to compare plans →
+      </p>
       <div className="[scrollbar-width:thin] overflow-x-auto">
-        <table className="w-full min-w-[40rem] border-collapse text-left">
+        <table className="w-full min-w-[34rem] border-collapse text-left sm:min-w-[40rem]">
           <caption className="sr-only">{table.caption}</caption>
           <thead>
             <tr>
               <th
                 scope="col"
-                className="sticky left-0 z-10 w-[34%] bg-[color-mix(in_srgb,var(--bg)_88%,transparent)] p-4 backdrop-blur-xl sm:p-5"
+                className="sticky left-0 z-10 w-[9.5rem] bg-[color-mix(in_srgb,var(--bg)_88%,transparent)] p-3 backdrop-blur-xl sm:w-[34%] sm:p-5"
               >
                 <span className="sr-only">Feature</span>
               </th>
               {table.columns.map((c, i) => (
-                <th key={c} scope="col" className="p-4 align-bottom sm:p-5">
+                <th key={c} scope="col" className="p-3 align-bottom sm:p-5">
                   <span
                     className={cn(
-                      "block text-[0.9375rem] leading-snug font-semibold text-ink",
+                      "block text-[0.8125rem] leading-snug font-semibold text-ink sm:text-[0.9375rem]",
                       i === 0 && "text-gradient",
                     )}
                   >
@@ -243,12 +247,12 @@ export function CompareTable({ table }: { table: Table }) {
                 <tr key={r.label} className="border-t border-line transition-colors hover:bg-brand-soft/40">
                   <th
                     scope="row"
-                    className="sticky left-0 z-10 bg-[color-mix(in_srgb,var(--bg)_88%,transparent)] p-4 text-[0.875rem] leading-snug font-normal text-fg-muted backdrop-blur-xl sm:p-5"
+                    className="sticky left-0 z-10 bg-[color-mix(in_srgb,var(--bg)_88%,transparent)] p-3 text-[0.8125rem] leading-snug font-normal text-fg-muted backdrop-blur-xl sm:p-5 sm:text-[0.875rem]"
                   >
                     {r.label}
                   </th>
                   {r.cells.map((c, ci) => (
-                    <td key={ci} className="p-4 align-middle sm:p-5">
+                    <td key={ci} className="p-3 align-middle text-[0.8125rem] sm:p-5 sm:text-[0.875rem]">
                       <Cell value={c} />
                     </td>
                   ))}
@@ -374,8 +378,8 @@ export function InnerPagePromo({
             {p}
           </p>
         ))}
-        <span className="mt-6 inline-flex min-h-12 items-center gap-2 rounded-full bg-white px-6 font-semibold text-[#1b1f4a] transition-transform duration-300 group-hover/promo:-translate-y-0.5">
-          {label}
+        <span className="mt-6 inline-flex min-h-12 items-center gap-2 rounded-full bg-white px-6 font-semibold whitespace-nowrap text-[#1b1f4a] transition-transform duration-300 group-hover/promo:-translate-y-0.5 max-sm:min-h-11 max-sm:text-[0.9375rem]">
+          <ResponsiveLabel text={label} />
           <ArrowRight
             aria-hidden="true"
             className="size-4 transition-transform duration-300 group-hover/promo:translate-x-1"
@@ -440,7 +444,7 @@ export function LightPromo({
         <p className="text-[0.75rem] font-semibold tracking-[0.2em] text-fg-subtle uppercase">{eyebrow}</p>
         <h2
           id={id}
-          className="mt-3 font-display text-[clamp(1.75rem,1.2rem+1.8vw,2.5rem)] leading-[1.1] font-bold tracking-[-0.035em] text-ink"
+          className="mt-3 font-display text-[clamp(1.5rem,1.2rem+1.8vw,2.5rem)] leading-[1.1] font-bold tracking-[-0.035em] text-ink"
         >
           {title}
         </h2>

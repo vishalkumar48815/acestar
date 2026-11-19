@@ -38,6 +38,8 @@ export type PageHero = {
   imageBelowHeader?: boolean;
   /** "center": text-only hero with everything centred (no image or side visual). */
   align?: "start" | "center";
+  /** Backdrop only, 1280px and wider: move the artwork up (negative) or down, as a % of the hero height. */
+  imageShiftY?: string;
   /** false hides the breadcrumb trail above the eyebrow. */
   showCrumbs?: boolean;
   crumbs: Crumb[];

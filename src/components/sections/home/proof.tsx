@@ -29,7 +29,7 @@ export function Proof() {
               className="flex flex-col-reverse gap-2 border-line px-4 text-center first:border-l-0 sm:px-6 lg:border-l"
             >
               <dt className="text-sm text-fg-muted">{stat.label}</dt>
-              <dd className="font-display text-[clamp(2.25rem,1.6rem+2.4vw,3.5rem)] leading-none font-extrabold tracking-[-0.035em]">
+              <dd className="font-display text-[clamp(1.875rem,1.6rem+2.4vw,3.5rem)] leading-none font-extrabold tracking-[-0.035em]">
                 <CountUp value={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
               </dd>
             </div>

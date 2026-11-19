@@ -17,9 +17,9 @@ export function WorkflowBlock({ s, index }: { s: WorkflowSection; index: number 
           as="h2"
           id={`${s.id}-title`}
         />
-        <div className="grid gap-6 p-6 sm:p-8 lg:grid-cols-[1fr_auto] lg:items-end lg:gap-12 lg:p-10">
-          <div className="max-w-3xl">
-            <p className="text-[1.0625rem] leading-relaxed text-fg">{s.intro}</p>
+        <div className="grid gap-6 p-5 sm:p-8 lg:grid-cols-[1fr_auto] lg:items-end lg:gap-12 lg:p-10">
+          <div className="max-w-3xl min-w-0">
+            <p className="text-[1rem] leading-relaxed text-fg sm:text-[1.0625rem]">{s.intro}</p>
             {s.story ? <p className="mt-3 leading-relaxed text-fg-muted">{s.story}</p> : null}
 
             {s.icons?.length ? (
@@ -56,7 +56,7 @@ export function WorkflowBlock({ s, index }: { s: WorkflowSection; index: number 
         {s.highlights?.length ? (
           <ul
             className={cn(
-              "grid gap-3 border-t border-line p-4 sm:p-6 lg:p-8",
+              "grid gap-2.5 border-t border-line p-3 sm:gap-3 sm:p-6 lg:p-8",
               s.highlights.length === 2
                 ? "grid-cols-1 sm:grid-cols-2"
                 : s.highlights.length > 2
@@ -65,11 +65,16 @@ export function WorkflowBlock({ s, index }: { s: WorkflowSection; index: number 
             )}
           >
             {s.highlights.map((h) => (
-              <li key={h.title} className="flex items-start gap-3 rounded-2xl bg-white/60 p-4 dark:bg-white/[0.03]">
-                <AppIcon icon={h.icon} name={h.title} className="size-10" />
+              <li
+                key={h.title}
+                className="flex flex-col items-start gap-2.5 rounded-2xl bg-white/60 p-3.5 sm:flex-row sm:gap-3 sm:p-4 dark:bg-white/[0.03]"
+              >
+                <AppIcon icon={h.icon} name={h.title} className="size-9 sm:size-10" />
                 <div className="min-w-0">
-                  <h3 className="text-[0.9375rem] font-semibold text-ink">{h.title}</h3>
-                  <p className="mt-1 text-[0.875rem] leading-relaxed text-fg-muted">{h.body}</p>
+                  <h3 className="text-[0.875rem] font-semibold text-ink sm:text-[0.9375rem]">{h.title}</h3>
+                  <p className="mt-1 text-[0.8125rem] leading-snug text-fg-muted sm:text-[0.875rem] sm:leading-relaxed">
+                    {h.body}
+                  </p>
                 </div>
               </li>
             ))}

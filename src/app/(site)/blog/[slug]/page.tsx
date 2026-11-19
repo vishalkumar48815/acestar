@@ -107,7 +107,7 @@ async function Article({ params }: { params: Promise<{ slug: string }> }) {
             <CategoryPill className="border border-line">{post.category}</CategoryPill>
           </div>
           <h1
-            className="mt-5 font-display text-[clamp(2rem,1.2rem+2.8vw,3.5rem)] leading-[1.06] font-extrabold tracking-[-0.04em] text-balance text-ink"
+            className="mt-5 font-display text-[clamp(1.75rem,1.2rem+2.8vw,3.5rem)] leading-[1.06] font-extrabold tracking-[-0.04em] text-balance text-ink"
             style={enter(140)}
           >
             {post.title}

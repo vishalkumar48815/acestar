@@ -73,7 +73,7 @@ export function SectionHead({ eyebrow, title, body, align = "start", id, classNa
       <h2
         id={id}
         className={cn(
-          "font-display text-[clamp(1.75rem,1.15rem+2vw,2.625rem)] leading-[1.1] font-bold tracking-[-0.035em] text-balance text-ink",
+          "font-display text-[clamp(1.5rem,1.15rem+2vw,2.625rem)] leading-[1.1] font-bold tracking-[-0.035em] text-balance text-ink",
           eyebrow && "mt-4",
         )}
       >
@@ -106,7 +106,7 @@ export function Section({
   children: ReactNode;
 }) {
   return (
-    <section id={id} aria-labelledby={labelledBy} className={cn("scroll-mt-28 py-12 lg:py-16", className)}>
+    <section id={id} aria-labelledby={labelledBy} className={cn("scroll-mt-28 py-10 sm:py-12 lg:py-16", className)}>
       <div className="container-page">{children}</div>
     </section>
   );
