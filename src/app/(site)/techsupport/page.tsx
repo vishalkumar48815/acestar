@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/solutions/page-hero";
 import { Eyebrow } from "@/components/solutions/primitives";
 // import { TicketForm } from "@/components/support/ticket-form"; (new-design form, hidden for now)
+import { ZohoTicketFrame } from "@/components/support/zoho-ticket-frame";
 import { SupportVisual } from "@/components/visuals/support-visual";
 import { hero } from "@/content/pages/support"; // add `zoho` back with TicketForm
 import "@/components/visuals/visuals.css";
@@ -20,7 +21,7 @@ export default function SupportPage() {
           <div
             data-reveal
             suppressHydrationWarning
-            className="mx-auto max-w-3xl rounded-[1.75rem] border border-white/80 bg-white/70 p-6 shadow-[0_40px_80px_-50px_rgb(40_50_140/0.5)] backdrop-blur-xl sm:p-8 lg:p-10 dark:border-white/[0.08] dark:bg-white/[0.03]"
+            className="mx-auto max-w-3xl rounded-[1.75rem] border border-white/80 bg-white/70 p-5 shadow-[0_40px_80px_-50px_rgb(40_50_140/0.5)] backdrop-blur-xl sm:p-8 lg:p-10 dark:border-white/[0.08] dark:bg-white/[0.03]"
           >
             <Eyebrow>Submit a ticket</Eyebrow>
             <h2
@@ -32,11 +33,7 @@ export default function SupportPage() {
             <p className="mt-2 mb-6 leading-relaxed text-fg-muted">
               The more detail you share, the faster we can help.
             </p>
-            <iframe
-              src="/zoho/support-ticket-embed.html"
-              title="Zoho Desk support ticket form"
-              className="h-[50rem] w-full rounded-xl border-0 bg-white"
-            />
+            <ZohoTicketFrame src="/zoho/support-ticket-embed.html" title="Zoho Desk support ticket form" />
           </div>
 
           {/*
@@ -46,7 +43,7 @@ export default function SupportPage() {
           <div
             data-reveal
             suppressHydrationWarning
-            className="mx-auto max-w-3xl rounded-[1.75rem] border border-white/80 bg-white/70 p-6 shadow-[0_40px_80px_-50px_rgb(40_50_140/0.5)] backdrop-blur-xl sm:p-8 lg:p-10 dark:border-white/[0.08] dark:bg-white/[0.03]"
+            className="mx-auto max-w-3xl rounded-[1.75rem] border border-white/80 bg-white/70 p-5 shadow-[0_40px_80px_-50px_rgb(40_50_140/0.5)] backdrop-blur-xl sm:p-8 lg:p-10 dark:border-white/[0.08] dark:bg-white/[0.03]"
           >
             <Eyebrow>Submit a ticket</Eyebrow>
             <h2
