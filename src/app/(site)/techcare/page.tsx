@@ -41,7 +41,7 @@ const art = {
 
 export default function TechCarePage() {
   return (
-    <div className="theme-techcare bg-white dark:bg-transparent">
+    <div className="theme-techcare ink-original bg-white dark:bg-transparent">
       {/* Hero (client mock): upside-down giraffe on the left, standing on the subscription card; copy on the right */}
       <section aria-labelledby="tc-title" className="relative isolate">
         <div className="container-page grid gap-8 pt-28 lg:grid-cols-[0.82fr_1.18fr] lg:gap-10 lg:pt-24">

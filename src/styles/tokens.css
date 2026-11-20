@@ -45,7 +45,8 @@
   --grid-line: transparent;
   --accent-from: #3b63f3;
   --accent-to: #a24df0;
-  --ink: #54596e;
+  /* Headline ink: solid dark grey. TechCare and Company Profile keep the original slate (.ink-original). */
+  --ink: #333333;
   /* headline ink: dark slate grey, as in the client mocks */
   --btn-gradient: linear-gradient(95deg, #3b63f3 0%, #6a5cf4 50%, #a24df0 100%);
   --btn-gradient-shadow: 0 16px 34px -14px rgb(91 84 240 / 0.75);
@@ -178,6 +179,11 @@
 }
 
 /* TechCare brand (teal, from the TechCare logo). Scoped to the /techcare page. */
+/* Pages that keep the original slate headline colour in light mode (TechCare, Company Profile) */
+:root:not([data-theme="dark"]) .ink-original {
+  --ink: #54596e;
+}
+
 .theme-techcare {
   /* Montserrat and the softer teal of the client's TechCare mock */
   --font-inter: var(--font-montserrat);

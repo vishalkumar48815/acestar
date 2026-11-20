@@ -59,7 +59,8 @@ function Ribbons({ className, flip }: { className?: string; flip?: boolean }) {
 
 export default function CompanyProfilePage() {
   return (
-    <>
+    // Keeps the original slate headline colour (see .ink-original)
+    <div className="ink-original contents">
       {/* Hero */}
       <section
         aria-labelledby="profile-title"
@@ -247,6 +248,6 @@ export default function CompanyProfilePage() {
           </svg>
         </div>
       </section>
-    </>
+    </div>
   );
 }
