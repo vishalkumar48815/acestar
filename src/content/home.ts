@@ -172,7 +172,7 @@ export const pillars: Pillar[] = [
       "HP ZBook & EliteBook, Lenovo ThinkPad P & X1, Dell Precision & XPS",
       "Mobile device management and zero-touch deployment",
     ],
-    brands: ["Apple", "HP", "Lenovo", "Dell", "Asus"],
+    brands: ["Apple", "HP", "Lenovo", "Dell", "ASUS"],
     fact: { value: "10+", label: "Years customising workstations" },
     href: "/high-performance-computer/",
   },

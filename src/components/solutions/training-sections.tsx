@@ -306,7 +306,8 @@ export function CertValue({ content, id = "value" }: { content: typeof Value; id
           </span>
         </div>
         <div>
-          <ul className="grid gap-4 sm:grid-cols-2">
+          {/* An odd count stacks in one column so the grid never has a gap. */}
+          <ul className={cn("grid gap-4", content.items.length % 2 === 0 && "sm:grid-cols-2")}>
             {content.items.map((v, i) => {
               const { icon: Icon, bg } = valueIcons[i];
               return (

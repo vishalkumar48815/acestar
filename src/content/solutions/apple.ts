@@ -104,15 +104,15 @@ export const process = {
     },
     {
       title: "Deploy",
-      body: "Zero-touch provisioning through Apple Business Manager or Apple School Manager, configured and ready out of the box.",
+      body: "Zero-touch setup, ready out of the box.",
     },
     {
       title: "Support",
-      body: "AppleCare for Enterprise and Acestar TechCare keep devices, users and updates running without disruption.",
+      body: "We keep devices and users running smoothly.",
     },
     {
       title: "Grow",
-      body: "Ongoing refresh planning, plus certification pathways like Apple Teacher and Certiport for your people.",
+      body: "Refresh planning as your organisation grows.",
     },
   ] satisfies Step[],
 };
@@ -136,7 +136,7 @@ export const why = {
     },
     {
       title: "Beyond hardware",
-      body: "Testing centres, certification pathways and creative-software expertise most Apple resellers simply don't offer.",
+      body: "Creative-software expertise most Apple resellers simply don't offer.",
     },
   ] satisfies Feature[],
 };

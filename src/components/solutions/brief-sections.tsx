@@ -5,7 +5,7 @@ import { Eyebrow, Section, SectionHead } from "./primitives";
 
 const delay = (i: number) => ({ "--reveal-delay": `${i * 70}ms` }) as React.CSSProperties;
 const h2 =
-  "font-display text-[clamp(1.5rem,1.15rem+2vw,2.625rem)] leading-[1.1] font-bold tracking-[-0.035em] text-balance text-ink";
+  "font-display text-[clamp(1.2rem,1.15rem+1.6vw,2.2rem)] leading-[1.1] font-bold tracking-[-0.035em] text-balance text-ink";
 
 /** Intro copy on the left, the offerings on the right as numbered rows that open on click. */
 function OverviewParagraphs({ paragraphs, className }: { paragraphs: string[]; className?: string }) {

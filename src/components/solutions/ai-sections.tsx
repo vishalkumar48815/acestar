@@ -1,11 +1,20 @@
 import { ChevronDown, Lock, ShieldCheck, SlidersH } from "@/components/ui/icons";
+import { cn } from "@/lib/utils";
 
 /* Minimal, low-chrome sections for the AI Solutions page. */
 
 /** Four reasons in one row, divided by hairlines (no cards). */
 export function AiReasons({ items }: { items: { title: string; body: string }[] }) {
   return (
-    <dl className="grid gap-y-8 sm:grid-cols-2 lg:grid-cols-4 lg:divide-x lg:divide-line">
+    // Columns follow the number of items so 2 or 3 highlights don't leave an empty half-row.
+    <dl
+      className={cn(
+        "grid gap-y-8 sm:grid-cols-2 lg:divide-x lg:divide-line",
+        items.length >= 4 && "lg:grid-cols-4",
+        items.length === 3 && "lg:grid-cols-3",
+        items.length === 2 && "mx-auto max-w-[48rem] text-center",
+      )}
+    >
       {items.map((r, i) => (
         <div
           key={r.title}

@@ -6,7 +6,6 @@ export const hero: PageHero = {
   eyebrow: "Top Adobe Reseller & Platinum Partner in Malaysia",
   keyword: "Top Adobe Reseller & Platinum Partner in Malaysia",
   title: "Where creativity meets intelligence.",
-  subheading: "Authorized Adobe Resellers and Partners in Malaysia",
   accent: "meets intelligence.",
   lead: "Acestar is Malaysia's top Adobe partner and Platinum Reseller since 2008, with more than 150,000 Adobe licences deployed nationwide for businesses, educational institutions and the public sector, with genuine software and Adobe expert consultation.",
   primary: { label: "Talk to us", href: "/contact-acestarian/" },
@@ -18,7 +17,7 @@ export const hero: PageHero = {
     { label: "Creative Software", href: "/creative-software/" },
     { label: "Adobe Creative Cloud Pro" },
   ],
-  chips: ["Adobe Top Seller FY20", "Only Adobe Platinum Partner", "Since 2008"],
+  chips: ["Adobe Top Seller FY20", "Only Adobe Platinum Partner"],
 };
 
 export const trust = {
@@ -42,16 +41,6 @@ export const apps: Feature[] = [
     title: "Illustrator",
     body: "Create logos, designs, graphics and more.",
     icon: asset("2025/10/ALL-LOGO-18.png", ""),
-  },
-  {
-    title: "Adobe Express",
-    body: "Your all-in-one AI content creation app.",
-    icon: asset("2025/10/Adobe_Express_logo_RGB_1024px.png", ""),
-  },
-  {
-    title: "Adobe Firefly",
-    body: "Create beautiful images in just a few words.",
-    icon: asset("2025/10/Adobe_Firefly_Logo.svg.png", ""),
   },
 ];
 

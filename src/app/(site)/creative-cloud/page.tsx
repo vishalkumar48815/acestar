@@ -37,11 +37,11 @@ export default function CreativeCloudProPage() {
           align="center"
           eyebrow="Creative Cloud Pro"
           title="Every app you need, plus Adobe AI."
-          body="Over 20 apps including Photoshop, Illustrator, Premiere Pro and Acrobat Pro, with unlimited standard Firefly generative AI."
+          body="Over 20 apps, with unlimited standard Firefly generative AI."
           id="apps-title"
           className="mb-8"
         />
-        <FeatureGrid items={apps} variant="icon" columns={3} />
+        <FeatureGrid items={apps} variant="icon" columns={4} />
       </Section>
 
       <Section id="upgrade" labelledBy="upgrade-title">

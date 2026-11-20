@@ -27,7 +27,7 @@ export default function AiSolutionsPage() {
       <Section id="tools" labelledBy="tools-title" className="pt-12 lg:pt-16 bg-[#a0a0a00d]">
         <SectionHead
           // align="center"
-          eyebrow="Acestar 3.0 · Enterprise AI portfolio"
+          eyebrow="Enterprise AI portfolio"
           title="Enterprise solutions, and what we do with them."
           id="tools-title"
           className="mb-10"

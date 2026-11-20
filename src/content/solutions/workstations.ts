@@ -8,7 +8,7 @@ export const hero: PageHero = {
   accent: "and TechCare in Malaysia.",
   lead: "From professional workstations to AI supercomputers, Acestar delivers high-performance computing that helps organizations handle demanding workloads, accelerate innovation and improve productivity.",
   primary: { label: "Consult Our Computing Experts", href: "/contact-acestarian/" },
-  secondary: { label: "Explore TechCare", href: "/techcare" },
+  secondary: { label: "Explore TechCare", href: "/techcare/" },
   image: asset("2021/12/High-Performance-Computers-Background.png", "Hands typing on a laptop keyboard"),
   imageFit: "backdrop",
   crumbs: [{ label: "Home", href: "/" }, { label: "Solutions" }, { label: "High-Performance Computing" }],
@@ -23,7 +23,7 @@ export const brands: DeviceBrand[] = [
     intro:
       "Apple offers a computing experience like no other, lauded for the seamless, optimised operation between its OS and suite of apps.",
     story: [
-      "Over the years, the Apple brand has been lauded for the seamless and optimised operation between its OS and suite of apps, designed and developed by the company itself. Macs have long been associated with high-powered graphic design. If your work is closely tied to the creative field and you have an eye for aesthetics, Apple machines are most likely your choice.",
+      "Macs have long been associated with high-powered graphic design. If your work is closely tied to the creative field and you have an eye for aesthetics, Apple machines are most likely your choice.",
       "These lean, mean machines are not just powerful but easy to use, and they integrate easily with mobile device management software and zero-touch deployment. Whether your organisation has ten devices or ten thousand, Apple fits easily into your existing infrastructure, and makes it easy to choose the right deployment option.",
       "Apple machines also boast some of the strongest security features, with an operating system designed with built-in protection to help keep your computer running clean and efficiently.",
     ],
@@ -49,7 +49,6 @@ export const brands: DeviceBrand[] = [
         image: asset("2021/11/MacBook-Air.png", "MacBook Air"),
       },
     ],
-    link: { label: "Explore our Apple Solution", href: "/solution/apple/" },
   },
   {
     key: "hp",
@@ -58,7 +57,7 @@ export const brands: DeviceBrand[] = [
     intro:
       "One of the leading computer brands in business, with a reputation for reliable, high-quality machines for people who depend on their laptop every day.",
     story: [
-      "HP stands as one of the leading computer brands in the business world, with a reputation for reliable, high-quality computers, particularly for users who rely on their laptop operating smoothly and consistently for work. HP workstations accelerate workflow with industry-leading processing and zero throttling, so components run at top speed as you multitask.",
+      "HP workstations accelerate workflow with industry-leading processing and zero throttling, so components run at top speed as you multitask.",
       "HP leads the industry in security with an always-on, resilient defence that operates from the BIOS up. Machines are tested and certified for professional applications, and with Acestar's consultation your HP workstations are configured to perform and built with the power to grow with you.",
     ],
     products: [
@@ -95,7 +94,7 @@ export const brands: DeviceBrand[] = [
     banner: asset("2021/12/Lenovo-Background.png", "Lenovo banner"),
     intro: "Award-winning designs and top-notch innovation, from one of the world's largest technology companies.",
     story: [
-      "Lenovo designs, manufactures and sells PCs, tablets, workstations and servers, and has risen to become one of the world's largest technology companies by giving customers exactly what they need, when they need it. It is famed for award-winning designs and out-of-the-box innovation.",
+      "Lenovo designs, manufactures and sells PCs, tablets, workstations and servers, giving customers exactly what they need, when they need it.",
       "Lenovo business workstations run efficiently and quietly, and are known for their durability, lower power consumption and comfortable handling. One size doesn't fit all, so our technical experts help you configure the machine that fits you and your work perfectly.",
     ],
     products: [
@@ -122,7 +121,7 @@ export const brands: DeviceBrand[] = [
     banner: asset("2021/12/Dell-Background.png", "Dell banner"),
     intro: "Professional, workstation-level computers that are well built, well supported and competitively priced.",
     story: [
-      "Dell is a well-known and well-respected name in business computing, offering some of the best professional, workstation-level computers. They come with very good base specs that can be customised to your needs, at a very competitive price, in form factors from compact and space-saving to full workstations.",
+      "Dell machines come with very good base specs that can be customised to your needs, at a very competitive price, in form factors from compact and space-saving to full workstations.",
       "Dell's industry-leading security offers comprehensive encryption, advanced authentication and leading-edge malware prevention from a single source, with robust, centralised data security, all backed by award-winning after-sales support.",
     ],
     products: [
@@ -145,12 +144,12 @@ export const brands: DeviceBrand[] = [
   },
   {
     key: "asus",
-    name: "Asus",
-    banner: asset("2023/10/BANNER-ASUS.png", "Asus banner"),
+    name: "ASUS",
+    banner: asset("2023/10/BANNER-ASUS.png", "ASUS banner"),
     intro:
       "Renowned for high-quality motherboards and graphics cards, Republic of Gamers (ROG) products and premium ZenBook laptops.",
     story: [
-      "ASUS is renowned for its high-quality motherboards and graphics cards, innovative gaming products under the Republic of Gamers (ROG) brand, premium ZenBook laptops, and a commitment to delivering cutting-edge technology. Talk to us about the right Asus configuration for your team.",
+      "Talk to us about the right ASUS configuration for your team.",
     ],
     products: [],
   },
@@ -174,10 +173,9 @@ export const brief: SolutionBrief = {
     ],
   },
   overview: {
-    eyebrow: "Powerful technology",
+    eyebrow: "What we do",
     title: "Built for demanding work, from desk to data centre.",
     paragraphs: [
-      "From professional workstations to AI supercomputers, Acestar delivers high-performance computing solutions that help organizations handle demanding workloads, accelerate innovation and improve productivity.",
       "We provide enterprise computing solutions from leading technology brands, including HP, Lenovo, Apple and Dell, together with flexible IT subscription options through TechCare.",
     ],
     offeringsTitle: "High-Performance Computing Solutions",
@@ -211,10 +209,10 @@ export const brief: SolutionBrief = {
       "Whether you require a professional workstation, an AI computing environment or a company-wide device refresh, our team helps you select technology aligned with your performance requirements and budget.",
     ],
     highlights: [
-      { title: "HP", body: "One of the Top Authorized HP Resellers in Malaysia." },
-      { title: "Lenovo", body: "One of the Top Authorized Lenovo Resellers in Malaysia." },
-      { title: "Dell", body: "One of the Top Authorized Dell Resellers in Malaysia." },
-      { title: "ASUS", body: "One of the Top Authorized ASUS Resellers in Malaysia." },
+      { title: "HP", body: "Top authorized reseller." },
+      { title: "Lenovo", body: "Top authorized reseller." },
+      { title: "Dell", body: "Top authorized reseller." },
+      { title: "ASUS", body: "Top authorized reseller." },
     ],
   },
   closing: {
@@ -228,7 +226,7 @@ export const brief: SolutionBrief = {
 /** TechCare block on the computing page (brief copy). */
 export const techcareBlock = {
   eyebrow: "TechCare",
-  title: "TechCare: Flexible IT Subscription Solutions",
+  title: "Flexible IT Subscription Solutions",
   paragraphs: [
     "TechCare offers an alternative approach to acquiring and refreshing business technology.",
     "Instead of relying entirely on upfront hardware purchases, organizations can explore subscription-based IT acquisition models that support predictable budgeting and planned technology refresh cycles.",

@@ -22,7 +22,7 @@ export const hero: PageHero = {
 };
 
 export const intro =
-  "As Adobe's top partner and only Platinum Partner in Malaysia, Acestar leads the way in helping businesses unlock the full power of the expanded PDF ecosystem. Simplify complex processes, enhance productivity and experience how the modern PDF has evolved: more connected, more intelligent and more creative than ever.";
+  "Acestar helps businesses unlock the full power of the expanded PDF ecosystem, simplifying complex processes and improving productivity.";
 
 export const apps: Feature[] = [
   {
@@ -67,11 +67,6 @@ export const features: Feature[] = [
     image: asset("2025/10/BG-1-05.png", ""),
   },
   {
-    title: "Create standout content",
-    body: "Jump-start flyers, infographics or social posts with easy tools and professional templates.",
-    image: asset("2025/10/BG-1-06.png", ""),
-  },
-  {
     title: "Organise and reorder pages",
     body: "Add and reorder pages by dragging and dropping, and delete any you don't need.",
     image: asset("2025/10/BG-1-07.png", ""),
@@ -85,11 +80,6 @@ export const features: Feature[] = [
     title: "Comment and mark up",
     body: "Type comments, highlight and underline text, or leave handwritten notes anywhere in your document.",
     image: asset("2025/10/BG-1-09.png", ""),
-  },
-  {
-    title: "Rotate and crop",
-    body: "Align pages horizontally or vertically, adjust margins, resize pages and crop out what you don't need.",
-    image: asset("2025/10/BG-1-10.png", ""),
   },
 ];
 

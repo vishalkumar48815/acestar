@@ -47,7 +47,7 @@ export const higherView = {
 
 export const subscription = {
   title: "IT Subscription for Your Workforce",
-  body: "Computers, software and maintenance in one predictable monthly plan, ready for today's hybrid workforce.",
+  body: "Computers, software and maintenance in one monthly plan, ready for today's hybrid workforce.",
   image: asset("2025/07/Asset-72x-optimized.png", "Laptop on a rock overlooking mountains at sunrise"),
   links: [
     { label: "Business Computers", href: "/high-performance-computer/#brands" },

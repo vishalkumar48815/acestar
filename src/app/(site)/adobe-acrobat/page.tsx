@@ -80,7 +80,7 @@ export default function AdobeAcrobatPage() {
           id="feat-title"
           className="mb-8"
         />
-        <FeatureGrid items={features} variant="image" columns={3} />
+        <FeatureGrid items={features} variant="image" columns={4} />
       </Section>
 
       <Section id="compare" labelledBy="compare-title">

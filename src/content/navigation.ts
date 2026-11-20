@@ -31,7 +31,7 @@ export const solutionLinks: NavLink[] = [
   {
     label: "High-performance computing",
     href: "/high-performance-computer/",
-    description: "Apple, HP, Lenovo, Dell & Asus",
+    description: "Apple, HP, Lenovo, Dell & ASUS",
     sub: [{ label: "Apple Solution", href: "/solution/apple/" }],
   },
   {

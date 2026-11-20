@@ -133,7 +133,7 @@ export const brief: SolutionBrief = {
     title: "From AI exploration to real business value.",
     paragraphs: [
       "AI is transforming how businesses operate, collaborate and compete. Acestar helps organizations adopt enterprise-ready AI technologies that improve productivity, automate workflows and support business growth.",
-      "As an established IT solutions provider in Malaysia, we bring together trusted global AI technologies, practical implementation expertise and business-focused consultation to help organizations move from AI exploration to real business value.",
+      "As an established IT solutions provider in Malaysia, we bring together trusted global AI technologies, practical implementation expertise and business-focused consultation.",
     ],
     offeringsTitle: "Our Enterprise AI Solutions",
     offerings: [
@@ -169,7 +169,7 @@ export const brief: SolutionBrief = {
     highlights: [],
   },
   closing: {
-    eyebrow: "Make AI practical",
+    eyebrow: "Get started",
     title: "Make AI Practical for Your Business",
     body: "Discover how Acestar can help your organization implement the right AI solutions for your workforce and business objectives.",
     cta: { label: "Talk to Our AI Experts", href: "/contact-acestarian/" },

@@ -103,17 +103,17 @@ export const sections: WorkflowSection[] = [
       {
         name: "Zoom",
         logo: asset("2021/12/zoom.png", "Zoom"),
-        body: "Video meetings, webinars and rooms that keep hybrid teams connected.",
+        body: "Meetings, webinars and Zoom Rooms.",
       },
       {
         name: "Jabra",
         logo: asset("2022/09/Jabra_Logo.png", "Jabra"),
-        body: "World-leading headsets and communication tools that empower seamless meetings and collaboration, anywhere, any time.",
+        body: "Professional headsets and speakerphones.",
       },
       {
         name: "Logitech",
         logo: asset("2021/12/Logitech_logo.svg_.png", "Logitech"),
-        body: "Conference cameras, webcams and audio-conferencing headsets that make the modern workplace more seamless, productive and fun.",
+        body: "Conference cameras, webcams and room kits.",
       },
     ],
   },
@@ -136,11 +136,9 @@ export const brief: SolutionBrief = {
     ],
   },
   overview: {
-    eyebrow: "Simplify work",
+    eyebrow: "What we do",
     title: "Smarter documents. Faster approvals. Connected teams.",
     paragraphs: [
-      "Modern businesses need faster collaboration, smarter document management and secure digital workflows.",
-      "Acestar helps organizations modernize everyday business processes through Adobe Acrobat, Acrobat Studio, AI-powered document productivity, electronic signatures and Microsoft 365.",
       "Our solutions reduce manual processes, simplify collaboration and help employees work more efficiently.",
     ],
     offeringsTitle: "Our Digital Workflow Solutions",
@@ -178,9 +176,7 @@ export const brief: SolutionBrief = {
       "We support organizations seeking to modernize document processes, improve collaboration and make better use of their software investments.",
     ],
     highlights: [
-      { title: "Platinum Partner", body: "Adobe Platinum Partner in Malaysia." },
-      { title: "Acrobat & Sign", body: "AI-powered documents and e-signatures." },
-      { title: "Microsoft 365", body: "Connected productivity for every team." },
+      { title: "Platinum Partner", body: "Malaysia's only Adobe Platinum Partner." },
       { title: "Consult first", body: "We map your processes before we recommend." },
     ],
   },
@@ -188,6 +184,6 @@ export const brief: SolutionBrief = {
     eyebrow: "Work smarter",
     title: "Transform the Way Your Business Works",
     body: "Discover smarter document management, AI-powered productivity and digital collaboration with Acestar.",
-    cta: { label: "Explore Digital Workflow Solutions", href: "/contact-acestarian/" },
+    cta: { label: "Talk to Our Workflow Experts", href: "/contact-acestarian/" },
   },
 };

@@ -39,7 +39,7 @@ export const solutionTree: SolutionNode[] = [
     key: "computers",
     label: "High-Performance Computing & TechCare",
     href: "/high-performance-computer/",
-    description: "Apple, HP, Lenovo, Dell & Asus",
+    description: "Apple, HP, Lenovo, Dell & ASUS",
     children: [
       {
         label: "Apple Solution",

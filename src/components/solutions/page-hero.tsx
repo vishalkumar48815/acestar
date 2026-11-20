@@ -157,7 +157,7 @@ export function PageHero({ hero, visual }: { hero: Hero; visual?: ReactNode }) {
               /* Centred text-only heroes use a calmer, corporate title size */
               centered
                 ? "text-[clamp(1.75rem,1.45rem+2.2vw,3.375rem)] font-bold tracking-[-0.035em]"
-                : "text-[clamp(1.875rem,1.2rem+3.2vw,4rem)] font-extrabold tracking-[-0.04em]",
+                : "text-[clamp(1.65rem,1.2rem+2.7vw,3.65rem)] font-extrabold tracking-[-0.04em]",
               /* Must come AFTER the text-[…] size: cn() (tailwind-merge) drops a line-height listed before a font-size */
               "leading-[1.08]",
               hero.keyword ? "mt-6" : "mt-4",

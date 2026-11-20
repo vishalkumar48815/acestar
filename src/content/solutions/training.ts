@@ -44,7 +44,7 @@ export const brief: SolutionBrief = {
     ],
   },
   overview: {
-    eyebrow: "Upskill professionals",
+    eyebrow: "What we do",
     title: "Skills that matter, credentials that count.",
     paragraphs: [
       "Acestar provides professional technology training and industry-recognized certification pathways to help working adults, corporate teams, educators and emerging professionals develop practical skills and validate their competencies.",
@@ -87,11 +87,9 @@ export const brief: SolutionBrief = {
     paragraphs: [
       "Acestar combines enterprise technology expertise with professional training and industry-recognized certification programs.",
       "Through our Certiport portfolio and experience in workforce development, we help organizations connect technology learning with practical workplace competencies.",
-      "Our focus goes beyond training attendance. We help individuals and teams develop measurable skills and pursue recognized credentials.",
     ],
     highlights: [
       { title: "Certiport", body: "An established Certiport solution provider." },
-      { title: "7 pathways", body: "ACP, MOS, ACU, Swift, ESB and AI skills." },
       { title: "Workplace-ready", body: "Training tied to real job competencies." },
       { title: "Measurable", body: "Skills and credentials, not just attendance." },
     ],
